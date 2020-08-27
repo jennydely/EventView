@@ -1,8 +1,8 @@
 ---
-name: Task
-about: Small Issues, with no direct usage for the user
-title: 'Task: '
-labels: 'type: Task'
+name: 'Task: Backend'
+about: Some task, which can't be noticed from each user
+title: ''
+labels: 'type: TaskBackend'
 assignees: ''
 
 ---
