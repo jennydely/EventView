@@ -9,8 +9,7 @@ assignees: ''
 
 ## Description (Text, Scribble, Wireframe, Design)
 
-## Acceptance criteria
-- [ ] (functional descriptions)
+(functional descriptions)
 
 ## Tasks
 - [ ] (todos for the team)
