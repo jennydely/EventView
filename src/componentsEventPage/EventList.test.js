@@ -28,6 +28,7 @@ describe('EventList', () => {
         const { getByText } = render(<EventList eventArray={eventArray} categoryFilter={categoryFilter} />)
         setTimeout(() => {
             expect(getByText(eventArray[0].eventName)).toBeInTheDocument()
+            expect(getByText(eventArray[0].eventLocation)).toBeInTheDocument()
         }, 100)
     })
     it('renders correctly', () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import EventItem from '../eventPage/Event';
+import EventItem from '../componentsEventPage/EventItem';
 
 export default {
   title: 'EventPlanner/EventItem',
@@ -10,9 +10,11 @@ const Template = (args) => <EventItem {...args} />;
 
 export const EventHeader = Template.bind({});
 EventHeader.args = {
-    event: {
-        eventname: 'Hörnerfest',
-        eventlocation: 'Brande-Hörnerkirchen',
-        eventdate: '25.06.2020 - 28.06.2020'
-    }
+  event: {
+    id: '1',
+    eventName: 'Hörnerfest',
+    eventLocation: 'Brande-Hörnerkirchen',
+    eventDate: '2020-06-25 - 2020-06-28',
+    category: 'medieval'
+  }
 };
