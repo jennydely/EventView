@@ -8,7 +8,6 @@ eventArray.sort((event1, event2) => event1.eventdate > event2.eventdate)
 
 export default function EventList() {
     const currentYearString = new Date().getFullYear().toString()
-
     const availableYears = eventArray.reduce((years, event) => {
         const eventYear = event.eventdate.slice(0, 4)
         if (!years.includes(eventYear) && eventYear >= currentYearString) years.push(eventYear)
