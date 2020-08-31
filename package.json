@@ -6,9 +6,11 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "jest-styled-components": "^7.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
+    "react-test-renderer": "^16.13.1",
     "styled-components": "^5.1.1"
   },
   "scripts": {
@@ -36,12 +38,21 @@
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
+<<<<<<< HEAD
     "@storybook/addon-actions": "^6.0.19",
     "@storybook/addon-essentials": "^6.0.19",
     "@storybook/addon-links": "^6.0.19",
     "@storybook/node-logger": "^6.0.19",
     "@storybook/preset-create-react-app": "^3.1.4",
     "@storybook/react": "^6.0.19",
+=======
+    "@storybook/addon-actions": "^6.0.20",
+    "@storybook/addon-essentials": "^6.0.20",
+    "@storybook/addon-links": "^6.0.20",
+    "@storybook/node-logger": "^6.0.20",
+    "@storybook/preset-create-react-app": "^3.1.4",
+    "@storybook/react": "^6.0.20",
+>>>>>>> 7fe228c2782e053bf240d9f9bed7ec6549b2b4f5
     "babel-loader": "^8.1.0",
     "react-is": "^16.13.1"
   }
