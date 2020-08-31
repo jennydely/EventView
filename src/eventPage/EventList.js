@@ -1,5 +1,5 @@
 import React from 'react'
-import Event from './Event'
+import EventItem from './EventItem'
 import styled from 'styled-components/macro'
 import jsonEvents from '../mockDB/events.json'
 const eventArray = jsonEvents.slice()
@@ -19,7 +19,7 @@ export default function EventList() {
                 <EventContainer key={year}>
                     <EventYearHeadline>Event {year}</EventYearHeadline>
                     {eventArray.map(event => event.eventDate.slice(0, 4) === year &&
-                        <Event event={event} key={event.id}></Event>
+                        <EventItem event={event} key={event.id}></EventItem>
                     )}
                 </EventContainer>
             ))}
