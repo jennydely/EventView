@@ -3,12 +3,12 @@ import styled from 'styled-components/macro'
 import {formatDate} from '../utils/date'
 
 export default function Event({event}) {
-const{eventname, eventlocation, eventdate} = event
+const{eventName, eventLocation, eventDate} = event
 
     return (
         <EventItem>
-            <Title>{eventname} - {eventlocation}</Title>
-            <Duration>{formatDate(eventdate)}</Duration>
+            <Title>{eventName} - {eventLocation}</Title>
+            <Duration>{formatDate(eventDate)}</Duration>
         </EventItem>
     )
 }

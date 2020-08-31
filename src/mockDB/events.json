@@ -1,44 +1,52 @@
 [
     { "id":"1",
-        "eventname": "Hörnerfest",
-        "eventlocation": "Brande-Hörnerkirchen",
-        "eventdate": "2020-06-25 - 2020-06-28"
+        "eventName": "Hörnerfest",
+        "eventLocation": "Brande-Hörnerkirchen",
+        "eventDate": "2020-06-25 - 2020-06-28",
+        "category": "medieval"
     },
     {"id":"2",
-        "eventname": "Rockharz",
-        "eventlocation": "Ballenstedt",
-        "eventdate": "2020-06-30 - 2020-07-04"
+        "eventName": "Rockharz",
+        "eventLocation": "Ballenstedt",
+        "eventDate": "2020-06-30 - 2020-07-04",
+        "category": "metal"
     },
     {"id":"3",
-        "eventname": "WikingerEvent",
-        "eventlocation": "Damp",
-        "eventdate": "2020-08-04 - 2020-08-06"
+        "eventName": "WikingerEvent",
+        "eventLocation": "Damp",
+        "eventDate": "2020-08-04 - 2020-08-06",
+        "category": "sand"
     },
     {"id":"4",
-        "eventname": "MPS",
-        "eventlocation": "Luhmühlen",
-        "eventdate": "2020-08-05 - 2020-08-06"
+        "eventName": "MPS",
+        "eventLocation": "Luhmühlen",
+        "eventDate": "2020-08-05 - 2020-08-06",
+        "category": "medieval"
     },
     {"id":"5",
-        "eventname": "Stove am Strand",
-        "eventlocation": "Stove",
-        "eventdate": "2020-09-25 - 2020-09-27"
+        "eventName": "Stove am Strand",
+        "eventLocation": "Stove",
+        "eventDate": "2020-09-25 - 2020-09-27",
+        "category": "sand"
     },
    
     {"id":"7",
-        "eventname": "WackenWinterNights",
-        "eventlocation": "Wacken",
-        "eventdate": "2021-02-14 - 2021-02-16"
+        "eventName": "WackenWinterNights",
+        "eventLocation": "Wacken",
+        "eventDate": "2021-02-14 - 2021-02-16",
+        "category": "metal"
     },
     {"id":"8",
-        "eventname": "WackenWinterNights",
-        "eventlocation": "Wacken",
-        "eventdate": "2019-02-14 - 2019-02-16"
+        "eventName": "WackenWinterNights",
+        "eventLocation": "Wacken",
+        "eventDate": "2020-02-14 - 2020-02-16",
+        "category": "metal"
     },
 
     {"id":"6",
-        "eventname": "MengederGaudium",
-        "eventlocation": "Mengede",
-        "eventdate": "2020-06-11 - 2020-06-14"
+        "eventName": "MengederGaudium",
+        "eventLocation": "Mengede",
+        "eventDate": "2020-06-11 - 2020-06-14",
+        "category": "medieval"
     }
 ]
