@@ -1,7 +1,6 @@
 import React from 'react'
-import Event from './Event'
+import EventItem from './EventItem'
 import styled from 'styled-components/macro'
-//import {getEvents} from '../utils/services'
 
 export default function EventList({eventArray, categoryFilter}) {
     eventArray.sort((event1, event2) => event1.eventDate > event2.eventDate)
@@ -19,7 +18,7 @@ export default function EventList({eventArray, categoryFilter}) {
                 <EventContainer key={year}>
                     <EventYearHeadline>Event {year}</EventYearHeadline>
                     {filteredEvents.map(event => event.eventDate.slice(0, 4) === year &&
-                        <Event event={event} key={event.id}></Event>
+                        <EventItem event={event} key={event.id}></EventItem>
                     )}
                 </EventContainer>
             ))}

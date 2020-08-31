@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import renderer from 'react-test-renderer'
-import Event from './Event'
+import EventItem from './EventItem'
 import 'jest-styled-components'
 
 describe('Event', () => {
@@ -13,12 +13,12 @@ describe('Event', () => {
 
 
     it('display the eventname and eventlocation', () => {
-        const { getByText } = render(<Event event={{eventName: name, eventLocation: location, eventDate: inputDate}} />)
+        const { getByText } = render(<EventItem event={{eventName: name, eventLocation: location, eventDate: inputDate}} />)
         expect(getByText(name + ' - ' + location)).toBeInTheDocument()
         expect(getByText(outputDate)).toBeInTheDocument()
     })
     it('renders correctly', () => {
-        const tree = renderer.create(<Event event={{eventName: name, eventLocation: location, eventDate: inputDate}}/>)
+        const tree = renderer.create(<EventItem event={{eventName: name, eventLocation: location, eventDate: inputDate}}/>)
         expect(tree).toMatchSnapshot()
     })
  } )
