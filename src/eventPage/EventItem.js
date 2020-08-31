@@ -2,20 +2,20 @@ import React from 'react';
 import styled from 'styled-components/macro'
 import {formatDate} from '../utils/date'
 
-export default function Event({event}) {
+export default function EventItem({event}) {
 const{eventName, eventLocation, eventDate} = event
 
     return (
-        <EventItem>
+        <Event>
             <Title>{eventName} - {eventLocation}</Title>
             <Duration>{formatDate(eventDate)}</Duration>
-        </EventItem>
+        </Event>
     )
 }
 
 
 
-const EventItem = styled.li`
+const Event = styled.li`
 list-style:none;
 border: 2px solid #964B00;
 marign: 0;

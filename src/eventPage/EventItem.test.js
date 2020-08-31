@@ -1,10 +1,10 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import renderer from 'react-test-renderer'
-import Event from './Event'
+import EventItem from './EventItem'
 import 'jest-styled-components'
 
-describe('Event', () => {
+describe('EventItem', () => {
     const name = 'This is the eventname'
     const location = 'This is the eventlocation'
     const date = 'This is the eventdate'
@@ -12,12 +12,12 @@ describe('Event', () => {
 
 
     it('display the eventname and eventlocation', () => {
-        const { getByText } = render(<Event event={{eventName: name, eventLocation: location, eventDate: date}} />)
+        const { getByText } = render(<EventItem event={{eventName: name, eventLocation: location, eventDate: date}} />)
         expect(getByText(name + ' - ' + location)).toBeInTheDocument()
         expect(getByText(date)).toBeInTheDocument()
     })
     it('renders correctly', () => {
-        const tree = renderer.create(<Event event={{eventName: name, eventLocation: location, eventDate: date}}/>)
+        const tree = renderer.create(<EventItem event={{eventName: name, eventLocation: location, eventDate: date}}/>)
         expect(tree).toMatchSnapshot()
     })
  } )
