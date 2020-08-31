@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer'
 import EventItem from './EventItem'
 import 'jest-styled-components'
 
-describe('Event', () => {
+describe('EventItem', () => {
     const name = 'This is the eventname'
     const location = 'This is the eventlocation'
     const inputDate = '2020-06-25 - 2020-06-28'

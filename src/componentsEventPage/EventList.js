@@ -6,7 +6,7 @@ export default function EventList({eventArray, categoryFilter}) {
     eventArray.sort((event1, event2) => event1.eventDate > event2.eventDate)
     const filteredEvents = eventArray.filter(event => categoryFilter === 'all' || event.category === categoryFilter)
     const currentYearString = new Date().getFullYear().toString()
-    const availableYears = filteredEvents.reduce((years, event) => {
+    const availableYears = eventArray.reduce((years, event) => {
         const eventYear = event.eventDate.slice(0, 4)
         if (!years.includes(eventYear) && eventYear >= currentYearString) years.push(eventYear)
         return years
