@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+.c1 {
+  display: inline-block;
+  font-weight: 200;
+  height: 25px;
+  width: 95px;
+  text-align: center;
+  border: none;
+  border-radius: 20px;
+  font-size: 11px;
+  background: #FFB100;
+  color: #021B34;
+}
+
+.c2 {
+  display: inline-block;
+  font-weight: 200;
+  height: 25px;
+  width: 95px;
+  text-align: center;
+  border: none;
+  border-radius: 20px;
+  font-size: 11px;
+  background: #FF006C;
+  color: #021B34;
+}
+
+.c3 {
+  display: inline-block;
+  font-weight: 200;
+  height: 25px;
+  width: 95px;
+  text-align: center;
+  border: none;
+  border-radius: 20px;
+  font-size: 11px;
+  background: #00FF27;
+  color: #021B34;
+}
+
+.c4 {
+  display: inline-block;
+  font-weight: 200;
+  height: 25px;
+  width: 95px;
+  text-align: center;
+  border: none;
+  border-radius: 20px;
+  font-size: 11px;
+  background: #00D4FF;
+  color: #021B34;
+}
+
+.c0 {
+  display: inline-block;
+  font-weight: 200;
+  height: 25px;
+  width: 95px;
+  text-align: center;
+  border: none;
+  border-radius: 20px;
+  font-size: 11px;
+  background: #00D4FF;
+  color: #021B34;
+}
+
+<header>
+  <div
+    className=""
+  >
+    <button
+      className="c0"
+      name="all"
+      onClick={[Function]}
+    >
+      All
+    </button>
+  </div>
+  <div
+    className=""
+  >
+    <button
+      className="c1"
+      name="metal"
+      onClick={[Function]}
+    >
+      metal
+    </button>
+    <button
+      className="c2"
+      name="medieval"
+      onClick={[Function]}
+    >
+      medieval
+    </button>
+    <button
+      className="c3"
+      name="sand"
+      onClick={[Function]}
+    >
+      sand
+    </button>
+    <button
+      className="c4"
+      name="others"
+      onClick={[Function]}
+    >
+      others
+    </button>
+  </div>
+</header>
+`;

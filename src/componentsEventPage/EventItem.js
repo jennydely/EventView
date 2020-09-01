@@ -1,14 +1,16 @@
 import React from 'react';
 import styled from 'styled-components/macro'
 import {formatDate} from '../utils/date'
+import EventDetails from './EventDetails'
 
 export default function EventItem({event}) {
-const{eventName, eventLocation, eventDate} = event
+const{eventname, eventlocation, eventdate} = event
 
     return (
         <Event>
-            <Title>{eventName} - {eventLocation}</Title>
+            <Title>{name} - {location}</Title>
             <Duration>{formatDate(eventDate)}</Duration>
+            <EventDetails Hidden event ={event}></EventDetails>
         </Event>
     )
 }
