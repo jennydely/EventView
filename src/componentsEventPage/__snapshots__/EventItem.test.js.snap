@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventItem renders correctly 1`] = `
+.c4 {
+  margin: 0;
+  padding: 10px;
+  border: 2px solid #964B00;
+}
+
+.c0 {
+  list-style: none;
+  marign: 0;
+  margin-bottom: 20px;
+  padding: 4px;
+  text-align: center;
+}
+
+.c1 {
+  margin: 0;
+  border: 2px solid #964B00;
+}
+
+.c2 {
+  margin: 0;
+  font-size: 118%;
+}
+
+.c3 {
+  margin: 0;
+  font-size: 116%;
+}
+
+<li
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <h2
+      className="c2"
+    >
+      This is the eventname
+       - 
+      This is the eventlocation
+    </h2>
+    <p
+      className="c3"
+    >
+      Invalid Date - Invalid Date
+    </p>
+  </div>
+  <section
+    className="c4"
+  >
+    <img
+      alt="Rockharz Festival Flyer"
+      height="auto"
+      src="https://www.rockharz-festival.com/wp-content/uploads/2020/07/rhz2020_poster_a1_juni2020_v9a_ansicht_l.jpg"
+      width="222"
+    />
+    <p>
+      Adress: 
+      This is the eventname
+       
+      <br />
+       
+      <br />
+       
+      This is the eventlocation
+      <br />
+    </p>
+    <p>
+       Price: 
+       €
+    </p>
+    <button>
+      PackList
+    </button>
+    <button>
+      Website
+    </button>
+    <button>
+      Googlemaps
+    </button>
+     
+    <br />
+  </section>
+</li>
+`;

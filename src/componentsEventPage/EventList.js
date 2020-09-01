@@ -18,7 +18,7 @@ export default function EventList({eventArray, categoryFilter}) {
                 <EventContainer key={year}>
                     <EventYearHeadline>Event {year}</EventYearHeadline>
                     {filteredEvents.map(event => event.eventStartDate.slice(0, 4) === year &&
-                        <EventItem event={event} key={event.id}></EventItem>
+                        <EventItem  event={event} key={event.id}></EventItem>
                     )}
                 </EventContainer>
             ))}

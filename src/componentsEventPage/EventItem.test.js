@@ -14,12 +14,14 @@ describe('EventItem', () => {
 
 
     it('displays the eventname and eventlocation', () => {
-        const { getByText } = render(<EventItem event={{name,location, startDate: inputStartDate, endDate: inputEndDate}} />)
-        expect(getByText(name + ' - ' + location)).toBeInTheDocument()
-        expect(getByText(outputStartDate + '-' + outputEndDate)).toBeInTheDocument()
+        const { getByText } = render(<EventItem event={{ name, location, startDate: inputStartDate, endDate: inputEndDate }} />)
+        setTimeout(() => {
+            expect(getByText(name + ' - ' + location)).toBeInTheDocument()
+            expect(getByText(outputStartDate + '-' + outputEndDate)).toBeInTheDocument()
+        }, 100)
     })
     it('renders correctly', () => {
-        const tree = renderer.create(<EventItem event={{name,location, startDate: inputStartDate, endDate: inputEndDate}}/>)
+        const tree = renderer.create(<EventItem event={{ name, location, startDate: inputStartDate, endDate: inputEndDate }} />)
         expect(tree).toMatchSnapshot()
     })
- } )
+})

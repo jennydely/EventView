@@ -9,16 +9,16 @@ describe('EventList', () => {
         "id": "123",
         "name": "this is the eventname",
         "location": "this is the eventlocation",
-        "startDate": "06/25/2020",
-        "endDate": "06/28/2020",
+        "eventStartDate": "06/25/2020",
+        "eventEndDate": "06/28/2020",
         "category": "medieval"
     },
     {
         "id": "321",
         "name": "this is the eventname",
-        "nocation": "this is the eventlocation",
-        "startDate": "06/25/2021",
-        "endDate": "06/28/2021",
+        "location": "this is the eventlocation",
+        "eventStartDate": "06/25/2021",
+        "eventEndDate": "06/28/2021",
 
         "category": "medieval"
     }
@@ -28,8 +28,9 @@ describe('EventList', () => {
     it('display the year and an example event', () => {
         const { getByText } = render(<EventList eventArray={eventArray} categoryFilter={categoryFilter} />)
         setTimeout(() => {
-            expect(getByText(eventArray[0].eventName)).toBeInTheDocument()
-            expect(getByText(eventArray[0].eventLocation)).toBeInTheDocument()
+            expect(getByText('2020')).toBeInTheDocument()
+            expect(getByText(eventArray[0].name)).toBeInTheDocument()
+            expect(getByText(eventArray[0].location)).toBeInTheDocument()
         }, 100)
     })
     it('renders correctly', () => {
