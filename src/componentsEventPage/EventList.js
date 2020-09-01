@@ -1,14 +1,13 @@
 import React from 'react'
 import EventItem from './EventItem'
 import styled from 'styled-components/macro'
-import jsonEvents from '../mockDB/events.json'
-const eventArray = jsonEvents.slice()
-eventArray.sort((event1, event2) => event1.eventDate > event2.eventDate)
 
-export default function EventList() {
+export default function EventList({eventArray, categoryFilter}) {
+    eventArray.sort((event1, event2) => event1.eventStartDate > event2.eventStartDate)
+    const filteredEvents = eventArray.filter(event => categoryFilter === 'all' || event.category === categoryFilter)
     const currentYearString = new Date().getFullYear().toString()
-    const availableYears = eventArray.reduce((years, event) => {
-        const eventYear = event.eventDate.slice(0, 4)
+    const availableYears = filteredEvents.reduce((years, event) => {
+        const eventYear = event.eventStartDate.slice(0, 4)
         if (!years.includes(eventYear) && eventYear >= currentYearString) years.push(eventYear)
         return years
     }, [currentYearString])
@@ -18,7 +17,7 @@ export default function EventList() {
             {availableYears.map(year => (
                 <EventContainer key={year}>
                     <EventYearHeadline>Event {year}</EventYearHeadline>
-                    {eventArray.map(event => event.eventDate.slice(0, 4) === year &&
+                    {filteredEvents.map(event => event.eventStartDate.slice(0, 4) === year &&
                         <EventItem event={event} key={event.id}></EventItem>
                     )}
                 </EventContainer>

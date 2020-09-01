@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import EventList from './eventPage/EventList'
+import EventPage from './EventPage'
 
 export default function App() {
   return (
     <div className="App">
-  <EventList></EventList>
+  <EventPage></EventPage>
     </div>
   );
 }

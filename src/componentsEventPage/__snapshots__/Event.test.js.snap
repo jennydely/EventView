@@ -3,13 +3,16 @@
 exports[`Event renders correctly 1`] = `
 .c0 {
   list-style: none;
-  border: 2px solid brown;
-  margin: 20px;
+  border: 2px solid #964B00;
+  marign: 0;
+  margin-bottom: 20px;
   padding: 4px;
+  text-align: center;
 }
 
 .c1 {
   margin: 0;
+  font-size: 100%;
 }
 
 .c2 {
@@ -29,7 +32,7 @@ exports[`Event renders correctly 1`] = `
   <p
     className="c2"
   >
-    This is the eventdate
+    06/25/2020 - 06/28/2020
   </p>
 </li>
 `;

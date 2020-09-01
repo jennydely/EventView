@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventList renders correctly 1`] = `
+.c0 {
+  margin: 10px;
+  padding: 0;
+}
+
+.c1 {
+  margin: 0;
+  margin-bottom: 5px;
+  padding: 0;
+  text-align: left;
+}
+
+<ul
+  className="c0"
+>
+  <h2
+    className="c1"
+  >
+    Event 
+    2020
+  </h2>
+</ul>
+`;

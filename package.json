@@ -38,21 +38,12 @@
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
-<<<<<<< HEAD
-    "@storybook/addon-actions": "^6.0.19",
-    "@storybook/addon-essentials": "^6.0.19",
-    "@storybook/addon-links": "^6.0.19",
-    "@storybook/node-logger": "^6.0.19",
-    "@storybook/preset-create-react-app": "^3.1.4",
-    "@storybook/react": "^6.0.19",
-=======
     "@storybook/addon-actions": "^6.0.20",
     "@storybook/addon-essentials": "^6.0.20",
     "@storybook/addon-links": "^6.0.20",
     "@storybook/node-logger": "^6.0.20",
     "@storybook/preset-create-react-app": "^3.1.4",
     "@storybook/react": "^6.0.20",
->>>>>>> 7fe228c2782e053bf240d9f9bed7ec6549b2b4f5
     "babel-loader": "^8.1.0",
     "react-is": "^16.13.1"
   }
