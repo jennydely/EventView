@@ -4,13 +4,13 @@ import {formatDate} from '../utils/date'
 import EventDetails from './EventDetails'
 
 export default function EventItem({event}) {
-const{eventname, eventlocation, eventdate} = event
+const{name, location, eventStartDate, eventEndDate} = event
 
     return (
         <Event>
             <Title>{name} - {location}</Title>
-            <Duration>{formatDate(eventDate)}</Duration>
-            <EventDetails Hidden event ={event}></EventDetails>
+            <Duration>{formatDate(eventStartDate, eventEndDate)}</Duration>
+            <EventDetails Hidden event={event} />
         </Event>
     )
 }
