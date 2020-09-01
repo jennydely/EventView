@@ -10,7 +10,7 @@ const{name, location, eventStartDate, eventEndDate} = event
         <Event>
             <Title>{name} - {location}</Title>
             <Duration>{formatDate(eventStartDate, eventEndDate)}</Duration>
-            <EventDetails Hidden event={event} />
+            <EventDetails event={event} />
         </Event>
     )
 }
