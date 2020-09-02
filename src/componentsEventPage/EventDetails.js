@@ -115,14 +115,15 @@ grid-column: 1/6;
 grid-row: 6;
 display:flex;
 with: 100%;
-padding:3,5px;
+padding:7px;
 justify-content:space-around;
 `
 const ExternalLink = styled.a`
 display: inline-block; 
 with:fit-content;
 height:fit-content;
-padding: 4px 7px;
+margin: 2px;
+padding: 0.3px 4px;
 border: solid 2px rgb(49,42,42);
 border-radius: 6px;
 background-color:rgba(49,42,42,0.75);

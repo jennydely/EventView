@@ -96,5 +96,17 @@
         "eventStartDate": "2020-06-11",
         "eventEndDate": "2020-06-14",
         "category": "medieval"
+    },
+    {"id":"9",
+        "poster":"https://otterzentrum.de/uploads/tx_nivoslider/ho_4_01.jpg",
+        "name": "Otterzentrum",
+        "street":"Sudendorfallee 1",
+        "zip": "29386",
+        "location": "Hankensbüttel",
+        "price":"11",
+        "website": "https://otterzentrum.de/otter-zentrum/",
+        "eventStartDate": "2020-09-18",
+        "eventEndDate": "2020-09-18",
+        "category": "others"
     }
 ]

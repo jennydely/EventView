@@ -29,7 +29,6 @@ export default function EventItem({ event }) {
     )
 
     function toggleEventDetail() {
-        console.log('hallo', isEventDetailVisible, height, detailStyle)
         setIsEventDetailVisible(!isEventDetailVisible)
     }
 }
