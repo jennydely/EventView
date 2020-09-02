@@ -4,11 +4,11 @@ import styled from 'styled-components/macro'
 
 export default function EventDetails({ event, style, bind }) {
   const { poster, name, street, zip, location, price, website } = event
-  const defaultImg = "github.com/jennydely/eventplanner/src/img"
+  const defaultImg = "https://raw.githubusercontent.com/jennydely/Event-Planner/EventDetails/src/img/defaultImg.jpg"
 
   return (
     <Details name={event.category} style={style} {...bind}>
-     <LinkPoster href={poster ? poster : website} target="blank"> <EventPoster src={poster || defaultImg} alt={name + ' Poster'} /></LinkPoster>
+     <LinkPoster href={poster ? poster : website} target="blank"> <EventPoster src={poster ? poster : defaultImg} alt={name + ' Poster'} /></LinkPoster>
       <Address>Address: </Address>
       <Price>Price: </Price>
       <Name>{name}</Name>
@@ -27,7 +27,7 @@ export default function EventDetails({ event, style, bind }) {
 const Details = styled(animated.section)`
 display:grid;
 grid-template-columns: 20% repeat(4,auto);
-grid-template-rows: repeat(5,auto) 30px 30px;
+grid-template-rows: repeat(7,auto) 30px 30px;
 margin:0;
 margin-top: -2px;
 border: 2px solid ${({name}) => name === 'sand' ? 'rgba(248,149,17,0.46)' : (name === 'metal' ? 'rgba(49,42,42,0.75)' : (name === 'medieval' ? 'rgba(67,40,24,0.70)' : (name === 'other' ? 'rgba(153,88,42,0.70)' : 'rgb(96,99,104)')))};
