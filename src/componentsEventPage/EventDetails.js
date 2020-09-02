@@ -8,7 +8,7 @@ export default function EventDetails({ event, style, bind }) {
 
   return (
     <Details name={event.category} style={style} {...bind}>
-     <a href={poster ? poster : website} target="blank"> <EventPoster src={poster || defaultImg} alt={name + ' Poster'} /></a>
+     <LinkPoster href={poster ? poster : website} target="blank"> <EventPoster src={poster || defaultImg} alt={name + ' Poster'} /></LinkPoster>
       <Address>Address: </Address>
       <Price>Price: </Price>
       <Name>{name}</Name>
@@ -51,8 +51,12 @@ overflow: hidden;
   bottom: 0;
 }
 `
-const EventPoster = styled.img`
+const LinkPoster = styled.a`
 grid-column: 1;
+grid-row: 1 / span 5;
+`
+const EventPoster = styled.img`
+grid-column: 1 /span 1;
 grid-row: 1 / span 5;
 margin:7px;
 object-fit: cover;
@@ -62,9 +66,10 @@ max-height: 90%;
 
 const Address = styled.p`
 grid-column: 2;
-grid-row: 1;
+grid-row: 1/ span 4;
 text-align:right;
-margin:7px;
+margin:4px;
+margin-top: 7px;
 font-weight:bold;
 font-size: 100%;
 `
@@ -72,7 +77,7 @@ const Price = styled.p`
 grid-column: 2;
 grid-row: 5;
 text-align:right;
-margin:7px;
+margin:4px;
 font-weight:bold;
 font-size: 100%;
 `
@@ -80,39 +85,39 @@ const Name = styled.p`
 grid-column: 3/5;
 grid-row: 1;
 text-align:left;
-margin:7px;
+margin:4px;
+margin-top:7px;
 font-size: 100%;
 `
 const Street = styled.p`
 grid-column: 3/5;
 grid-row: 2;
 text-align:left;
-margin:7px;
+margin:4px;
 font-size: 100%;
 `
 const Location = styled.p`
 grid-column: 3/5;
 grid-row: 3;
 text-align:left;
-margin:7px;
+margin:4px;
 font-size: 100%;
 `
 const PriceValue = styled.p`
 grid-column: 3/5;
 grid-row: 5;
 text-align:left;
-margin:7px;
+margin:4px;
 font-size: 100%;
 `
-
 const ButtonContainer = styled.div`
 grid-column: 1/6;
 grid-row: 6;
 display:flex;
 with: 100%;
+padding:3,5px;
 justify-content:space-around;
 `
-
 const ExternalLink = styled.a`
 display: inline-block; 
 with:fit-content;

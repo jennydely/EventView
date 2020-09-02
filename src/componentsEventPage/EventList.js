@@ -30,8 +30,7 @@ const EventContainer = styled.ul`
 margin: 10px;
 padding:0;
 `
-const EventYearHeadline= styled.h2`
-margin: 0;
+const EventYearHeadline= styled.h1`
 margin-bottom: 5px;
 padding:0;
 text-align: left;

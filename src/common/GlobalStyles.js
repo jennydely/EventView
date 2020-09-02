@@ -16,15 +16,18 @@ export default createGlobalStyle`
   }
 
   h1 {
-    font-size: 116%;
+    font-size: 118%;
+    margin:0;
   }
 
   h2 {
     font-size: 114%;
+    margin:0;
   }
 
   h3 {
     font-size: 112%;
+    margin:0;
   }
 
 

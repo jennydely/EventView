@@ -18,8 +18,8 @@ export default function EventItem({ event }) {
     return (
         <Event>
             <EventHeader name={category} onClick={toggleEventDetail}>
-                <Title>{name} - {location}</Title>
-                <Duration>{formatDate(eventStartDate, eventEndDate)}</Duration>
+                <h2>{name} - {location}</h2>
+                <h3>{formatDate(eventStartDate, eventEndDate)}</h3>
             </EventHeader>
             <EventDetails
                 event={event}
@@ -44,13 +44,4 @@ text-align:center;
 const EventHeader = styled.div`
 margin: 0;
 background: ${({name}) => name === 'sand' ? 'rgba(248,149,17,0.46)' : (name === 'metal' ? 'rgba(49,42,42,0.75)' : (name === 'medieval' ? 'rgba(67,40,24,0.70)' : (name === 'other' ? 'rgba(153,88,42,0.70)' : 'rgb(96,99,104)')))};
-`
-
-const Title = styled.h2`
-margin: 0;
-font-size: 114%;
-`
-const Duration = styled.p`
-margin:0;
-font-size: 112%;
 `
