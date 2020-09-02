@@ -112,7 +112,7 @@
         "zip": "29386",
         "location": "Hankensbüttel",
         "price":"11",
-        "ticketBought": false,
+        "ticketBought": true,
         "website": "https://otterzentrum.de/otter-zentrum/",
         "eventStartDate": "2020-09-18",
         "eventEndDate": "2020-09-18",

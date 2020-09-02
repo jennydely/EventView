@@ -16,9 +16,9 @@ export default function EventDetails({ event, style, bind }) {
       <Location>{zip} {location}</Location>
       <PriceValue>{price ? price + ' €': 'kostenlos'} </PriceValue>
       <TicketLabel id="Ticket" price={price}>Ticket</TicketLabel>
-      <Ticket type="checkbox" htmlFor="Ticket" price={price}/> 
+      <Ticket type="checkbox" htmlFor="Ticket" price={price} /> 
       <ButtonContainer>
-        <button>PackList</button>{/* onClick="/packList" */}
+        {/*<button>PackList</button>*/}
         <ExternalLink href={website} target="blank" title="link">Website</ExternalLink>
         <ExternalLink href="https://www.google.de/maps" target="blank" title="link">Googlemaps</ExternalLink>
       </ButtonContainer>
