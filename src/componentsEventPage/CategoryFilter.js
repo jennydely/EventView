@@ -20,10 +20,5 @@ backgroundcolor: grey;
 `
 
 const CategoryButton = styled.button `
-
-    background: ${({name}) => name === 'sand' ? '#00FF27' : (name === 'metal' ? '#FFB100' : (name === 'medieval' ? '#FF006C' : (name === 'other' ? '#FF006C' : '#00D4FF')))};
-    color: #021B34
- 
-
-
+background: ${({name}) => name === 'sand' ? 'rgba(248,149,17,0.46)' : (name === 'metal' ? 'rgba(49,42,42,0.75)' : (name === 'medieval' ? 'rgba(67,40,24,0.70)' : (name === 'other' ? 'rgba(153,88,42,0.70)' : 'rgb(96,99,104)')))};
 ` 

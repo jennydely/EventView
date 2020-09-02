@@ -2,23 +2,23 @@ import React from 'react';
 import { animated } from 'react-spring'
 import styled from 'styled-components/macro'
 
-
 export default function EventDetails({ event, style, bind }) {
-  const { name, street, zip, location, price, website } = event
+  const { poster, name, street, zip, location, price, website } = event
+  const defaultImg = "github.com/jennydely/eventplanner/src/img"
 
   return (
-    <Details style={style} {...bind}>
-      <EventPoster src="https://www.rockharz-festival.com/wp-content/uploads/2020/07/rhz2020_poster_a1_juni2020_v9a_ansicht_l.jpg" alt="Rockharz Festival Flyer" />
+    <Details name={event.category} style={style} {...bind}>
+     <a href={poster ? poster : website} target="blank"> <EventPoster src={poster || defaultImg} alt={name + ' Poster'} /></a>
       <Address>Address: </Address>
       <Price>Price: </Price>
       <Name>{name}</Name>
       <Street>{street}</Street>
       <Location>{zip} {location}</Location>
-      <PriceValue>€</PriceValue>
+      <PriceValue>{price} €</PriceValue>
       <ButtonContainer>
-        <button>PackList</button>
-        <button>Website</button>
-        <button>Googlemaps</button>
+        <button onClick="/packList">PackList</button>
+        <ExternalLink href={website} target="blank">Website</ExternalLink>
+        <ExternalLink href="https://www.google.de/maps" target="blank">Googlemaps</ExternalLink>
       </ButtonContainer>
     </Details>
   )
@@ -30,7 +30,7 @@ grid-template-columns: 20% repeat(4,auto);
 grid-template-rows: repeat(5,auto) 30px 30px;
 margin:0;
 margin-top: -2px;
-border:2px solid #964B00;
+border: 2px solid ${({name}) => name === 'sand' ? 'rgba(248,149,17,0.46)' : (name === 'metal' ? 'rgba(49,42,42,0.75)' : (name === 'medieval' ? 'rgba(67,40,24,0.70)' : (name === 'other' ? 'rgba(153,88,42,0.70)' : 'rgb(96,99,104)')))};
 border-top: 0;
 overflow: hidden;
 
@@ -56,8 +56,8 @@ grid-column: 1;
 grid-row: 1 / span 5;
 margin:7px;
 object-fit: cover;
-  width: 90%;
-  max-height: 90%;
+width: 90%;
+max-height: 90%;
 `
 
 const Address = styled.p`
@@ -111,5 +111,17 @@ grid-row: 6;
 display:flex;
 with: 100%;
 justify-content:space-around;
+`
 
+const ExternalLink = styled.a`
+display: inline-block; 
+with:fit-content;
+height:fit-content;
+padding: 4px 7px;
+border: solid 2px rgb(49,42,42);
+border-radius: 6px;
+background-color:rgba(49,42,42,0.75);
+color: rgb(187,148,87);
+font-size: 100%; 
+text-align: center; 
 `

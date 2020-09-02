@@ -6,7 +6,7 @@ import { formatDate } from '../utils/date'
 import EventDetails from './EventDetails'
 
 export default function EventItem({ event }) {
-    const { name, location, eventStartDate, eventEndDate } = event
+    const { name, location, category, eventStartDate, eventEndDate } = event
     const { height, bind } = useHeight([event])
     const [isEventDetailVisible, setIsEventDetailVisible] = useState(false)
     const detailStyle = {
@@ -17,7 +17,7 @@ export default function EventItem({ event }) {
 
     return (
         <Event>
-            <EventHeader onClick={toggleEventDetail}>
+            <EventHeader name={category} onClick={toggleEventDetail}>
                 <Title>{name} - {location}</Title>
                 <Duration>{formatDate(eventStartDate, eventEndDate)}</Duration>
             </EventHeader>
@@ -43,7 +43,7 @@ text-align:center;
 `
 const EventHeader = styled.div`
 margin: 0;
-border: 2px solid #964B00;
+background: ${({name}) => name === 'sand' ? 'rgba(248,149,17,0.46)' : (name === 'metal' ? 'rgba(49,42,42,0.75)' : (name === 'medieval' ? 'rgba(67,40,24,0.70)' : (name === 'other' ? 'rgba(153,88,42,0.70)' : 'rgb(96,99,104)')))};
 `
 
 const Title = styled.h2`

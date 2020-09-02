@@ -7,13 +7,26 @@ export default createGlobalStyle`
 
   body {
     margin: 0;
-    background: #eee;
+    background: rgba(96,99,104,0.8);
     font-family: sans-serif;
-    font-size: 18px;
     line-height: 1.4;
     overflow: hidden;
     height: 100vh;
+    color: rgb(253,230,167,0.9);
   }
+
+  h1 {
+    font-size: 116%;
+  }
+
+  h2 {
+    font-size: 114%;
+  }
+
+  h3 {
+    font-size: 112%;
+  }
+
 
   header {
     height:5vh;
@@ -29,14 +42,17 @@ export default createGlobalStyle`
   }
 
   button {
-  font-size: 100%;
-  padding: 4px 7px;
+  display: inline-block; 
   with:fit-content;
-  border-radius: 6px;
   height:fit-content;
-  display: inline-block;   
-  border: none;
-  text-align: center;
+  margin: 2px;
+  padding: 2px 4px;
+  border: solid 2px rgb(49,42,42);
+  border-radius: 6px;
+  background-color:rgba(49,42,42,0.75);
+  color: rgb(253,230,167);
+  font-size: 100%; 
+  text-align: center; 
 }
 `
 

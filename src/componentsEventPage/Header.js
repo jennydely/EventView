@@ -6,7 +6,7 @@ export default function Header({ onSelectFilter }) {
     return (
         <header>
             <ButtonContainer>
-                <ShowAllButton name="all" onClick={() => onSelectFilter('all')}>All</ShowAllButton>
+                <button name="all" onClick={() => onSelectFilter('all')}>All</button>
             </ButtonContainer>
             <CategoryFilter onSelectFilter={onSelectFilter} />
         </header>
@@ -16,8 +16,3 @@ export default function Header({ onSelectFilter }) {
 const ButtonContainer = styled.div`
    margin: 5px;
 `
-
-const ShowAllButton = styled.button`
-    background: #00D4FF;
-    color: #021B34
-` 
