@@ -13,6 +13,7 @@ describe('EventDetails', () => {
         "zip": "25596",
         "location": "Wacken",
         "price": "99",
+        "ticketBought": false,
         "website": "https://www.wacken-winter-nights.com/",
         "eventStartDate": "2021-02-14",
         "eventEndDate": "2021-02-16",
@@ -28,6 +29,7 @@ describe('EventDetails', () => {
         expect(getByText(event.price + ' €')).toBeInTheDocument()
         expect(getByRole('button')).toBeInTheDocument()
         expect(getAllByTitle('link')).toHaveLength(2)
+        expect(getByRole('checkbox', { checked: false })).toBeInTheDocument()
 
     })
     it('renders correctly', () => {
