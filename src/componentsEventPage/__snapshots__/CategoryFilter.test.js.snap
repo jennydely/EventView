@@ -2,87 +2,56 @@
 
 exports[`CategoryFilter renders correctly 1`] = `
 .c0 {
-  display: inline-block;
-  font-weight: 200;
-  height: 25px;
-  width: 95px;
-  text-align: center;
-  border: none;
-  border-radius: 20px;
-  font-size: 11px;
-  background: #FFB100;
-  color: #021B34;
+  margin: 5px;
+  backgroundcolor: grey;
 }
 
 .c1 {
-  display: inline-block;
-  font-weight: 200;
-  height: 25px;
-  width: 95px;
-  text-align: center;
-  border: none;
-  border-radius: 20px;
-  font-size: 11px;
-  background: #FF006C;
-  color: #021B34;
+  background: rgba(49,42,42,0.75);
 }
 
 .c2 {
-  display: inline-block;
-  font-weight: 200;
-  height: 25px;
-  width: 95px;
-  text-align: center;
-  border: none;
-  border-radius: 20px;
-  font-size: 11px;
-  background: #00FF27;
-  color: #021B34;
+  background: rgba(67,40,24,0.70);
 }
 
 .c3 {
-  display: inline-block;
-  font-weight: 200;
-  height: 25px;
-  width: 95px;
-  text-align: center;
-  border: none;
-  border-radius: 20px;
-  font-size: 11px;
-  background: #00D4FF;
-  color: #021B34;
+  background: rgba(248,149,17,0.46);
+}
+
+.c4 {
+  background: rgba(153,88,42,0.70);
 }
 
 <div
-  className=""
+  className="c0"
 >
   <button
-    className="c0"
+    className="c1"
     name="metal"
     onClick={[Function]}
   >
     metal
   </button>
   <button
-    className="c1"
+    className="c2"
     name="medieval"
     onClick={[Function]}
   >
     medieval
   </button>
   <button
-    className="c2"
+    className="c3"
     name="sand"
     onClick={[Function]}
   >
     sand
   </button>
   <button
-    className="c3"
-    name="others"
+    className="c4"
+    name="other"
     onClick={[Function]}
   >
-    others
+    otters
   </button>
 </div>
 `;

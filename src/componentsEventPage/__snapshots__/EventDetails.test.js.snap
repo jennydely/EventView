@@ -1,40 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EventItem renders correctly 1`] = `
-.c2 {
+exports[`EventDetails renders correctly 1`] = `
+.c0 {
   display: grid;
   grid-template-columns: 20% repeat(4,auto);
   grid-template-rows: repeat(7,auto) 30px auto;
   margin: 0;
   margin-top: -2px;
-  border: 2px solid rgb(96,99,104);
+  border: 2px solid rgba(49,42,42,0.75);
   border-top: 0;
   overflow: hidden;
 }
 
-.c2::before,
-.c2::after {
+.c0::before,
+.c0::after {
   content: '';
   position: absolute;
   left: 0;
   width: 100%;
 }
 
-.c2::before {
+.c0::before {
   height: 0;
 }
 
-.c2::after {
+.c0::after {
   height: 8px;
   bottom: 0;
 }
 
-.c3 {
+.c1 {
   grid-column: 1;
   grid-row: 1 / span 5;
 }
 
-.c4 {
+.c2 {
   grid-column: 1 /span 1;
   grid-row: 1 / span 5;
   margin: 7px;
@@ -43,7 +43,7 @@ exports[`EventItem renders correctly 1`] = `
   max-height: 90%;
 }
 
-.c5 {
+.c3 {
   grid-column: 2;
   grid-row: 1/ span 4;
   text-align: right;
@@ -53,7 +53,7 @@ exports[`EventItem renders correctly 1`] = `
   font-size: 100%;
 }
 
-.c6 {
+.c4 {
   grid-column: 2;
   grid-row: 5;
   text-align: right;
@@ -62,7 +62,7 @@ exports[`EventItem renders correctly 1`] = `
   font-size: 100%;
 }
 
-.c7 {
+.c5 {
   grid-column: 3/5;
   grid-row: 1;
   text-align: left;
@@ -71,7 +71,7 @@ exports[`EventItem renders correctly 1`] = `
   font-size: 100%;
 }
 
-.c8 {
+.c6 {
   grid-column: 3/5;
   grid-row: 2;
   text-align: left;
@@ -79,7 +79,7 @@ exports[`EventItem renders correctly 1`] = `
   font-size: 100%;
 }
 
-.c9 {
+.c7 {
   grid-column: 3/5;
   grid-row: 3;
   text-align: left;
@@ -87,7 +87,7 @@ exports[`EventItem renders correctly 1`] = `
   font-size: 100%;
 }
 
-.c10 {
+.c8 {
   grid-column: 3/5;
   grid-row: 5;
   text-align: left;
@@ -95,12 +95,12 @@ exports[`EventItem renders correctly 1`] = `
   font-size: 100%;
 }
 
-.c11 {
+.c9 {
   type: checkbox;
   display: none;
 }
 
-.c12 {
+.c10 {
   grid-column: 1/6;
   grid-row: 6;
   display: -webkit-box;
@@ -115,7 +115,7 @@ exports[`EventItem renders correctly 1`] = `
   justify-content: space-around;
 }
 
-.c13 {
+.c11 {
   display: inline-block;
   with: fit-content;
   height: -webkit-fit-content;
@@ -131,109 +131,80 @@ exports[`EventItem renders correctly 1`] = `
   text-align: center;
 }
 
-.c0 {
-  list-style: none;
-  marign: 0;
-  margin-bottom: 20px;
-  padding: 4px;
-  text-align: center;
-}
-
-.c1 {
-  margin: 0;
-  background: rgb(96,99,104);
-}
-
-<li
+<section
   className="c0"
+  name="metal"
 >
-  <div
+  <a
     className="c1"
-    onClick={[Function]}
+    href="https://www.wacken-winter-nights.com/fileadmin/_processed_/csm_wwn_20_191024-web_6495c0af7f.jpg"
+    target="blank"
   >
-    <h2>
-      This is the eventname
-       - 
-      This is the eventlocation
-    </h2>
-    <h3>
-      Invalid Date - Invalid Date
-    </h3>
-  </div>
-  <section
-    className="c2"
-    style={
-      Object {
-        "height": 0,
-      }
-    }
+     
+    <img
+      alt="WackenWinterNights Poster"
+      className="c2"
+      src="https://www.wacken-winter-nights.com/fileadmin/_processed_/csm_wwn_20_191024-web_6495c0af7f.jpg"
+    />
+  </a>
+  <p
+    className="c3"
   >
+    Address: 
+  </p>
+  <p
+    className="c4"
+  >
+    Price: 
+  </p>
+  <p
+    className="c5"
+  >
+    WackenWinterNights
+  </p>
+  <p
+    className="c6"
+  >
+    Reselithweg 17
+  </p>
+  <p
+    className="c7"
+  >
+    25596
+     
+    Wacken
+  </p>
+  <p
+    className="c8"
+  >
+    99 €
+     
+  </p>
+  <button
+    className="c9"
+  />
+  <div
+    className="c10"
+  >
+    <button>
+      PackList
+    </button>
     <a
-      className="c3"
-      target="blank"
-    >
-       
-      <img
-        alt="This is the eventname Poster"
-        className="c4"
-        src="https://raw.githubusercontent.com/jennydely/Event-Planner/EventDetails/src/img/defaultImg.jpg"
-      />
-    </a>
-    <p
-      className="c5"
-    >
-      Address: 
-    </p>
-    <p
-      className="c6"
-    >
-      Price: 
-    </p>
-    <p
-      className="c7"
-    >
-      This is the eventname
-    </p>
-    <p
-      className="c8"
-    />
-    <p
-      className="c9"
-    >
-       
-      This is the eventlocation
-    </p>
-    <p
-      className="c10"
-    >
-      kostenlos
-       
-    </p>
-    <button
       className="c11"
-    />
-    <div
-      className="c12"
+      href="https://www.wacken-winter-nights.com/"
+      target="blank"
+      title="link"
     >
-      <button>
-        PackList
-      </button>
-      <a
-        className="c13"
-        target="blank"
-        title="link"
-      >
-        Website
-      </a>
-      <a
-        className="c13"
-        href="https://www.google.de/maps"
-        target="blank"
-        title="link"
-      >
-        Googlemaps
-      </a>
-    </div>
-  </section>
-</li>
+      Website
+    </a>
+    <a
+      className="c11"
+      href="https://www.google.de/maps"
+      target="blank"
+      title="link"
+    >
+      Googlemaps
+    </a>
+  </div>
+</section>
 `;

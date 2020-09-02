@@ -52,7 +52,7 @@ export default createGlobalStyle`
   padding: 2px 4px;
   border: solid 2px rgb(49,42,42);
   border-radius: 6px;
-  background-color:rgba(49,42,42,0.75);
+  background-color:rgb(96,99,104);
   color: rgb(253,230,167);
   font-size: 100%; 
   text-align: center; 

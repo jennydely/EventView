@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import { useSpring } from 'react-spring'
 import useHeight from './useHeight'
 import styled from 'styled-components/macro'

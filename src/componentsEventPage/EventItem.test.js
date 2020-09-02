@@ -3,6 +3,7 @@ import { render } from '@testing-library/react'
 import renderer from 'react-test-renderer'
 import EventItem from './EventItem'
 import 'jest-styled-components'
+const { act } = renderer
 
 describe('EventItem', () => {
     const name = 'This is the eventname'
@@ -19,6 +20,7 @@ describe('EventItem', () => {
             expect(getByText(name + ' - ' + location)).toBeInTheDocument()
             expect(getByText(outputStartDate + '-' + outputEndDate)).toBeInTheDocument()
         }, 100)
+        
     })
     it('renders correctly', () => {
         const tree = renderer.create(<EventItem event={{ name, location, startDate: inputStartDate, endDate: inputEndDate }} />)

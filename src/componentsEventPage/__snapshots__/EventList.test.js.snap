@@ -7,7 +7,6 @@ exports[`EventList renders correctly 1`] = `
 }
 
 .c1 {
-  margin: 0;
   margin-bottom: 5px;
   padding: 0;
   text-align: left;
@@ -16,11 +15,11 @@ exports[`EventList renders correctly 1`] = `
 <ul
   className="c0"
 >
-  <h2
+  <h1
     className="c1"
   >
-    Event 
+    Events 
     2020
-  </h2>
+  </h1>
 </ul>
 `;
