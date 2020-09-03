@@ -38,7 +38,7 @@ export default createGlobalStyle`
   main {
     margin:7px;
     overflow-y:scroll;
-    height:90vh;
+    height:87vh;
   }
 
   footer {

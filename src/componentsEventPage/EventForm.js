@@ -1,6 +1,8 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import styled from 'styled-components/macro'
+import Input from '../common/Input'
+import Label from '../common/Label'
 import PropTypes from 'prop-types'
 
 EventForm.propTypes = {
@@ -19,21 +21,23 @@ export default function EventForm({ onCancel, onSave }) {
     return (
         <>
             <Form onSubmit={handleSubmit(onSubmit)}>
-                <h1>Create Event</h1>
+                <TitleText>Create Event</TitleText>
                 <CategoryInputLabel>
                     Category:
-                    <CategoryInput
-                        name="category"
-                        ref={register({ required: true })}
-                    />
-                </CategoryInputLabel>
+                    </CategoryInputLabel>
+                <CategoryInput
+                    name="category"
+                    ref={register({ required: true })}
+                />
+
                 <NameInputLabel>
                     EventName:
-                    <NameInput
-                        name="name"
-                        ref={register({ required: true, minLength: 3 })}
-                    />
-                </NameInputLabel>
+                    </NameInputLabel>
+                <NameInput
+                    name="name"
+                    ref={register({ required: true, minLength: 3 })}
+                />
+
 
                 {errors.name && errors.name.type === 'required' && (
                     <ErrorMessage>Name is required!</ErrorMessage>
@@ -45,11 +49,12 @@ export default function EventForm({ onCancel, onSave }) {
                 )}
                 <LocationInputLabel>
                     EventLocation:
-                   <LocationInput
-                        name="location"
-                        ref={register({ required: true, minLength: 3 })}
-                    />
-                </LocationInputLabel>
+                    </LocationInputLabel>
+                <LocationInput
+                    name="location"
+                    ref={register({ required: true, minLength: 3 })}
+                />
+
 
                 {errors.location && errors.location.type === 'required' && (
                     <ErrorMessage>Location is required!</ErrorMessage>
@@ -60,14 +65,14 @@ export default function EventForm({ onCancel, onSave }) {
                     </ErrorMessage>
                 )}
 
-                <h2>EventInfos</h2>
-                <StyledInputLabel>
-                    Periode:
-                   <EventStartDateInput
-                        name="eventStartDate"
-                        ref={register({ required: true })}
-                    />
-                </StyledInputLabel>
+                <EventInfosText>EventInfos</EventInfosText>
+                <PeriodeInputLabel>
+                    Periode:</PeriodeInputLabel>
+                <EventStartDateInput
+                    name="eventStartDate"
+                    ref={register({ required: true })}
+                />
+
                 <EventEndDateInput
                     name="eventEndDate"
                     ref={register({ required: true })}
@@ -78,13 +83,14 @@ export default function EventForm({ onCancel, onSave }) {
                         <ErrorMessage>Date is required!</ErrorMessage>
                     )}
 
-                <StyledInputLabel>
+                <AddressInputLabel >
                     Address:
-                   <StyledInput
-                        name="street"
-                        ref={register({ required: true, minLength: 5 })}
-                    />
-                </StyledInputLabel>
+                </AddressInputLabel>
+                   <StreetInput
+                    name="street"
+                    ref={register({ required: true, minLength: 5 })}
+                />
+
 
                 {errors.street && errors.street.type === 'required' && (
                     <ErrorMessage>Street is required!</ErrorMessage>
@@ -95,7 +101,7 @@ export default function EventForm({ onCancel, onSave }) {
                     </ErrorMessage>
                 )}
 
-                <StyledInput
+                <ZipInput
                     name="zip"
                     ref={register({ required: true, minLength: 2 })}
                 />
@@ -109,13 +115,13 @@ export default function EventForm({ onCancel, onSave }) {
                     </ErrorMessage>
                 )}
 
-                <StyledInputLabel>
-                    Website:
-          <StyledInput
-                        name="website"
-                        ref={register({ required: true, minLength: 8 })}
-                    />
-                </StyledInputLabel>
+                <WebsiteInputLabel>
+                    Website:</WebsiteInputLabel>
+                <WebsiteInput
+                    name="website"
+                    ref={register({ required: true, minLength: 8 })}
+                />
+
 
                 {errors.website && errors.website.type === 'required' && (
                     <ErrorMessage>Website is required!</ErrorMessage>
@@ -126,21 +132,21 @@ export default function EventForm({ onCancel, onSave }) {
                     </ErrorMessage>
                 )}
 
-                <StyledInputLabel>
-                    TicketPrice:
-                    <StyledInput
-                        name="price"
-                        ref={register({ required: false })}
-                    />
-                </StyledInputLabel>
+                <PriceInputLabel>
+                    TicketPrice:</PriceInputLabel>
+                <PriceInput
+                    name="price"
+                    ref={register({ required: false })}
+                />
 
-                <StyledInputLabel>
-                    Picture:
-                   <StyledInput
-                        name="poster"
-                        ref={register({ required: false })}
-                    />
-                </StyledInputLabel>
+
+                <PictureInputLabel>
+                    Picture: </PictureInputLabel>
+                <PictureInput
+                    name="poster"
+                    ref={register({ required: false })}
+                />
+
 
                 <ButtonGroup>
                     <button onClick={onCancel} type="button">
@@ -162,111 +168,103 @@ const ErrorMessage = styled.p`
     content: '⚠ ';
   }
 `
-
 const Form = styled.form`
-  display: grid;
-  align-content: start;
-  min-width: 300px;
-  gap: 20px;
-
+display:grid;
+grid-template-columns: repeat(3,auto);
+grid-template-rows: repeat(12,auto) 30px;
+align-content: center;
+min-width: 300px;
+gap: 7px;
 `
-const CategoryInputLabel = styled.label`
-  color: var(--blue-main);
-  font-weight: 400;
-  font-size: 87.5%;
-  line-height: 1.143;
+const TitleText = styled.h1`
+grid-column: 1 / span 3;
+grid-row: 1;
 `
-
-const CategoryInput = styled.input`
-  display: block;
-  width: 100%;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  margin-top: 10px;
-  font-size: 75%;
-  color: var(--blue-main);
+const CategoryInputLabel = styled(Label)`
+grid-column: 1;
+grid-row: 2;
 `
-
-const NameInputLabel = styled.label`
-  color: var(--blue-main);
-  font-weight: 400;
-  font-size: 87.5%;
-  line-height: 1.143;
+const CategoryInput = styled(Input)`
+grid-column: 1;
+grid-row: 3;
 `
-
-const NameInput = styled.input`
-  display: block;
-  width: 100%;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  margin-top: 10px;
-  font-size: 75%;
-  color: var(--blue-main);
+const NameInputLabel = styled(Label)`
+grid-column: 2 / span 2;
+grid-row: 2;
+text-align:left;
 `
-const LocationInputLabel = styled.label`
-  color: var(--blue-main);
-  font-weight: 400;
-  font-size: 87.5%;
-  line-height: 1.143;
+const NameInput = styled(Input)`
+grid-column: 2 / span 2;
+grid-row: 3;
 `
-
-const LocationInput = styled.input`
-  display: block;
-  width: 100%;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  margin-top: 10px;
-  font-size: 75%;
-  color: var(--blue-main);
+const LocationInputLabel = styled(Label)`
+grid-column: 2 / span 2;
+grid-row: 4;
+text-align:left;
 `
-const EventStartDateInput = styled.input`
-  display: block;
-  width: 100%;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  margin-top: 10px;
-  font-size: 75%;
-  color: var(--blue-main);
+const LocationInput = styled(Input)`
+grid-column: 2 / span 2;
+grid-row: 5;
 `
-const EventEndDateInput = styled.input`
-  display: block;
-  width: 100%;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  margin-top: 10px;
-  font-size: 75%;
-  color: var(--blue-main);
+const EventInfosText = styled.h2`
+grid-column: 1/ span 2;
+grid-row: 6;
 `
-
-const StyledInputLabel = styled.label`
-  color: var(--blue-main);
-  font-weight: 400;
-  font-size: 87.5%;
-  line-height: 1.143;
+const PeriodeInputLabel = styled(Label)`
+grid-column: 1;
+grid-row: 7;
 `
-
-const StyledInput = styled.input`
-  display: block;
-  width: 100%;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  margin-top: 10px;
-  font-size: 75%;
-  color: var(--blue-main);
+const EventStartDateInput = styled(Input)`
+grid-column: 2;
+grid-row: 7;
 `
-
+const EventEndDateInput = styled(Input)`
+grid-column: 3;
+grid-row: 7;
+`
+const AddressInputLabel = styled(Label)`
+grid-column: 1;
+grid-row: 8 /span 2 ;
+`
+const StreetInput = styled(Input)`
+grid-column: 2 / span 2;
+grid-row: 8 ;
+`
+const ZipInput = styled(Input)`
+grid-column: 2 / span 2;
+grid-row: 9 ;
+`
+const WebsiteInputLabel = styled(Label)`
+grid-column: 1;
+grid-row: 10;
+`
+const WebsiteInput = styled(Input)`
+grid-column: 2 / span 2;
+grid-row: 10;
+`
+const PriceInputLabel = styled(Label)`
+grid-column: 1;
+grid-row: 11;
+`
+const PriceInput = styled(Input)`
+grid-column: 2 / span 2;
+grid-row: 11;
+`
+const PictureInputLabel = styled(Label)`
+grid-column: 1;
+grid-row: 12;
+`
+const PictureInput = styled(Input)`
+grid-column: 2 / span 2;
+grid-row: 12;
+`
 const ButtonGroup = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
+grid-column: 1 / span 3;
+grid-row: 13;
+display: flex;
+justify-content: space-evenly;
+width: 100%;
 `
-
 const SubmitButton = styled.button`
   background-color: var(--orange-main);
 `

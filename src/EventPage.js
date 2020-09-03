@@ -15,17 +15,22 @@ export default function EventPage() {
             <Header onSelectFilter={setCategoryFilter} />
 
             {formIsVisible ? (
-                <main><EventForm onCancel={onCancel} onSave={onSave} />
+
+                <><main><EventForm onCancel={onCancel} onSave={onSave} />
                 </main>
-            ) : (
-                <>
-                <main><EventList eventArray={eventArray} categoryFilter={categoryFilter} />
-                </main>
-                <footer>
-                 <button onClick={showForm}>Create Event</button>
+                               <footer>
+                    <button onClick={() => !formIsVisible}>Back</button>
                 </footer>
-                </>
-            )}
+                </> 
+            ) : (
+                    <>
+                        <main><EventList eventArray={eventArray} categoryFilter={categoryFilter} />
+                        </main>
+                        <footer>
+                            <button onClick={showForm}>Create Event</button>
+                        </footer>
+                    </>
+                )}
 
         </>
     )
