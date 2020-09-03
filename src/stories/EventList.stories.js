@@ -10,41 +10,46 @@ const Template = (args) => <EventList {...args} />;
 
 export const List = Template.bind({});
 List.args = {
-  categoryFilter: 'all',
+  categoryFilter: 'medieval',
   eventArray: [
     {
       "id": "1",
       "eventName": "Hörnerfest",
       "eventLocation": "Brande-Hörnerkirchen",
-      "eventDate": "2020-06-25 - 2020-06-28",
+      "eventStartDate": "06/25/2020",
+      "eventEndDate": '06/28/2020',
       "category": "medieval"
     },
     {
       "id": "2",
       "eventName": "Rockharz",
       "eventLocation": "Ballenstedt",
-      "eventDate": "2020-06-30 - 2020-07-04",
+      "eventStartDate": "06/30/2020",
+      "eventEndDate": '07/04/2020',
       "category": "metal"
     },
     {
       "id": "3",
       "eventName": "WikingerEvent",
       "eventLocation": "Damp",
-      "eventDate": "2020-08-04 - 2020-08-06",
+      "eventStartDate": "08/04/2020",
+      "eventEndDate": '08/06/2020',
       "category": "sand"
     },
     {
       "id": "4",
       "eventName": "MPS",
       "eventLocation": "Luhmühlen",
-      "eventDate": "2020-08-05 - 2020-08-06",
+      "eventStartDate": "08/05/2020",
+      "eventEndDate": '08/06/2020',
       "category": "medieval"
     },
     {
       "id": "5",
       "eventName": "Stove am Strand",
       "eventLocation": "Stove",
-      "eventDate": "2020-09-25 - 2020-09-27",
+      "eventStartDate": "09/25/2020",
+      "eventEndDate": '09/27/2020',
       "category": "sand"
     },
   ]

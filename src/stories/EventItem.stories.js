@@ -12,9 +12,10 @@ export const EventHeader = Template.bind({});
 EventHeader.args = {
   event: {
     id: '1',
-    eventName: 'Hörnerfest',
-    eventLocation: 'Brande-Hörnerkirchen',
-    eventDate: '2020-06-25 - 2020-06-28',
+    name: 'Hörnerfest',
+    location: 'Brande-Hörnerkirchen',
+    eventStartDate: "06/25/2020",
+    eventEndDate: '06/28/2020',
     category: 'medieval'
   }
 };

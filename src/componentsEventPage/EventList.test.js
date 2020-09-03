@@ -19,7 +19,6 @@ describe('EventList', () => {
         "location": "this is the eventlocation",
         "eventStartDate": "06/25/2021",
         "eventEndDate": "06/28/2021",
-
         "category": "medieval"
     }
 ]
