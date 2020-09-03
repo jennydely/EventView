@@ -1,18 +1,14 @@
 import React from 'react';
-
-import { Header } from './Header';
+import Header from '../componentsEventPage/Header';
 
 export default {
-  title: 'Example/Header',
+  title: 'EventPlanner/Header',
   component: Header,
 };
 
 const Template = (args) => <Header {...args} />;
 
-export const LoggedIn = Template.bind({});
-LoggedIn.args = {
-  user: {},
+export const EventHeader = Template.bind({});
+EventHeader.args = {
+    name: 'all'
 };
-
-export const LoggedOut = Template.bind({});
-LoggedOut.args = {};
