@@ -8,20 +8,15 @@ import useEvents from './componentsEventPage/useEvents'
 export default function EventPage() {
     const [categoryFilter, setCategoryFilter] = useState('all')
     const { eventArray, addEvent } = useEvents()
-    const { formIsVisible, showForm, onSave, onCancel } = useEventForm(addEvent)
+    const { formIsVisible, showForm, onSave, goBack } = useEventForm(addEvent)
 
     return (
         <>
             <Header onSelectFilter={setCategoryFilter} />
 
             {formIsVisible ? (
-
-                <><main><EventForm onCancel={onCancel} onSave={onSave} />
+                <main><EventForm goBack={goBack} onSave={onSave} />
                 </main>
-                               <footer>
-                    <button onClick={() => !formIsVisible}>Back</button>
-                </footer>
-                </> 
             ) : (
                     <>
                         <main><EventList eventArray={eventArray} categoryFilter={categoryFilter} />
@@ -31,7 +26,6 @@ export default function EventPage() {
                         </footer>
                     </>
                 )}
-
         </>
     )
 }

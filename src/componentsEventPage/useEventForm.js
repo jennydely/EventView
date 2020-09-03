@@ -10,7 +10,7 @@ export default function useEventForm(addEvent) {
     setFormIsVisible(false)
   }
 
-  const onCancel = () => setFormIsVisible(false)
+  const goBack = () => setFormIsVisible(false)
 
-  return { formIsVisible, showForm, onSave, onCancel }
+  return { formIsVisible, showForm, onSave, goBack }
 }

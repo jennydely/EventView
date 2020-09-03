@@ -10,7 +10,7 @@ EventForm.propTypes = {
     onCancel: PropTypes.func.isRequired,
 }
 
-export default function EventForm({ onCancel, onSave }) {
+export default function EventForm({ onSave, goBack }) {
     const { register, handleSubmit, errors } = useForm()
 
     const onSubmit = (eventEntry, event) => {
@@ -22,18 +22,20 @@ export default function EventForm({ onCancel, onSave }) {
         <>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <TitleText>Create Event</TitleText>
-                <CategoryInputLabel>
+                <CategoryInputLabel id="category">
                     Category:
                     </CategoryInputLabel>
                 <CategoryInput
                     name="category"
+                    htmlFor="category"
                     ref={register({ required: true })}
                 />
 
-                <NameInputLabel>
+                <NameInputLabel id="name">
                     EventName:
                     </NameInputLabel>
                 <NameInput
+                    htmlFor="name"
                     name="name"
                     ref={register({ required: true, minLength: 3 })}
                 />
@@ -47,10 +49,11 @@ export default function EventForm({ onCancel, onSave }) {
                         This field requires at least 3 characters!
                     </ErrorMessage>
                 )}
-                <LocationInputLabel>
+                <LocationInputLabel id="location">
                     EventLocation:
                     </LocationInputLabel>
                 <LocationInput
+                    htmlFor="location"
                     name="location"
                     ref={register({ required: true, minLength: 3 })}
                 />
@@ -66,14 +69,16 @@ export default function EventForm({ onCancel, onSave }) {
                 )}
 
                 <EventInfosText>EventInfos</EventInfosText>
-                <PeriodeInputLabel>
+                <PeriodeInputLabel id="EventStartDate">
                     Periode:</PeriodeInputLabel>
-                <EventStartDateInput
+                <EventStartDateInput 
+                    htmlFor="EventStartDate"
                     name="eventStartDate"
                     ref={register({ required: true })}
                 />
 
                 <EventEndDateInput
+                    htmlFor="EventEndDate"
                     name="eventEndDate"
                     ref={register({ required: true })}
                 />
@@ -83,10 +88,11 @@ export default function EventForm({ onCancel, onSave }) {
                         <ErrorMessage>Date is required!</ErrorMessage>
                     )}
 
-                <AddressInputLabel >
+                <AddressInputLabel id="street">
                     Address:
                 </AddressInputLabel>
                    <StreetInput
+                    htmlFor="Street"
                     name="street"
                     ref={register({ required: true, minLength: 5 })}
                 />
@@ -102,6 +108,7 @@ export default function EventForm({ onCancel, onSave }) {
                 )}
 
                 <ZipInput
+                    htmlFor="zip"
                     name="zip"
                     ref={register({ required: true, minLength: 2 })}
                 />
@@ -115,9 +122,10 @@ export default function EventForm({ onCancel, onSave }) {
                     </ErrorMessage>
                 )}
 
-                <WebsiteInputLabel>
+                <WebsiteInputLabel id="website">
                     Website:</WebsiteInputLabel>
                 <WebsiteInput
+                    htmlFor="website"
                     name="website"
                     ref={register({ required: true, minLength: 8 })}
                 />
@@ -132,30 +140,37 @@ export default function EventForm({ onCancel, onSave }) {
                     </ErrorMessage>
                 )}
 
-                <PriceInputLabel>
+                <PriceInputLabel id="price">
                     TicketPrice:</PriceInputLabel>
                 <PriceInput
+                    htmlFor="price"
                     name="price"
                     ref={register({ required: false })}
                 />
 
 
-                <PictureInputLabel>
+                <PictureInputLabel id="poster">
                     Picture: </PictureInputLabel>
                 <PictureInput
+                    htmlFor="poster"
                     name="poster"
                     ref={register({ required: false })}
                 />
 
 
                 <ButtonGroup>
-                    <button onClick={onCancel} type="button">
-                        Cancel
+                    <button type="reset" >
+                        Reset
                     </button>
                     <SubmitButton type="submit">Save</SubmitButton>
                 </ButtonGroup>
             </Form>
-        </>
+            <>
+            <footer>
+            <button type="button" onClick={goBack}>Back</button>
+            </footer>
+            </>
+            </>
     )
 }
 
