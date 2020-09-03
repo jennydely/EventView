@@ -7,6 +7,7 @@ export default function useEventForm(addEvent) {
 
   const onSave = (event) => {
     addEvent(event)
+    
     setFormIsVisible(false)
   }
 
