@@ -31,15 +31,19 @@ export default createGlobalStyle`
   }
   header {
     display:flex;
+    justify-content:space-between;
     height:5vh;
   }
 
   main {
+    margin:7px;
     overflow-y:scroll;
     height:90vh;
   }
 
   footer {
+    display:flex;
+    justify-content:center;
     height:5vh;
   }
 

@@ -168,6 +168,7 @@ const Form = styled.form`
   align-content: start;
   min-width: 300px;
   gap: 20px;
+
 `
 const CategoryInputLabel = styled.label`
   color: var(--blue-main);

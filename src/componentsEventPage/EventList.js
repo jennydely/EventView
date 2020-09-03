@@ -1,10 +1,8 @@
 import React from 'react'
 import EventItem from './EventItem'
 import styled from 'styled-components/macro'
-import EventForm from './EventForm'
-import useEventForm from './useEventForm'
 
-export default function EventList({ eventArray, categoryFilter, addEvent }) {
+export default function EventList({ eventArray, categoryFilter}) {
     eventArray.sort((event1, event2) => event1.eventStartDate > event2.eventStartDate)
     const filteredEvents = eventArray.filter(event => categoryFilter === 'all' || event.category === categoryFilter)
     const currentYearString = new Date().getFullYear().toString()
@@ -13,16 +11,9 @@ export default function EventList({ eventArray, categoryFilter, addEvent }) {
         if (!years.includes(eventYear) && eventYear >= currentYearString) years.push(eventYear)
         return years
     }, [currentYearString])
-
-    const { formIsVisible, onSave, onCancel } = useEventForm(addEvent)
-
+   
     return (
         <>
-
-            {formIsVisible ? (
-                <EventForm onCancel={onCancel} onSave={onSave} />
-            ) : (
-                    <>
                         {availableYears.map(year => (
                             <EventContainer key={year}>
                                 <EventYearHeadline>Events {year}</EventYearHeadline>
@@ -31,9 +22,7 @@ export default function EventList({ eventArray, categoryFilter, addEvent }) {
                                 )}
                             </EventContainer>
                         ))}
-                    </>
-                )}
-        </>
+            </>
     )
 }
 
