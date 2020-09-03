@@ -1,0 +1,239 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventItem renders correctly 1`] = `
+.c2 {
+  display: grid;
+  grid-template-columns: 20% repeat(4,auto);
+  grid-template-rows: repeat(7,auto) 30px auto;
+  margin: 0;
+  margin-top: -2px;
+  border: 2px solid rgb(96,99,104);
+  border-top: 0;
+  overflow: hidden;
+}
+
+.c2::before,
+.c2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.c2::before {
+  height: 0;
+}
+
+.c2::after {
+  height: 8px;
+  bottom: 0;
+}
+
+.c3 {
+  grid-column: 1;
+  grid-row: 1 / span 5;
+}
+
+.c4 {
+  grid-column: 1 /span 1;
+  grid-row: 1 / span 5;
+  margin: 7px;
+  object-fit: cover;
+  width: 90%;
+  max-height: 90%;
+}
+
+.c5 {
+  grid-column: 2;
+  grid-row: 1/ span 4;
+  text-align: right;
+  margin: 4px;
+  margin-top: 7px;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.c6 {
+  grid-column: 2;
+  grid-row: 5;
+  text-align: right;
+  margin: 4px;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.c7 {
+  grid-column: 3/5;
+  grid-row: 1;
+  text-align: left;
+  margin: 4px;
+  margin-top: 7px;
+  font-size: 100%;
+}
+
+.c8 {
+  grid-column: 3/5;
+  grid-row: 2;
+  text-align: left;
+  margin: 4px;
+  font-size: 100%;
+}
+
+.c9 {
+  grid-column: 3/5;
+  grid-row: 3;
+  text-align: left;
+  margin: 4px;
+  font-size: 100%;
+}
+
+.c10 {
+  grid-column: 3/5;
+  grid-row: 5;
+  text-align: left;
+  margin: 4px;
+  font-size: 100%;
+}
+
+.c11 {
+  type: checkbox;
+  display: none;
+}
+
+.c12 {
+  grid-column: 1/6;
+  grid-row: 6;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  with: 100%;
+  padding: 7px;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+}
+
+.c13 {
+  display: inline-block;
+  with: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 2px;
+  padding: 0.3px 4px;
+  border: solid 2px rgb(49,42,42);
+  border-radius: 6px;
+  background-color: rgba(49,42,42,0.75);
+  color: rgb(187,148,87);
+  font-size: 100%;
+  text-align: center;
+}
+
+.c0 {
+  list-style: none;
+  marign: 0;
+  margin-bottom: 20px;
+  padding: 4px;
+  text-align: center;
+}
+
+.c1 {
+  margin: 0;
+  background: rgb(96,99,104);
+}
+
+<li
+  className="c0"
+>
+  <div
+    className="c1"
+    onClick={[Function]}
+  >
+    <h2>
+      This is the eventname
+       - 
+      This is the eventlocation
+    </h2>
+    <h3>
+      Invalid Date - Invalid Date
+    </h3>
+  </div>
+  <section
+    className="c2"
+    style={
+      Object {
+        "height": 0,
+      }
+    }
+  >
+    <a
+      className="c3"
+      target="blank"
+    >
+       
+      <img
+        alt="This is the eventname Poster"
+        className="c4"
+        src="https://raw.githubusercontent.com/jennydely/Event-Planner/EventDetails/src/img/defaultImg.jpg"
+      />
+    </a>
+    <p
+      className="c5"
+    >
+      Address: 
+    </p>
+    <p
+      className="c6"
+    >
+      Price: 
+    </p>
+    <p
+      className="c7"
+    >
+      This is the eventname
+    </p>
+    <p
+      className="c8"
+    />
+    <p
+      className="c9"
+    >
+       
+      This is the eventlocation
+    </p>
+    <p
+      className="c10"
+    >
+      kostenlos
+       
+    </p>
+    <button
+      className="c11"
+    />
+    <div
+      className="c12"
+    >
+      <button>
+        PackList
+      </button>
+      <a
+        className="c13"
+        target="blank"
+        title="link"
+      >
+        Website
+      </a>
+      <a
+        className="c13"
+        href="https://www.google.de/maps"
+        target="blank"
+        title="link"
+      >
+        Googlemaps
+      </a>
+    </div>
+  </section>
+</li>
+`;

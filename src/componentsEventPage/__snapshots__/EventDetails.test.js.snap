@@ -1,0 +1,231 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventDetails renders correctly 1`] = `
+.c0 {
+  display: grid;
+  grid-template-columns: 20% repeat(4,auto);
+  grid-template-rows: repeat(8,auto) 30px auto;
+  margin: 0;
+  margin-top: -2px;
+  border: 2px solid rgba(49,42,42,0.75);
+  border-top: 0;
+  overflow: hidden;
+}
+
+.c0::before,
+.c0::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.c0::before {
+  height: 0;
+}
+
+.c0::after {
+  height: 8px;
+  bottom: 0;
+}
+
+.c1 {
+  grid-column: 1;
+  grid-row: 1 / span 5;
+}
+
+.c2 {
+  grid-column: 1 /span 1;
+  grid-row: 1 / span 5;
+  margin: 7px;
+  object-fit: cover;
+  width: 90%;
+  max-height: 90%;
+}
+
+.c3 {
+  grid-column: 2;
+  grid-row: 1/ span 4;
+  text-align: right;
+  margin: 2px;
+  margin-top: 7px;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.c4 {
+  grid-column: 2;
+  grid-row: 5;
+  text-align: right;
+  margin: 2px;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.c9 {
+  grid-column: 2;
+  grid-row: 6;
+  text-align: right;
+  margin: 2px;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.c5 {
+  grid-column: 3/5;
+  grid-row: 1;
+  text-align: left;
+  margin: 2px;
+  margin-top: 7px;
+  font-size: 100%;
+}
+
+.c6 {
+  grid-column: 3/5;
+  grid-row: 2;
+  text-align: left;
+  margin: 2px;
+  font-size: 100%;
+}
+
+.c7 {
+  grid-column: 3/5;
+  grid-row: 3;
+  text-align: left;
+  margin: 2px;
+  font-size: 100%;
+}
+
+.c8 {
+  grid-column: 3/5;
+  grid-row: 5;
+  text-align: left;
+  margin: 2px;
+  font-size: 100%;
+}
+
+.c10 {
+  grid-column: 3;
+  grid-row: 6;
+  text-align: right;
+  margin: 2px;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.c11 {
+  grid-column: 1/6;
+  grid-row: 7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  with: 100%;
+  padding: 7px;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+}
+
+.c12 {
+  display: inline-block;
+  with: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 2px;
+  padding: 0.3px 4px;
+  border: solid 2px rgb(49,42,42);
+  border-radius: 6px;
+  background-color: rgba(49,42,42,0.75);
+  color: rgb(187,148,87);
+  font-size: 100%;
+  text-align: center;
+}
+
+<section
+  className="c0"
+  name="metal"
+>
+  <a
+    className="c1"
+    href="https://www.wacken-winter-nights.com/fileadmin/_processed_/csm_wwn_20_191024-web_6495c0af7f.jpg"
+    target="blank"
+  >
+     
+    <img
+      alt="WackenWinterNights Poster"
+      className="c2"
+      src="https://www.wacken-winter-nights.com/fileadmin/_processed_/csm_wwn_20_191024-web_6495c0af7f.jpg"
+    />
+  </a>
+  <p
+    className="c3"
+  >
+    Address: 
+  </p>
+  <p
+    className="c4"
+  >
+    Price: 
+  </p>
+  <p
+    className="c5"
+  >
+    WackenWinterNights
+  </p>
+  <p
+    className="c6"
+  >
+    Reselithweg 17
+  </p>
+  <p
+    className="c7"
+  >
+    25596
+     
+    Wacken
+  </p>
+  <p
+    className="c8"
+  >
+    99 €
+     
+  </p>
+  <label
+    className="c9"
+    id="Ticket"
+  >
+    Ticket
+  </label>
+  <input
+    className="c10"
+    htmlFor="Ticket"
+    type="checkbox"
+  />
+  <div
+    className="c11"
+  >
+    <button>
+      PackList
+    </button>
+    <a
+      className="c12"
+      href="https://www.wacken-winter-nights.com/"
+      target="blank"
+      title="link"
+    >
+      Website
+    </a>
+    <a
+      className="c12"
+      href="https://www.google.de/maps"
+      target="blank"
+      title="link"
+    >
+      Googlemaps
+    </a>
+  </div>
+</section>
+`;

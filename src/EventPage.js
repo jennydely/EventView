@@ -10,7 +10,9 @@ export default function EventPage() {
     return (
         <>
             <Header onSelectFilter={setCategoryFilter} />
-                <EventList eventArray={eventArray} categoryFilter={categoryFilter}/>
+            <main>
+                <EventList eventArray={eventArray} categoryFilter={categoryFilter} />
+            </main>
         </>
 
     )

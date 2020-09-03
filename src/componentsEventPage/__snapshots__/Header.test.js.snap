@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+.c1 {
+  margin: 5px;
+  backgroundcolor: grey;
+}
+
+.c2 {
+  background: rgba(49,42,42,0.75);
+}
+
+.c3 {
+  background: rgba(67,40,24,0.70);
+}
+
+.c4 {
+  background: rgba(248,149,17,0.46);
+}
+
+.c5 {
+  background: rgba(153,88,42,0.70);
+}
+
+.c0 {
+  margin: 5px;
+}
+
+<header>
+  <div
+    className="c0"
+  >
+    <button
+      name="all"
+      onClick={[Function]}
+    >
+      All
+    </button>
+  </div>
+  <div
+    className="c1"
+  >
+    <button
+      className="c2"
+      name="metal"
+      onClick={[Function]}
+    >
+      metal
+    </button>
+    <button
+      className="c3"
+      name="medieval"
+      onClick={[Function]}
+    >
+      medieval
+    </button>
+    <button
+      className="c4"
+      name="sand"
+      onClick={[Function]}
+    >
+      sand
+    </button>
+    <button
+      className="c5"
+      name="other"
+      onClick={[Function]}
+    >
+      otters
+    </button>
+  </div>
+</header>
+`;
