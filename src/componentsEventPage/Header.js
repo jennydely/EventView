@@ -15,4 +15,5 @@ export default function Header({ onSelectFilter }) {
 
 const ButtonContainer = styled.div`
    margin: 5px;
+   width: wh%;
 `

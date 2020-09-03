@@ -1,17 +1,17 @@
-import events from '../mockDB/events.json'
+import eventArray from '../mockDB/events.json'
 import { v4 as uuid } from 'uuid'
 import { loadFromLocal, saveToLocal } from './localStorage'
 
 export function getEvents() {
   return loadFromLocal('events').catch(() => {
-    return events
+    return eventArray
   })
 }
 
-export function postEvents(event) {
-  const newEvent = { ...event, _id: uuid() }
+export function postEvent (eventArray) {
+  const newEvent = { ...eventArray, _id: uuid() }
   return getEvents()
-    .then((events) => [newEvent, ...events])
-    .then((events) => saveToLocal('events', events))
+    .then((eventArray) => [newEvent, ...eventArray])
+    .then((eventArray) => saveToLocal('eventArray', eventArray))
     .then(() => newEvent)
 }

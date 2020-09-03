@@ -29,9 +29,8 @@ export default createGlobalStyle`
     font-size: 112%;
     margin:0;
   }
-
-
   header {
+    display:flex;
     height:5vh;
   }
 
