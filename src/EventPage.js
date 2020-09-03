@@ -14,10 +14,17 @@ export default function EventPage() {
         <>
             <Header onSelectFilter={setCategoryFilter} />
 
-            {formIsVisible ? (
-                <main><EventForm goBack={goBack} onSave={onSave} />
-                </main>
-            ) : (
+            {formIsVisible ?
+                (<>
+                    <main><EventForm onSave={onSave} />
+                    </main>
+
+                    <footer>
+                        <button type="button" onClick={goBack}>Back</button>
+                    </footer>
+                </>
+
+                ) : (
                     <>
                         <main><EventList eventArray={eventArray} categoryFilter={categoryFilter} />
                         </main>

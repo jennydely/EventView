@@ -53,7 +53,7 @@ export default createGlobalStyle`
   height:fit-content;
   margin: 2px;
   padding: 2px 4px;
-  border: solid 2px rgb(49,42,42);
+  border: none;
   border-radius: 6px;
   background-color:rgb(96,99,104);
   color: rgb(253,230,167);

@@ -10,7 +10,7 @@ EventForm.propTypes = {
     onCancel: PropTypes.func.isRequired,
 }
 
-export default function EventForm({ onSave, goBack }) {
+export default function EventForm({ onSave }) {
     const { register, handleSubmit, errors } = useForm()
 
     const onSubmit = (eventEntry, event) => {
@@ -26,20 +26,24 @@ export default function EventForm({ onSave, goBack }) {
                     Category:
                     </CategoryInputLabel>
                 <CategoryInput
+                    placeholder="Choose a category"
                     name="category"
                     htmlFor="category"
                     ref={register({ required: true })}
                 />
+                {errors.category && errors.category.type === 'required' && (
+                    <ErrorMessage>Category is required!</ErrorMessage>
+                )}
 
                 <NameInputLabel id="name">
                     EventName:
                     </NameInputLabel>
                 <NameInput
+                    placeholder="event name"
                     htmlFor="name"
                     name="name"
                     ref={register({ required: true, minLength: 3 })}
                 />
-
 
                 {errors.name && errors.name.type === 'required' && (
                     <ErrorMessage>Name is required!</ErrorMessage>
@@ -49,10 +53,11 @@ export default function EventForm({ onSave, goBack }) {
                         This field requires at least 3 characters!
                     </ErrorMessage>
                 )}
-                <LocationInputLabel id="location">
+                <LocationInputLabel id="location" >
                     EventLocation:
                     </LocationInputLabel>
                 <LocationInput
+                    placeholder="location of the event"
                     htmlFor="location"
                     name="location"
                     ref={register({ required: true, minLength: 3 })}
@@ -72,12 +77,14 @@ export default function EventForm({ onSave, goBack }) {
                 <PeriodeInputLabel id="EventStartDate">
                     Periode:</PeriodeInputLabel>
                 <EventStartDateInput 
+                    placeholder="dd.mm.yyyy"
                     htmlFor="EventStartDate"
                     name="eventStartDate"
                     ref={register({ required: true })}
                 />
 
-                <EventEndDateInput
+                <EventEndDateInput 
+                    placeholder="dd.mm.yyyy"
                     htmlFor="EventEndDate"
                     name="eventEndDate"
                     ref={register({ required: true })}
@@ -91,7 +98,8 @@ export default function EventForm({ onSave, goBack }) {
                 <AddressInputLabel id="street">
                     Address:
                 </AddressInputLabel>
-                   <StreetInput
+                <StreetInput 
+                    placeholder="street + number"
                     htmlFor="Street"
                     name="street"
                     ref={register({ required: true, minLength: 5 })}
@@ -108,6 +116,7 @@ export default function EventForm({ onSave, goBack }) {
                 )}
 
                 <ZipInput
+                    placeholder="zip"
                     htmlFor="zip"
                     name="zip"
                     ref={register({ required: true, minLength: 2 })}
@@ -125,6 +134,7 @@ export default function EventForm({ onSave, goBack }) {
                 <WebsiteInputLabel id="website">
                     Website:</WebsiteInputLabel>
                 <WebsiteInput
+                    placeholder="http://www.website.de"
                     htmlFor="website"
                     name="website"
                     ref={register({ required: true, minLength: 8 })}
@@ -143,20 +153,20 @@ export default function EventForm({ onSave, goBack }) {
                 <PriceInputLabel id="price">
                     TicketPrice:</PriceInputLabel>
                 <PriceInput
+                    placeholder="ticket price or range"
                     htmlFor="price"
                     name="price"
                     ref={register({ required: false })}
                 />
 
-
                 <PictureInputLabel id="poster">
                     Picture: </PictureInputLabel>
                 <PictureInput
+                    placeholder="src link http://www.website.de/banner.jpg"
                     htmlFor="poster"
                     name="poster"
                     ref={register({ required: false })}
                 />
-
 
                 <ButtonGroup>
                     <button type="reset" >
@@ -165,12 +175,7 @@ export default function EventForm({ onSave, goBack }) {
                     <SubmitButton type="submit">Save</SubmitButton>
                 </ButtonGroup>
             </Form>
-            <>
-            <footer>
-            <button type="button" onClick={goBack}>Back</button>
-            </footer>
-            </>
-            </>
+        </>
     )
 }
 
@@ -198,6 +203,7 @@ grid-row: 1;
 const CategoryInputLabel = styled(Label)`
 grid-column: 1;
 grid-row: 2;
+text-align:left;
 `
 const CategoryInput = styled(Input)`
 grid-column: 1;
@@ -279,8 +285,9 @@ grid-row: 13;
 display: flex;
 justify-content: space-evenly;
 width: 100%;
+margin-top: 50px;
 `
 const SubmitButton = styled.button`
-  background-color: var(--orange-main);
+  background-color: rgba(111,29,27,0.75);
 `
 
