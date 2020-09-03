@@ -9,7 +9,7 @@ export default function CategoryFilter ({ onSelectFilter }) {
       <CategoryButton name="metal"  onClick={() => onSelectFilter('metal')}>metal</CategoryButton>
       <CategoryButton name="medieval" onClick={() => onSelectFilter('medieval')}>medieval</CategoryButton>
       <CategoryButton name="sand"  onClick={() => onSelectFilter('sand')}>sand</CategoryButton>  
-      <CategoryButton name="other"  onClick={() => onSelectFilter('other')}>otters</CategoryButton>
+      <CategoryButton name="other"  onClick={() => onSelectFilter('other')}>others</CategoryButton>
       </FilterContainer>
   )
 }  
