@@ -1,10 +1,11 @@
 import React from 'react'
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import styled from 'styled-components/macro'
 import Input from '../common/Input'
 import Label from '../common/Label'
-import ErrorMessage  from '../common/ErrorMessage'
+import ErrorMessage from '../common/ErrorMessage'
 import PropTypes from 'prop-types'
+import ReactDatePicker from "react-datepicker";
 
 EventForm.propTypes = {
     onSave: PropTypes.func.isRequired,
@@ -12,7 +13,7 @@ EventForm.propTypes = {
 }
 
 export default function EventForm({ onSave }) {
-    const { register, handleSubmit, errors } = useForm()
+    const { register, handleSubmit, control, errors } = useForm()
     const onSubmit = (eventEntry, event) => {
         event.target.reset()
         onSave(eventEntry)
@@ -25,7 +26,7 @@ export default function EventForm({ onSave }) {
                 <CategoryInputLabel id="category">
                     Category:
                     </CategoryInputLabel>
-                   <CategoryInput
+                <CategoryInput
                     placeholder="Choose a category"
                     name="category"
                     htmlFor="category"
@@ -76,37 +77,46 @@ export default function EventForm({ onSave }) {
                 <EventInfosText>EventInfos</EventInfosText>
                 <DurationInputLabel id="EventStartDate">
                     Duration:</DurationInputLabel>
-                <EventStartDateInput 
+                <Controller
+                    as={ReactDatePicker}
+                    control={control}
+                    valueName="selected" // DateSelect value's name is selected
+                    onChange={([selected]) => selected}
+                    name="ReactDatepicker"
+                    className="input"
+                    placeholderText="Select date"
+                />
+                <EventStartDateInput
                     placeholder="yyyy-mm-dd"
                     htmlFor="EventStartDate"
                     name="eventStartDate"
-                    ref={register({ 
+                    ref={register({
                         required: true,
-                        date: true,
-                        delimiter: '-',
-                        datePattern: ['Y', 'm', 'd'] })}
+                        pattern: /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/,
+                    })}
                 />
 
-                <EventEndDateInput 
+                <EventEndDateInput
                     placeholder="yyyy-mm-dd"
                     htmlFor="EventEndDate"
+
                     name="eventEndDate"
                     ref={register({
                         required: true,
-                        date: true,
-                        delimiter: '-',
-                        datePattern: ['YYYY', 'mm', 'dd'] })}
+                        pattern: /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/,
+                        message: "Date must be written like: yyyy-mm-dd",
+                    })}
                 />
                 {errors.eventStartDate && errors.eventStartDate.type === 'required' &&
                     errors.eventEndDate && errors.eventEndDate.type === 'required' &&
                     (
-                        <ErrorMessageDate>Date is required!</ErrorMessageDate>
+                        <ErrorMessageDate>Date is required and needs the right form!</ErrorMessageDate>
                     )}
 
                 <AddressInputLabel id="street">
                     Address:
                 </AddressInputLabel>
-                <StreetInput 
+                <StreetInput
                     placeholder="street + number"
                     htmlFor="Street"
                     name="street"
@@ -145,9 +155,9 @@ export default function EventForm({ onSave }) {
                     placeholder="http://www.website.de"
                     htmlFor="website"
                     name="website"
-                    ref={register({ 
-                        required: true, 
-                        minLength: 8, 
+                    ref={register({
+                        required: true,
+                        minLength: 8,
                         pattern: /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/,
                     })}
                 />
