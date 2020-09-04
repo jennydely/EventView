@@ -10,7 +10,7 @@ export default function useEvents() {
   }, [])
 
   const addEvent = (event) => {
-    postEvent(Event)
+    postEvent(event)
       .then((newEvent) => setEventArray([newEvent, ...eventArray]))
       .catch(setError)
   }

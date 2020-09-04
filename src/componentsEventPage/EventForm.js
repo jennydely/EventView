@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import styled from 'styled-components/macro'
 import Input from '../common/Input'
 import Label from '../common/Label'
+import ErrorMessage  from '../common/ErrorMessage'
 import PropTypes from 'prop-types'
 
 EventForm.propTypes = {
@@ -12,7 +13,6 @@ EventForm.propTypes = {
 
 export default function EventForm({ onSave }) {
     const { register, handleSubmit, errors } = useForm()
-
     const onSubmit = (eventEntry, event) => {
         event.target.reset()
         onSave(eventEntry)
@@ -25,14 +25,14 @@ export default function EventForm({ onSave }) {
                 <CategoryInputLabel id="category">
                     Category:
                     </CategoryInputLabel>
-                <CategoryInput
+                   <CategoryInput
                     placeholder="Choose a category"
                     name="category"
                     htmlFor="category"
                     ref={register({ required: true })}
                 />
                 {errors.category && errors.category.type === 'required' && (
-                    <ErrorMessage>Category is required!</ErrorMessage>
+                    <ErrorMessageCategoryReq>Category is required!</ErrorMessageCategoryReq>
                 )}
 
                 <NameInputLabel id="name">
@@ -46,12 +46,12 @@ export default function EventForm({ onSave }) {
                 />
 
                 {errors.name && errors.name.type === 'required' && (
-                    <ErrorMessage>Name is required!</ErrorMessage>
+                    <ErrorMessageNameReq>Name is required!</ErrorMessageNameReq>
                 )}
                 {errors.name && errors.name.type === 'minLength' && (
-                    <ErrorMessage>
+                    <ErrorMessageName>
                         This field requires at least 3 characters!
-                    </ErrorMessage>
+                    </ErrorMessageName>
                 )}
                 <LocationInputLabel id="location" >
                     EventLocation:
@@ -65,17 +65,17 @@ export default function EventForm({ onSave }) {
 
 
                 {errors.location && errors.location.type === 'required' && (
-                    <ErrorMessage>Location is required!</ErrorMessage>
+                    <ErrorMessageLocationReq>Location is required!</ErrorMessageLocationReq>
                 )}
                 {errors.location && errors.location.type === 'minLength' && (
-                    <ErrorMessage>
+                    <ErrorMessageLocation>
                         This field requires at least 3 characters!
-                    </ErrorMessage>
+                    </ErrorMessageLocation>
                 )}
 
                 <EventInfosText>EventInfos</EventInfosText>
-                <PeriodeInputLabel id="EventStartDate">
-                    Periode:</PeriodeInputLabel>
+                <DurationInputLabel id="EventStartDate">
+                    Duration:</DurationInputLabel>
                 <EventStartDateInput 
                     placeholder="yyyy-mm-dd"
                     htmlFor="EventStartDate"
@@ -100,7 +100,7 @@ export default function EventForm({ onSave }) {
                 {errors.eventStartDate && errors.eventStartDate.type === 'required' &&
                     errors.eventEndDate && errors.eventEndDate.type === 'required' &&
                     (
-                        <ErrorMessage>Date is required!</ErrorMessage>
+                        <ErrorMessageDate>Date is required!</ErrorMessageDate>
                     )}
 
                 <AddressInputLabel id="street">
@@ -115,12 +115,12 @@ export default function EventForm({ onSave }) {
 
 
                 {errors.street && errors.street.type === 'required' && (
-                    <ErrorMessage>Street is required!</ErrorMessage>
+                    <ErrorMessageStreetReq>Street is required!</ErrorMessageStreetReq>
                 )}
                 {errors.street && errors.street.type === 'minLength' && (
-                    <ErrorMessage>
+                    <ErrorMessageStreet>
                         This field requires at least 5 characters!
-                    </ErrorMessage>
+                    </ErrorMessageStreet>
                 )}
 
                 <ZipInput
@@ -131,12 +131,12 @@ export default function EventForm({ onSave }) {
                 />
 
                 {errors.zip && errors.zip.type === 'required' && (
-                    <ErrorMessage>Zip is required!</ErrorMessage>
+                    <ErrorMessageZipReq>Zip is required!</ErrorMessageZipReq>
                 )}
                 {errors.zip && errors.zip.type === 'minLength' && (
-                    <ErrorMessage>
+                    <ErrorMessageZip>
                         This field requires at least 2 characters!
-                    </ErrorMessage>
+                    </ErrorMessageZip>
                 )}
 
                 <WebsiteInputLabel id="website">
@@ -154,12 +154,12 @@ export default function EventForm({ onSave }) {
 
 
                 {errors.website && errors.website.type === 'required' && (
-                    <ErrorMessage>Website is required!</ErrorMessage>
+                    <ErrorMessageWebsiteReq>Website is required!</ErrorMessageWebsiteReq>
                 )}
                 {errors.website && errors.website.type === 'minLength' && (
-                    <ErrorMessage>
+                    <ErrorMessageWebsite>
                         This field requires at least 8 characters!
-                    </ErrorMessage>
+                    </ErrorMessageWebsite>
                 )}
 
                 <PriceInputLabel id="price">
@@ -191,22 +191,15 @@ export default function EventForm({ onSave }) {
     )
 }
 
-const ErrorMessage = styled.p`
-  color: var(--orange-main);
-  font-size: 75%;
 
-  ::before {
-    display: inline;
-    content: '⚠ ';
-  }
-`
+
 const Form = styled.form`
 display:grid;
 grid-template-columns: repeat(3,auto);
-grid-template-rows: repeat(12,auto) 30px;
+grid-template-rows: repeat(18,auto) 30px;
 align-content: center;
 min-width: 300px;
-gap: 7px;
+gap: 4px;
 `
 const TitleText = styled.h1`
 grid-column: 1 / span 3;
@@ -221,6 +214,11 @@ const CategoryInput = styled(Input)`
 grid-column: 1;
 grid-row: 3;
 `
+const ErrorMessageCategoryReq = styled(ErrorMessage)`
+grid-column: 1;
+grid-row: 4;
+`
+
 const NameInputLabel = styled(Label)`
 grid-column: 2 / span 2;
 grid-row: 2;
@@ -230,74 +228,130 @@ const NameInput = styled(Input)`
 grid-column: 2 / span 2;
 grid-row: 3;
 `
-const LocationInputLabel = styled(Label)`
+
+const ErrorMessageNameReq = styled(ErrorMessage)`
 grid-column: 2 / span 2;
 grid-row: 4;
+`
+const ErrorMessageName = styled(ErrorMessage)`
+grid-column: 2 / span 2;
+grid-row: 4;
+`
+
+const LocationInputLabel = styled(Label)`
+grid-column: 2 / span 2;
+grid-row: 5;
 text-align:left;
 `
 const LocationInput = styled(Input)`
 grid-column: 2 / span 2;
-grid-row: 5;
+grid-row: 6;
+`
+const ErrorMessageLocationReq = styled(ErrorMessage)`
+grid-column: 2 / span 2;
+grid-row: 7;
+`
+
+const ErrorMessageLocation = styled(ErrorMessage)`
+grid-column: 2 / span 2;
+grid-row: 7;
 `
 const EventInfosText = styled.h2`
 grid-column: 1/ span 2;
-grid-row: 6;
+grid-row: 8;
 `
-const PeriodeInputLabel = styled(Label)`
+const DurationInputLabel = styled(Label)`
 grid-column: 1;
-grid-row: 7;
+grid-row: 9;
 `
 const EventStartDateInput = styled(Input)`
 grid-column: 2;
-grid-row: 7;
+grid-row: 9;
 `
+
 const EventEndDateInput = styled(Input)`
 grid-column: 3;
-grid-row: 7;
+grid-row: 9;
 `
+const ErrorMessageDate = styled(ErrorMessage)`
+grid-column: 2/span 2;
+grid-row: 10;
+`
+
 const AddressInputLabel = styled(Label)`
 grid-column: 1;
-grid-row: 8 /span 2 ;
+grid-row: 11 /span 2 ;
 `
 const StreetInput = styled(Input)`
 grid-column: 2 / span 2;
-grid-row: 8 ;
+grid-row: 11 ;
 `
+const ErrorMessageStreetReq = styled(ErrorMessage)`
+grid-column: 2 / span 2;
+grid-row: 12 ;
+`
+
+const ErrorMessageStreet = styled(ErrorMessage)`
+grid-column: 2 / span 2;
+grid-row: 12 ;
+`
+
 const ZipInput = styled(Input)`
 grid-column: 2 / span 2;
-grid-row: 9 ;
+grid-row: 13 ;
+`
+const ErrorMessageZipReq = styled(ErrorMessage)`
+grid-column: 2 / span 2;
+grid-row: 14 ;
+`
+const ErrorMessageZip = styled(ErrorMessage)`
+grid-column: 2 / span 2;
+grid-row: 14 ;
 `
 const WebsiteInputLabel = styled(Label)`
 grid-column: 1;
-grid-row: 10;
+grid-row: 15;
 `
 const WebsiteInput = styled(Input)`
 grid-column: 2 / span 2;
-grid-row: 10;
+grid-row: 15;
 `
+const ErrorMessageWebsiteReq = styled(ErrorMessage)`
+grid-column: 2 / span 2;
+grid-row: 16;
+`
+
+const ErrorMessageWebsite = styled(ErrorMessage)`
+grid-column: 2 / span 2;
+grid-row: 16;
+`
+
 const PriceInputLabel = styled(Label)`
 grid-column: 1;
-grid-row: 11;
+grid-row: 17;
 `
 const PriceInput = styled(Input)`
 grid-column: 2 / span 2;
-grid-row: 11;
+grid-row: 17;
 `
+
 const PictureInputLabel = styled(Label)`
 grid-column: 1;
-grid-row: 12;
+grid-row: 18;
 `
 const PictureInput = styled(Input)`
 grid-column: 2 / span 2;
-grid-row: 12;
+grid-row: 18;
 `
+
 const ButtonGroup = styled.div`
 grid-column: 1 / span 3;
-grid-row: 13;
+grid-row: 19;
 display: flex;
-justify-content: space-evenly;
+justify-content: center;
 width: 100%;
-margin-top: 50px;
+maring:7px;
+margin-top: 30px;
 `
 const SubmitButton = styled.button`
   background-color: rgba(111,29,27,0.75);
