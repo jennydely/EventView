@@ -42,6 +42,7 @@ export default createGlobalStyle`
   }
 
   footer {
+    position:sticky;
     display:flex;
     justify-content:center;
     height:5vh;
