@@ -10,46 +10,46 @@ const Template = (args) => <EventList {...args} />;
 
 export const List = Template.bind({});
 List.args = {
-  categoryFilter: 'medieval',
+  categoryFilter: 'all',
   eventArray: [
     {
       "id": "1",
-      "eventName": "Hörnerfest",
-      "eventLocation": "Brande-Hörnerkirchen",
-      "eventStartDate": "06/25/2020",
-      "eventEndDate": '06/28/2020',
+      "name": "Hörnerfest",
+      "location": "Brande-Hörnerkirchen",
+      "eventStartDate": "2020-06-30",
+      "eventEndDate": "2020-07-04",
       "category": "medieval"
     },
     {
       "id": "2",
-      "eventName": "Rockharz",
-      "eventLocation": "Ballenstedt",
-      "eventStartDate": "06/30/2020",
-      "eventEndDate": '07/04/2020',
+      "name": "Rockharz",
+      "location": "Ballenstedt",
+      "eventStartDate": "2020-06-30",
+      "eventEndDate": '2020-07-04',
       "category": "metal"
     },
     {
       "id": "3",
-      "eventName": "WikingerEvent",
-      "eventLocation": "Damp",
-      "eventStartDate": "08/04/2020",
-      "eventEndDate": '08/06/2020',
+      "name": "WikingerEvent",
+      "location": "Damp",
+      "eventStartDate": "2020-08-04",
+      "eventEndDate": '2020-08-06',
       "category": "sand"
     },
     {
       "id": "4",
-      "eventName": "MPS",
-      "eventLocation": "Luhmühlen",
-      "eventStartDate": "08/05/2020",
-      "eventEndDate": '08/06/2020',
+      "name": "MPS",
+      "location": "Luhmühlen",
+      "eventStartDate": "2020-08-05",
+      "eventEndDate": '2020-08-06',
       "category": "medieval"
     },
     {
       "id": "5",
-      "eventName": "Stove am Strand",
-      "eventLocation": "Stove",
-      "eventStartDate": "09/25/2020",
-      "eventEndDate": '09/27/2020',
+      "name": "Stove am Strand",
+      "location": "Stove",
+      "eventStartDate": "2020-09-25",
+      "eventEndDate": '2020-09-27',
       "category": "sand"
     },
   ]

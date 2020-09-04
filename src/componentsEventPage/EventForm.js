@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 
 EventForm.propTypes = {
     onSave: PropTypes.func.isRequired,
-    onCancel: PropTypes.func.isRequired,
+    onReset: PropTypes.func.isRequired,
 }
 
 export default function EventForm({ onSave }) {
@@ -137,7 +137,11 @@ export default function EventForm({ onSave }) {
                     placeholder="http://www.website.de"
                     htmlFor="website"
                     name="website"
-                    ref={register({ required: true, minLength: 8 })}
+                    ref={register({ 
+                        required: true, 
+                        minLength: 8, 
+                        pattern: /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/,
+                    })}
                 />
 
 
