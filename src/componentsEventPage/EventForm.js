@@ -17,7 +17,7 @@ export default function EventForm({ onSave }) {
         event.target.reset()
         onSave(eventEntry)
     }
-
+    
     return (
         <>
             <Form onSubmit={handleSubmit(onSubmit)}>
