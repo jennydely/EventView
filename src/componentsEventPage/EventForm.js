@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 
 EventForm.propTypes = {
     onSave: PropTypes.func.isRequired,
-    onCancel: PropTypes.func.isRequired,
+    onReset: PropTypes.func.isRequired,
 }
 
 export default function EventForm({ onSave }) {
@@ -77,14 +77,14 @@ export default function EventForm({ onSave }) {
                 <PeriodeInputLabel id="EventStartDate">
                     Periode:</PeriodeInputLabel>
                 <EventStartDateInput 
-                    placeholder="dd.mm.yyyy"
+                    placeholder="yyyy-mm-dd"
                     htmlFor="EventStartDate"
                     name="eventStartDate"
                     ref={register({ required: true })}
                 />
 
                 <EventEndDateInput 
-                    placeholder="dd.mm.yyyy"
+                    placeholder="yyyy-mm-dd"
                     htmlFor="EventEndDate"
                     name="eventEndDate"
                     ref={register({ required: true })}
@@ -137,7 +137,11 @@ export default function EventForm({ onSave }) {
                     placeholder="http://www.website.de"
                     htmlFor="website"
                     name="website"
-                    ref={register({ required: true, minLength: 8 })}
+                    ref={register({ 
+                        required: true, 
+                        minLength: 8, 
+                        pattern: /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/,
+                    })}
                 />
 
 
