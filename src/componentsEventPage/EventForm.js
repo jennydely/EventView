@@ -17,7 +17,7 @@ export default function EventForm({ onSave }) {
         event.target.reset()
         onSave(eventEntry)
     }
-    
+
     return (
         <>
             <Form onSubmit={handleSubmit(onSubmit)}>
@@ -80,14 +80,22 @@ export default function EventForm({ onSave }) {
                     placeholder="yyyy-mm-dd"
                     htmlFor="EventStartDate"
                     name="eventStartDate"
-                    ref={register({ required: true })}
+                    ref={register({ 
+                        required: true,
+                        date: true,
+                        delimiter: '-',
+                        datePattern: ['Y', 'm', 'd'] })}
                 />
 
                 <EventEndDateInput 
                     placeholder="yyyy-mm-dd"
                     htmlFor="EventEndDate"
                     name="eventEndDate"
-                    ref={register({ required: true })}
+                    ref={register({
+                        required: true,
+                        date: true,
+                        delimiter: '-',
+                        datePattern: ['YYYY', 'mm', 'dd'] })}
                 />
                 {errors.eventStartDate && errors.eventStartDate.type === 'required' &&
                     errors.eventEndDate && errors.eventEndDate.type === 'required' &&
