@@ -1,0 +1,51 @@
+[
+    {
+        "festivalPacklist": ["Wasser", 
+                             "Plastikzelt",
+                            "Campingkocher",
+                            "Essen",
+                            "Pfanne & Öl",
+                            "Cola",
+                            "Festivalbox I",
+                            "Festivalbox II",
+                            "Ticket",
+                            "Waschschale",
+                            "Teppich",
+                            "Isomatte",
+                            "Luftmatratze",
+                            "Bettdecke & Kissen",
+                            "Knicklichter",
+                            "Alu-Herringe",
+                            "Powerbank & Ladekabel",
+                            "Kopftuch",
+                            "Portmornai mit Bargeld",
+                            "Kulturtasche",
+                            "Handtücher",
+                            "Kleidung",
+                            "Cider",
+                            "Metalgürtel",
+                            "ausgedruckter Timetable"
+        ]
+    },
+    {
+        "medievalPacklist": ["Wasser", 
+                             "Leinenzelt",
+                             "Topf",
+                             "Metall-Herringe",
+                             "Mittelalterkleidung",
+                             "Luftmatratze",
+                             "Isomatte",
+                             "Felldecke",
+                             "Decke & Kissen",
+                             "Körbchen mit Medikamenten & Waschzeug",
+                             "Kiste mit Holzgeschirr",
+                             "Teelichter",
+                             "Hammer & Schraubendreher",
+                             "Feuerküche",
+                             "Läufer & Teppiche",
+                             "Holzgestänge",
+                             "Bodenplane",
+                             "Schurwollmantel & Umhang"
+        ]
+    }
+]

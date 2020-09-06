@@ -1,9 +1,9 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import styled from 'styled-components/macro'
-import Input from '../common/Input'
-import Label from '../common/Label'
-import ErrorMessage  from '../common/ErrorMessage'
+import Input from './common/Input'
+import Label from './common/Label'
+import ErrorMessage  from './common/ErrorMessage'
 import PropTypes from 'prop-types'
 
 EventForm.propTypes = {

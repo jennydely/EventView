@@ -1,4 +1,5 @@
 import eventArray from '../mockDB/events.json'
+import packlists from '../mockDB/packlists.json'
 import { v4 as uuid } from 'uuid'
 import { loadFromLocal, saveToLocal } from './localStorage'
 
@@ -14,4 +15,18 @@ export function postEvent (eventArray) {
     .then((eventArray) => [newEvent, ...eventArray])
     .then((eventArray) => saveToLocal('eventArray', eventArray))
     .then(() => newEvent)
+}
+
+export function getPacklists() {
+  return loadFromLocal('packlists').catch(() => {
+    return packlists
+  })
+}
+
+export function postPacklists (packlists) {
+  const newPacklist = { ...packlists, id: uuid() }
+  return getEvents()
+    .then((packlists) => [newPacklist, ...packlists])
+    .then((packlists) => saveToLocal('packlists', packlists))
+    .then(() => newPacklist)
 }
