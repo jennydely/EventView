@@ -24,7 +24,7 @@ describe('EventList', () => {
 ]
     const categoryFilter = 'medieval'
 
-    it('display the year and an example event', () => {
+    it('displays the year and an example event', () => {
         const { getByText } = render(<EventList eventArray={eventArray} categoryFilter={categoryFilter} />)
         setTimeout(() => {
             expect(getByText('2020')).toBeInTheDocument()
