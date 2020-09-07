@@ -4,7 +4,7 @@ exports[`EventItem renders correctly 1`] = `
 .c2 {
   display: grid;
   grid-template-columns: 20% repeat(4,auto);
-  grid-template-rows: repeat(7,auto) 30px auto;
+  grid-template-rows: repeat(8,auto) 30px auto;
   margin: 0;
   margin-top: -2px;
   border: 2px solid rgb(96,99,104);
@@ -47,7 +47,7 @@ exports[`EventItem renders correctly 1`] = `
   grid-column: 2;
   grid-row: 1/ span 4;
   text-align: right;
-  margin: 4px;
+  margin: 2px;
   margin-top: 7px;
   font-weight: bold;
   font-size: 100%;
@@ -57,16 +57,26 @@ exports[`EventItem renders correctly 1`] = `
   grid-column: 2;
   grid-row: 5;
   text-align: right;
-  margin: 4px;
+  margin: 2px;
   font-weight: bold;
   font-size: 100%;
+}
+
+.c11 {
+  grid-column: 2;
+  grid-row: 6;
+  text-align: right;
+  margin: 2px;
+  font-weight: bold;
+  font-size: 100%;
+  display: none;
 }
 
 .c7 {
   grid-column: 3/5;
   grid-row: 1;
   text-align: left;
-  margin: 4px;
+  margin: 2px;
   margin-top: 7px;
   font-size: 100%;
 }
@@ -75,7 +85,7 @@ exports[`EventItem renders correctly 1`] = `
   grid-column: 3/5;
   grid-row: 2;
   text-align: left;
-  margin: 4px;
+  margin: 2px;
   font-size: 100%;
 }
 
@@ -83,7 +93,7 @@ exports[`EventItem renders correctly 1`] = `
   grid-column: 3/5;
   grid-row: 3;
   text-align: left;
-  margin: 4px;
+  margin: 2px;
   font-size: 100%;
 }
 
@@ -91,18 +101,23 @@ exports[`EventItem renders correctly 1`] = `
   grid-column: 3/5;
   grid-row: 5;
   text-align: left;
-  margin: 4px;
+  margin: 2px;
   font-size: 100%;
 }
 
-.c11 {
-  type: checkbox;
+.c12 {
+  grid-column: 3;
+  grid-row: 6;
+  text-align: right;
+  margin: 2px;
+  font-weight: bold;
+  font-size: 100%;
   display: none;
 }
 
-.c12 {
+.c13 {
   grid-column: 1/6;
-  grid-row: 6;
+  grid-row: 7;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -115,7 +130,7 @@ exports[`EventItem renders correctly 1`] = `
   justify-content: space-around;
 }
 
-.c13 {
+.c14 {
   display: inline-block;
   with: fit-content;
   height: -webkit-fit-content;
@@ -209,24 +224,29 @@ exports[`EventItem renders correctly 1`] = `
       kostenlos
        
     </p>
-    <button
+    <label
       className="c11"
+      id="Ticket"
+    >
+      Ticket
+    </label>
+    <input
+      className="c12"
+      htmlFor="Ticket"
+      type="checkbox"
     />
     <div
-      className="c12"
+      className="c13"
     >
-      <button>
-        PackList
-      </button>
       <a
-        className="c13"
+        className="c14"
         target="blank"
         title="link"
       >
         Website
       </a>
       <a
-        className="c13"
+        className="c14"
         href="https://www.google.de/maps"
         target="blank"
         title="link"

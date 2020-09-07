@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styled from 'styled-components/macro'
 import Header from './componentsEventPage/Header'
 import EventForm from './componentsEventPage/EventForm'
 import useEventForm from './componentsEventPage/useEventForm'
@@ -12,11 +13,12 @@ export default function EventPage() {
 
     return (
         <>
+           
+
             {formIsVisible ?
                 (<>
-                  
-                    <main><EventForm onSave={onSave} />
-                    </main>
+                    <MainForm><EventForm onSave={onSave} />
+                    </MainForm>
 
                     <footer>
                         <button type="button" onClick={goBack}>Back</button>
@@ -25,7 +27,7 @@ export default function EventPage() {
 
                 ) : (
                     <>
-                      <Header onSelectFilter={setCategoryFilter} /> 
+                     <Header onSelectFilter={setCategoryFilter} />
                         <main><EventList eventArray={eventArray} categoryFilter={categoryFilter} />
                         </main>
                         <footer>
@@ -36,3 +38,7 @@ export default function EventPage() {
         </>
     )
 }
+
+const MainForm = styled.main`
+height:92vh;
+`

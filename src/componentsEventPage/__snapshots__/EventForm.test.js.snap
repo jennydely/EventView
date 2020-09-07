@@ -1,0 +1,328 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventForm renders correctly 1`] = `
+.c6 {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--blue-50);
+  margin-top: 0;
+  padding: 4px;
+  font-size: 100%;
+  color: black;
+}
+
+.c2 {
+  color: var(--blue-main);
+  font-weight: 400;
+  font-size: 100%;
+  line-height: 1.143;
+  margin: 4px;
+  text-align: right;
+}
+
+.c0 {
+  display: grid;
+  grid-template-columns: repeat(3,auto);
+  grid-template-rows: repeat(18,auto) 30px;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  min-width: 300px;
+  gap: 4px;
+}
+
+.c1 {
+  grid-column: 1 / span 3;
+  grid-row: 1;
+}
+
+.c3 {
+  grid-column: 1;
+  grid-row: 2;
+  text-align: left;
+}
+
+.c4 {
+  grid-column: 1;
+  grid-row: 3;
+  width: 100%;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--blue-50);
+  margin-top: 0;
+  padding: 4px;
+  font-size: 100%;
+  color: black;
+}
+
+.c5 {
+  grid-column: 2 / span 2;
+  grid-row: 2;
+  text-align: left;
+}
+
+.c7 {
+  grid-column: 2 / span 2;
+  grid-row: 3;
+}
+
+.c8 {
+  grid-column: 2 / span 2;
+  grid-row: 5;
+  text-align: left;
+}
+
+.c9 {
+  grid-column: 2 / span 2;
+  grid-row: 6;
+}
+
+.c10 {
+  grid-column: 1/ span 2;
+  grid-row: 8;
+  margin-top: 30px;
+}
+
+.c11 {
+  grid-column: 1;
+  grid-row: 9;
+}
+
+.c12 {
+  grid-column: 2;
+  grid-row: 9;
+}
+
+.c13 {
+  grid-column: 3;
+  grid-row: 9;
+}
+
+.c14 {
+  grid-column: 1;
+  grid-row: 11 /span 2;
+}
+
+.c15 {
+  grid-column: 2 / span 2;
+  grid-row: 11;
+}
+
+.c16 {
+  grid-column: 2 / span 2;
+  grid-row: 13;
+}
+
+.c17 {
+  grid-column: 1;
+  grid-row: 15;
+}
+
+.c18 {
+  grid-column: 2 / span 2;
+  grid-row: 15;
+}
+
+.c19 {
+  grid-column: 1;
+  grid-row: 17;
+}
+
+.c20 {
+  grid-column: 2 / span 2;
+  grid-row: 17;
+}
+
+.c21 {
+  grid-column: 1;
+  grid-row: 18;
+}
+
+.c22 {
+  grid-column: 2 / span 2;
+  grid-row: 18;
+}
+
+.c23 {
+  grid-column: 1 / span 3;
+  grid-row: 19;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  maring: 7px;
+  margin-top: 30px;
+}
+
+.c24 {
+  background-color: rgba(111,29,27,0.75);
+}
+
+<form
+  className="c0"
+  data-testid="1337"
+  onSubmit={[Function]}
+>
+  <h1
+    className="c1"
+  >
+    Create Event
+  </h1>
+  <label
+    className="c2 c3"
+    htmlFor="category"
+  >
+    Category:
+  </label>
+  <select
+    className="c4"
+    id="category"
+    name="category"
+  >
+    <option
+      value="metal"
+    >
+      metal
+    </option>
+    <option
+      value="medieval"
+    >
+      medieval
+    </option>
+    <option
+      value="sand"
+    >
+      sand
+    </option>
+    <option
+      value="other"
+    >
+      other
+    </option>
+  </select>
+  <label
+    className="c2 c5"
+    htmlFor="name"
+  >
+    EventName:
+  </label>
+  <input
+    className="c6 c7"
+    id="name"
+    name="name"
+    placeholder="event name"
+  />
+  <label
+    className="c2 c8"
+    htmlFor="location"
+  >
+    EventLocation:
+  </label>
+  <input
+    className="c6 c9"
+    id="location"
+    name="location"
+    placeholder="location of the event"
+  />
+  <h2
+    className="c10"
+  >
+    EventInfos
+  </h2>
+  <label
+    className="c2 c11"
+    htmlFor="EventStartDate"
+  >
+    Duration:
+  </label>
+  <input
+    className="c6 c12"
+    id="EventStartDate"
+    name="eventStartDate"
+    placeholder="yyyy-mm-dd"
+  />
+  <input
+    className="c6 c13"
+    id="EventEndDate"
+    name="eventEndDate"
+    placeholder="yyyy-mm-dd"
+  />
+  <label
+    className="c2 c14"
+    htmlFor="Street"
+  >
+    Address:
+  </label>
+  <input
+    className="c6 c15"
+    id="street"
+    name="street"
+    placeholder="street + number"
+  />
+  <input
+    className="c6 c16"
+    id="zip"
+    name="zip"
+    placeholder="zip"
+  />
+  <label
+    className="c2 c17"
+    htmlFor="website"
+  >
+    Website:
+  </label>
+  <input
+    className="c6 c18"
+    id="website"
+    name="website"
+    placeholder="http://www.website.de"
+  />
+  <label
+    className="c2 c19"
+    htmlFor="price"
+  >
+    TicketPrice:
+  </label>
+  <input
+    className="c6 c20"
+    id="price"
+    name="price"
+    placeholder="ticket price or range"
+  />
+  <label
+    className="c2 c21"
+    htmlFor="poster"
+  >
+    Picture: 
+  </label>
+  <input
+    className="c6 c22"
+    id="poster"
+    name="poster"
+    placeholder="http://www.website.de/banner.jpg"
+  />
+  <div
+    className="c23"
+  >
+    <button
+      onClick={[Function]}
+      type="reset"
+    >
+      Reset
+    </button>
+    <button
+      className="c24"
+      type="submit"
+    >
+      Save
+    </button>
+  </div>
+</form>
+`;
