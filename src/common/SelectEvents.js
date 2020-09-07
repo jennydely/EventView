@@ -6,9 +6,9 @@ export default function SelectEvents({ register, options, onSelectEventFilter, n
   
   return (
     <SelectStyled name={name} ref={register} {...rest} >
-      {options.map(value => (
-        <OptionStyled key={value} value={value} onClick={() => onSelectEventFilter(value)}>
-          {value}
+      {options.map(optionsName => (
+        <OptionStyled key={optionsName} optionsName={optionsName} onClick={() => onSelectEventFilter(optionsName)}>
+          {optionsName}
         </OptionStyled>
       ))} 
       </SelectStyled>

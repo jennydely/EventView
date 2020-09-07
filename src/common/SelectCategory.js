@@ -6,9 +6,9 @@ export default function SelectCategory({ register, options, onSelectFilter, name
   
   return (
     <SelectStyled name={name} ref={register} {...rest} >
-      {options.map(value => (
-        <OptionStyled key={value} value={value} onClick={() => onSelectFilter(value)}>
-          {value}
+      {options.map(optionsValue => (
+        <OptionStyled key={optionsValue} optionsValue={optionsValue} onClick={() => onSelectFilter(optionsValue)}>
+          {optionsValue}
         </OptionStyled>
       ))} 
       </SelectStyled>
