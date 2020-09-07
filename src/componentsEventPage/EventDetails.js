@@ -1,9 +1,10 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 import { animated } from 'react-spring'
 import styled from 'styled-components/macro'
 
 export default function EventDetails({ event, style, bind }) {
-  const { poster, name, street, zip, location, price, website } = event
+  const { poster, name, street, zip, location, price, website, packlistCategory } = event
   const defaultImg = "https://raw.githubusercontent.com/jennydely/Event-Planner/EventDetails/src/img/defaultImg.jpg"
 
   return (
@@ -18,7 +19,9 @@ export default function EventDetails({ event, style, bind }) {
       <TicketLabel id="Ticket" price={price}>Ticket</TicketLabel>
       <Ticket type="checkbox" htmlFor="Ticket" price={price} /> 
       <ButtonContainer>
-        {/*<button>PackList</button>*/}
+      <NavLink to={'/packlist/' + packlistCategory} packlistName= {packlistCategory}>
+               <button >PackList</button>
+      </NavLink>
         <ExternalLink href={website} target="blank" title="link">Website</ExternalLink>
         <ExternalLink href="https://www.google.de/maps" target="blank" title="link">Googlemaps</ExternalLink>
       </ButtonContainer>
