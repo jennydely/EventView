@@ -6,7 +6,6 @@ import useEventForm from './componentsEventPage/useEventForm'
 import useEvents from './componentsEventPage/useEvents'
 import Main92vh from './common/Main92vh'
 
-
 export default function EventPage() {
     const [categoryFilter, setCategoryFilter] = useState('all')
     const [eventFilter, setEventFilter] = useState('date')
