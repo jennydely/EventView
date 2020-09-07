@@ -12,10 +12,9 @@ export default function EventPage() {
 
     return (
         <>
-            <Header onSelectFilter={setCategoryFilter} />
-
             {formIsVisible ?
                 (<>
+                  
                     <main><EventForm onSave={onSave} />
                     </main>
 
@@ -26,6 +25,7 @@ export default function EventPage() {
 
                 ) : (
                     <>
+                      <Header onSelectFilter={setCategoryFilter} /> 
                         <main><EventList eventArray={eventArray} categoryFilter={categoryFilter} />
                         </main>
                         <footer>
