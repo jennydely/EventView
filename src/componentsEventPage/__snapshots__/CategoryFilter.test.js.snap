@@ -27,58 +27,6 @@ exports[`CategoryFilter renders correctly 1`] = `
   background: rgb(96,99,104);
 }
 
-.c3 {
-  display: block;
-  width: 100%;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  margin-top: 0;
-  padding: 4px;
-  font-size: 100%;
-  color: black;
-  background: rgba(49,42,42,0.75);
-}
-
-.c4 {
-  display: block;
-  width: 100%;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  margin-top: 0;
-  padding: 4px;
-  font-size: 100%;
-  color: black;
-  background: rgba(67,40,24,0.70);
-}
-
-.c5 {
-  display: block;
-  width: 100%;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  margin-top: 0;
-  padding: 4px;
-  font-size: 100%;
-  color: black;
-  background: rgba(248,149,17,0.46);
-}
-
-.c6 {
-  display: block;
-  width: 100%;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  margin-top: 0;
-  padding: 4px;
-  font-size: 100%;
-  color: black;
-  background: rgba(153,88,42,0.70);
-}
-
 .c0 {
   margin: 5px;
   backgroundcolor: grey;
@@ -103,35 +51,30 @@ exports[`CategoryFilter renders correctly 1`] = `
     <option
       className="c2"
       onClick={[Function]}
-      value="all"
     >
       all
     </option>
     <option
-      className="c3"
+      className="c2"
       onClick={[Function]}
-      value="metal"
     >
       metal
     </option>
     <option
-      className="c4"
+      className="c2"
       onClick={[Function]}
-      value="medieval"
     >
       medieval
     </option>
     <option
-      className="c5"
+      className="c2"
       onClick={[Function]}
-      value="sand"
     >
       sand
     </option>
     <option
-      className="c6"
+      className="c2"
       onClick={[Function]}
-      value="other"
     >
       other
     </option>

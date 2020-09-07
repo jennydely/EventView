@@ -8,11 +8,12 @@ describe('CategoryFilter', () => {
     const onSelectFilter = 'medieval'
 
     it('displays all buttons to filter', () => {
-        const { getAllByText } = render(<CategoryFilter onSelectFilter={onSelectFilter} />)
-            expect(getAllByText('medieval')).toHaveLength(2)
-            expect(getAllByText('metal')).toHaveLength(2)
-            expect(getAllByText('sand')).toHaveLength(2)
-            expect(getAllByText('other')).toHaveLength(2)
+        const { getByText } = render(<CategoryFilter onSelectFilter={onSelectFilter} />)
+        expect(getByText('all')).toBeInTheDocument()
+        expect(getByText('medieval')).toBeInTheDocument()
+            expect(getByText('metal')).toBeInTheDocument()
+            expect(getByText('sand')).toBeInTheDocument()
+            expect(getByText('other')).toBeInTheDocument()
     })
     it('renders correctly', () => {
         const tree = renderer.create(<CategoryFilter onSelectFilter={onSelectFilter} />)

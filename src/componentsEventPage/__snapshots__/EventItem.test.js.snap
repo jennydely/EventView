@@ -238,6 +238,11 @@ exports[`EventItem renders correctly 1`] = `
     <div
       className="c13"
     >
+      <button
+        onClick={[Function]}
+      >
+        PackList
+      </button>
       <a
         className="c14"
         target="blank"

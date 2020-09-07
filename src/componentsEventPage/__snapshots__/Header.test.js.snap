@@ -27,58 +27,6 @@ exports[`Header renders correctly 1`] = `
   background: rgb(96,99,104);
 }
 
-.c6 {
-  display: block;
-  width: 100%;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  margin-top: 0;
-  padding: 4px;
-  font-size: 100%;
-  color: black;
-  background: rgba(49,42,42,0.75);
-}
-
-.c7 {
-  display: block;
-  width: 100%;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  margin-top: 0;
-  padding: 4px;
-  font-size: 100%;
-  color: black;
-  background: rgba(67,40,24,0.70);
-}
-
-.c8 {
-  display: block;
-  width: 100%;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  margin-top: 0;
-  padding: 4px;
-  font-size: 100%;
-  color: black;
-  background: rgba(248,149,17,0.46);
-}
-
-.c9 {
-  display: block;
-  width: 100%;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  margin-top: 0;
-  padding: 4px;
-  font-size: 100%;
-  color: black;
-  background: rgba(153,88,42,0.70);
-}
-
 .c3 {
   margin: 5px;
   backgroundcolor: grey;
@@ -131,14 +79,12 @@ exports[`Header renders correctly 1`] = `
       <option
         className="c2"
         onClick={[Function]}
-        value="date"
       >
         date
       </option>
       <option
         className="c2"
         onClick={[Function]}
-        value="a-Z"
       >
         a-Z
       </option>
@@ -163,35 +109,30 @@ exports[`Header renders correctly 1`] = `
       <option
         className="c5"
         onClick={[Function]}
-        value="all"
       >
         all
       </option>
       <option
-        className="c6"
+        className="c5"
         onClick={[Function]}
-        value="metal"
       >
         metal
       </option>
       <option
-        className="c7"
+        className="c5"
         onClick={[Function]}
-        value="medieval"
       >
         medieval
       </option>
       <option
-        className="c8"
+        className="c5"
         onClick={[Function]}
-        value="sand"
       >
         sand
       </option>
       <option
-        className="c9"
+        className="c5"
         onClick={[Function]}
-        value="other"
       >
         other
       </option>
