@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import styled from 'styled-components/macro'
 import Header from './componentsEventPage/Header'
+import EventList from './componentsEventPage/EventList'
 import EventForm from './componentsEventPage/EventForm'
 import useEventForm from './componentsEventPage/useEventForm'
-import EventList from './componentsEventPage/EventList'
 import useEvents from './componentsEventPage/useEvents'
+import Main92vh from './common/Main92vh'
+
 
 export default function EventPage() {
     const [categoryFilter, setCategoryFilter] = useState('all')
@@ -17,8 +18,8 @@ export default function EventPage() {
 
             {formIsVisible ?
                 (<>
-                    <MainForm><EventForm onSave={onSave} />
-                    </MainForm>
+                    <Main92vh><EventForm onSave={onSave} />
+                    </Main92vh>
 
                     <footer>
                         <button type="button" onClick={goBack}>Back</button>
@@ -38,7 +39,3 @@ export default function EventPage() {
         </>
     )
 }
-
-const MainForm = styled.main`
-height:92vh;
-`

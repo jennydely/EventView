@@ -4,24 +4,27 @@ import { NavLink, useParams } from 'react-router-dom'
 import useEventForm from './componentsEventPage/useEventForm'
 import usePacklists from './usePacklists';
 import ListItem from '../src/common/ListItem'
+import ListContainer from '../src/common/ListContainer'
+import Main92vh from '../src/common/Main92vh'
 
 export default function PackListPage() {
     const { packlistName } = useParams()
     const { packlists } = usePacklists()
     const chosenPacklist = packlists.find(packlist => packlist.name === '' || packlist.name === packlistName)
     const { goBack } = useEventForm()
-    return (        <>
-            <main>
-
-                <ul> {packlistName ? <h1>Packlist - {packlistName}</h1> : <h1>No Packlist</h1>}
-
+    return (       
+         <>
+            <Main92vh>
+                 {packlistName ? <h1>PackList</h1> : <h1>No PackList</h1>}
+                 {packlistName ? <PacklistButton>{packlistName}</PacklistButton> : ""}
+                 <ListContainer>
                     {chosenPacklist ? chosenPacklist.packlist.sort().map(item => (
-                        <ItemStyled key={item}><input type="checkbox" />{item}</ItemStyled>
+                        <ListItem key={item}><input type="checkbox" />{item}</ListItem>
                     ))
                         : <NoPacklistText>There is no packlist added to this event</NoPacklistText>}
-                </ul>
+                </ListContainer>
 
-            </main>
+            </Main92vh>
             <footer>
                 <NavLink to="/">
                     <button type="button" onClick={goBack}>Back</button>
@@ -33,6 +36,8 @@ export default function PackListPage() {
 const NoPacklistText = styled(ListItem)`
 margin-top: 200px;
 `
-
-const ItemStyled = styled(ListItem)`
+const PacklistButton = styled.button`
+border: 2px solid black;
+margin: 4px 0 0 7px;
+padding-bottom:0;
 `
