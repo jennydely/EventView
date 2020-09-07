@@ -9,6 +9,7 @@ import Main92vh from './common/Main92vh'
 
 export default function EventPage() {
     const [categoryFilter, setCategoryFilter] = useState('all')
+    const [eventFilter, setEventFilter] = useState('date')
     const { eventArray, addEvent } = useEvents()
     const { formIsVisible, showForm, onSave, goBack } = useEventForm(addEvent)
 
@@ -28,8 +29,8 @@ export default function EventPage() {
 
                 ) : (
                     <>
-                     <Header onSelectFilter={setCategoryFilter} />
-                        <main><EventList eventArray={eventArray} categoryFilter={categoryFilter} />
+                     <Header onSelectFilter={setCategoryFilter} onSelectEventFilter= {setEventFilter} eventArray={eventArray} />
+                        <main><EventList eventArray={eventArray} eventFilter={eventFilter} categoryFilter={categoryFilter} />
                         </main>
                         <footer>
                             <button onClick={showForm}>Create Event</button>
