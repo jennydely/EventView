@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components/macro'
 import CategoryFilter from './CategoryFilter'
+import SelectEvents from '../common/SelectEvents';
 
-export default function Header({ onSelectFilter }) {
+export default function Header({ onSelectFilter, onSelectEventFilter}) {
     return (
         <header>
             <ButtonContainer>
-                <button name="all" onClick={() => onSelectFilter('all')}>All</button>
+                <SelectEvents id="filter" name={["date", "a-Z"]}
+                    options={["date", "a-Z"]} onSelectEventFilter={onSelectEventFilter}/>
             </ButtonContainer>
             <CategoryFilter onSelectFilter={onSelectFilter} />
         </header>
@@ -15,5 +17,4 @@ export default function Header({ onSelectFilter }) {
 
 const ButtonContainer = styled.div`
    margin: 5px;
-   width: wh%;
 `

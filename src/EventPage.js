@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import styled from 'styled-components/macro'
 import Header from './componentsEventPage/Header'
+import EventList from './componentsEventPage/EventList'
 import EventForm from './componentsEventPage/EventForm'
 import useEventForm from './componentsEventPage/useEventForm'
-import EventList from './componentsEventPage/EventList'
 import useEvents from './componentsEventPage/useEvents'
+import MainWhenFooter from './common/MainWhenFooter.js'
 
 export default function EventPage() {
     const [categoryFilter, setCategoryFilter] = useState('all')
+    const [eventFilter, setEventFilter] = useState('date')
     const { eventArray, addEvent } = useEvents()
     const { formIsVisible, showForm, onSave, goBack } = useEventForm(addEvent)
 
@@ -17,8 +18,8 @@ export default function EventPage() {
 
             {formIsVisible ?
                 (<>
-                    <MainForm><EventForm onSave={onSave} />
-                    </MainForm>
+                    <MainWhenFooter><EventForm onSave={onSave} />
+                    </MainWhenFooter>
 
                     <footer>
                         <button type="button" onClick={goBack}>Back</button>
@@ -27,8 +28,8 @@ export default function EventPage() {
 
                 ) : (
                     <>
-                     <Header onSelectFilter={setCategoryFilter} />
-                        <main><EventList eventArray={eventArray} categoryFilter={categoryFilter} />
+                     <Header onSelectFilter={setCategoryFilter} onSelectEventFilter= {setEventFilter} eventArray={eventArray} />
+                        <main><EventList eventArray={eventArray} eventFilter={eventFilter} categoryFilter={categoryFilter} />
                         </main>
                         <footer>
                             <button onClick={showForm}>Create Event</button>
@@ -38,7 +39,3 @@ export default function EventPage() {
         </>
     )
 }
-
-const MainForm = styled.main`
-height:92vh;
-`

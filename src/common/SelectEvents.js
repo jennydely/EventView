@@ -2,13 +2,13 @@ import React from "react";
 import styled from 'styled-components/macro'
 
 
-export default function SelectCategory({ register, options, onSelectFilter, name, ...rest }) {
+export default function SelectEvents({ register, options, onSelectEventFilter, name, ...rest }) {
   
   return (
     <SelectStyled name={name} ref={register} {...rest} >
-      {options.map(optionsValue => (
-        <OptionStyled key={optionsValue} optionsValue={optionsValue} onClick={() => onSelectFilter(optionsValue)}>
-          {optionsValue}
+      {options.map(optionsName => (
+        <OptionStyled key={optionsName} optionsName={optionsName} onClick={() => onSelectEventFilter(optionsName)}>
+          {optionsName}
         </OptionStyled>
       ))} 
       </SelectStyled>
