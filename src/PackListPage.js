@@ -5,7 +5,7 @@ import useEventForm from './componentsEventPage/useEventForm'
 import usePacklists from './usePacklists';
 import ListItem from '../src/common/ListItem'
 import ListContainer from '../src/common/ListContainer'
-import Main92vh from '../src/common/Main92vh'
+import MainWhenFooter from '../src/common/MainWhenFooter'
 
 export default function PackListPage() {
     const { packlistName } = useParams()
@@ -14,7 +14,7 @@ export default function PackListPage() {
     const { goBack } = useEventForm()
     return (
         <>
-            <Main92vh>
+            <MainWhenFooter>
                 {packlistName ? <h1>PackList</h1> : <h1>No PackList</h1>}
                 {packlistName ? <PacklistButton>{packlistName}</PacklistButton> : ""}
 
@@ -29,7 +29,7 @@ export default function PackListPage() {
                     : <NoPacklistText>There is no packlist added to this event</NoPacklistText>}
 
 
-            </Main92vh>
+            </MainWhenFooter>
             <footer>
                 <NavLink to="/">
                     <button type="button" onClick={goBack}>Back</button>

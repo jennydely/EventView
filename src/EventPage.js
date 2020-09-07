@@ -4,8 +4,7 @@ import EventList from './componentsEventPage/EventList'
 import EventForm from './componentsEventPage/EventForm'
 import useEventForm from './componentsEventPage/useEventForm'
 import useEvents from './componentsEventPage/useEvents'
-import Main92vh from './common/Main92vh'
-
+import MainWhenFooter from './common/MainWhenFooter.js'
 
 export default function EventPage() {
     const [categoryFilter, setCategoryFilter] = useState('all')
@@ -19,8 +18,8 @@ export default function EventPage() {
 
             {formIsVisible ?
                 (<>
-                    <Main92vh><EventForm onSave={onSave} />
-                    </Main92vh>
+                    <MainWhenFooter><EventForm onSave={onSave} />
+                    </MainWhenFooter>
 
                     <footer>
                         <button type="button" onClick={goBack}>Back</button>
