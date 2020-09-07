@@ -6,15 +6,17 @@ export default function App() {
 
   return (
     <Router>
-         <Route path="/packlist">
-        <PacklistPage />
-      </Route>
+
       <Switch>
-        <Route exact path="/">
-          <EventPage /> 
+        <Route path="/packlist/:packlistName?">
+          <PacklistPage />
         </Route>
-        </Switch>
-       </Router>
+        <Route path="/">
+          <EventPage />
+        </Route>
+
+      </Switch>
+    </Router>
   );
 }
 

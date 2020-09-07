@@ -14,6 +14,5 @@ export default function usePacklists() {
       .then((newPacklist) => setPacklists([newPacklist, ...packlists]))
       .catch(setError)
   }
-  console.log(packlists)
-  return { packlists, addPacklist, error }
+    return { packlists, addPacklist, error }
 }

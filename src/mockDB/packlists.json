@@ -1,6 +1,7 @@
 [
-    {
-        "festivalPacklist": ["Wasser", 
+    {   "id":500,
+        "name": "festival",
+        "packlist": ["Wasser", 
                              "Plastikzelt",
                             "Campingkocher",
                             "Essen",
@@ -27,8 +28,9 @@
                             "ausgedruckter Timetable"
         ]
     },
-    {
-        "medievalPacklist": ["Wasser", 
+    {   "id":501,
+        "name": "medieval",
+        "packlist": ["Wasser", 
                              "Leinenzelt",
                              "Topf",
                              "Metall-Herringe",

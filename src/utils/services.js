@@ -19,7 +19,7 @@ export function postEvent (eventArray) {
 
 export function getPacklists() {
   return loadFromLocal('packlists').catch(() => {
-    return packlists
+       return packlists
   })
 }
 

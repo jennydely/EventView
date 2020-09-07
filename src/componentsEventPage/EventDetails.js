@@ -7,7 +7,6 @@ export default function EventDetails({ event, style, bind }) {
   const { poster, name, street, zip, location, price, website, packlistCategory } = event
   const defaultImg = "https://raw.githubusercontent.com/jennydely/Event-Planner/EventDetails/src/img/defaultImg.jpg"
 
-
   return (
     <Details name={event.category} style={style} {...bind}>
      <LinkPoster href={poster ? poster : website} target="blank"> <EventPoster src={poster ? poster : defaultImg} alt={name + ' Poster'} /></LinkPoster>
@@ -20,8 +19,8 @@ export default function EventDetails({ event, style, bind }) {
       <TicketLabel id="Ticket" price={price}>Ticket</TicketLabel>
       <Ticket type="checkbox" htmlFor="Ticket" price={price} /> 
       <ButtonContainer>
-      <NavLink to="/packlist">
-       <button packlistCategory={packlistCategory}>PackList</button>
+      <NavLink to={'/packlist/' + packlistCategory} packlistName= {packlistCategory}>
+               <button >PackList</button>
       </NavLink>
         <ExternalLink href={website} target="blank" title="link">Website</ExternalLink>
         <ExternalLink href="https://www.google.de/maps" target="blank" title="link">Googlemaps</ExternalLink>
