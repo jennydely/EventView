@@ -1,33 +1,35 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
 import { animated } from 'react-spring'
 import styled from 'styled-components/macro'
+import { useHistory } from 'react-router-dom';
 
 export default function EventDetails({ event, style, bind }) {
   const { poster, name, street, zip, location, price, website, packlistCategory } = event
   const defaultImg = "https://raw.githubusercontent.com/jennydely/Event-Planner/EventDetails/src/img/defaultImg.jpg"
+  const history = useHistory()
+  function handleBackButtonClick() {
+    history.push('/packlist/' + packlistCategory)
+  }
 
   return (
     <Details name={event.category} style={style} {...bind}>
-     <LinkPoster href={poster ? poster : website} target="blank"> <EventPoster src={poster ? poster : defaultImg} alt={name + ' Poster'} /></LinkPoster>
+      <LinkPoster href={poster ? poster : website} target="blank"> <EventPoster src={poster ? poster : defaultImg} alt={name + ' Poster'} /></LinkPoster>
       <Address>Address: </Address>
       <Price>Price: </Price>
       <Name>{name}</Name>
       <Street>{street}</Street>
       <Location>{zip} {location}</Location>
-      <PriceValue>{price ? price + ' €': 'kostenlos'} </PriceValue>
+      <PriceValue>{price ? price + ' €' : 'kostenlos'} </PriceValue>
       <TicketLabel id="Ticket" price={price}>Ticket</TicketLabel>
-      <Ticket type="checkbox" htmlFor="Ticket" price={price} /> 
+      <Ticket type="checkbox" htmlFor="Ticket" price={price} />
       <ButtonContainer>
-      <NavLink to={'/packlist/' + packlistCategory} packlistName= {packlistCategory}>
-               <button >PackList</button>
-      </NavLink>
+        <button onClick={handleBackButtonClick} >PackList</button>
         <ExternalLink href={website} target="blank" title="link">Website</ExternalLink>
         <ExternalLink href="https://www.google.de/maps" target="blank" title="link">Googlemaps</ExternalLink>
       </ButtonContainer>
     </Details>
   )
-  
+
 }
 
 const Details = styled(animated.section)`
@@ -36,7 +38,7 @@ grid-template-columns: 20% repeat(4,auto);
 grid-template-rows: repeat(8,auto) 30px auto;
 margin:0;
 margin-top: -2px;
-border: 2px solid ${({name}) => name === 'sand' ? 'rgba(248,149,17,0.46)' : (name === 'metal' ? 'rgba(49,42,42,0.75)' : (name === 'medieval' ? 'rgba(67,40,24,0.70)' : (name === 'other' ? 'rgba(153,88,42,0.70)' : 'rgb(96,99,104)')))};
+border: 2px solid ${({ name }) => name === 'sand' ? 'rgba(248,149,17,0.46)' : (name === 'metal' ? 'rgba(49,42,42,0.75)' : (name === 'medieval' ? 'rgba(67,40,24,0.70)' : (name === 'other' ? 'rgba(153,88,42,0.70)' : 'rgb(96,99,104)')))};
 border-top: 0;
 overflow: hidden;
 
@@ -93,7 +95,7 @@ text-align:right;
 margin:2px;
 font-weight:bold;
 font-size: 100%;
-display: ${({price}) => price ? '' : 'none'};
+display: ${({ price }) => price ? '' : 'none'};
 `
 const Name = styled.p`
 grid-column: 3/5;
@@ -131,7 +133,7 @@ text-align:right;
 margin:2px;
 font-weight:bold;
 font-size: 100%;
-display: ${({price}) => price ? '' : 'none'};
+display: ${({ price }) => price ? '' : 'none'};
 `
 
 

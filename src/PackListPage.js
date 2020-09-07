@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro'
-import { NavLink, useParams } from 'react-router-dom'
-import useEventForm from './componentsEventPage/useEventForm'
+import { useParams, useHistory } from 'react-router-dom'
 import usePacklists from './usePacklists';
 import ListItem from '../src/common/ListItem'
 import ListContainer from '../src/common/ListContainer'
@@ -11,7 +10,10 @@ export default function PackListPage() {
     const { packlistName } = useParams()
     const { packlists } = usePacklists()
     const chosenPacklist = packlists.find(packlist => packlist.name === '' || packlist.name === packlistName)
-    const { goBack } = useEventForm()
+    const history = useHistory()
+  function goBackButton() {
+    history.goBack()
+  }
     return (
         <>
             <MainWhenFooter>
@@ -31,9 +33,8 @@ export default function PackListPage() {
 
             </MainWhenFooter>
             <footer>
-                <NavLink to="/">
-                    <button type="button" onClick={goBack}>Back</button>
-                </NavLink>
+                <button type="button" onClick={goBackButton}>Back</button>
+
             </footer>
         </>
     )
