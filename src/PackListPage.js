@@ -12,17 +12,22 @@ export default function PackListPage() {
     const { packlists } = usePacklists()
     const chosenPacklist = packlists.find(packlist => packlist.name === '' || packlist.name === packlistName)
     const { goBack } = useEventForm()
-    return (       
-         <>
+    return (
+        <>
             <Main92vh>
-                 {packlistName ? <h1>PackList</h1> : <h1>No PackList</h1>}
-                 {packlistName ? <PacklistButton>{packlistName}</PacklistButton> : ""}
-                 <ListContainer>
-                    {chosenPacklist ? chosenPacklist.packlist.sort().map(item => (
-                        <ListItem key={item}><input type="checkbox" />{item}</ListItem>
-                    ))
-                        : <NoPacklistText>There is no packlist added to this event</NoPacklistText>}
-                </ListContainer>
+                {packlistName ? <h1>PackList</h1> : <h1>No PackList</h1>}
+                {packlistName ? <PacklistButton>{packlistName}</PacklistButton> : ""}
+
+
+                {chosenPacklist ?
+                    <ListContainer>
+                        {chosenPacklist.packlist.sort().map(item => (
+                            <ListItem key={item}><input type="checkbox" />{item}</ListItem>
+                        ))}
+                    </ListContainer>
+
+                    : <NoPacklistText>There is no packlist added to this event</NoPacklistText>}
+
 
             </Main92vh>
             <footer>
@@ -33,8 +38,8 @@ export default function PackListPage() {
         </>
     )
 }
-const NoPacklistText = styled(ListItem)`
-margin-top: 200px;
+const NoPacklistText = styled.p`
+text-align: center;
 `
 const PacklistButton = styled.button`
 border: 2px solid black;

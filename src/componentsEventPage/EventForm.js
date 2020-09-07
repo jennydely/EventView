@@ -121,9 +121,6 @@ export default function EventForm({ onSave }) {
                         <ErrorMessageEndDate> Date must be written like: yyyy-mm-dd </ErrorMessageEndDate>
                     )}
 
-
-                
-
                 <AddressInputLabel htmlFor="Street">
                     Address:
                 </AddressInputLabel>
@@ -205,6 +202,12 @@ export default function EventForm({ onSave }) {
                 })}
                 />
 
+                  <PacklistInputLabel htmlFor="packlist">
+                    Add PackList:
+                    </PacklistInputLabel>
+                    <PacklistInput name="packlistCategory" id="packlist"
+                    register={register({ required: true })} options={["festival", "medieval"]} />
+
                 <ButtonGroup>
                     <button type="reset" onClick={() => reset()}>
                         Reset
@@ -219,7 +222,7 @@ export default function EventForm({ onSave }) {
 const Form = styled.form`
 display:grid;
 grid-template-columns: repeat(3,auto);
-grid-template-rows: repeat(18,auto) 30px;
+grid-template-rows: repeat(19,auto) 30px;
 align-content: center;
 min-width: 300px;
 gap: 4px;
@@ -236,14 +239,16 @@ text-align:left;
 const CategoryInput = styled(Select)`
 grid-column: 1;
 grid-row: 3;
+display: block;
 width: 100%;
 padding: 20px;
+border: 1px solid rgb(96,99,104);
 border-radius: 4px;
-border: 1px solid var(--blue-50);
 margin-top: 0;
 padding: 4px;
 font-size: 100%;
 color: black;
+background: ${({ name }) => name === 'sand' ? 'rgba(248,149,17,0.46)' : (name === 'metal' ? 'rgba(49,42,42,0.75)' : (name === 'medieval' ? 'rgba(67,40,24,0.70)' : (name === 'other' ? 'rgba(153,88,42,0.70)' : 'rgb(96,99,104)')))};
 `
 const ErrorMessageCategoryReq = styled(ErrorMessage)`
 grid-column: 1;
@@ -368,9 +373,30 @@ const PictureInput = styled(Input)`
 grid-column: 2 / span 2;
 grid-row: 18;
 `
+
+const PacklistInputLabel = styled(Label)`
+grid-column: 1;
+grid-row: 19;
+`
+
+const PacklistInput = styled(Select)`
+grid-column: 2 / span 2;
+grid-row: 19;
+display: block;
+width: 100%;
+padding: 20px;
+border-radius: 4px;
+border: 1px solid rgb(96,99,104);
+margin-top: 0;
+padding: 4px;
+font-size: 100%;
+color: black;
+background: rgb(96,99,104);
+`
+
 const ButtonGroup = styled.div`
 grid-column: 1 / span 3;
-grid-row: 19;
+grid-row: 20;
 display: flex;
 justify-content: center;
 width: 100%;
