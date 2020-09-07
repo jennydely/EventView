@@ -1,57 +1,163 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CategoryFilter renders correctly 1`] = `
+.c1 {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--blue-50);
+  margin-top: 0;
+  padding: 4px;
+  font-size: 100%;
+  color: black;
+  background: rgb(96,99,104);
+}
+
+.c2 {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--blue-50);
+  margin-top: 0;
+  padding: 4px;
+  font-size: 100%;
+  color: black;
+  background: rgba(49,42,42,0.75);
+}
+
+.c3 {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--blue-50);
+  margin-top: 0;
+  padding: 4px;
+  font-size: 100%;
+  color: black;
+  background: rgba(67,40,24,0.70);
+}
+
+.c4 {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--blue-50);
+  margin-top: 0;
+  padding: 4px;
+  font-size: 100%;
+  color: black;
+  background: rgba(248,149,17,0.46);
+}
+
+.c5 {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--blue-50);
+  margin-top: 0;
+  padding: 4px;
+  font-size: 100%;
+  color: black;
+  background: rgba(153,88,42,0.70);
+}
+
 .c0 {
   margin: 5px;
   backgroundcolor: grey;
 }
 
-.c1 {
+.c6 {
   background: rgba(49,42,42,0.75);
 }
 
-.c2 {
+.c7 {
   background: rgba(67,40,24,0.70);
 }
 
-.c3 {
+.c8 {
   background: rgba(248,149,17,0.46);
 }
 
-.c4 {
+.c9 {
   background: rgba(153,88,42,0.70);
 }
 
 <div
   className="c0"
 >
-  <button
+  <select
     className="c1"
+    id="category"
+    name={
+      Array [
+        "metal",
+        "medieval",
+        "sand",
+        "other",
+      ]
+    }
+  >
+    <option
+      className="c2"
+      onClick={[Function]}
+      value="metal"
+    >
+      metal
+    </option>
+    <option
+      className="c3"
+      onClick={[Function]}
+      value="medieval"
+    >
+      medieval
+    </option>
+    <option
+      className="c4"
+      onClick={[Function]}
+      value="sand"
+    >
+      sand
+    </option>
+    <option
+      className="c5"
+      onClick={[Function]}
+      value="other"
+    >
+      other
+    </option>
+  </select>
+  <button
+    className="c6"
     name="metal"
     onClick={[Function]}
   >
     metal
   </button>
   <button
-    className="c2"
+    className="c7"
     name="medieval"
     onClick={[Function]}
   >
     medieval
   </button>
   <button
-    className="c3"
+    className="c8"
     name="sand"
     onClick={[Function]}
   >
     sand
   </button>
   <button
-    className="c4"
+    className="c9"
     name="other"
     onClick={[Function]}
   >
-    otters
+    other
   </button>
 </div>
 `;

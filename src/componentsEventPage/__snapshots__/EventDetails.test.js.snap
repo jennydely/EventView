@@ -207,9 +207,6 @@ exports[`EventDetails renders correctly 1`] = `
   <div
     className="c11"
   >
-    <button>
-      PackList
-    </button>
     <a
       className="c12"
       href="https://www.wacken-winter-nights.com/"

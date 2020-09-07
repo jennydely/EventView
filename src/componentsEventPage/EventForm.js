@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import styled from 'styled-components/macro'
 import Input from '../common/Input'
@@ -12,15 +12,18 @@ EventForm.propTypes = {
 }
 
 export default function EventForm({ onSave }) {
-    const { register, handleSubmit, errors } = useForm()
+    const { register, handleSubmit, errors, reset } = useForm()
     const onSubmit = (eventEntry, event) => {
+        // for testing...
+        if(event && event.target && typeof event.target.reset === 'function') 
         event.target.reset()
         onSave(eventEntry)
     }
-
+    const endDateRef = useRef(null)
+    
     return (
         <>
-            <Form onSubmit={handleSubmit(onSubmit)}>
+            <Form data-testid="1337" onSubmit={handleSubmit(onSubmit)}>
                 <TitleText>Create Event</TitleText>
                 <CategoryInputLabel htmlFor="category">
                     Category:
@@ -68,7 +71,7 @@ export default function EventForm({ onSave }) {
                     <ErrorMessageLocationReq>Location is required!</ErrorMessageLocationReq>
                 )}
                 {errors.location && (errors.location.type === 'validate' || errors.location.type === 'minLength') && (
-                    <ErrorMessageLocationReq> This field requires at least 3 characters!</ErrorMessageLocationReq>
+                    <ErrorMessageLocation> This field requires at least 3 characters!</ErrorMessageLocation>
                 )}
                 
                 <EventInfosText>EventInfos</EventInfosText>
@@ -82,31 +85,45 @@ export default function EventForm({ onSave }) {
                     ref={register({
                         required: true,
                         pattern: /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/,
+                        validate: value => value <= endDateRef.current.value,
                     })}
                 />
+                {(errors.eventStartDate && errors.eventStartDate.type === 'validate') &&
+                 <ErrorMessageStartDate>Start date must be before end date! </ErrorMessageStartDate>
+                 } 
+
+                {(errors.eventStartDate && errors.eventStartDate.type === 'required') &&
+                 <ErrorMessageStartDate>Date is required and needs the right form! </ErrorMessageStartDate>
+                 }
+
                 {(errors.eventStartDate && errors.eventStartDate.type === 'pattern') &&
-                    (
-                        <ErrorMessageDate>Date must be written like: yyyy-mm-dd</ErrorMessageDate>
-                    )}
+                    ( <ErrorMessageStartDate>Date must be written like: yyyy-mm-dd</ErrorMessageStartDate> )}
 
                 <EventEndDateInput
                     placeholder="yyyy-mm-dd"
                     id="EventEndDate"
                     name="eventEndDate"
-                    ref={register({
-                        required: true,
-                        pattern: /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/,
-                    })}
+                    ref={(el) => {
+                        endDateRef.current = el
+                        register(el, {
+                            required: true,
+                            pattern: /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/,
+                             })
+                    }}
                 />
-                {((errors.eventStartDate && errors.eventStartDate.type === 'required') ||
-                    (errors.eventEndDate && errors.eventEndDate.type === 'required')) &&
+
+              {(errors.eventEndDate && errors.eventEndDate.type === 'required') &&
+                 <ErrorMessageEndDate>Date is required and needs the right form! </ErrorMessageEndDate>
+                 }
+
+                {(errors.eventEndDate && errors.eventEndDate.type === 'pattern')  &&
                     (
-                        <ErrorMessageDate>Date is required and needs the right form! Date must be written like: yyyy-mm-dd</ErrorMessageDate>
+                        <ErrorMessageEndDate> Date must be written like: yyyy-mm-dd </ErrorMessageEndDate>
                     )}
-                {(errors.eventStartDate && errors.eventStartDate.type === 'pattern')  &&
-                    (
-                        <ErrorMessageDate>Date must be written like: yyyy-mm-dd</ErrorMessageDate>
-                    )}
+
+
+                
+
                 <AddressInputLabel htmlFor="Street">
                     Address:
                 </AddressInputLabel>
@@ -189,7 +206,7 @@ export default function EventForm({ onSave }) {
                 />
 
                 <ButtonGroup>
-                    <button type="reset" >
+                    <button type="reset" onClick={() => reset()}>
                         Reset
                     </button>
                     <SubmitButton type="submit">Save</SubmitButton>
@@ -228,12 +245,10 @@ padding: 4px;
 font-size: 100%;
 color: black;
 `
-
 const ErrorMessageCategoryReq = styled(ErrorMessage)`
 grid-column: 1;
 grid-row: 4;
 `
-
 const NameInputLabel = styled(Label)`
 grid-column: 2 / span 2;
 grid-row: 2;
@@ -243,7 +258,6 @@ const NameInput = styled(Input)`
 grid-column: 2 / span 2;
 grid-row: 3;
 `
-
 const ErrorMessageNameReq = styled(ErrorMessage)`
 grid-column: 2 / span 2;
 grid-row: 4;
@@ -252,7 +266,6 @@ const ErrorMessageName = styled(ErrorMessage)`
 grid-column: 2 / span 2;
 grid-row: 4;
 `
-
 const LocationInputLabel = styled(Label)`
 grid-column: 2 / span 2;
 grid-row: 5;
@@ -266,7 +279,6 @@ const ErrorMessageLocationReq = styled(ErrorMessage)`
 grid-column: 2 / span 2;
 grid-row: 7;
 `
-
 const ErrorMessageLocation = styled(ErrorMessage)`
 grid-column: 2 / span 2;
 grid-row: 7;
@@ -284,16 +296,18 @@ const EventStartDateInput = styled(Input)`
 grid-column: 2;
 grid-row: 9;
 `
-
+const ErrorMessageStartDate = styled(ErrorMessage)`
+grid-column: 2;
+grid-row: 10;
+`
 const EventEndDateInput = styled(Input)`
 grid-column: 3;
 grid-row: 9;
 `
-const ErrorMessageDate = styled(ErrorMessage)`
-grid-column: 2/span 2;
+const ErrorMessageEndDate = styled(ErrorMessage)`
+grid-column: 3;
 grid-row: 10;
 `
-
 const AddressInputLabel = styled(Label)`
 grid-column: 1;
 grid-row: 11 /span 2 ;
@@ -306,12 +320,10 @@ const ErrorMessageStreetReq = styled(ErrorMessage)`
 grid-column: 2 / span 2;
 grid-row: 12 ;
 `
-
 const ErrorMessageStreet = styled(ErrorMessage)`
 grid-column: 2 / span 2;
 grid-row: 12 ;
 `
-
 const ZipInput = styled(Input)`
 grid-column: 2 / span 2;
 grid-row: 13 ;
@@ -336,12 +348,10 @@ const ErrorMessageWebsiteReq = styled(ErrorMessage)`
 grid-column: 2 / span 2;
 grid-row: 16;
 `
-
 const ErrorMessageWebsite = styled(ErrorMessage)`
 grid-column: 2 / span 2;
 grid-row: 16;
 `
-
 const PriceInputLabel = styled(Label)`
 grid-column: 1;
 grid-row: 17;
@@ -350,7 +360,6 @@ const PriceInput = styled(Input)`
 grid-column: 2 / span 2;
 grid-row: 17;
 `
-
 const PictureInputLabel = styled(Label)`
 grid-column: 1;
 grid-row: 18;
@@ -359,7 +368,6 @@ const PictureInput = styled(Input)`
 grid-column: 2 / span 2;
 grid-row: 18;
 `
-
 const ButtonGroup = styled.div`
 grid-column: 1 / span 3;
 grid-row: 19;
