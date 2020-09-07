@@ -18,8 +18,8 @@ export default function EventPage() {
 
             {formIsVisible ?
                 (<>
-                    <MainWhenFooter.js><EventForm onSave={onSave} />
-                    </MainWhenFooter.js>
+                    <MainWhenFooter><EventForm onSave={onSave} />
+                    </MainWhenFooter>
 
                     <footer>
                         <button type="button" onClick={goBack}>Back</button>
