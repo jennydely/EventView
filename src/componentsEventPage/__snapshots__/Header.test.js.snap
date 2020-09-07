@@ -1,6 +1,102 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header renders correctly 1`] = `
+.c4 {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--blue-50);
+  margin-top: 0;
+  padding: 4px;
+  font-size: 100%;
+  color: black;
+  background: rgb(96,99,104);
+}
+
+.c5 {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--blue-50);
+  margin-top: 0;
+  padding: 4px;
+  font-size: 100%;
+  color: black;
+  background: rgb(96,99,104);
+}
+
+.c6 {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--blue-50);
+  margin-top: 0;
+  padding: 4px;
+  font-size: 100%;
+  color: black;
+  background: rgba(49,42,42,0.75);
+}
+
+.c7 {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--blue-50);
+  margin-top: 0;
+  padding: 4px;
+  font-size: 100%;
+  color: black;
+  background: rgba(67,40,24,0.70);
+}
+
+.c8 {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--blue-50);
+  margin-top: 0;
+  padding: 4px;
+  font-size: 100%;
+  color: black;
+  background: rgba(248,149,17,0.46);
+}
+
+.c9 {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--blue-50);
+  margin-top: 0;
+  padding: 4px;
+  font-size: 100%;
+  color: black;
+  background: rgba(153,88,42,0.70);
+}
+
+.c3 {
+  margin: 5px;
+  backgroundcolor: grey;
+}
+
+.c1 {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--blue-50);
+  margin-top: 0;
+  padding: 4px;
+  font-size: 100%;
+  color: black;
+  background: rgb(96,99,104);
+}
+
 .c2 {
   display: block;
   width: 100%;
@@ -14,103 +110,49 @@ exports[`Header renders correctly 1`] = `
   background: rgb(96,99,104);
 }
 
-.c3 {
-  display: block;
-  width: 100%;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  margin-top: 0;
-  padding: 4px;
-  font-size: 100%;
-  color: black;
-  background: rgba(49,42,42,0.75);
-}
-
-.c4 {
-  display: block;
-  width: 100%;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  margin-top: 0;
-  padding: 4px;
-  font-size: 100%;
-  color: black;
-  background: rgba(67,40,24,0.70);
-}
-
-.c5 {
-  display: block;
-  width: 100%;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  margin-top: 0;
-  padding: 4px;
-  font-size: 100%;
-  color: black;
-  background: rgba(248,149,17,0.46);
-}
-
-.c6 {
-  display: block;
-  width: 100%;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  margin-top: 0;
-  padding: 4px;
-  font-size: 100%;
-  color: black;
-  background: rgba(153,88,42,0.70);
-}
-
-.c1 {
-  margin: 5px;
-  backgroundcolor: grey;
-}
-
-.c7 {
-  background: rgba(49,42,42,0.75);
-}
-
-.c8 {
-  background: rgba(67,40,24,0.70);
-}
-
-.c9 {
-  background: rgba(248,149,17,0.46);
-}
-
-.c10 {
-  background: rgba(153,88,42,0.70);
-}
-
 .c0 {
   margin: 5px;
-  width: wh%;
 }
 
 <header>
   <div
     className="c0"
   >
-    <button
-      name="all"
-      onClick={[Function]}
+    <select
+      className="c1"
+      id="filter"
+      name={
+        Array [
+          "date",
+          "a-Z",
+        ]
+      }
     >
-      All
-    </button>
+      <option
+        className="c2"
+        onClick={[Function]}
+        value="date"
+      >
+        date
+      </option>
+      <option
+        className="c2"
+        onClick={[Function]}
+        value="a-Z"
+      >
+        a-Z
+      </option>
+    </select>
   </div>
   <div
-    className="c1"
+    className="c3"
   >
     <select
-      className="c2"
+      className="c4"
       id="category"
       name={
         Array [
+          "all",
           "metal",
           "medieval",
           "sand",
@@ -119,62 +161,41 @@ exports[`Header renders correctly 1`] = `
       }
     >
       <option
-        className="c3"
+        className="c5"
+        onClick={[Function]}
+        value="all"
+      >
+        all
+      </option>
+      <option
+        className="c6"
         onClick={[Function]}
         value="metal"
       >
         metal
       </option>
       <option
-        className="c4"
+        className="c7"
         onClick={[Function]}
         value="medieval"
       >
         medieval
       </option>
       <option
-        className="c5"
+        className="c8"
         onClick={[Function]}
         value="sand"
       >
         sand
       </option>
       <option
-        className="c6"
+        className="c9"
         onClick={[Function]}
         value="other"
       >
         other
       </option>
     </select>
-    <button
-      className="c7"
-      name="metal"
-      onClick={[Function]}
-    >
-      metal
-    </button>
-    <button
-      className="c8"
-      name="medieval"
-      onClick={[Function]}
-    >
-      medieval
-    </button>
-    <button
-      className="c9"
-      name="sand"
-      onClick={[Function]}
-    >
-      sand
-    </button>
-    <button
-      className="c10"
-      name="other"
-      onClick={[Function]}
-    >
-      other
-    </button>
   </div>
 </header>
 `;
