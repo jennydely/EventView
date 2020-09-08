@@ -16,7 +16,7 @@ PacklistForm.propTypes = {
 export default function PacklistForm({onPacklistSave }) {
   const { register, handleSubmit, reset, errors } = useForm()
   const [items, setItems] = useState([])
-  const ItemRef = useRef(null)
+  const itemRef = useRef(null)
   const onSubmit = (packlist, event) => {
     // for testing...
     if (event && event.target && typeof event.target.reset === 'function')
@@ -60,14 +60,17 @@ export default function PacklistForm({onPacklistSave }) {
             id="itemInput"
             name="item"
             ref={(el) => {
-              ItemRef.current = el
+              itemRef.current = el
               register(el, {
                 required: true, minLength: 3, maxLength: 20,
                 validate: value => value && value.trim().length >= 3 && value.trim().length <= 20
               })
             }}
           />
-          <AddButton type="button" onClick={createItem}>Add</AddButton>
+          <AddButton type="button" onClick={itemRef => { 
+            itemRef.current.value &&
+            addItem({ text: itemRef.current.value, id: uuid() })
+          }} >Add</AddButton>
 
           {errors.item && (errors.item.type === 'validate' || errors.item.type === 'minLength') && (
             <ErrorMessageNameReq>
@@ -94,13 +97,9 @@ export default function PacklistForm({onPacklistSave }) {
         </ButtonGroup>
       </Form>
     </>
-
+ 
   )
-  function createItem(itemRef) {
-    itemRef.current.value.preventDefault()
-    console.log(itemRef.current.value)
-    addItem({ text: itemRef.current.value, id: uuid() })
-  }
+  
 
   function addItem(item) {
     setItems([item, ...items])
