@@ -14,13 +14,13 @@ export default function EventPage() {
     const [eventFilter, setEventFilter] = useState('date')
     const { eventArray, addEvent } = useEvents()
     const { eventFormIsVisible, showEventForm, onEventSave, goEventBack } = useEventForm(addEvent)
-    const { addPacklist } = usePacklists()
+    const { packlists, addPacklist } = usePacklists()
      const { packlistFormIsVisible, showPacklistForm, onPacklistSave, goPacklistBack } = usePacklistForm(addPacklist)
     return (
         <>
             {eventFormIsVisible ?
                 (<>
-                    <MainWhenFooter ><EventForm onEventSave={onEventSave} />
+                    <MainWhenFooter ><EventForm onEventSave={onEventSave} packlists={packlists}/>
                     </MainWhenFooter>
 
                     <footer>

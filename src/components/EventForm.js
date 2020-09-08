@@ -8,10 +8,10 @@ import Select from '../common/Select'
 import PropTypes from 'prop-types'
 
 EventForm.propTypes = {
-    onSave: PropTypes.func.isRequired,
+    onEventSave: PropTypes.func.isRequired,
 }
 
-export default function EventForm({ onEventSave }) {
+export default function EventForm({ onEventSave, packlists }) {
     const { register, handleSubmit, errors, reset } = useForm()
     const onSubmit = (eventEntry, event) => {
         // for testing...
@@ -21,7 +21,8 @@ export default function EventForm({ onEventSave }) {
         onEventSave(eventEntry)
     }
     const endDateRef = useRef(null)
-
+    const allPacklists = packlists.map(packlist => packlist.name)
+    console.log(allPacklists)
     return (
         <>
             <Form data-testid="1337" onSubmit={handleSubmit(onSubmit)}>
@@ -226,7 +227,7 @@ export default function EventForm({ onEventSave }) {
                     Add PackList:
                     </PacklistInputLabel>
                 <PacklistInput name="packlistCategory" id="packlist"
-                    register={register({ required: true })} options={["festival", "medieval"]} />
+                    register={register({ required: true })} options={allPacklists} />
 
                 <ButtonGroup>
                     <button type="reset" onClick={() => reset()}>

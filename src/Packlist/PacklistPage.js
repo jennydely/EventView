@@ -11,7 +11,7 @@ export default function PackListPage() {
     const { packlists } = usePacklists()
     const chosenPacklist = packlists.find(packlist => packlist.name === '' || packlist.name === packlistName)
     const history = useHistory()
-  function goBackButton() {
+    function goBackButton() {
     history.goBack()
   }
     return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, getByRole } from '@testing-library/react'
+import { render} from '@testing-library/react'
 import renderer from 'react-test-renderer'
 import EventDetails from './EventDetails'
 import 'jest-styled-components'

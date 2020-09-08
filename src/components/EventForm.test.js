@@ -9,8 +9,8 @@ window.MutationObserver = require("mutation-observer");
 describe('EventForm', () => {
 
   it('creates a new event', async () => {
-    const onSave = jest.fn()
-    const { getByText, getByLabelText, getByPlaceholderText, getAllByPlaceholderText } = render(<EventForm onSave={onSave} />)
+    const onEventSave = jest.fn()
+    const { getByText, getByLabelText, getByPlaceholderText, getAllByPlaceholderText } = render(<EventForm onEventSave={onEventSave} />)
 
     fireEvent.change(getByLabelText('Category:'), { target: { value: 'medieval' } })
     fireEvent.input(getByPlaceholderText('event name'), { target: { value: 'My EventName' } })
@@ -22,12 +22,12 @@ describe('EventForm', () => {
     fireEvent.input(getAllByPlaceholderText('yyyy-mm-dd')[1], { target: { value: '2020-05-25' } })
 
     fireEvent.submit(getByText('Save'))
-    await waitFor(() => expect(onSave).toHaveBeenCalled())
+    await waitFor(() => expect(onEventSave).toHaveBeenCalled())
   })
 
   it('displays a form to create events', async () => {
-    const onSave = jest.fn()
-    const { getByText, getByLabelText, getByPlaceholderText } = render(<EventForm onSave={onSave} />)
+    const onEventSave = jest.fn()
+    const { getByText, getByLabelText, getByPlaceholderText } = render(<EventForm onEventSave={onEventSave} />)
 
     const nameInput = getByPlaceholderText('event name')
     expect(nameInput.value).toBe('')
@@ -39,17 +39,11 @@ describe('EventForm', () => {
     expect(nameInput.value).toBe('')
     await waitFor(() => expect(getByLabelText('Category:').value).toBe('metal'))
     expect(getByLabelText('Category:').value).toBe('metal')
-  /*expect(getByLabel('name').toBeInTheDocument()
-  expect(getByLabel('location').toBeInTheDocument()
-  expect(getByText('Duration:')).toBeInTheDocument()
-  expect(getByText('Address:')).toBeInTheDocument()
-  expect(getAllByRole('button')).toBeInTheDocument()
-  await fireEvent.submit(getByTestId('1337')). */
 })
 
 it('renders correctly', () => {
-  const onSave = jest.fn()
-  const tree = renderer.create(<EventForm onSave={onSave} />)
+  const onEventSave = jest.fn()
+  const tree = renderer.create(<EventForm onEventSave={onEventSave} />)
   expect(tree).toMatchSnapshot()
 })
 })
