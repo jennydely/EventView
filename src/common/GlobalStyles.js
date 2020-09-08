@@ -53,12 +53,12 @@ export default createGlobalStyle`
   with:fit-content;
   height:fit-content;
   margin: 2px;
-  padding: 2px 4px;
+  padding: 4px 6px;
   border: none;
   border-radius: 6px;
   background-color:rgb(96,99,104);
   color: rgb(253,230,167);
-  font-size: 100%; 
+  font-size: 112%; 
   text-align: center; 
 }
 `

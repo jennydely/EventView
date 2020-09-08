@@ -89,13 +89,18 @@ const Form = styled.form`
 align-content: center;
 min-width: 300px;
 `
-const FormInputContainer = styled.form`
+const FormInputContainer = styled.div`
 display:grid;
 grid-template-columns: auto;
 grid-template-rows: repeat(7,auto);
 align-content: center;
 min-width: 300px;
 gap: 4px;
+border-radius: 7px;
+border: 2px solid black;
+margin: 7px;
+margin-top:0;
+padding: 7px 4px;
 `
 
 const PacklistNameInputLabel = styled(Label)`

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Header from './componentsEventPage/Header'
-import EventList from './componentsEventPage/EventList'
-import EventForm from './componentsEventPage/EventForm'
-import useEventForm from './componentsEventPage/useEventForm'
-import useEvents from './componentsEventPage/useEvents'
+import Header from './components/Header'
+import EventList from './components/EventList'
+import EventForm from './components/EventForm'
+import useEventForm from './components/useEventForm'
+import useEvents from './components/useEvents'
 import PacklistForm from './Packlist/PacklistForm'
 import usePacklistForm from './Packlist/usePacklistForm'
 import usePacklists from './Packlist/usePacklists';
