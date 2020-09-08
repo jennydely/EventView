@@ -18,7 +18,7 @@ export default function EventPage() {
 
             {formIsVisible ?
                 (<>
-                    <MainWhenFooter><EventForm onSave={onSave} />
+                    <MainWhenFooter ><EventForm onSave={onSave} />
                     </MainWhenFooter>
 
                     <footer>

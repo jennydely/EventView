@@ -7,11 +7,10 @@ export default function useEventForm(addEvent) {
 
   const onSave = (event) => {
     addEvent(event)
-    
     setFormIsVisible(false)
   }
 
-  const goBack = () => setFormIsVisible(false)
+  const goBack = () => setFormIsVisible(false) && window.location.reload();
 
   return { formIsVisible, showForm, onSave, goBack }
 }
