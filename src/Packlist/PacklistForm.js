@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { v4 as uuid } from 'uuid'
 import styled from 'styled-components/macro'
 import Input from '../common/Input'
 import Label from '../common/Label'
@@ -15,7 +16,7 @@ PacklistForm.propTypes = {
 
 export default function PacklistForm({ onPacklistCancel, onPacklistSave }) {
   const { register, handleSubmit, errors } = useForm()
-
+  const [items, setItems] = useState([])
   const onSubmit = (packlist, event) => {
     // for testing...
     if (event && event.target && typeof event.target.reset === 'function')
@@ -52,16 +53,17 @@ export default function PacklistForm({ onPacklistCancel, onPacklistSave }) {
             </ErrorMessageName>
           )}
 
-          <ItemInputLabel>Create new item or task:</ItemInputLabel>
+          <ItemInputLabel htmlFor="itemInput">Create new item or task:</ItemInputLabel>
           <ItemInput
             placeholder="item you need or task you have to do"
-            id="item"
+            id="itemInput"
             name="item"
             ref={register({
               required: true, minLength: 3, maxLength: 20,
               validate: value => value && value.trim().length >= 3 && value.trim().length <= 20
             })}
           />
+          <button onClick={createItem}>Add todo</button>
 
           {errors.item && (errors.item.type === 'validate' || errors.item.type === 'minLength') && (
             <ErrorMessageItem>
@@ -74,8 +76,8 @@ export default function PacklistForm({ onPacklistCancel, onPacklistSave }) {
             </ErrorMessageItem>
           )}
           <ListContainer>
-            {item.map(item => (
-              <ListItem key={item}><input type="checkbox" />{item}</ListItem>
+            {items.map(({text, completed, id}, index) => (
+              <ListItem key={id} text={text}><input type="checkbox" checked={completed}/>{text}  <DeleteButton onClick={() => deleteItem(index)} type="button">X</DeleteButton> </ListItem>
             ))}
           </ListContainer>
         </FormInputContainer>
@@ -89,6 +91,26 @@ export default function PacklistForm({ onPacklistCancel, onPacklistSave }) {
       </Form>
     </>
   )
+
+  function createItem(input) {
+    input.preventDefault()
+    const form = input.target
+    const inputItem = form.item
+    addItem({ text: inputItem.value, id: uuid() })
+    form.reset()
+    input.focus()
+  }
+
+  function addItem(item) {
+    setItems([item, ...items])
+  }
+
+  function deleteItem(index) {
+    setItems([
+      ...items.slice(0, index),
+      ...items.slice(index + 1)
+    ])
+  }
 }
 
 
@@ -155,4 +177,10 @@ margin-top: 30px;
 `
 const SubmitButton = styled.button`
   background-color: rgba(111,29,27,0.75);
+`
+const DeleteButton= styled.button`
+color: rgba(246, 71, 71, 1);
+text-decoration: none;
+border:none;
+background:none;
 `

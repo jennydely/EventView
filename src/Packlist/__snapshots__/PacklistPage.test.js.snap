@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PackList renders correctly 1`] = `
+Array [
+  .c0 {
+  height: 92vh;
+}
+
+.c1 {
+  text-align: center;
+}
+
+<main
+    className="c0"
+  >
+    <h1>
+      No PackList
+    </h1>
+    
+    <p
+      className="c1"
+    >
+      There is no packlist added to this event
+    </p>
+  </main>,
+  <footer>
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      Back
+    </button>
+  </footer>,
+]
+`;

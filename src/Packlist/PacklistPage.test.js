@@ -1,6 +1,6 @@
 import React from 'react'
-import { Router, Route } from 'react-router-dom'
-import { render, act } from '@testing-library/react'
+import { Router, Route, MemoryRouter } from 'react-router-dom'
+import { render } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
 import renderer from 'react-test-renderer'
 import PacklistPage from './PacklistPage'
@@ -55,15 +55,21 @@ describe('PackList', () => {
         ]}
 
     it('displays the packlist festival', () => {
-        const { getByText } = renderWithRouter(<PacklistPage packlists={packlists} packlistName={packlistName} />)
-        act(() => {
+        const { getByText } = render(
+           <MemoryRouter>
+           <PacklistPage packlists={packlists} packlistName={packlistName} />)
+           </MemoryRouter>
+        )
             expect(getByText('festival')).toBeInTheDocument()
             expect(getByText(packlists[0].name)).toBeInTheDocument()
             expect(getByText(packlists[0].packlist)).toBeInTheDocument()
-        })
+        
     })
 it('renders correctly', () => {
-    const tree = renderer.create(<PacklistPage packlists={packlists} packlistName={packlistName} />)
+    const tree = renderer.create(
+        <MemoryRouter>
+    <PacklistPage packlists={packlists} packlistName={packlistName} />
+    </MemoryRouter>)
     expect(tree).toMatchSnapshot()
 })
 })
