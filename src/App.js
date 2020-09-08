@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import PacklistPage from './PackListPage'
+import PacklistPage from './Packlist/PacklistPage'
 import EventPage from './EventPage'
 export default function App() {
 

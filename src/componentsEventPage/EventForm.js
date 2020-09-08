@@ -11,13 +11,14 @@ EventForm.propTypes = {
     onSave: PropTypes.func.isRequired,
 }
 
-export default function EventForm({ onSave }) {
+export default function EventForm({ onEventSave }) {
     const { register, handleSubmit, errors, reset } = useForm()
     const onSubmit = (eventEntry, event) => {
         // for testing...
         if (event && event.target && typeof event.target.reset === 'function')
-            event.target.reset()
-        onSave(eventEntry)
+           
+        event.target.reset()
+        onEventSave(eventEntry)
     }
     const endDateRef = useRef(null)
 

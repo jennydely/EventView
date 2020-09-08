@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getPacklists, postPacklists } from './utils/services'
+import { getPacklists, postPacklists } from '../utils/services'
 
 export default function usePacklists() {
   const [packlists, setPacklists] = useState([])

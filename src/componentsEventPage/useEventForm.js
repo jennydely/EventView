@@ -1,16 +1,16 @@
 import { useState } from 'react'
 
 export default function useEventForm(addEvent) {
-  const [formIsVisible, setFormIsVisible] = useState(false)
+  const [eventFormIsVisible, setEventFormIsVisible] = useState(false)
 
-  const showForm = () => setFormIsVisible(true)
+  const showEventForm = () => setEventFormIsVisible(true)
 
-  const onSave = (event) => {
+  const onEventSave = (event) => {
     addEvent(event)
-    setFormIsVisible(false)
+    setEventFormIsVisible(false)
   }
 
-  const goBack = () => window.location.reload() && setFormIsVisible(false) 
+  const goEventBack = () => window.location.reload() && setEventFormIsVisible(false) 
 
-  return { formIsVisible, showForm, onSave, goBack }
+  return { eventFormIsVisible, showEventForm, onEventSave, goEventBack }
 }

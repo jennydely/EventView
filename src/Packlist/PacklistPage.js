@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components/macro'
 import { useParams, useHistory } from 'react-router-dom'
 import usePacklists from './usePacklists';
-import ListItem from '../src/common/ListItem'
-import ListContainer from '../src/common/ListContainer'
-import MainWhenFooter from '../src/common/MainWhenFooter'
+import ListItem from '../common/ListItem'
+import ListContainer from '../common/ListContainer'
+import MainWhenFooter from '../common/MainWhenFooter'
 
 export default function PackListPage() {
     const { packlistName } = useParams()
