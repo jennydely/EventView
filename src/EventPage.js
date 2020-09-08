@@ -11,14 +11,14 @@ export default function EventPage() {
     const [eventFilter, setEventFilter] = useState('date')
     const { eventArray, addEvent } = useEvents()
     const { formIsVisible, showForm, onSave, goBack } = useEventForm(addEvent)
-
+  
     return (
         <>
            
 
             {formIsVisible ?
                 (<>
-                    <MainWhenFooter><EventForm onSave={onSave} />
+                    <MainWhenFooter ><EventForm onSave={onSave} />
                     </MainWhenFooter>
 
                     <footer>
