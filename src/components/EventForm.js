@@ -9,6 +9,7 @@ import PropTypes from 'prop-types'
 
 EventForm.propTypes = {
     onEventSave: PropTypes.func.isRequired,
+    packlists: PropTypes.array.isRequired
 }
 
 export default function EventForm({ onEventSave, packlists }) {
