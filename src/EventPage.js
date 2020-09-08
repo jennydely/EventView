@@ -11,7 +11,7 @@ export default function EventPage() {
     const [eventFilter, setEventFilter] = useState('date')
     const { eventArray, addEvent } = useEvents()
     const { formIsVisible, showForm, onSave, goBack } = useEventForm(addEvent)
-
+  
     return (
         <>
            
