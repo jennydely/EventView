@@ -1,25 +1,9 @@
 import React from 'react'
-import { Router, Route, MemoryRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom'
 import { render } from '@testing-library/react'
-import { createMemoryHistory } from 'history'
 import renderer from 'react-test-renderer'
 import PacklistPage from './PacklistPage'
 import 'jest-styled-components'
-
-const renderWithRouter = (component) => {
-    const history = createMemoryHistory()
-    history.push('/packlist/festival')
-    return { 
-    ...render (
-    <Router history={history}>
-        <Route path='/packlist/:packlistName?'>
-
-            {component}
-        </Route>
-    </Router>
-    )
-  }
-}
 
 describe('PackList', () => {
     const packlistName = "festival";
@@ -56,20 +40,20 @@ describe('PackList', () => {
 
     it('displays the packlist festival', () => {
         const { getByText } = render(
-           <MemoryRouter>
-           <PacklistPage packlists={packlists} packlistName={packlistName} />)
-           </MemoryRouter>
+        <MemoryRouter>
+        <PacklistPage packlists={packlists} packlistName={packlistName} />
+        </MemoryRouter>
         )
-            expect(getByText('festival')).toBeInTheDocument()
-            expect(getByText(packlists[0].name)).toBeInTheDocument()
-            expect(getByText(packlists[0].packlist)).toBeInTheDocument()
-        
+        setTimeout(() => {
+            expect(getByText(packlistName)).toBeInTheDocument()
+            expect(getByText('Wasser')).toBeInTheDocument()
+        }, 100)
     })
 it('renders correctly', () => {
     const tree = renderer.create(
         <MemoryRouter>
-    <PacklistPage packlists={packlists} packlistName={packlistName} />
-    </MemoryRouter>)
+            <PacklistPage packlists={packlists} packlistName={packlistName} />
+        </MemoryRouter>)
     expect(tree).toMatchSnapshot()
 })
 })

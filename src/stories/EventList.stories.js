@@ -11,6 +11,7 @@ const Template = (args) => <EventList {...args} />;
 export const List = Template.bind({});
 List.args = {
   categoryFilter: 'all',
+  eventFilter: 'date',
   eventArray: [
     {
       "id": "1",
