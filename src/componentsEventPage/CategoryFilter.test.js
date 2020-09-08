@@ -11,9 +11,9 @@ describe('CategoryFilter', () => {
         const { getByText } = render(<CategoryFilter onSelectFilter={onSelectFilter} />)
         expect(getByText('all')).toBeInTheDocument()
         expect(getByText('medieval')).toBeInTheDocument()
-            expect(getByText('metal')).toBeInTheDocument()
-            expect(getByText('sand')).toBeInTheDocument()
-            expect(getByText('other')).toBeInTheDocument()
+        expect(getByText('metal')).toBeInTheDocument()
+        expect(getByText('sand')).toBeInTheDocument()
+        expect(getByText('other')).toBeInTheDocument()
     })
     it('renders correctly', () => {
         const tree = renderer.create(<CategoryFilter onSelectFilter={onSelectFilter} />)
