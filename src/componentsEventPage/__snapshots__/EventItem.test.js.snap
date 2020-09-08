@@ -191,7 +191,7 @@ exports[`EventItem renders correctly 1`] = `
       <img
         alt="This is the eventname Poster"
         className="c4"
-        src="https://raw.githubusercontent.com/jennydely/Event-Planner/EventDetails/src/img/defaultImg.jpg"
+        src="https://delyed.de/wp-content/uploads/2018/01/5d737e918441914a9d2743268ef65439.jpg"
       />
     </a>
     <p
@@ -238,6 +238,11 @@ exports[`EventItem renders correctly 1`] = `
     <div
       className="c13"
     >
+      <button
+        onClick={[Function]}
+      >
+        PackList
+      </button>
       <a
         className="c14"
         target="blank"

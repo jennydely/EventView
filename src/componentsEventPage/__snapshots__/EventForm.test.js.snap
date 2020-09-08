@@ -14,7 +14,6 @@ exports[`EventForm renders correctly 1`] = `
 }
 
 .c2 {
-  color: var(--blue-main);
   font-weight: 400;
   font-size: 100%;
   line-height: 1.143;
@@ -25,7 +24,7 @@ exports[`EventForm renders correctly 1`] = `
 .c0 {
   display: grid;
   grid-template-columns: repeat(3,auto);
-  grid-template-rows: repeat(18,auto) 30px;
+  grid-template-rows: repeat(19,auto) 30px;
   -webkit-align-content: center;
   -ms-flex-line-pack: center;
   align-content: center;
@@ -47,14 +46,16 @@ exports[`EventForm renders correctly 1`] = `
 .c4 {
   grid-column: 1;
   grid-row: 3;
+  display: block;
   width: 100%;
   padding: 20px;
+  border: 1px solid rgb(96,99,104);
   border-radius: 4px;
-  border: 1px solid var(--blue-50);
   margin-top: 0;
   padding: 4px;
   font-size: 100%;
   color: black;
+  background: rgb(96,99,104);
 }
 
 .c5 {
@@ -146,8 +147,28 @@ exports[`EventForm renders correctly 1`] = `
 }
 
 .c23 {
-  grid-column: 1 / span 3;
+  grid-column: 1;
   grid-row: 19;
+}
+
+.c24 {
+  grid-column: 2 / span 2;
+  grid-row: 19;
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid rgb(96,99,104);
+  margin-top: 0;
+  padding: 4px;
+  font-size: 100%;
+  color: black;
+  background: rgb(96,99,104);
+}
+
+.c25 {
+  grid-column: 1 / span 3;
+  grid-row: 20;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -161,7 +182,7 @@ exports[`EventForm renders correctly 1`] = `
   margin-top: 30px;
 }
 
-.c24 {
+.c26 {
   background-color: rgba(111,29,27,0.75);
 }
 
@@ -308,8 +329,30 @@ exports[`EventForm renders correctly 1`] = `
     name="poster"
     placeholder="http://www.website.de/banner.jpg"
   />
+  <label
+    className="c2 c23"
+    htmlFor="packlist"
+  >
+    Add PackList:
+  </label>
+  <select
+    className="c24"
+    id="packlist"
+    name="packlistCategory"
+  >
+    <option
+      value="festival"
+    >
+      festival
+    </option>
+    <option
+      value="medieval"
+    >
+      medieval
+    </option>
+  </select>
   <div
-    className="c23"
+    className="c25"
   >
     <button
       onClick={[Function]}
@@ -318,7 +361,7 @@ exports[`EventForm renders correctly 1`] = `
       Reset
     </button>
     <button
-      className="c24"
+      className="c26"
       type="submit"
     >
       Save
