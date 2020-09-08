@@ -15,12 +15,12 @@ export default function EventForm({ onSave }) {
     const { register, handleSubmit, errors, reset } = useForm()
     const onSubmit = (eventEntry, event) => {
         // for testing...
-        if(event && event.target && typeof event.target.reset === 'function') 
-        event.target.reset()
+        if (event && event.target && typeof event.target.reset === 'function')
+            event.target.reset()
         onSave(eventEntry)
     }
     const endDateRef = useRef(null)
-    
+
     return (
         <>
             <Form data-testid="1337" onSubmit={handleSubmit(onSubmit)}>
@@ -28,9 +28,9 @@ export default function EventForm({ onSave }) {
                 <CategoryInputLabel htmlFor="category">
                     Category:
                     </CategoryInputLabel>
-                    <CategoryInput name="category" id="category"
+                <CategoryInput name="category" id="category"
                     register={register({ required: true })} options={["metal", "medieval", "sand", "other"]} />
-                     {errors.category && errors.category.type === 'required' && (
+                {errors.category && errors.category.type === 'required' && (
                     <ErrorMessageCategoryReq>Category is required!</ErrorMessageCategoryReq>
                 )}
 
@@ -41,8 +41,10 @@ export default function EventForm({ onSave }) {
                     placeholder="event name"
                     id="name"
                     name="name"
-                    ref={register({ required: true, minLength: 3,
-                        validate: value => value && value.trim().length >= 3 })}
+                    ref={register({
+                        required: true, minLength: 3, maxLength: 20,
+                        validate: value => value && value.trim().length >= 3 && value.trim().length <= 20
+                    })}
                 />
 
                 {errors.name && errors.name.type === 'required' && (
@@ -53,6 +55,13 @@ export default function EventForm({ onSave }) {
                         This field requires at least 3 characters!
                     </ErrorMessageName>
                 )}
+                {errors.name && (errors.name.type === 'validate' || errors.name.type === 'maxLength') && (
+                    <ErrorMessageName>
+                        The name can reach a maximum of 20 characters!
+                    </ErrorMessageName>
+                )}
+
+
                 <LocationInputLabel htmlFor="location">
                     EventLocation:
                     </LocationInputLabel>
@@ -60,11 +69,12 @@ export default function EventForm({ onSave }) {
                     placeholder="location of the event"
                     id="location"
                     name="location"
-                    ref={register({ 
+                    ref={register({
                         required: true,
-                         minLength: 3,
-                         validate: value => value && value.trim().length >= 3
-                        })}
+                        minLength: 3,
+                        maxLength: 20,
+                        validate: value => value && value.trim().length >= 3 && value.trim().length <= 20
+                    })}
                 />
 
                 {errors.location && errors.location.type === 'required' && (
@@ -73,7 +83,12 @@ export default function EventForm({ onSave }) {
                 {errors.location && (errors.location.type === 'validate' || errors.location.type === 'minLength') && (
                     <ErrorMessageLocation> This field requires at least 3 characters!</ErrorMessageLocation>
                 )}
-                
+                {errors.location && (errors.location.type === 'validate' || errors.location.type === 'maxLength') && (
+                    <ErrorMessageLocation>
+                        The location can reach a maximum of 20 characters!
+                    </ErrorMessageLocation>
+                )}
+
                 <EventInfosText>EventInfos</EventInfosText>
                 <DurationInputLabel htmlFor="EventStartDate">
                     Duration:</DurationInputLabel>
@@ -89,15 +104,15 @@ export default function EventForm({ onSave }) {
                     })}
                 />
                 {(errors.eventStartDate && errors.eventStartDate.type === 'validate') &&
-                 <ErrorMessageStartDate>Start date must be before end date! </ErrorMessageStartDate>
-                 } 
+                    <ErrorMessageStartDate>Start date must be before end date! </ErrorMessageStartDate>
+                }
 
                 {(errors.eventStartDate && errors.eventStartDate.type === 'required') &&
-                 <ErrorMessageStartDate>Date is required and needs the right form! </ErrorMessageStartDate>
-                 }
+                    <ErrorMessageStartDate>Date is required and needs the right form! </ErrorMessageStartDate>
+                }
 
                 {(errors.eventStartDate && errors.eventStartDate.type === 'pattern') &&
-                    ( <ErrorMessageStartDate>Date must be written like: yyyy-mm-dd</ErrorMessageStartDate> )}
+                    (<ErrorMessageStartDate>Date must be written like: yyyy-mm-dd</ErrorMessageStartDate>)}
 
                 <EventEndDateInput
                     placeholder="yyyy-mm-dd"
@@ -108,15 +123,15 @@ export default function EventForm({ onSave }) {
                         register(el, {
                             required: true,
                             pattern: /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/,
-                             })
+                        })
                     }}
                 />
 
-              {(errors.eventEndDate && errors.eventEndDate.type === 'required') &&
-                 <ErrorMessageEndDate>Date is required and needs the right form! </ErrorMessageEndDate>
-                 }
+                {(errors.eventEndDate && errors.eventEndDate.type === 'required') &&
+                    <ErrorMessageEndDate>Date is required and needs the right form! </ErrorMessageEndDate>
+                }
 
-                {(errors.eventEndDate && errors.eventEndDate.type === 'pattern')  &&
+                {(errors.eventEndDate && errors.eventEndDate.type === 'pattern') &&
                     (
                         <ErrorMessageEndDate> Date must be written like: yyyy-mm-dd </ErrorMessageEndDate>
                     )}
@@ -128,8 +143,10 @@ export default function EventForm({ onSave }) {
                     placeholder="street + number"
                     id="street"
                     name="street"
-                    ref={register({ required: true, minLength: 5,
-                        validate: value => value && value.trim().length >= 5 })}
+                    ref={register({
+                        required: true, minLength: 5,
+                        validate: value => value && value.trim().length >= 5
+                    })}
                 />
 
                 {errors.street && errors.street.type === 'required' && (
@@ -145,8 +162,10 @@ export default function EventForm({ onSave }) {
                     placeholder="zip"
                     id="zip"
                     name="zip"
-                    ref={register({ required: true, minLength: 2,
-                        validate: value => value && value.trim().length >= 2 })}
+                    ref={register({
+                        required: true, minLength: 2,
+                        validate: value => value && value.trim().length >= 2
+                    })}
                 />
 
                 {errors.zip && errors.zip.type === 'required' && (
@@ -196,16 +215,16 @@ export default function EventForm({ onSave }) {
                     placeholder="http://www.website.de/banner.jpg"
                     id="poster"
                     name="poster"
-                    ref={register({ 
+                    ref={register({
                         required: false,
                         pattern: /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/,
-                })}
+                    })}
                 />
 
-                  <PacklistInputLabel htmlFor="packlist">
+                <PacklistInputLabel htmlFor="packlist">
                     Add PackList:
                     </PacklistInputLabel>
-                    <PacklistInput name="packlistCategory" id="packlist"
+                <PacklistInput name="packlistCategory" id="packlist"
                     register={register({ required: true })} options={["festival", "medieval"]} />
 
                 <ButtonGroup>

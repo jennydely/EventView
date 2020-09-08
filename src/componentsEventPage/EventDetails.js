@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 export default function EventDetails({ event, style, bind }) {
   const { poster, name, street, zip, location, price, website, packlistCategory } = event
-  const defaultImg = "https://raw.githubusercontent.com/jennydely/Event-Planner/EventDetails/src/img/defaultImg.jpg"
+  const defaultImg = "https://delyed.de/wp-content/uploads/2018/01/5d737e918441914a9d2743268ef65439.jpg"
   const history = useHistory()
   function handleBackButtonClick() {
     history.push('/packlist/' + packlistCategory)
