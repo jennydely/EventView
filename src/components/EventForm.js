@@ -22,8 +22,7 @@ export default function EventForm({ onEventSave, packlists }) {
     }
     const endDateRef = useRef(null)
     const allPacklists = packlists.map(packlist => packlist.name)
-    console.log(allPacklists)
-    return (
+        return (
         <>
             <Form data-testid="1337" onSubmit={handleSubmit(onSubmit)}>
                 <TitleText>Create Event</TitleText>

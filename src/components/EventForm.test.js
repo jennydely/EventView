@@ -10,7 +10,27 @@ describe('EventForm', () => {
 
   it('creates a new event', async () => {
     const onEventSave = jest.fn()
-    const { getByText, getByLabelText, getByPlaceholderText, getAllByPlaceholderText } = render(<EventForm onEventSave={onEventSave} />)
+    const packlists = [
+      {
+        "id": 500,
+        "name": "festival",
+        "packlist": ["Wasser",
+          "Plastikzelt",
+          "Metalgürtel",
+          "ausgedruckter Timetable"
+        ]
+      },
+      {
+        "id": 501,
+        "name": "medieval",
+        "packlist": ["Wasser",
+          "Leinenzelt",
+          "Bodenplane",
+          "Schurwollmantel & Umhang"
+        ]
+      }
+    ]
+    const { getByText, getByLabelText, getByPlaceholderText, getAllByPlaceholderText } = render(<EventForm  packlists={packlists} onEventSave={onEventSave} />)
 
     fireEvent.change(getByLabelText('Category:'), { target: { value: 'medieval' } })
     fireEvent.input(getByPlaceholderText('event name'), { target: { value: 'My EventName' } })
@@ -27,7 +47,27 @@ describe('EventForm', () => {
 
   it('displays a form to create events', async () => {
     const onEventSave = jest.fn()
-    const { getByText, getByLabelText, getByPlaceholderText } = render(<EventForm onEventSave={onEventSave} />)
+    const packlists = [
+      {
+        "id": 500,
+        "name": "festival",
+        "packlist": ["Wasser",
+          "Plastikzelt",
+          "Metalgürtel",
+          "ausgedruckter Timetable"
+        ]
+      },
+      {
+        "id": 501,
+        "name": "medieval",
+        "packlist": ["Wasser",
+          "Leinenzelt",
+          "Bodenplane",
+          "Schurwollmantel & Umhang"
+        ]
+      }
+    ]
+    const { getByText, getByLabelText, getByPlaceholderText } = render(<EventForm packlists={packlists} onEventSave={onEventSave} />)
 
     const nameInput = getByPlaceholderText('event name')
     expect(nameInput.value).toBe('')
@@ -39,11 +79,31 @@ describe('EventForm', () => {
     expect(nameInput.value).toBe('')
     await waitFor(() => expect(getByLabelText('Category:').value).toBe('metal'))
     expect(getByLabelText('Category:').value).toBe('metal')
-})
+  })
 
-it('renders correctly', () => {
-  const onEventSave = jest.fn()
-  const tree = renderer.create(<EventForm onEventSave={onEventSave} />)
-  expect(tree).toMatchSnapshot()
-})
+  it('renders correctly', () => {
+    const onEventSave = jest.fn()
+    const packlists = [
+      {
+        "id": 500,
+        "name": "festival",
+        "packlist": ["Wasser",
+          "Plastikzelt",
+          "Metalgürtel",
+          "ausgedruckter Timetable"
+        ]
+      },
+      {
+        "id": 501,
+        "name": "medieval",
+        "packlist": ["Wasser",
+          "Leinenzelt",
+          "Bodenplane",
+          "Schurwollmantel & Umhang"
+        ]
+      }
+    ]
+    const tree = renderer.create(<EventForm packlists={packlists} onEventSave={onEventSave} />)
+    expect(tree).toMatchSnapshot()
+  })
 })

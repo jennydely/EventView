@@ -25,7 +25,7 @@ export function getPacklists() {
 
 export function postPacklists (packlists) {
   const newPacklist = { ...packlists, id: uuid() }
-  return getEvents()
+  return getPacklists()
     .then((packlists) => [newPacklist, ...packlists])
     .then((packlists) => saveToLocal('packlists', packlists))
     .then(() => newPacklist)

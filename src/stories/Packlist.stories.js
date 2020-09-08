@@ -1,5 +1,5 @@
 import React from 'react';
-import PackListPage from '../PackListPage';
+import PackListPage from '../Packlist/PacklistPage';
 
 export default {
     title: 'EventPlanner/Packlist',

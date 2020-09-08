@@ -1,5 +1,5 @@
 import React from 'react';
-import EventItem from '../componentsEventPage/EventItem';
+import EventItem from '../components/EventItem';
 
 export default {
   title: 'EventPlanner/EventItem',

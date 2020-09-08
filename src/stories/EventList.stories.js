@@ -1,5 +1,5 @@
 import React from 'react';
-import EventList from '../componentsEventPage/EventList';
+import EventList from '../components/EventList';
 
 export default {
   title: 'EventPlanner/EventList',

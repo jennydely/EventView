@@ -5,21 +5,23 @@ import Input from '../common/Input'
 import Label from '../common/Label'
 import ErrorMessage from '../common/ErrorMessage'
 import PropTypes from 'prop-types'
+import ListContainer from '../common/ListContainer'
+import ListItem from '../common/ListItem'
 
 PacklistForm.propTypes = {
-  onSave: PropTypes.func.isRequired,
-  onCancel: PropTypes.func.isRequired,
+  onPacklistSave: PropTypes.func.isRequired,
+  onPacklistCancel: PropTypes.func.isRequired,
 }
 
 export default function PacklistForm({ onPacklistCancel, onPacklistSave }) {
   const { register, handleSubmit, errors } = useForm()
 
-  const onSubmit = (NewPacklist, event) => {
-            // for testing...
-            if (event && event.target && typeof event.target.reset === 'function')
-            
-    event.target.reset()
-    onPacklistSave(NewPacklist)
+  const onSubmit = (packlist, event) => {
+    // for testing...
+    if (event && event.target && typeof event.target.reset === 'function')
+
+      event.target.reset()
+    onPacklistSave({ name: packlist.name, packlist: [packlist.item] })
   }
 
   return (
@@ -28,49 +30,54 @@ export default function PacklistForm({ onPacklistCancel, onPacklistSave }) {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormInputContainer>
           <PacklistNameInputLabel>Name of the new PackList:</PacklistNameInputLabel>
-          <PacklistNameInput 
-              placeholder="packList name"
-                    id="name"
-                    name="name"
-                    ref={register({
-                        required: true, minLength: 3, maxLength: 10,
-                        validate: value => value && value.trim().length >= 3 && value.trim().length <= 10
-                    })}/>
-                {errors.name && errors.name.type === 'required' && (
-                    <ErrorMessageNameReq>Name is required!</ErrorMessageNameReq>
-                )}
-                {errors.name && (errors.name.type === 'validate' || errors.name.type === 'minLength') && (
-                    <ErrorMessageName>
-                        This field requires at least 3 characters!
-                    </ErrorMessageName>
-                )}
-                {errors.name && (errors.name.type === 'validate' || errors.name.type === 'maxLength') && (
-                    <ErrorMessageName>
-                        The name can reach a maximum of 10 characters!
-                    </ErrorMessageName>
-                )}
+          <PacklistNameInput
+            placeholder="packList name"
+            id="name"
+            name="name"
+            ref={register({
+              required: true, minLength: 3, maxLength: 10,
+              validate: value => value && value.trim().length >= 3 && value.trim().length <= 10
+            })} />
+          {errors.name && errors.name.type === 'required' && (
+            <ErrorMessageNameReq>Name is required!</ErrorMessageNameReq>
+          )}
+          {errors.name && (errors.name.type === 'validate' || errors.name.type === 'minLength') && (
+            <ErrorMessageName>
+              This field requires at least 3 characters!
+            </ErrorMessageName>
+          )}
+          {errors.name && (errors.name.type === 'validate' || errors.name.type === 'maxLength') && (
+            <ErrorMessageName>
+              The name can reach a maximum of 10 characters!
+            </ErrorMessageName>
+          )}
 
           <ItemInputLabel>Create new item or task:</ItemInputLabel>
-          <ItemInput 
-                        placeholder="item you need or task you have to do"
-                        id="item"
-                        name="item"
-                        ref={register({
-                            required: true, minLength: 3, maxLength: 20,
-                            validate: value => value && value.trim().length >= 3 && value.trim().length <= 20
-                        })}
+          <ItemInput
+            placeholder="item you need or task you have to do"
+            id="item"
+            name="item"
+            ref={register({
+              required: true, minLength: 3, maxLength: 20,
+              validate: value => value && value.trim().length >= 3 && value.trim().length <= 20
+            })}
           />
 
           {errors.item && (errors.item.type === 'validate' || errors.item.type === 'minLength') && (
-                    <ErrorMessageItem>
-                        This field requires at least 3 characters!
-                    </ErrorMessageItem>
-                )}
-                {errors.item && (errors.item.type === 'validate' || errors.item.type === 'maxLength') && (
-                    <ErrorMessageItem>
-                        The Item can reach a maximum of 20 characters!
-                    </ErrorMessageItem>
-                )}
+            <ErrorMessageItem>
+              This field requires at least 3 characters!
+            </ErrorMessageItem>
+          )}
+          {errors.item && (errors.item.type === 'validate' || errors.item.type === 'maxLength') && (
+            <ErrorMessageItem>
+              The Item can reach a maximum of 20 characters!
+            </ErrorMessageItem>
+          )}
+          <ListContainer>
+            {item.map(item => (
+              <ListItem key={item}><input type="checkbox" />{item}</ListItem>
+            ))}
+          </ListContainer>
         </FormInputContainer>
 
         <ButtonGroup>

@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../componentsEventPage/Header';
+import Header from '../components/Header';
 
 export default {
   title: 'EventPlanner/Header',
