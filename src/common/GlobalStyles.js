@@ -58,7 +58,7 @@ export default createGlobalStyle`
   border-radius: 6px;
   background-color:rgb(96,99,104);
   color: rgb(253,230,167);
-  font-size: 112%; 
+  font-size: 114%; 
   text-align: center; 
 }
 `

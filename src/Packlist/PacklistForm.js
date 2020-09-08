@@ -18,9 +18,9 @@ export default function PacklistForm({onPacklistSave }) {
   const [items, setItems] = useState([])
   const itemRef = useRef(null)
   const onSubmit = (packlist, event) => {
+    event.preventDefault()
     // for testing...
     if (event && event.target && typeof event.target.reset === 'function')
-
       event.target.reset()
     onPacklistSave({ name: packlist.name, packlist: [packlist.item] })
   }
@@ -30,7 +30,7 @@ export default function PacklistForm({onPacklistSave }) {
   return (
     <>
       <h1>Create PackList</h1>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={handleSubmit(onSubmit)}> {/* its neccesary to remove the enter key as submit function! */}
         <FormInputContainer>
           <PacklistNameInputLabel>Name of the new PackList:</PacklistNameInputLabel>
           <PacklistNameInput
@@ -67,11 +67,13 @@ export default function PacklistForm({onPacklistSave }) {
               })
             }}
           />
-          <AddButton type="button" onClick={itemRef => { 
-            itemRef.current.value &&
+          <AddButton type="button" onClick={packlistitem => { 
+            itemRef.current.value && itemRef.current.value.trim().length >= 3 && itemRef.current.value.trim().length <= 20 &&
             addItem({ text: itemRef.current.value, id: uuid() })
-          }} >Add</AddButton>
+{/* Eingabefeld sollte nach erstellung des Items gecleared werden */}
 
+          }} >Add</AddButton>
+{/* The error Messages are not working!
           {errors.item && (errors.item.type === 'validate' || errors.item.type === 'minLength') && (
             <ErrorMessageNameReq>
               This field requires at least 3 characters!
@@ -82,6 +84,7 @@ export default function PacklistForm({onPacklistSave }) {
               The Item can reach a maximum of 20 characters!
             </ErrorMessage>
           )}
+          */}
           <ItemContainer>
             {items.map(({ text, completed, id }, index) => (
               <ListItem key={id} text={text}><input type="checkbox" checked={completed} />{text}  <DeleteButton onClick={() => deleteItem(index)} type="button">X</DeleteButton> </ListItem>
@@ -140,6 +143,7 @@ const ErrorMessageName = styled(ErrorMessage)`
 `
 const AddButton = styled.button`
 align-self:center;
+margin: 7px;
 `
 const ItemContainer = styled(ListContainer)`
 border: none;
@@ -158,6 +162,7 @@ background-color: rgba(111,29,27,0.75);
 `
 const DeleteButton = styled.button`
 color: rgba(246, 71, 71, 1);
+float:right;
 text-decoration: none;
 border:none;
 background:none;

@@ -4,8 +4,8 @@ import EventList from './components/EventList'
 import EventForm from './components/EventForm'
 import useEventForm from './components/useEventForm'
 import useEvents from './components/useEvents'
-import Packlist from './Packlist/PacklistFormNoHook'
-//import PacklistForm from './Packlist/PacklistForm'
+//import Packlist from './Packlist/PacklistFormNoHook'
+import PacklistForm from './Packlist/PacklistForm'
 import usePacklistForm from './Packlist/usePacklistForm'
 import usePacklists from './Packlist/usePacklists';
 import MainWhenFooter from './common/MainWhenFooter.js'
@@ -33,7 +33,7 @@ export default function EventPage() {
 
                 (packlistFormIsVisible ?
                     (<>
-                        <MainWhenFooter ><Packlist onPacklistSave={onPacklistSave} />
+                        <MainWhenFooter ><PacklistForm onPacklistSave={onPacklistSave} />
                         </MainWhenFooter>
 
                         <footer>
