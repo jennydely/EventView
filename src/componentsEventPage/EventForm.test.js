@@ -40,15 +40,10 @@ describe('EventForm', () => {
     await waitFor(() => expect(getByLabelText('Category:').value).toBe('metal'))
     expect(getByLabelText('Category:').value).toBe('metal')
   /*expect(getByLabel('name').toBeInTheDocument()
-
   expect(getByLabel('location').toBeInTheDocument()
-
   expect(getByText('Duration:')).toBeInTheDocument()
-
   expect(getByText('Address:')).toBeInTheDocument()
-
   expect(getAllByRole('button')).toBeInTheDocument()
-  
   await fireEvent.submit(getByTestId('1337')). */
 })
 

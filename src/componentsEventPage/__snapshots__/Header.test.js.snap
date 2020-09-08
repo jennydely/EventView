@@ -73,6 +73,7 @@ exports[`Header renders correctly 1`] = `
         Array [
           "date",
           "a-Z",
+          "Z-a",
         ]
       }
     >
@@ -87,6 +88,12 @@ exports[`Header renders correctly 1`] = `
         onClick={[Function]}
       >
         a-Z
+      </option>
+      <option
+        className="c2"
+        onClick={[Function]}
+      >
+        Z-a
       </option>
     </select>
   </div>
