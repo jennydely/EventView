@@ -4,11 +4,12 @@ import CategoryFilter from './CategoryFilter'
 import SelectEvents from '../common/SelectEvents';
 
 export default function Header({ onSelectFilter, onSelectEventFilter}) {
+    const sortOptions = ["date", "a-Z", "Z-a"]
     return (
         <header>
             <ButtonContainer>
-                <SelectEvents id="filter" name={["date", "a-Z"]}
-                    options={["date", "a-Z"]} onSelectEventFilter={onSelectEventFilter}/>
+                <SelectEvents id="filter" name={sortOptions}
+                    options={sortOptions} onSelectEventFilter={onSelectEventFilter}/>
             </ButtonContainer>
             <CategoryFilter onSelectFilter={onSelectFilter} />
         </header>

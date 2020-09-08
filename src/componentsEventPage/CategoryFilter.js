@@ -4,11 +4,12 @@ import SelectCategory from '../common/SelectCategory'
 
 
 export default function CategoryFilter({ onSelectFilter }) {
- 
+ const categories = ["all", "metal", "medieval", "sand", "other"]
+  
   return (
     <FilterContainer>
-      <SelectCategory id="category" name={["all", "metal", "medieval", "sand", "other"]} 
-        options={["all", "metal", "medieval", "sand", "other"]}  onSelectFilter={onSelectFilter}/>
+      <SelectCategory id="category" name={categories} 
+        options={categories}  onSelectFilter={onSelectFilter}/>
     </FilterContainer>
   )
 }

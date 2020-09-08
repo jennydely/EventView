@@ -34,7 +34,6 @@ export default function PackListPage() {
             </MainWhenFooter>
             <footer>
                 <button type="button" onClick={goBackButton}>Back</button>
-
             </footer>
         </>
     )
