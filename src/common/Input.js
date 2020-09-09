@@ -8,6 +8,6 @@ export default styled.input`
   border: 1px solid var(--blue-50);
   margin-top: 0;
   padding: 4px;
-  font-size: 100%;
+  font-size: 112.5%;
   color: black;
 `

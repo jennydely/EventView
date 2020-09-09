@@ -30,10 +30,12 @@ export default function EventPage() {
     <>
       {eventFormIsVisible ? (
         <>
+          <header>
+            <h1>Create Event</h1>
+          </header>
           <main>
             <EventForm onEventSave={onEventSave} packlists={packlists} />
           </main>
-
           <footer>
             <button type="button" onClick={goEventBack}>
               Back
@@ -42,10 +44,12 @@ export default function EventPage() {
         </>
       ) : packlistFormIsVisible ? (
         <>
+          <header>
+            <h1>Create PackList</h1>
+          </header>
           <main>
             <PacklistForm onPacklistSave={onPacklistSave} />
           </main>
-
           <footer>
             <button type="button" onClick={goPacklistBack}>
               Back

@@ -3,6 +3,7 @@ import { animated } from 'react-spring'
 import styled from 'styled-components/macro'
 import { useHistory } from 'react-router-dom'
 import Checkbox from '../common/Checkbox'
+import Paragraph from '../common/Paragraph'
 
 export default function EventDetails({ event, style, bind }) {
   const {
@@ -34,11 +35,13 @@ export default function EventDetails({ event, style, bind }) {
       <Address>Address: </Address>
       <Price>Price: </Price>
       <Name>{name}</Name>
-      <Street>{street}</Street>
-      <Location>
+      <ParagraphColumn3 row={2}>{street}</ParagraphColumn3>
+      <ParagraphColumn3 row={3}>
         {zip} {location}
-      </Location>
-      <PriceValue>{price ? price + ' €' : 'kostenlos'} </PriceValue>
+      </ParagraphColumn3>
+      <ParagraphColumn3 row={5}>
+        {price ? price + ' €' : 'kostenlos'}{' '}
+      </ParagraphColumn3>
       <TicketLabel id="Ticket" price={price}>
         Ticket
       </TicketLabel>
@@ -98,6 +101,11 @@ const Details = styled(animated.section)`
     bottom: 0;
   }
 `
+const ParagraphColumn3 = styled(Paragraph)`
+  grid-column: 3/5;
+  grid-row: ${(props) => props.row};
+  text-align: left;
+`
 const LinkPoster = styled.a`
   grid-column: 1;
   grid-row: 1 / span 5;
@@ -110,22 +118,16 @@ const EventPoster = styled.img`
   width: 90%;
   max-height: 90%;
 `
-const Address = styled.p`
+const Address = styled(Paragraph)`
   grid-column: 2;
   grid-row: 1 / span 4;
-  text-align: right;
-  margin: 2px;
   margin-top: 7px;
   font-weight: bold;
-  font-size: 100%;
 `
-const Price = styled.p`
+const Price = styled(Paragraph)`
   grid-column: 2;
   grid-row: 5;
-  text-align: right;
-  margin: 2px;
   font-weight: bold;
-  font-size: 100%;
 `
 const TicketLabel = styled.label`
   grid-column: 2;
@@ -134,45 +136,18 @@ const TicketLabel = styled.label`
   align-self: center;
   margin: 2px;
   font-weight: bold;
-  font-size: 100%;
+  font-size: 112.5%;
   display: ${({ price }) => (price ? '' : 'none')};
 `
-const Name = styled.p`
+const Name = styled(Paragraph)`
   grid-column: 3/5;
   grid-row: 1;
   text-align: left;
-  margin: 2px;
   margin-top: 7px;
-  font-size: 100%;
-`
-const Street = styled.p`
-  grid-column: 3/5;
-  grid-row: 2;
-  text-align: left;
-  margin: 2px;
-  font-size: 100%;
-`
-const Location = styled.p`
-  grid-column: 3/5;
-  grid-row: 3;
-  text-align: left;
-  margin: 2px;
-  font-size: 100%;
-`
-const PriceValue = styled.p`
-  grid-column: 3/5;
-  grid-row: 5;
-  text-align: left;
-  margin: 2px;
-  font-size: 100%;
 `
 const Ticket = styled(Checkbox)`
   grid-column: 3;
   grid-row: 6;
-  text-align: right;
-  margin: 2px;
-  font-weight: bold;
-  font-size: 100%;
   display: ${({ price }) => (price ? '' : 'none')};
 `
 const ButtonContainer = styled.div`
@@ -195,6 +170,6 @@ const ExternalLink = styled.a`
   border-radius: 6px;
   background-color: rgba(49, 42, 42, 0.75);
   color: rgb(187, 148, 87);
-  font-size: 120%;
+  font-size: 135%;
   text-align: center;
 `

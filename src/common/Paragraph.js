@@ -1,10 +1,7 @@
 import styled from 'styled-components/macro'
 
-export default styled.input`
-  min-width: 44px;
-  min-height: 44px;
+export default styled.p`
   text-align: right;
   margin: 2px;
-  font-weight: bold;
   font-size: 100%;
 `

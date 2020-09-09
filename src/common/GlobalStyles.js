@@ -17,28 +17,29 @@ export default createGlobalStyle`
 
   #root {
   display:grid;
-  grid-template-rows: 58px auto 58px;
+  grid-template-rows: 38px auto 58px;
   max-width: 600px;
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  font-size: 120%;
   }
 
   h1 {
-    font-size: 140%;
+    font-size: 130%;
     margin:0;
+    margin-left: 7px;
+    align-self:center;
   }
 
   h2 {
-    font-size: 130%;
+    font-size: 120%;
     margin:0;
   }
 
   h3 {
-    font-size: 120%;
+    font-size: 115%;
     margin:0;
   }
   header {
@@ -62,23 +63,21 @@ export default createGlobalStyle`
 
   button {
   display: inline-block; 
-  min-width:45px;
-  min-height:45px;
   min-width:fit-content;
-  height:fit-content;
+  min-height:fit-content;
   margin: 2px;
   padding: 4px 6px;
   border: none;
   border-radius: 6px;
   background-color:rgb(96,99,104);
   color: rgb(253,230,167);
-  font-size: 120%; 
+  font-size: 135%; 
   text-align: center; 
 }
 
 select {
   min-width:fit-content;
-  height:fit-content;
-  font-size: 120%; 
+  min-height:fit-content;
+  font-size: 135%;  
 }
 `

@@ -25,7 +25,6 @@ export default function EventForm({ onEventSave, packlists }) {
   return (
     <>
       <Form data-testid="1337" onSubmit={handleSubmit(onSubmit)}>
-        <TitleText>Create Event</TitleText>
         <CategoryInputLabel htmlFor="category">Category:</CategoryInputLabel>
         <CategoryInput
           name="category"
@@ -39,8 +38,11 @@ export default function EventForm({ onEventSave, packlists }) {
           </ErrorMessageCategoryReq>
         )}
 
-        <NameInputLabel htmlFor="name">EventName:</NameInputLabel>
-        <NameInput
+        <InputLabelColumn2 row={2} htmlFor="name">
+          EventName:
+        </InputLabelColumn2>
+        <InputColumn2
+          row={3}
           placeholder="event name"
           id="name"
           name="name"
@@ -54,26 +56,27 @@ export default function EventForm({ onEventSave, packlists }) {
         />
 
         {errors.name && errors.name.type === 'required' && (
-          <ErrorMessageNameReq>Name is required!</ErrorMessageNameReq>
+          <ErrorMessageColumn2 row={4}>Name is required!</ErrorMessageColumn2>
         )}
         {(errors.name?.type === 'validate' ||
           errors.name?.type === 'minLength') && (
-          <ErrorMessageName>
+          <ErrorMessageColumn2 row={4}>
             This field requires at least 3 characters!
-          </ErrorMessageName>
+          </ErrorMessageColumn2>
         )}
         {errors.name &&
           (errors.name.type === 'validate' ||
             errors.name.type === 'maxLength') && (
-            <ErrorMessageName>
+            <ErrorMessageColumn2 row={4}>
               The name can reach a maximum of 20 characters!
-            </ErrorMessageName>
+            </ErrorMessageColumn2>
           )}
 
-        <LocationInputLabel htmlFor="location">
+        <InputLabelColumn2 row={5} htmlFor="location">
           EventLocation:
-        </LocationInputLabel>
-        <LocationInput
+        </InputLabelColumn2>
+        <InputColumn2
+          row={6}
           placeholder="location of the event"
           id="location"
           name="location"
@@ -87,30 +90,30 @@ export default function EventForm({ onEventSave, packlists }) {
         />
 
         {errors.location && errors.location.type === 'required' && (
-          <ErrorMessageLocationReq>
+          <ErrorMessageColumn2 row={7}>
             Location is required!
-          </ErrorMessageLocationReq>
+          </ErrorMessageColumn2>
         )}
         {errors.location &&
           (errors.location.type === 'validate' ||
             errors.location.type === 'minLength') && (
-            <ErrorMessageLocation>
+            <ErrorMessageColumn2 row={7}>
               {' '}
               This field requires at least 3 characters!
-            </ErrorMessageLocation>
+            </ErrorMessageColumn2>
           )}
         {errors.location &&
           (errors.location.type === 'validate' ||
             errors.location.type === 'maxLength') && (
-            <ErrorMessageLocation>
+            <ErrorMessageColumn2 row={7}>
               The location can reach a maximum of 20 characters!
-            </ErrorMessageLocation>
+            </ErrorMessageColumn2>
           )}
 
         <EventInfosText>EventInfos</EventInfosText>
-        <DurationInputLabel htmlFor="EventStartDate">
+        <InputLabelColumn1 row={9} htmlFor="EventStartDate">
           Duration:
-        </DurationInputLabel>
+        </InputLabelColumn1>
 
         <EventStartDateInput
           placeholder="yyyy-mm-dd"
@@ -167,7 +170,8 @@ export default function EventForm({ onEventSave, packlists }) {
         )}
 
         <AddressInputLabel htmlFor="Street">Address:</AddressInputLabel>
-        <StreetInput
+        <InputColumn2
+          row={11}
           placeholder="street + number"
           id="street"
           name="street"
@@ -179,19 +183,20 @@ export default function EventForm({ onEventSave, packlists }) {
         />
 
         {errors.street && errors.street.type === 'required' && (
-          <ErrorMessageStreetReq row={12}>
+          <ErrorMessageColumn2 row={12}>
             Street is required!
-          </ErrorMessageStreetReq>
+          </ErrorMessageColumn2>
         )}
         {errors.street &&
           (errors.street.type === 'validate' ||
             errors.street.type === 'minLength') && (
-            <ErrorMessageStreet>
+            <ErrorMessageColumn2 row={12}>
               This field requires at least 5 characters!
-            </ErrorMessageStreet>
+            </ErrorMessageColumn2>
           )}
 
-        <ZipInput
+        <InputColumn2
+          row={13}
           placeholder="zip"
           id="zip"
           name="zip"
@@ -203,18 +208,21 @@ export default function EventForm({ onEventSave, packlists }) {
         />
 
         {errors.zip && errors.zip.type === 'required' && (
-          <ErrorMessageZipReq>Zip is required!</ErrorMessageZipReq>
+          <ErrorMessageColumn2 row={14}>Zip is required!</ErrorMessageColumn2>
         )}
         {errors.zip &&
           (errors.zip.type === 'validate' ||
             errors.zip.type === 'minLength') && (
-            <ErrorMessageZip>
+            <ErrorMessageColumn2 row={14}>
               This field requires at least 2 characters!
-            </ErrorMessageZip>
+            </ErrorMessageColumn2>
           )}
 
-        <WebsiteInputLabel htmlFor="website">Website:</WebsiteInputLabel>
-        <WebsiteInput
+        <InputLabelColumn1 row={15} htmlFor="website">
+          Website:
+        </InputLabelColumn1>
+        <InputColumn2
+          row={15}
           placeholder="http://www.website.de"
           id="website"
           name="website"
@@ -227,31 +235,39 @@ export default function EventForm({ onEventSave, packlists }) {
         />
 
         {errors.website && errors.website.type === 'required' && (
-          <ErrorMessageWebsiteReq>Website is required!</ErrorMessageWebsiteReq>
+          <ErrorMessageColumn2 row={16}>
+            Website is required!
+          </ErrorMessageColumn2>
         )}
         {errors.website &&
           (errors.website.type === 'validate' ||
             errors.website.type === 'minLength') && (
-            <ErrorMessageWebsite>
+            <ErrorMessageColumn2 row={16}>
               This field requires at least 8 characters!
-            </ErrorMessageWebsite>
+            </ErrorMessageColumn2>
           )}
         {errors.website && errors.website.type === 'pattern' && (
-          <ErrorMessageWebsite>
+          <ErrorMessageColumn2 row={16}>
             Should begin with www or http
-          </ErrorMessageWebsite>
+          </ErrorMessageColumn2>
         )}
 
-        <PriceInputLabel htmlFor="price">TicketPrice:</PriceInputLabel>
-        <PriceInput
+        <InputLabelColumn1 row={17} htmlFor="price">
+          TicketPrice:
+        </InputLabelColumn1>
+        <InputColumn2
+          row={17}
           placeholder="ticket price or range"
           id="price"
           name="price"
           ref={register({ required: false })}
         />
 
-        <PictureInputLabel htmlFor="poster">Picture: </PictureInputLabel>
-        <PictureInput
+        <InputLabelColumn1 row={18} htmlFor="poster">
+          Picture:{' '}
+        </InputLabelColumn1>
+        <InputColumn2
+          row={18}
           placeholder="http://www.website.de/banner.jpg"
           id="poster"
           name="poster"
@@ -261,9 +277,9 @@ export default function EventForm({ onEventSave, packlists }) {
           })}
         />
 
-        <PacklistInputLabel htmlFor="packlist">
+        <InputLabelColumn1 row={19} htmlFor="packlist">
           Add PackList:
-        </PacklistInputLabel>
+        </InputLabelColumn1>
         <PacklistInput
           name="packlistCategory"
           id="packlist"
@@ -285,14 +301,27 @@ export default function EventForm({ onEventSave, packlists }) {
 const Form = styled.form`
   display: grid;
   grid-template-columns: repeat(3, auto);
-  grid-template-rows: repeat(19, auto) 30px;
+  grid-template-rows: repeat(20, auto);
   align-content: center;
   min-width: 300px;
   gap: 4px;
 `
-const TitleText = styled.h1`
-  grid-column: 1 / span 3;
-  grid-row: 1;
+const InputLabelColumn1 = styled(Label)`
+  grid-column: 1;
+  grid-row: ${(props) => props.row};
+`
+const InputLabelColumn2 = styled(Label)`
+  grid-column: 2 / span 2;
+  grid-row: ${(props) => props.row};
+  text-align: left;
+`
+const InputColumn2 = styled(Input)`
+  grid-column: 2 / span 2;
+  grid-row: ${(props) => props.row};
+`
+const ErrorMessageColumn2 = styled(ErrorMessage)`
+  grid-column: 2 / span 2;
+  grid-row: ${(props) => props.row};
 `
 const CategoryInputLabel = styled(Label)`
   grid-column: 1;
@@ -309,7 +338,7 @@ const CategoryInput = styled(Select)`
   border-radius: 4px;
   margin-top: 0;
   padding: 4px;
-  font-size: 100%;
+  font-size: 112.5%;
   color: black;
   background: ${({ name }) =>
     name === 'sand'
@@ -326,48 +355,10 @@ const ErrorMessageCategoryReq = styled(ErrorMessage)`
   grid-column: 1;
   grid-row: 4;
 `
-const NameInputLabel = styled(Label)`
-  grid-column: 2 / span 2;
-  grid-row: 2;
-  text-align: left;
-`
-const NameInput = styled(Input)`
-  grid-column: 2 / span 2;
-  grid-row: 3;
-`
-const ErrorMessageNameReq = styled(ErrorMessage)`
-  grid-column: 2 / span 2;
-  grid-row: 4;
-`
-const ErrorMessageName = styled(ErrorMessage)`
-  grid-column: 2 / span 2;
-  grid-row: 4;
-`
-const LocationInputLabel = styled(Label)`
-  grid-column: 2 / span 2;
-  grid-row: 5;
-  text-align: left;
-`
-const LocationInput = styled(Input)`
-  grid-column: 2 / span 2;
-  grid-row: 6;
-`
-const ErrorMessageLocationReq = styled(ErrorMessage)`
-  grid-column: 2 / span 2;
-  grid-row: 7;
-`
-const ErrorMessageLocation = styled(ErrorMessage)`
-  grid-column: 2 / span 2;
-  grid-row: 7;
-`
 const EventInfosText = styled.h2`
   grid-column: 1 / span 2;
   grid-row: 8;
-  margin-top: 30px;
-`
-const DurationInputLabel = styled(Label)`
-  grid-column: 1;
-  grid-row: 9;
+  margin-top: 20px;
 `
 const EventStartDateInput = styled(Input)`
   grid-column: 2;
@@ -389,92 +380,29 @@ const AddressInputLabel = styled(Label)`
   grid-column: 1;
   grid-row: 11 / span 2;
 `
-const StreetInput = styled(Input)`
-  grid-column: 2 / span 2;
-  grid-row: 11;
-`
-const ErrorMessageStreetReq = styled(ErrorMessage)`
-  grid-column: 2 / span 2;
-  grid-row: ${(props) => props.row};
-`
-const ErrorMessageStreet = styled(ErrorMessage)`
-  grid-column: 2 / span 2;
-  grid-row: 12;
-`
-const ZipInput = styled(Input)`
-  grid-column: 2 / span 2;
-  grid-row: 13;
-`
-const ErrorMessageZipReq = styled(ErrorMessage)`
-  grid-column: 2 / span 2;
-  grid-row: 14;
-`
-const ErrorMessageZip = styled(ErrorMessage)`
-  grid-column: 2 / span 2;
-  grid-row: 14;
-`
-const WebsiteInputLabel = styled(Label)`
-  grid-column: 1;
-  grid-row: 15;
-`
-const WebsiteInput = styled(Input)`
-  grid-column: 2 / span 2;
-  grid-row: 15;
-`
-const ErrorMessageWebsiteReq = styled(ErrorMessage)`
-  grid-column: 2 / span 2;
-  grid-row: 16;
-`
-const ErrorMessageWebsite = styled(ErrorMessage)`
-  grid-column: 2 / span 2;
-  grid-row: 16;
-`
-const PriceInputLabel = styled(Label)`
-  grid-column: 1;
-  grid-row: 17;
-`
-const PriceInput = styled(Input)`
-  grid-column: 2 / span 2;
-  grid-row: 17;
-`
-const PictureInputLabel = styled(Label)`
-  grid-column: 1;
-  grid-row: 18;
-`
-const PictureInput = styled(Input)`
-  grid-column: 2 / span 2;
-  grid-row: 18;
-`
-
-const PacklistInputLabel = styled(Label)`
-  grid-column: 1;
-  grid-row: 19;
-`
-
 const PacklistInput = styled(Select)`
   grid-column: 2 / span 2;
   grid-row: 19;
   display: block;
   width: 100%;
-  padding: 20px;
   border-radius: 4px;
   border: 1px solid rgb(96, 99, 104);
   margin-top: 0;
   padding: 4px;
-  font-size: 100%;
+  font-size: 112.5%;
   color: black;
   background: rgb(96, 99, 104);
 `
-
 const ButtonGroup = styled.div`
   grid-column: 1 / span 3;
   grid-row: 20;
   display: flex;
   justify-content: center;
   width: 100%;
-  maring: 7px;
-  margin-top: 30px;
+  margin: 20px 7px;
 `
 const SubmitButton = styled.button`
+  grid-column: 1 / span 3;
+  grid-row: 20;
   background-color: rgba(111, 29, 27, 0.75);
 `

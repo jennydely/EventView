@@ -28,7 +28,6 @@ export default function PacklistForm({ onPacklistSave }) {
 
   return (
     <>
-      <h1>Create PackList</h1>
       <Form onSubmit={handleSubmit(onSubmit)}>
         {' '}
         {/* its neccesary to remove the enter key as submit function! */}
