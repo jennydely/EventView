@@ -9,6 +9,7 @@ import ErrorMessage from '../common/ErrorMessage'
 import PropTypes from 'prop-types'
 import ListContainer from '../common/ListContainer'
 import ListItem from '../common/ListItem'
+import usePacklists from './usePacklists'
 
 PacklistForm.propTypes = {
   onPacklistSave: PropTypes.func.isRequired,
@@ -17,25 +18,30 @@ PacklistForm.propTypes = {
 export default function PacklistForm({ onPacklistSave }) {
   const { register, handleSubmit, reset, errors } = useForm()
   const [items, setItems] = useState([])
+  const { packlists } = usePacklists()
   const itemRef = useRef(null)
   const onSubmit = (packlist, event) => {
     event.preventDefault()
     // for testing...
     if (event?.target && typeof event?.target.reset === 'function')
       event.target.reset()
-    onPacklistSave({ name: packlist.name, packlist: [packlist.item] })
+    onPacklistSave({ name: packlist.name, packlist: items })
+  }
+  const handlePacklistKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault()
+      addItem({ text: event.target.value, id: uuid() })
+    }
   }
 
   return (
     <>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        {' '}
-        {/* its neccesary to remove the enter key as submit function! */}
         <FormInputContainer>
           <PacklistNameInputLabel htmlFor="name">
             Name of the new PackList:
           </PacklistNameInputLabel>
-          <PacklistNameInput
+          <Input
             placeholder="PackList name"
             id="name"
             name="name"
@@ -43,46 +49,66 @@ export default function PacklistForm({ onPacklistSave }) {
               required: true,
               minLength: 3,
               maxLength: 10,
-              validate: (value) =>
-                value && value.trim().length >= 3 && value.trim().length <= 10,
+              validate: {
+                length: (value) =>
+                  value?.trim().length >= 3 && value?.trim().length <= 10,
+                nameTaken: (value) =>
+                  !packlists.find((packlist) => packlist.name === value),
+              },
             })}
           />
           {errors.name?.type === 'required' && (
-            <ErrorMessageNameReq>Name is required!</ErrorMessageNameReq>
+            <ErrorMessage>Name is required!</ErrorMessage>
+          )}
+          {errors.name?.type === 'nameTaken' && (
+            <ErrorMessage>Name is taken!</ErrorMessage>
           )}
           {(errors.name?.type === 'validate' ||
             errors.name?.type === 'minLength') && (
-            <ErrorMessageName>
+            <ErrorMessage>
               This field requires at least 3 characters!
-            </ErrorMessageName>
+            </ErrorMessage>
           )}
           {(errors.name?.type === 'validate' ||
             errors.name?.type === 'maxLength') && (
-            <ErrorMessageName>
+            <ErrorMessage>
               The name can reach a maximum of 10 characters!
-            </ErrorMessageName>
+            </ErrorMessage>
           )}
           <Label htmlFor="itemInput">Create new item or task:</Label>
           <Input
             placeholder="item you need or task you have to do"
             id="itemInput"
             name="item"
+            onKeyDown={handlePacklistKeyDown}
             ref={(el) => {
               itemRef.current = el
-              return register(el, {
-                required: true,
-                minLength: 3,
-                maxLength: 20,
-                validate: (value) =>
-                  value &&
-                  value.trim().length >= 3 &&
-                  value.trim().length <= 20,
-              })
+              // register(el, {
+              //   required: true,
+              //   minLength: 3,
+              //   maxLength: 20,
+              //   validate: (value) =>
+              //     value &&
+              //     value.trim().length >= 3 &&
+              //     value.trim().length <= 20,
+              // })
             }}
           />
+          <HiddenInput
+            name="atLeastOneItem"
+            ref={register({
+              validate: () => {
+                console.log('items', items)
+                return items.length > 0
+              },
+            })}
+          />
 
-          {(errors.itemRef?.type === 'validate' ||
-            errors.itemRef?.type === 'minLength') && (
+          {errors.atLeastOneItem?.type === 'validate' && (
+            <ErrorMessage>We need one item!</ErrorMessage>
+          )}
+          {(errors.item?.type === 'validate' ||
+            errors.item?.type === 'minLength') && (
             <ErrorMessage>
               This field requires at least 3 characters!
             </ErrorMessage>
@@ -102,7 +128,6 @@ export default function PacklistForm({ onPacklistSave }) {
                 addItem({ text: itemRef.current.value, id: uuid() })
             }}
           >
-            {' '}
             Add
           </AddButton>
           {/* Eingabefeld sollte nach erstellung des Items gecleared werden */}
@@ -131,6 +156,7 @@ export default function PacklistForm({ onPacklistSave }) {
 
   function addItem(item) {
     setItems([item, ...items])
+    itemRef.current.value = ''
   }
 
   function deleteItem(index) {
@@ -157,9 +183,6 @@ const FormInputContainer = styled.div`
 const PacklistNameInputLabel = styled(Label)`
   text-align: left;
 `
-const PacklistNameInput = styled(Input)``
-const ErrorMessageNameReq = styled(ErrorMessage)``
-const ErrorMessageName = styled(ErrorMessage)``
 const AddButton = styled.button`
   align-self: center;
   margin: 14px;
@@ -168,7 +191,10 @@ const ItemContainer = styled(ListContainer)`
   border: none;
 `
 const TextSpan = styled.span`
-  width: 100%100%;
+  width: 100%;
+`
+const HiddenInput = styled.input`
+  display: none;
 `
 const DeleteButton = styled.button`
   color: rgba(246, 71, 71, 1);
