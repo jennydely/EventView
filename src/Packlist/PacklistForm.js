@@ -4,6 +4,7 @@ import { v4 as uuid } from 'uuid'
 import styled from 'styled-components/macro'
 import Input from '../common/Input'
 import Label from '../common/Label'
+import Checkbox from '../common/Checkbox'
 import ErrorMessage from '../common/ErrorMessage'
 import PropTypes from 'prop-types'
 import ListContainer from '../common/ListContainer'
@@ -114,7 +115,7 @@ export default function PacklistForm({ onPacklistSave }) {
           <ItemContainer>
             {items.map(({ text, completed, id }, index) => (
               <ListItem key={id} text={text}>
-                <input type="checkbox" checked={completed} />
+                <Checkbox type="checkbox" checked={completed} />
                 {text}{' '}
                 <DeleteButton onClick={() => deleteItem(index)} type="button">
                   X
@@ -179,7 +180,7 @@ const ButtonGroup = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  maring: 7px;
+  margin: 7px;
   margin-top: 30px;
 `
 const SubmitButton = styled.button`

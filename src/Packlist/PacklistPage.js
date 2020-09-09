@@ -4,6 +4,7 @@ import { useParams, useHistory } from 'react-router-dom'
 import usePacklists from './usePacklists'
 import ListItem from '../common/ListItem'
 import ListContainer from '../common/ListContainer'
+import Checkbox from '../common/Checkbox'
 
 export default function PackListPage() {
   const { packlistName } = useParams()
@@ -25,8 +26,8 @@ export default function PackListPage() {
           <ListContainer>
             {chosenPacklist.packlist.sort().map((item) => (
               <ListItem key={item}>
-                <input type="checkbox" />
-                {item}
+                <Checkbox type="checkbox" />
+                <span>{item}</span>
               </ListItem>
             ))}
           </ListContainer>

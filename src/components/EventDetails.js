@@ -2,6 +2,7 @@ import React from 'react'
 import { animated } from 'react-spring'
 import styled from 'styled-components/macro'
 import { useHistory } from 'react-router-dom'
+import Checkbox from '../common/Checkbox'
 
 export default function EventDetails({ event, style, bind }) {
   const {
@@ -130,6 +131,7 @@ const TicketLabel = styled.label`
   grid-column: 2;
   grid-row: 6;
   text-align: right;
+  align-self: center;
   margin: 2px;
   font-weight: bold;
   font-size: 100%;
@@ -164,7 +166,7 @@ const PriceValue = styled.p`
   margin: 2px;
   font-size: 100%;
 `
-const Ticket = styled.input`
+const Ticket = styled(Checkbox)`
   grid-column: 3;
   grid-row: 6;
   text-align: right;
@@ -183,16 +185,16 @@ const ButtonContainer = styled.div`
 `
 const ExternalLink = styled.a`
   display: inline-block;
-  min-width: 50px;
-  min-height: 50px;
+  min-width: 45px;
+  min-height: 45px;
   width: fit-content;
   height: fit-content;
   margin: 2px;
-  padding: 6px 6px;
-  border: solid 2px rgb(49, 42, 42);
+  padding: 6.375px 4px;
+  border: none;
   border-radius: 6px;
   background-color: rgba(49, 42, 42, 0.75);
   color: rgb(187, 148, 87);
-  font-size: 130%;
+  font-size: 120%;
   text-align: center;
 `

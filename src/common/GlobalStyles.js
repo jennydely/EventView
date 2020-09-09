@@ -24,21 +24,21 @@ export default createGlobalStyle`
   top: 0;
   width: 100%;
   height: 100%;
-  font-size: 112.5%;
+  font-size: 120%;
   }
 
   h1 {
-    font-size: 118%;
+    font-size: 140%;
     margin:0;
   }
 
   h2 {
-    font-size: 114%;
+    font-size: 130%;
     margin:0;
   }
 
   h3 {
-    font-size: 112%;
+    font-size: 120%;
     margin:0;
   }
   header {
@@ -62,8 +62,8 @@ export default createGlobalStyle`
 
   button {
   display: inline-block; 
-  min-width:50px;
-  min-height:50px;
+  min-width:45px;
+  min-height:45px;
   min-width:fit-content;
   height:fit-content;
   margin: 2px;
@@ -72,15 +72,13 @@ export default createGlobalStyle`
   border-radius: 6px;
   background-color:rgb(96,99,104);
   color: rgb(253,230,167);
-  font-size: 140%; 
+  font-size: 120%; 
   text-align: center; 
 }
 
 select {
-  min-width:50px;
-  min-height:50px;
   min-width:fit-content;
   height:fit-content;
-  font-size: 140%; 
+  font-size: 120%; 
 }
 `
