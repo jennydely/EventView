@@ -8,8 +8,7 @@ export default styled.li`
   list-style: none;
   margin: 0;
   padding: 4px 0;
-  text-align: left;
   align-items: center;
-  text-justify: center;
+  justify-content: space-between;
   color: rgb(253, 230, 167);
 `

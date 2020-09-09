@@ -55,7 +55,7 @@ export default function EventForm({ onEventSave, packlists }) {
           })}
         />
 
-        {errors.name && errors.name.type === 'required' && (
+        {errors.name?.type === 'required' && (
           <ErrorMessageColumn2 row={4}>Name is required!</ErrorMessageColumn2>
         )}
         {(errors.name?.type === 'validate' ||
@@ -64,13 +64,12 @@ export default function EventForm({ onEventSave, packlists }) {
             This field requires at least 3 characters!
           </ErrorMessageColumn2>
         )}
-        {errors.name &&
-          (errors.name.type === 'validate' ||
-            errors.name.type === 'maxLength') && (
-            <ErrorMessageColumn2 row={4}>
-              The name can reach a maximum of 20 characters!
-            </ErrorMessageColumn2>
-          )}
+        {(errors.name?.type === 'validate' ||
+          errors.name?.type === 'maxLength') && (
+          <ErrorMessageColumn2 row={4}>
+            The name can reach a maximum of 20 characters!
+          </ErrorMessageColumn2>
+        )}
 
         <InputLabelColumn2 row={5} htmlFor="location">
           EventLocation:
@@ -88,27 +87,24 @@ export default function EventForm({ onEventSave, packlists }) {
               value && value.trim().length >= 3 && value.trim().length <= 20,
           })}
         />
-
-        {errors.location && errors.location.type === 'required' && (
+        {errors.location?.type === 'required' && (
           <ErrorMessageColumn2 row={7}>
             Location is required!
           </ErrorMessageColumn2>
         )}
-        {errors.location &&
-          (errors.location.type === 'validate' ||
-            errors.location.type === 'minLength') && (
-            <ErrorMessageColumn2 row={7}>
-              {' '}
-              This field requires at least 3 characters!
-            </ErrorMessageColumn2>
-          )}
-        {errors.location &&
-          (errors.location.type === 'validate' ||
-            errors.location.type === 'maxLength') && (
-            <ErrorMessageColumn2 row={7}>
-              The location can reach a maximum of 20 characters!
-            </ErrorMessageColumn2>
-          )}
+        {(errors.location?.type === 'validate' ||
+          errors.location?.type === 'minLength') && (
+          <ErrorMessageColumn2 row={7}>
+            {' '}
+            This field requires at least 3 characters!
+          </ErrorMessageColumn2>
+        )}
+        {(errors.location?.type === 'validate' ||
+          errors.location?.type === 'maxLength') && (
+          <ErrorMessageColumn2 row={7}>
+            The location can reach a maximum of 20 characters!
+          </ErrorMessageColumn2>
+        )}
 
         <EventInfosText>EventInfos</EventInfosText>
         <InputLabelColumn1 row={9} htmlFor="EventStartDate">
@@ -125,19 +121,19 @@ export default function EventForm({ onEventSave, packlists }) {
             validate: (value) => value <= endDateRef.current.value,
           })}
         />
-        {errors.eventStartDate && errors.eventStartDate.type === 'validate' && (
+        {errors.eventStartDate?.type === 'validate' && (
           <ErrorMessageStartDate>
             Start date must be before end date!{' '}
           </ErrorMessageStartDate>
         )}
 
-        {errors.eventStartDate && errors.eventStartDate.type === 'required' && (
+        {errors.eventStartDate?.type === 'required' && (
           <ErrorMessageStartDate>
             Date is required and needs the right form!{' '}
           </ErrorMessageStartDate>
         )}
 
-        {errors.eventStartDate && errors.eventStartDate.type === 'pattern' && (
+        {errors.eventStartDate?.type === 'pattern' && (
           <ErrorMessageStartDate>
             Date must be written like: yyyy-mm-dd
           </ErrorMessageStartDate>
@@ -156,13 +152,13 @@ export default function EventForm({ onEventSave, packlists }) {
           }}
         />
 
-        {errors.eventEndDate && errors.eventEndDate.type === 'required' && (
+        {errors.eventEndDate?.type === 'required' && (
           <ErrorMessageEndDate>
             Date is required and needs the right form!{' '}
           </ErrorMessageEndDate>
         )}
 
-        {errors.eventEndDate && errors.eventEndDate.type === 'pattern' && (
+        {errors.eventEndDate?.type === 'pattern' && (
           <ErrorMessageEndDate>
             {' '}
             Date must be written like: yyyy-mm-dd{' '}
@@ -182,18 +178,17 @@ export default function EventForm({ onEventSave, packlists }) {
           })}
         />
 
-        {errors.street && errors.street.type === 'required' && (
+        {errors.street?.type === 'required' && (
           <ErrorMessageColumn2 row={12}>
             Street is required!
           </ErrorMessageColumn2>
         )}
-        {errors.street &&
-          (errors.street.type === 'validate' ||
-            errors.street.type === 'minLength') && (
-            <ErrorMessageColumn2 row={12}>
-              This field requires at least 5 characters!
-            </ErrorMessageColumn2>
-          )}
+        {(errors.street?.type === 'validate' ||
+          errors.street?.type === 'minLength') && (
+          <ErrorMessageColumn2 row={12}>
+            This field requires at least 5 characters!
+          </ErrorMessageColumn2>
+        )}
 
         <InputColumn2
           row={13}
@@ -207,16 +202,15 @@ export default function EventForm({ onEventSave, packlists }) {
           })}
         />
 
-        {errors.zip && errors.zip.type === 'required' && (
+        {errors.zip?.type === 'required' && (
           <ErrorMessageColumn2 row={14}>Zip is required!</ErrorMessageColumn2>
         )}
-        {errors.zip &&
-          (errors.zip.type === 'validate' ||
-            errors.zip.type === 'minLength') && (
-            <ErrorMessageColumn2 row={14}>
-              This field requires at least 2 characters!
-            </ErrorMessageColumn2>
-          )}
+        {(errors.zip?.type === 'validate' ||
+          errors.zip?.type === 'minLength') && (
+          <ErrorMessageColumn2 row={14}>
+            This field requires at least 2 characters!
+          </ErrorMessageColumn2>
+        )}
 
         <InputLabelColumn1 row={15} htmlFor="website">
           Website:
@@ -234,19 +228,18 @@ export default function EventForm({ onEventSave, packlists }) {
           })}
         />
 
-        {errors.website && errors.website.type === 'required' && (
+        {errors.website?.type === 'required' && (
           <ErrorMessageColumn2 row={16}>
             Website is required!
           </ErrorMessageColumn2>
         )}
-        {errors.website &&
-          (errors.website.type === 'validate' ||
-            errors.website.type === 'minLength') && (
-            <ErrorMessageColumn2 row={16}>
-              This field requires at least 8 characters!
-            </ErrorMessageColumn2>
-          )}
-        {errors.website && errors.website.type === 'pattern' && (
+        {(errors.website?.type === 'validate' ||
+          errors.website?.type === 'minLength') && (
+          <ErrorMessageColumn2 row={16}>
+            This field requires at least 8 characters!
+          </ErrorMessageColumn2>
+        )}
+        {errors.website?.type === 'pattern' && (
           <ErrorMessageColumn2 row={16}>
             Should begin with www or http
           </ErrorMessageColumn2>
@@ -262,7 +255,6 @@ export default function EventForm({ onEventSave, packlists }) {
           name="price"
           ref={register({ required: false })}
         />
-
         <InputLabelColumn1 row={18} htmlFor="poster">
           Picture:{' '}
         </InputLabelColumn1>
@@ -276,7 +268,6 @@ export default function EventForm({ onEventSave, packlists }) {
             pattern: /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/,
           })}
         />
-
         <InputLabelColumn1 row={19} htmlFor="packlist">
           Add PackList:
         </InputLabelColumn1>
@@ -286,7 +277,6 @@ export default function EventForm({ onEventSave, packlists }) {
           register={register({ required: true })}
           options={allPacklists}
         />
-
         <ButtonGroup>
           <button type="reset" onClick={() => reset()}>
             Reset

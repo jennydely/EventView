@@ -21,7 +21,7 @@ export default function PacklistForm({ onPacklistSave }) {
   const onSubmit = (packlist, event) => {
     event.preventDefault()
     // for testing...
-    if (event && event.target && typeof event.target.reset === 'function')
+    if (event?.target && typeof event?.target.reset === 'function')
       event.target.reset()
     onPacklistSave({ name: packlist.name, packlist: [packlist.item] })
   }
@@ -47,25 +47,23 @@ export default function PacklistForm({ onPacklistSave }) {
                 value && value.trim().length >= 3 && value.trim().length <= 10,
             })}
           />
-          {errors.name && errors.name.type === 'required' && (
+          {errors.name?.type === 'required' && (
             <ErrorMessageNameReq>Name is required!</ErrorMessageNameReq>
           )}
-          {errors.name &&
-            (errors.name.type === 'validate' ||
-              errors.name.type === 'minLength') && (
-              <ErrorMessageName>
-                This field requires at least 3 characters!
-              </ErrorMessageName>
-            )}
-          {errors.name &&
-            (errors.name.type === 'validate' ||
-              errors.name.type === 'maxLength') && (
-              <ErrorMessageName>
-                The name can reach a maximum of 10 characters!
-              </ErrorMessageName>
-            )}
-          <ItemLabel htmlFor="itemInput">Create new item or task:</ItemLabel>
-          <ItemInput
+          {(errors.name?.type === 'validate' ||
+            errors.name?.type === 'minLength') && (
+            <ErrorMessageName>
+              This field requires at least 3 characters!
+            </ErrorMessageName>
+          )}
+          {(errors.name?.type === 'validate' ||
+            errors.name?.type === 'maxLength') && (
+            <ErrorMessageName>
+              The name can reach a maximum of 10 characters!
+            </ErrorMessageName>
+          )}
+          <Label htmlFor="itemInput">Create new item or task:</Label>
+          <Input
             placeholder="item you need or task you have to do"
             id="itemInput"
             name="item"
@@ -83,30 +81,28 @@ export default function PacklistForm({ onPacklistSave }) {
             }}
           />
 
-          {errors.itemRef &&
-            (errors.itemRef.type === 'validate' ||
-              errors.itemRef.type === 'minLength') && (
-              <ErrorMessage>
-                This field requires at least 3 characters!
-              </ErrorMessage>
-            )}
-          {errors.item &&
-            (errors.item.type === 'validate' ||
-              errors.item.type === 'maxLength') && (
-              <ErrorMessage>
-                The Item can reach a maximum of 20 characters!
-              </ErrorMessage>
-            )}
+          {(errors.itemRef?.type === 'validate' ||
+            errors.itemRef?.type === 'minLength') && (
+            <ErrorMessage>
+              This field requires at least 3 characters!
+            </ErrorMessage>
+          )}
+          {(errors.item?.type === 'validate' ||
+            errors.item?.type === 'maxLength') && (
+            <ErrorMessage>
+              The Item can reach a maximum of 20 characters!
+            </ErrorMessage>
+          )}
 
           <AddButton
             type="button"
             onClick={(packlistitem) => {
-              itemRef.current.value &&
-                itemRef.current.value.trim().length >= 3 &&
-                itemRef.current.value.trim().length <= 20 &&
+              itemRef.current.value?.trim().length >= 3 &&
+                itemRef.current.value?.trim().length <= 20 &&
                 addItem({ text: itemRef.current.value, id: uuid() })
             }}
           >
+            {' '}
             Add
           </AddButton>
           {/* Eingabefeld sollte nach erstellung des Items gecleared werden */}
@@ -115,10 +111,10 @@ export default function PacklistForm({ onPacklistSave }) {
             {items.map(({ text, completed, id }, index) => (
               <ListItem key={id} text={text}>
                 <Checkbox type="checkbox" checked={completed} />
-                {text}{' '}
+                <TextSpan>{text}</TextSpan>
                 <DeleteButton onClick={() => deleteItem(index)} type="button">
                   X
-                </DeleteButton>{' '}
+                </DeleteButton>
               </ListItem>
             ))}
           </ItemContainer>
@@ -171,8 +167,17 @@ const AddButton = styled.button`
 const ItemContainer = styled(ListContainer)`
   border: none;
 `
-const ItemLabel = styled(Label)``
-const ItemInput = styled(Input)``
+const TextSpan = styled.span`
+  width: 100%100%;
+`
+const DeleteButton = styled.button`
+  color: rgba(246, 71, 71, 1);
+  float: right;
+  text-decoration: none;
+  border: none;
+  background: none;
+  padding: 0%;
+`
 const ButtonGroup = styled.div`
   grid-column: 1;
   grid-row: 8;
@@ -184,11 +189,4 @@ const ButtonGroup = styled.div`
 `
 const SubmitButton = styled.button`
   background-color: rgba(111, 29, 27, 0.75);
-`
-const DeleteButton = styled.button`
-  color: rgba(246, 71, 71, 1);
-  float: right;
-  text-decoration: none;
-  border: none;
-  background: none;
 `
