@@ -13,7 +13,7 @@ PacklistForm.propTypes = {
   onPacklistSave: PropTypes.func.isRequired,
 }
 
-export default function PacklistForm({onPacklistSave }) {
+export default function PacklistForm({ onPacklistSave }) {
   const { register, handleSubmit, reset, errors } = useForm()
   const [items, setItems] = useState([])
   const itemRef = useRef(null)
@@ -25,73 +25,104 @@ export default function PacklistForm({onPacklistSave }) {
     onPacklistSave({ name: packlist.name, packlist: [packlist.item] })
   }
 
-
-
   return (
     <>
       <h1>Create PackList</h1>
-      <Form onSubmit={handleSubmit(onSubmit)}> {/* its neccesary to remove the enter key as submit function! */}
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        {' '}
+        {/* its neccesary to remove the enter key as submit function! */}
         <FormInputContainer>
-          <PacklistNameInputLabel>Name of the new PackList:</PacklistNameInputLabel>
+          <PacklistNameInputLabel htmlFor="name">
+            Name of the new PackList:
+          </PacklistNameInputLabel>
           <PacklistNameInput
             placeholder="PackList name"
             id="name"
             name="name"
             ref={register({
-              required: true, minLength: 3, maxLength: 10,
-              validate: value => value && value.trim().length >= 3 && value.trim().length <= 10
-            })} />
+              required: true,
+              minLength: 3,
+              maxLength: 10,
+              validate: (value) =>
+                value && value.trim().length >= 3 && value.trim().length <= 10,
+            })}
+          />
           {errors.name && errors.name.type === 'required' && (
             <ErrorMessageNameReq>Name is required!</ErrorMessageNameReq>
           )}
-          {errors.name && (errors.name.type === 'validate' || errors.name.type === 'minLength') && (
-            <ErrorMessageName>
-              This field requires at least 3 characters!
-            </ErrorMessageName>
-          )}
-          {errors.name && (errors.name.type === 'validate' || errors.name.type === 'maxLength') && (
-            <ErrorMessageName>
-              The name can reach a maximum of 10 characters!
-            </ErrorMessageName>
-          )}
-          <Label htmlFor="itemInput">Create new item or task:</Label>
-          <Input
+          {errors.name &&
+            (errors.name.type === 'validate' ||
+              errors.name.type === 'minLength') && (
+              <ErrorMessageName>
+                This field requires at least 3 characters!
+              </ErrorMessageName>
+            )}
+          {errors.name &&
+            (errors.name.type === 'validate' ||
+              errors.name.type === 'maxLength') && (
+              <ErrorMessageName>
+                The name can reach a maximum of 10 characters!
+              </ErrorMessageName>
+            )}
+          <ItemLabel htmlFor="itemInput">Create new item or task:</ItemLabel>
+          <ItemInput
             placeholder="item you need or task you have to do"
             id="itemInput"
             name="item"
             ref={(el) => {
               itemRef.current = el
-              register(el, {
-                required: true, minLength: 3, maxLength: 20,
-                validate: value => value && value.trim().length >= 3 && value.trim().length <= 20
+              return register(el, {
+                required: true,
+                minLength: 3,
+                maxLength: 20,
+                validate: (value) =>
+                  value &&
+                  value.trim().length >= 3 &&
+                  value.trim().length <= 20,
               })
             }}
           />
-          <AddButton type="button" onClick={packlistitem => { 
-            itemRef.current.value && itemRef.current.value.trim().length >= 3 && itemRef.current.value.trim().length <= 20 &&
-            addItem({ text: itemRef.current.value, id: uuid() })
-{/* Eingabefeld sollte nach erstellung des Items gecleared werden */}
 
-          }} >Add</AddButton>
-{/* The error Messages are not working!
-          {errors.item && (errors.item.type === 'validate' || errors.item.type === 'minLength') && (
-            <ErrorMessageNameReq>
-              This field requires at least 3 characters!
-            </ErrorMessageNameReq>
-          )}
-          {errors.item && (errors.item.type === 'validate' || errors.item.type === 'maxLength') && (
-            <ErrorMessage>
-              The Item can reach a maximum of 20 characters!
-            </ErrorMessage>
-          )}
-          */}
+          {errors.itemRef &&
+            (errors.itemRef.type === 'validate' ||
+              errors.itemRef.type === 'minLength') && (
+              <ErrorMessage>
+                This field requires at least 3 characters!
+              </ErrorMessage>
+            )}
+          {errors.item &&
+            (errors.item.type === 'validate' ||
+              errors.item.type === 'maxLength') && (
+              <ErrorMessage>
+                The Item can reach a maximum of 20 characters!
+              </ErrorMessage>
+            )}
+
+          <AddButton
+            type="button"
+            onClick={(packlistitem) => {
+              itemRef.current.value &&
+                itemRef.current.value.trim().length >= 3 &&
+                itemRef.current.value.trim().length <= 20 &&
+                addItem({ text: itemRef.current.value, id: uuid() })
+            }}
+          >
+            Add
+          </AddButton>
+          {/* Eingabefeld sollte nach erstellung des Items gecleared werden */}
+
           <ItemContainer>
             {items.map(({ text, completed, id }, index) => (
-              <ListItem key={id} text={text}><input type="checkbox" checked={completed} />{text}  <DeleteButton onClick={() => deleteItem(index)} type="button">X</DeleteButton> </ListItem>
+              <ListItem key={id} text={text}>
+                <input type="checkbox" checked={completed} />
+                {text}{' '}
+                <DeleteButton onClick={() => deleteItem(index)} type="button">
+                  X
+                </DeleteButton>{' '}
+              </ListItem>
             ))}
           </ItemContainer>
         </FormInputContainer>
-
         <ButtonGroup>
           <button type="reset" onClick={() => reset()}>
             Reset
@@ -100,70 +131,64 @@ export default function PacklistForm({onPacklistSave }) {
         </ButtonGroup>
       </Form>
     </>
- 
   )
-  
 
   function addItem(item) {
     setItems([item, ...items])
   }
 
   function deleteItem(index) {
-    setItems([
-      ...items.slice(0, index),
-      ...items.slice(index + 1)
-    ])
+    setItems([...items.slice(0, index), ...items.slice(index + 1)])
   }
 }
 
 const Form = styled.form`
-align-content: center;
-min-width: 300px;
+  align-content: center;
+  min-width: 300px;
 `
 const FormInputContainer = styled.div`
-display:flex;
-flex-direction: column;
-align-items: flex-start;
-min-width: 300px;
-border-radius: 7px;
-border: 2px solid black;
-margin: 7px;
-margin-top:0;
-padding: 7px 4px;
-padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 300px;
+  border-radius: 7px;
+  border: 2px solid black;
+  margin: 7px;
+  margin-top: 0;
+  padding: 7px 4px;
+  padding-bottom: 20px;
 `
 const PacklistNameInputLabel = styled(Label)`
-text-align:left;
+  text-align: left;
 `
-const PacklistNameInput = styled(Input)`
-`
-const ErrorMessageNameReq = styled(ErrorMessage)`
-`
-const ErrorMessageName = styled(ErrorMessage)`
-`
+const PacklistNameInput = styled(Input)``
+const ErrorMessageNameReq = styled(ErrorMessage)``
+const ErrorMessageName = styled(ErrorMessage)``
 const AddButton = styled.button`
-align-self:center;
-margin: 7px;
+  align-self: center;
+  margin: 14px;
 `
 const ItemContainer = styled(ListContainer)`
-border: none;
+  border: none;
 `
+const ItemLabel = styled(Label)``
+const ItemInput = styled(Input)``
 const ButtonGroup = styled.div`
-grid-column: 1;
-grid-row: 8;
-display: flex;
-justify-content: center;
-width: 100%;
-maring:7px;
-margin-top: 30px;
+  grid-column: 1;
+  grid-row: 8;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  maring: 7px;
+  margin-top: 30px;
 `
 const SubmitButton = styled.button`
-background-color: rgba(111,29,27,0.75);
+  background-color: rgba(111, 29, 27, 0.75);
 `
 const DeleteButton = styled.button`
-color: rgba(246, 71, 71, 1);
-float:right;
-text-decoration: none;
-border:none;
-background:none;
+  color: rgba(246, 71, 71, 1);
+  float: right;
+  text-decoration: none;
+  border: none;
+  background: none;
 `

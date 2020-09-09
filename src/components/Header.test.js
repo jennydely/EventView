@@ -5,14 +5,14 @@ import Header from './Header'
 import 'jest-styled-components'
 
 describe('Header', () => {
-    const onSelectFilter = 'all'
+  const onSelectFilter = 'all'
 
-    it('displays the sort by date function', () => {
-        const { getByText } = render(<Header onSelectFilter={onSelectFilter} />)
-            expect(getByText('date')).toBeInTheDocument()
-    })
-    it('renders correctly', () => {
-        const tree = renderer.create(<Header onSelectFilter={onSelectFilter} />)
-        expect(tree).toMatchSnapshot()
-    })
+  it('displays the sort by date function', () => {
+    const { getByText } = render(<Header onSelectFilter={onSelectFilter} />)
+    expect(getByText('date')).toBeInTheDocument()
+  })
+  it('renders correctly', () => {
+    const tree = renderer.create(<Header onSelectFilter={onSelectFilter} />)
+    expect(tree).toMatchSnapshot()
+  })
 })

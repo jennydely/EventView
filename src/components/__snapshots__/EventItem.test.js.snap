@@ -148,7 +148,7 @@ exports[`EventItem renders correctly 1`] = `
 
 .c0 {
   list-style: none;
-  marign: 0;
+  margin: 0;
   margin-bottom: 20px;
   padding: 4px;
   text-align: center;
@@ -159,106 +159,101 @@ exports[`EventItem renders correctly 1`] = `
   background: rgb(96,99,104);
 }
 
-<li
-  className="c0"
->
-  <div
-    className="c1"
-    onClick={[Function]}
+<div>
+  <li
+    class="c0"
   >
-    <h2>
-      This is the eventname
-       - 
-      This is the eventlocation
-    </h2>
-    <h3>
-      Invalid Date - Invalid Date
-    </h3>
-  </div>
-  <section
-    className="c2"
-    style={
-      Object {
-        "height": 0,
-      }
-    }
-  >
-    <a
-      className="c3"
-      target="blank"
-    >
-       
-      <img
-        alt="This is the eventname Poster"
-        className="c4"
-        src="https://delyed.de/wp-content/uploads/2018/01/5d737e918441914a9d2743268ef65439.jpg"
-      />
-    </a>
-    <p
-      className="c5"
-    >
-      Address: 
-    </p>
-    <p
-      className="c6"
-    >
-      Price: 
-    </p>
-    <p
-      className="c7"
-    >
-      This is the eventname
-    </p>
-    <p
-      className="c8"
-    />
-    <p
-      className="c9"
-    >
-       
-      This is the eventlocation
-    </p>
-    <p
-      className="c10"
-    >
-      kostenlos
-       
-    </p>
-    <label
-      className="c11"
-      id="Ticket"
-    >
-      Ticket
-    </label>
-    <input
-      className="c12"
-      htmlFor="Ticket"
-      type="checkbox"
-    />
     <div
-      className="c13"
+      class="c1"
     >
-      <button
-        onClick={[Function]}
-      >
-        PackList
-      </button>
-      <a
-        className="c14"
-        target="blank"
-        title="link"
-      >
-        Website
-      </a>
-      <a
-        className="c14"
-        href="https://www.google.de/maps"
-        target="blank"
-        title="link"
-      >
-        Googlemaps
-      </a>
+      <h2>
+        This is the eventname
+         - 
+        This is the eventlocation
+      </h2>
+      <h3>
+        Invalid Date - Invalid Date
+      </h3>
     </div>
-  </section>
-</li>
+    <section
+      class="c2"
+      style="height: 0px;"
+    >
+      <a
+        class="c3"
+        target="blank"
+      >
+         
+        <img
+          alt="This is the eventname Poster"
+          class="c4"
+          src="https://delyed.de/wp-content/uploads/2018/01/5d737e918441914a9d2743268ef65439.jpg"
+        />
+      </a>
+      <p
+        class="c5"
+      >
+        Address: 
+      </p>
+      <p
+        class="c6"
+      >
+        Price: 
+      </p>
+      <p
+        class="c7"
+      >
+        This is the eventname
+      </p>
+      <p
+        class="c8"
+      />
+      <p
+        class="c9"
+      >
+         
+        This is the eventlocation
+      </p>
+      <p
+        class="c10"
+      >
+        kostenlos
+         
+      </p>
+      <label
+        class="c11"
+        id="Ticket"
+      >
+        Ticket
+      </label>
+      <input
+        class="c12"
+        for="Ticket"
+        type="checkbox"
+      />
+      <div
+        class="c13"
+      >
+        <button>
+          PackList
+        </button>
+        <a
+          class="c14"
+          target="blank"
+          title="link"
+        >
+          Website
+        </a>
+        <a
+          class="c14"
+          href="https://www.google.de/maps"
+          target="blank"
+          title="link"
+        >
+          Googlemaps
+        </a>
+      </div>
+    </section>
+  </li>
+</div>
 `;

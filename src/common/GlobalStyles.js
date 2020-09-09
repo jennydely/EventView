@@ -15,6 +15,18 @@ export default createGlobalStyle`
     color: rgb(253,230,167,0.9);
   }
 
+  #root {
+  display:grid;
+  grid-template-rows: 58px auto 58px;
+  max-width: 600px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 112.5%;
+  }
+
   h1 {
     font-size: 118%;
     margin:0;
@@ -30,27 +42,29 @@ export default createGlobalStyle`
     margin:0;
   }
   header {
+    grid-row: 1;
     display:flex;
     justify-content:space-between;
-    height:5vh;
   }
 
   main {
+    grid-row: 2;
     margin:7px;
     overflow-y:scroll;
-    height:87vh;
-  }
+   }
 
   footer {
+    grid-row: 3;
     position:sticky;
     display:flex;
     justify-content:center;
-    height:5vh;
   }
 
   button {
   display: inline-block; 
-  with:fit-content;
+  min-width:50px;
+  min-height:50px;
+  min-width:fit-content;
   height:fit-content;
   margin: 2px;
   padding: 4px 6px;
@@ -58,8 +72,15 @@ export default createGlobalStyle`
   border-radius: 6px;
   background-color:rgb(96,99,104);
   color: rgb(253,230,167);
-  font-size: 114%; 
+  font-size: 140%; 
   text-align: center; 
 }
-`
 
+select {
+  min-width:50px;
+  min-height:50px;
+  min-width:fit-content;
+  height:fit-content;
+  font-size: 140%; 
+}
+`

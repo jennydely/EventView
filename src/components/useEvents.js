@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { getEvents, postEvent } from '../utils/services'
+import { getEvents } from '../services/getEvents'
+import { postEvent } from '../services/postEvent'
 
 export default function useEvents() {
   const [eventArray, setEventArray] = useState([])
@@ -9,8 +10,8 @@ export default function useEvents() {
     getEvents().then(setEventArray)
   }, [])
 
-  const addEvent = (event) => {
-    postEvent(event)
+  const addEvent = (eventItem) => {
+    postEvent(eventItem)
       .then((newEvent) => setEventArray([newEvent, ...eventArray]))
       .catch(setError)
   }

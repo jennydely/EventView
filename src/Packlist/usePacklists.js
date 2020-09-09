@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { getPacklists, postPacklists } from '../utils/services'
+import { getPacklists } from '../services/getPacklists'
+import { postPacklists } from '../services/postPacklists'
 
 export default function usePacklists() {
   const [packlists, setPacklists] = useState([])
@@ -14,5 +15,5 @@ export default function usePacklists() {
       .then((newPacklist) => setPacklists([newPacklist, ...packlists]))
       .catch(setError)
   }
-    return { packlists, addPacklist, error }
+  return { packlists, addPacklist, error }
 }
