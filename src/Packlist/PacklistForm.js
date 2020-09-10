@@ -37,7 +37,7 @@ export default function PacklistForm({ onPacklistSave }) {
 
   return (
     <>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form data-testid="packlistform" onSubmit={handleSubmit(onSubmit)}>
         <FormInputContainer>
           <PacklistNameInputLabel htmlFor="name">
             Name of the new PackList:
@@ -49,10 +49,10 @@ export default function PacklistForm({ onPacklistSave }) {
             ref={register({
               required: true,
               minLength: 3,
-              maxLength: 10,
+              maxLength: 25,
               validate: {
                 length: (value) =>
-                  value?.trim().length >= 3 && value?.trim().length <= 10,
+                  value?.trim().length >= 3 && value?.trim().length <= 25,
                 nameTaken: (value) =>
                   !packlists.find((packlist) => packlist.name === value),
               },
@@ -73,7 +73,7 @@ export default function PacklistForm({ onPacklistSave }) {
           {(errors.name?.type === 'validate' ||
             errors.name?.type === 'maxLength') && (
             <ErrorMessage>
-              The name can reach a maximum of 10 characters!
+              The name can reach a maximum of 25 characters!
             </ErrorMessage>
           )}
           <Label htmlFor="itemInput">Create new item or task:</Label>

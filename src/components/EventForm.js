@@ -25,7 +25,7 @@ export default function EventForm({ onEventSave, packlists }) {
 
   return (
     <>
-      <Form data-testid="1337" onSubmit={handleSubmit(onSubmit)}>
+      <Form data-testid="eventform" onSubmit={handleSubmit(onSubmit)}>
         <CategoryInputLabel htmlFor="category">Category:</CategoryInputLabel>
         <CategoryInput
           name="category"

@@ -25,10 +25,11 @@ export default function PackListPage() {
         {chosenPacklist ? (
           <ListContainer>
             {chosenPacklist.packlist.sort().map((item) => (
-              <ListItem key={item}>
+              <ListItemStyled key={item}>
                 <Checkbox type="checkbox" />
                 <span>{item}</span>
-              </ListItem>
+                <div></div>
+              </ListItemStyled>
             ))}
           </ListContainer>
         ) : (
@@ -51,7 +52,9 @@ export default function PackListPage() {
 const NoPacklistText = styled.p`
   text-align: center;
 `
-
+const ListItemStyled = styled(ListItem)`
+  justify-content: flex-start;
+`
 const PacklistButton = styled.button`
   border: 2px solid black;
   margin: 4px 0 0 7px;
