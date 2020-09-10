@@ -24,6 +24,7 @@ export default function PacklistForm({ onPacklistSave }) {
     event.preventDefault()
     // for testing...
     if (event?.target && typeof event?.target.reset === 'function')
+      //
       event.target.reset()
     onPacklistSave({ name: packlist.name, packlist: items })
   }
@@ -77,25 +78,16 @@ export default function PacklistForm({ onPacklistSave }) {
           )}
           <Label htmlFor="itemInput">Create new item or task:</Label>
           <Input
-            placeholder="item you need or task you have to do"
+            placeholder="Item you need or task you have to do"
             id="itemInput"
             name="item"
             onKeyDown={handlePacklistKeyDown}
             ref={(el) => {
               itemRef.current = el
-              // register(el, {
-              //   required: true,
-              //   minLength: 3,
-              //   maxLength: 20,
-              //   validate: (value) =>
-              //     value &&
-              //     value.trim().length >= 3 &&
-              //     value.trim().length <= 20,
-              // })
             }}
           />
           <HiddenInput
-            name="atLeastOneItem"
+            name="shouldHaveOneItem"
             ref={register({
               validate: () => {
                 console.log('items', items)
@@ -104,8 +96,8 @@ export default function PacklistForm({ onPacklistSave }) {
             })}
           />
 
-          {errors.atLeastOneItem?.type === 'validate' && (
-            <ErrorMessage>We need one item!</ErrorMessage>
+          {errors.shouldHaveOneItem?.type === 'validate' && (
+            <ErrorMessage>You need to add one item/task!</ErrorMessage>
           )}
           {(errors.item?.type === 'validate' ||
             errors.item?.type === 'minLength') && (
@@ -119,10 +111,9 @@ export default function PacklistForm({ onPacklistSave }) {
               The Item can reach a maximum of 20 characters!
             </ErrorMessage>
           )}
-
           <AddButton
             type="button"
-            onClick={(packlistitem) => {
+            onClick={() => {
               itemRef.current.value?.trim().length >= 3 &&
                 itemRef.current.value?.trim().length <= 20 &&
                 addItem({ text: itemRef.current.value, id: uuid() })
@@ -130,8 +121,6 @@ export default function PacklistForm({ onPacklistSave }) {
           >
             Add
           </AddButton>
-          {/* Eingabefeld sollte nach erstellung des Items gecleared werden */}
-
           <ItemContainer>
             {items.map(({ text, completed, id }, index) => (
               <ListItem key={id} text={text}>
@@ -202,7 +191,7 @@ const DeleteButton = styled.button`
   text-decoration: none;
   border: none;
   background: none;
-  padding: 0%;
+  padding: 0;
 `
 const ButtonGroup = styled.div`
   grid-column: 1;
