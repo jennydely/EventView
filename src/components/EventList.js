@@ -28,6 +28,8 @@ export default function EventList({ eventArray, categoryFilter, eventFilter }) {
 }
 
 const EventContainer = styled.ul`
+  display: grid;
+  grid-template-columns: auto 50px;
   margin: 10px;
   padding: 0;
 `

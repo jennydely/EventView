@@ -9,6 +9,7 @@ export default function EventItem({ event }) {
   const { name, location, category, eventStartDate, eventEndDate } = event
   const { height, bind } = useHeight([event])
   const [isEventDetailVisible, setIsEventDetailVisible] = useState(false)
+  const [isEventVisible, setIsEventVisible] = useState(true)
   const detailStyle = {
     ...useSpring({
       height: isEventDetailVisible ? height : 0,
@@ -16,23 +17,31 @@ export default function EventItem({ event }) {
   }
 
   return (
-    <Event>
-      <EventHeader name={category} onClick={toggleEventDetail}>
-        <h2>
-          {name} - {location}
-        </h2>
-        <h3>{formatDate(eventStartDate, eventEndDate)}</h3>
-      </EventHeader>
-      <EventDetails event={event} style={detailStyle} bind={bind} />
-    </Event>
+    <>
+      <Event isEventVisible={isEventVisible}>
+        <EventHeader name={category} onClick={toggleEventDetail}>
+          <h2>
+            {name} - {location}
+          </h2>
+          <h3>{formatDate(eventStartDate, eventEndDate)}</h3>
+        </EventHeader>
+        <EventDetails event={event} style={detailStyle} bind={bind} />
+      </Event>
+      <HideButton onClick={toggleHide}>Hide</HideButton>
+    </>
   )
 
   function toggleEventDetail() {
     setIsEventDetailVisible(!isEventDetailVisible)
   }
+
+  function toggleHide() {
+    setIsEventVisible(!isEventVisible)
+  }
 }
 
 const Event = styled.li`
+  grid-column: 1;
   list-style: none;
   margin: 0;
   margin-bottom: 20px;
@@ -51,4 +60,9 @@ const EventHeader = styled.div`
       : name === 'other'
       ? 'var(--lightbrown-70)'
       : 'var(--lightgrey-main)'};
+`
+const HideButton = styled.button`
+  align-self: start;
+  justify-self: start;
+  margin-top: 13.325px;
 `

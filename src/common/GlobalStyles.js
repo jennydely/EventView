@@ -15,9 +15,7 @@ export default createGlobalStyle`
     height: 100vh;
     color: var(--lightyellow-90);
   }
-
  
-
   h1 {
     font-size: 130%;
     margin:0;
