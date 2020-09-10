@@ -90,7 +90,6 @@ export default function PacklistForm({ onPacklistSave }) {
             name="shouldHaveOneItem"
             ref={register({
               validate: () => {
-                console.log('items', items)
                 return items.length > 0
               },
             })}
