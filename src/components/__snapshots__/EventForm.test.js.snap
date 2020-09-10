@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EventForm renders correctly 1`] = `
-.c6 {
+Object {
+  "asFragment": [Function],
+  "baseElement": .c5 {
   display: block;
   width: 100%;
   padding: 20px;
@@ -9,11 +11,11 @@ exports[`EventForm renders correctly 1`] = `
   border: 1px solid var(--blue-50);
   margin-top: 0;
   padding: 4px;
-  font-size: 100%;
+  font-size: 112.5%;
   color: black;
 }
 
-.c2 {
+.c1 {
   font-weight: 400;
   font-size: 100%;
   line-height: 1.143;
@@ -24,7 +26,7 @@ exports[`EventForm renders correctly 1`] = `
 .c0 {
   display: grid;
   grid-template-columns: repeat(3,auto);
-  grid-template-rows: repeat(19,auto) 30px;
+  grid-template-rows: repeat(20,auto);
   -webkit-align-content: center;
   -ms-flex-line-pack: center;
   align-content: center;
@@ -32,33 +34,32 @@ exports[`EventForm renders correctly 1`] = `
   gap: 4px;
 }
 
-.c1 {
-  grid-column: 1 / span 3;
-  grid-row: 1;
+.c10 {
+  grid-column: 1;
+  grid-row: 9;
 }
 
-.c3 {
+.c16 {
   grid-column: 1;
-  grid-row: 2;
-  text-align: left;
+  grid-row: 15;
+}
+
+.c18 {
+  grid-column: 1;
+  grid-row: 17;
+}
+
+.c20 {
+  grid-column: 1;
+  grid-row: 18;
+}
+
+.c22 {
+  grid-column: 1;
+  grid-row: 19;
 }
 
 .c4 {
-  grid-column: 1;
-  grid-row: 3;
-  display: block;
-  width: 100%;
-  padding: 20px;
-  border: 1px solid rgb(96,99,104);
-  border-radius: 4px;
-  margin-top: 0;
-  padding: 4px;
-  font-size: 100%;
-  color: black;
-  background: rgb(96,99,104);
-}
-
-.c5 {
   grid-column: 2 / span 2;
   grid-row: 2;
   text-align: left;
@@ -66,107 +67,102 @@ exports[`EventForm renders correctly 1`] = `
 
 .c7 {
   grid-column: 2 / span 2;
+  grid-row: 5;
+  text-align: left;
+}
+
+.c6 {
+  grid-column: 2 / span 2;
   grid-row: 3;
 }
 
 .c8 {
   grid-column: 2 / span 2;
-  grid-row: 5;
-  text-align: left;
-}
-
-.c9 {
-  grid-column: 2 / span 2;
   grid-row: 6;
 }
 
-.c10 {
-  grid-column: 1 / span 2;
-  grid-row: 8;
-  margin-top: 30px;
-}
-
-.c11 {
-  grid-column: 1;
-  grid-row: 9;
-}
-
-.c12 {
-  grid-column: 2;
-  grid-row: 9;
-}
-
-.c13 {
-  grid-column: 3;
-  grid-row: 9;
-}
-
 .c14 {
-  grid-column: 1;
-  grid-row: 11 / span 2;
-}
-
-.c15 {
   grid-column: 2 / span 2;
   grid-row: 11;
 }
 
-.c16 {
+.c15 {
   grid-column: 2 / span 2;
   grid-row: 13;
 }
 
 .c17 {
-  grid-column: 1;
-  grid-row: 15;
-}
-
-.c18 {
   grid-column: 2 / span 2;
   grid-row: 15;
 }
 
 .c19 {
-  grid-column: 1;
-  grid-row: 17;
-}
-
-.c20 {
   grid-column: 2 / span 2;
   grid-row: 17;
 }
 
 .c21 {
-  grid-column: 1;
-  grid-row: 18;
-}
-
-.c22 {
   grid-column: 2 / span 2;
   grid-row: 18;
 }
 
-.c23 {
+.c2 {
   grid-column: 1;
-  grid-row: 19;
+  grid-row: 2;
+  text-align: left;
 }
 
-.c24 {
-  grid-column: 2 / span 2;
-  grid-row: 19;
+.c3 {
+  grid-column: 1;
+  grid-row: 3;
   display: block;
   width: 100%;
   padding: 20px;
-  border-radius: 4px;
   border: 1px solid rgb(96,99,104);
+  border-radius: 4px;
   margin-top: 0;
   padding: 4px;
-  font-size: 100%;
+  font-size: 112.5%;
   color: black;
   background: rgb(96,99,104);
 }
 
-.c25 {
+.c9 {
+  grid-column: 1 / span 2;
+  grid-row: 8;
+  margin-top: 20px;
+}
+
+.c11 {
+  grid-column: 2;
+  grid-row: 9;
+}
+
+.c12 {
+  grid-column: 3;
+  grid-row: 9;
+}
+
+.c13 {
+  grid-column: 1;
+  grid-row: 11 / span 2;
+}
+
+.c23 {
+  grid-column: 2 / span 2;
+  grid-row: 19;
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid rgb(96,99,104);
+  margin-top: 0;
+  padding: 4px;
+  font-size: 112.5%;
+  color: black;
+  background: rgb(96,99,104);
+}
+
+.c24 {
   grid-column: 1 / span 3;
   grid-row: 20;
   display: -webkit-box;
@@ -178,194 +174,423 @@ exports[`EventForm renders correctly 1`] = `
   -ms-flex-pack: center;
   justify-content: center;
   width: 100%;
-  maring: 7px;
-  margin-top: 30px;
+  margin: 20px 7px;
 }
 
-.c26 {
+.c25 {
+  grid-column: 1 / span 3;
+  grid-row: 20;
   background-color: rgba(111,29,27,0.75);
 }
 
-<form
-  className="c0"
-  data-testid="1337"
-  onSubmit={[Function]}
->
-  <h1
-    className="c1"
-  >
-    Create Event
-  </h1>
-  <label
-    className="c2 c3"
-    htmlFor="category"
-  >
-    Category:
-  </label>
-  <select
-    className="c4"
-    id="category"
-    name="category"
-  >
-    <option
-      value="metal"
+<body>
+    <div>
+      <form
+        class="c0"
+        data-testid="1337"
+      >
+        <label
+          class="c1 c2"
+          for="category"
+        >
+          Category:
+        </label>
+        <select
+          class="c3"
+          id="category"
+          name="category"
+        >
+          <option
+            value="metal"
+          >
+            metal
+          </option>
+          <option
+            value="medieval"
+          >
+            medieval
+          </option>
+          <option
+            value="sand"
+          >
+            sand
+          </option>
+          <option
+            value="other"
+          >
+            other
+          </option>
+        </select>
+        <label
+          class="c1 c4"
+          for="name"
+        >
+          EventName:
+        </label>
+        <input
+          class="c5 c6"
+          id="name"
+          name="name"
+          placeholder="event name"
+        />
+        <label
+          class="c1 c7"
+          for="location"
+        >
+          EventLocation:
+        </label>
+        <input
+          class="c5 c8"
+          id="location"
+          name="location"
+          placeholder="location of the event"
+        />
+        <h2
+          class="c9"
+        >
+          EventInfos
+        </h2>
+        <label
+          class="c1 c10"
+          for="EventStartDate"
+        >
+          Duration:
+        </label>
+        <input
+          class="c5 c11"
+          id="EventStartDate"
+          name="eventStartDate"
+          placeholder="yyyy-mm-dd"
+        />
+        <input
+          class="c5 c12"
+          id="EventEndDate"
+          name="eventEndDate"
+          placeholder="yyyy-mm-dd"
+        />
+        <label
+          class="c1 c13"
+          for="Street"
+        >
+          Address:
+        </label>
+        <input
+          class="c5 c14"
+          id="street"
+          name="street"
+          placeholder="street + number"
+        />
+        <input
+          class="c5 c15"
+          id="zip"
+          name="zip"
+          placeholder="zip"
+        />
+        <label
+          class="c1 c16"
+          for="website"
+        >
+          Website:
+        </label>
+        <input
+          class="c5 c17"
+          id="website"
+          name="website"
+          placeholder="http://www.website.de"
+        />
+        <label
+          class="c1 c18"
+          for="price"
+        >
+          TicketPrice:
+        </label>
+        <input
+          class="c5 c19"
+          id="price"
+          name="price"
+          placeholder="ticket price or range"
+        />
+        <label
+          class="c1 c20"
+          for="poster"
+        >
+          Picture:
+           
+        </label>
+        <input
+          class="c5 c21"
+          id="poster"
+          name="poster"
+          placeholder="http://www.website.de/banner.jpg"
+        />
+        <label
+          class="c1 c22"
+          for="packlist"
+        >
+          Add PackList:
+        </label>
+        <select
+          class="c23"
+          id="packlist"
+          name="packlistCategory"
+        >
+          <option
+            value="festival"
+          >
+            festival
+          </option>
+          <option
+            value="medieval"
+          >
+            medieval
+          </option>
+        </select>
+        <div
+          class="c24"
+        >
+          <button
+            type="reset"
+          >
+            Reset
+          </button>
+          <button
+            class="c25"
+            type="submit"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <form
+      class="EventForm__Form-sc-1hr7ssh-0 gUpAAc"
+      data-testid="1337"
     >
-      metal
-    </option>
-    <option
-      value="medieval"
-    >
-      medieval
-    </option>
-    <option
-      value="sand"
-    >
-      sand
-    </option>
-    <option
-      value="other"
-    >
-      other
-    </option>
-  </select>
-  <label
-    className="c2 c5"
-    htmlFor="name"
-  >
-    EventName:
-  </label>
-  <input
-    className="c6 c7"
-    id="name"
-    name="name"
-    placeholder="event name"
-  />
-  <label
-    className="c2 c8"
-    htmlFor="location"
-  >
-    EventLocation:
-  </label>
-  <input
-    className="c6 c9"
-    id="location"
-    name="location"
-    placeholder="location of the event"
-  />
-  <h2
-    className="c10"
-  >
-    EventInfos
-  </h2>
-  <label
-    className="c2 c11"
-    htmlFor="EventStartDate"
-  >
-    Duration:
-  </label>
-  <input
-    className="c6 c12"
-    id="EventStartDate"
-    name="eventStartDate"
-    placeholder="yyyy-mm-dd"
-  />
-  <input
-    className="c6 c13"
-    id="EventEndDate"
-    name="eventEndDate"
-    placeholder="yyyy-mm-dd"
-  />
-  <label
-    className="c2 c14"
-    htmlFor="Street"
-  >
-    Address:
-  </label>
-  <input
-    className="c6 c15"
-    id="street"
-    name="street"
-    placeholder="street + number"
-  />
-  <input
-    className="c6 c16"
-    id="zip"
-    name="zip"
-    placeholder="zip"
-  />
-  <label
-    className="c2 c17"
-    htmlFor="website"
-  >
-    Website:
-  </label>
-  <input
-    className="c6 c18"
-    id="website"
-    name="website"
-    placeholder="http://www.website.de"
-  />
-  <label
-    className="c2 c19"
-    htmlFor="price"
-  >
-    TicketPrice:
-  </label>
-  <input
-    className="c6 c20"
-    id="price"
-    name="price"
-    placeholder="ticket price or range"
-  />
-  <label
-    className="c2 c21"
-    htmlFor="poster"
-  >
-    Picture: 
-  </label>
-  <input
-    className="c6 c22"
-    id="poster"
-    name="poster"
-    placeholder="http://www.website.de/banner.jpg"
-  />
-  <label
-    className="c2 c23"
-    htmlFor="packlist"
-  >
-    Add PackList:
-  </label>
-  <select
-    className="c24"
-    id="packlist"
-    name="packlistCategory"
-  >
-    <option
-      value="festival"
-    >
-      festival
-    </option>
-    <option
-      value="medieval"
-    >
-      medieval
-    </option>
-  </select>
-  <div
-    className="c25"
-  >
-    <button
-      onClick={[Function]}
-      type="reset"
-    >
-      Reset
-    </button>
-    <button
-      className="c26"
-      type="submit"
-    >
-      Save
-    </button>
-  </div>
-</form>
+      <label
+        class="Label-sc-4r18cf-0 EventForm__CategoryInputLabel-sc-1hr7ssh-5 bAiPNX kKWTAK"
+        for="category"
+      >
+        Category:
+      </label>
+      <select
+        class="EventForm__CategoryInput-sc-1hr7ssh-6 iFDneT"
+        id="category"
+        name="category"
+      >
+        <option
+          value="metal"
+        >
+          metal
+        </option>
+        <option
+          value="medieval"
+        >
+          medieval
+        </option>
+        <option
+          value="sand"
+        >
+          sand
+        </option>
+        <option
+          value="other"
+        >
+          other
+        </option>
+      </select>
+      <label
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn2-sc-1hr7ssh-2 bAiPNX bMMjQM"
+        for="name"
+      >
+        EventName:
+      </label>
+      <input
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 ebcVIA ekNFAh"
+        id="name"
+        name="name"
+        placeholder="event name"
+      />
+      <label
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn2-sc-1hr7ssh-2 bAiPNX eCVOzL"
+        for="location"
+      >
+        EventLocation:
+      </label>
+      <input
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 ebcVIA ekNFdU"
+        id="location"
+        name="location"
+        placeholder="location of the event"
+      />
+      <h2
+        class="EventForm__EventInfosText-sc-1hr7ssh-8 jaKOTo"
+      >
+        EventInfos
+      </h2>
+      <label
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 bAiPNX ckpfaq"
+        for="EventStartDate"
+      >
+        Duration:
+      </label>
+      <input
+        class="Input-sc-1qrq46f-0 EventForm__EventStartDateInput-sc-1hr7ssh-9 ebcVIA huDgP"
+        id="EventStartDate"
+        name="eventStartDate"
+        placeholder="yyyy-mm-dd"
+      />
+      <input
+        class="Input-sc-1qrq46f-0 EventForm__EventEndDateInput-sc-1hr7ssh-11 ebcVIA gLFIWg"
+        id="EventEndDate"
+        name="eventEndDate"
+        placeholder="yyyy-mm-dd"
+      />
+      <label
+        class="Label-sc-4r18cf-0 EventForm__AddressInputLabel-sc-1hr7ssh-13 bAiPNX iTJSGP"
+        for="Street"
+      >
+        Address:
+      </label>
+      <input
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 ebcVIA dogpCS"
+        id="street"
+        name="street"
+        placeholder="street + number"
+      />
+      <input
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 ebcVIA dogQeE"
+        id="zip"
+        name="zip"
+        placeholder="zip"
+      />
+      <label
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 bAiPNX eNdbsf"
+        for="website"
+      >
+        Website:
+      </label>
+      <input
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 ebcVIA dofouy"
+        id="website"
+        name="website"
+        placeholder="http://www.website.de"
+      />
+      <label
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 bAiPNX eNdBTR"
+        for="price"
+      >
+        TicketPrice:
+      </label>
+      <input
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 ebcVIA dofOWk"
+        id="price"
+        name="price"
+        placeholder="ticket price or range"
+      />
+      <label
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 bAiPNX eNdqlu"
+        for="poster"
+      >
+        Picture:
+         
+      </label>
+      <input
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 ebcVIA dojeif"
+        id="poster"
+        name="poster"
+        placeholder="http://www.website.de/banner.jpg"
+      />
+      <label
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 bAiPNX eNecAj"
+        for="packlist"
+      >
+        Add PackList:
+      </label>
+      <select
+        class="EventForm__PacklistInput-sc-1hr7ssh-14 eDnimv"
+        id="packlist"
+        name="packlistCategory"
+      >
+        <option
+          value="festival"
+        >
+          festival
+        </option>
+        <option
+          value="medieval"
+        >
+          medieval
+        </option>
+      </select>
+      <div
+        class="EventForm__ButtonGroup-sc-1hr7ssh-15 ZjtlQ"
+      >
+        <button
+          type="reset"
+        >
+          Reset
+        </button>
+        <button
+          class="EventForm__SubmitButton-sc-1hr7ssh-16 ATDzO"
+          type="submit"
+        >
+          Save
+        </button>
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

@@ -6,6 +6,7 @@ export default createGlobalStyle`
   }
 
   body {
+    
     margin: 0;
     background: rgba(96,99,104,0.8);
     font-family: sans-serif;
@@ -15,16 +16,7 @@ export default createGlobalStyle`
     color: rgb(253,230,167,0.9);
   }
 
-  #root {
-  display:grid;
-  grid-template-rows: 38px auto 58px;
-  max-width: 600px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  }
+ 
 
   h1 {
     font-size: 130%;

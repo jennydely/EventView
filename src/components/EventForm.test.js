@@ -1,6 +1,5 @@
 import React from 'react'
 import { render, fireEvent, waitFor } from '@testing-library/react'
-import renderer from 'react-test-renderer'
 import EventForm from './EventForm'
 import 'jest-styled-components'
 
@@ -102,7 +101,6 @@ describe('EventForm', () => {
     await waitFor(() => expect(nameInput.value).toBe(''))
     expect(nameInput.value).toBe('')
     await waitFor(() => expect(getByLabelText('Category:').value).toBe('metal'))
-    expect(getByLabelText('Category:').value).toBe('metal')
   })
 
   it('renders correctly', () => {
@@ -129,7 +127,7 @@ describe('EventForm', () => {
         ],
       },
     ]
-    const tree = renderer.create(
+    const tree = render(
       <EventForm packlists={packlists} onEventSave={onEventSave} />
     )
     expect(tree).toMatchSnapshot()
