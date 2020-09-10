@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-context('Eventpage', () => {
+context('Packlistform', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
     cy.get('button').contains('Create PackList').click()
@@ -10,18 +10,18 @@ context('Eventpage', () => {
     cy.get('#name').type('TestPacklist').should('have.value', 'TestPacklist')
   })
 
-  it('.focus() - focus on a DOM element', () => {
+  it('.focus() to put new items in', () => {
     cy.get('#itemInput').focus().type('Zelt').should('have.value', 'Zelt')
   })
 
-  it('.blur() - blur off a DOM element', () => {
+  it('.blur() - blur off the name field', () => {
     cy.get('#name')
       .type('About to blur')
       .blur()
       .should('have.value', 'About to blur')
   })
 
-  it('.clear() - clears an input or textarea element', () => {
+  it('.clear() - the packlist name', () => {
     cy.get('#name')
       .type('Clear this text')
       .should('have.value', 'Clear this text')
@@ -29,7 +29,7 @@ context('Eventpage', () => {
       .should('have.value', '')
   })
 
-  it('.submit() - submit a form', () => {
+  it('.submit() - creates an packlist via submit on the form', () => {
     cy.get('[data-testid="packlistform"]')
       .find('#name')
       .type('TestPacklist')

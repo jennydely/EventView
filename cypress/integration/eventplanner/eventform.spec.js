@@ -1,12 +1,12 @@
 /// <reference types="cypress" />
 
-context('Eventpage', () => {
+context('Eventform', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
     cy.get('button').contains('Create Event').click()
   })
 
-  it('.select() evnet category', () => {
+  it('.select() event category', () => {
     cy.get('#category').select('medieval').should('have.value', 'medieval')
   })
 
@@ -37,28 +37,28 @@ context('Eventpage', () => {
   })
 
   it('.submit() - submit a form', () => {
-    cy.get('[data-testid="1337"]')
+    cy.get('[data-testid="eventform"]')
       .find('#name')
       .type('Test')
-      .get('[data-testid="1337"]')
+      .get('[data-testid="eventform"]')
       .find('#location')
       .type('Testyland')
-      .get('[data-testid="1337"]')
+      .get('[data-testid="eventform"]')
       .find('#EventStartDate')
       .type('2020-09-24')
-      .get('[data-testid="1337"]')
+      .get('[data-testid="eventform"]')
       .find('#EventEndDate')
       .type('2020-09-28')
-      .get('[data-testid="1337"]')
+      .get('[data-testid="eventform"]')
       .find('#street')
       .type('Testhausen 14D')
-      .get('[data-testid="1337"]')
+      .get('[data-testid="eventform"]')
       .find('#zip')
       .type('12345')
-      .get('[data-testid="1337"]')
+      .get('[data-testid="eventform"]')
       .find('#website')
       .type('www.testy.de')
-    cy.get('[data-testid="1337"]')
+    cy.get('[data-testid="eventform"]')
       .submit()
       .should(() => {
         expect(localStorage.getItem('Test'))
