@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 import SelectCategory from '../common/SelectCategory'
 
 export default function CategoryFilter({ onSelectFilter }) {
-  const categories = ['all', 'metal', 'medieval', 'sand', 'other']
+  const categories = ['all', 'metal', 'medieval', 'holiday', 'other']
 
   return (
     <FilterContainer>

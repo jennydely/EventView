@@ -71,15 +71,15 @@ const Details = styled(animated.section)`
   margin-top: -2px;
   border: 2px solid
     ${({ name }) =>
-      name === 'sand'
-        ? 'rgba(248,149,17,0.46)'
+      name === 'holiday'
+        ? 'var(--blue-70)'
         : name === 'metal'
-        ? 'rgba(49,42,42,0.75)'
+        ? '(--darkgrey-75)'
         : name === 'medieval'
-        ? 'rgba(67,40,24,0.70)'
+        ? 'var(--darkbrown-70)'
         : name === 'other'
-        ? 'rgba(153,88,42,0.70)'
-        : 'rgb(96,99,104)'};
+        ? 'var(--lightbrown-70)'
+        : 'var(--lightgrey-main)'};
   border-top: 0;
   overflow: hidden;
 
@@ -168,8 +168,8 @@ const ExternalLink = styled.a`
   padding: 6.375px 4px;
   border: none;
   border-radius: 6px;
-  background-color: rgba(49, 42, 42, 0.75);
-  color: rgb(187, 148, 87);
+  background-color: var(--darkgrey-75);
+  color: var(--sandyellow-main);
   font-size: 135%;
   text-align: center;
 `

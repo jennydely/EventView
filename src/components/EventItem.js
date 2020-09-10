@@ -42,13 +42,13 @@ const Event = styled.li`
 const EventHeader = styled.div`
   margin: 0;
   background: ${({ name }) =>
-    name === 'sand'
-      ? 'rgba(248,149,17,0.46)'
+    name === 'holiday'
+      ? 'var(--blue-70)'
       : name === 'metal'
-      ? 'rgba(49,42,42,0.75)'
+      ? 'var(--darkgrey-75)'
       : name === 'medieval'
-      ? 'rgba(67,40,24,0.70)'
+      ? 'var(--darkbrown-70)'
       : name === 'other'
-      ? 'rgba(153,88,42,0.70)'
-      : 'rgb(96,99,104)'};
+      ? 'var(--lightbrown-70)'
+      : 'var(--lightgrey-main)'};
 `

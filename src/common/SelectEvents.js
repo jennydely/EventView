@@ -29,8 +29,8 @@ const SelectStyled = styled.select`
   border: var(--border-darkgrey);
   color: black;
   background: ${({ name }) =>
-    name === 'sand'
-      ? 'var(--yellow-46)'
+    name === 'holiday'
+      ? 'var(--blue-70)'
       : name === 'metal'
       ? '(--darkgrey-75)'
       : name === 'medieval'
@@ -45,8 +45,8 @@ const OptionStyled = styled.option`
   border: var(--border-darkgrey);
   color: black;
   background: ${({ value }) =>
-    value === 'sand'
-      ? 'var(--yellow-46)'
+    value === 'holiday'
+      ? 'var(--blue-70)'
       : value === 'metal'
       ? 'var(--darkgrey-75)'
       : value === 'medieval'

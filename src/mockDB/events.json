@@ -41,7 +41,7 @@
     "website": "https://mittelalterland.de/produkt/loki-event-damp-04-06-2020-eroeffnung/",
     "eventStartDate": "2020-08-04",
     "eventEndDate": "2020-08-06",
-    "category": "sand",
+    "category": "medieval",
     "packlistCategory": "medieval"
   },
   {
@@ -71,7 +71,7 @@
     "website": "http://marktvagabunden.de/index.php/naechstemaerkte/stove-elbmarsch",
     "eventStartDate": "2020-09-25",
     "eventEndDate": "2020-09-27",
-    "category": "sand",
+    "category": "medieval",
     "packlistCategory": "medieval"
   },
   {
@@ -132,6 +132,21 @@
     "eventStartDate": "2020-09-18",
     "eventEndDate": "2020-09-18",
     "category": "other",
+    "packlistCategory": ""
+  },
+  {
+    "id": "10",
+    "poster": "https://images.mirai.com/INFOROOMS/39500447/4mZLaxXvsl9is7eJGSgG/4mZLaxXvsl9is7eJGSgG_large.jpg",
+    "name": "Playacálida Spa Hote",
+    "street": "Urb. La Galera Urb. La Galera, s/n",
+    "zip": "18690 Almuñécar",
+    "location": "Spanien",
+    "price": "",
+    "ticketBought": true,
+    "website": "https://www.playasenator.com/en/hotels/playacalida-spa-hotel/",
+    "eventStartDate": "2020-10-10",
+    "eventEndDate": "2020-10-18",
+    "category": "holiday",
     "packlistCategory": ""
   }
 ]

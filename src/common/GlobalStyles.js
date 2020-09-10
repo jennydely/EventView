@@ -8,12 +8,12 @@ export default createGlobalStyle`
   body {
     
     margin: 0;
-    background: rgba(96,99,104,0.8);
+    background: var(--lightgrey-80);
     font-family: sans-serif;
     line-height: 1.4;
     overflow: hidden;
     height: 100vh;
-    color: rgb(253,230,167,0.9);
+    color: var(--lightyellow-90);
   }
 
  
@@ -61,8 +61,7 @@ export default createGlobalStyle`
   padding: 4px 6px;
   border: none;
   border-radius: 6px;
-  background-color:rgb(96,99,104);
-  color: rgb(253,230,167);
+  background-color:var(--lightgrey-main);
   font-size: 135%; 
   text-align: center; 
 }
@@ -75,7 +74,10 @@ select {
 
 :root {
   /* font-colors */
-   --yellow-main:rgb(253, 230, 167);
+   --lightyellow-main:rgb(253, 230, 167);
+   --lightyellow-90:rgba(253, 230, 167,0.9);
+
+   --sandyellow-main:rgb(187, 148, 87);
 
   /* background-colors */
     --lightbrown-main: rgb(153,88,42);
@@ -90,9 +92,14 @@ select {
     --yellow-46: rgba(248,149,17,0.46);
     --yellow-16: rgba(248,149,17,0.16);
 
+    --blue-main: rgb(1,87,155);
+    --blue-70: rgba(1,87,155,0.70);
+    --blue-40: rgba(1,87,155,0.40);
+
     --lightgrey-main: rgb(96,99,104);
-    --lightgrey-70: rgb(96,99,104,0.70);
-    --lightgrey-40: rgb(96,99,104,0.40);
+    --lightgrey-80: rgb(96,99,104,0.80);
+    --lightgrey-70: rgba(96,99,104,0.70);
+    --lightgrey-40: rgba(96,99,104,0.40);
 
     --darkgrey-main: rgb(49,42,42);
     --darkgrey-75: rgba(49,42,42,0.75);
