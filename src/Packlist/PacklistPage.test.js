@@ -1,7 +1,6 @@
 import React from 'react'
 import { MemoryRouter } from 'react-router-dom'
 import { render } from '@testing-library/react'
-import renderer from 'react-test-renderer'
 import PacklistPage from './PacklistPage'
 import 'jest-styled-components'
 
@@ -51,7 +50,7 @@ describe('PackList', () => {
     }, 100)
   })
   it('renders correctly', () => {
-    const tree = renderer.create(
+    const tree = render(
       <MemoryRouter>
         <PacklistPage packlists={packlists} packlistName={packlistName} />
       </MemoryRouter>

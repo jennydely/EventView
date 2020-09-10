@@ -1,15 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header renders correctly 1`] = `
-.c4 {
+Object {
+  "asFragment": [Function],
+  "baseElement": .c4 {
   display: block;
-  width: 100%;
-  padding: 20px;
   border-radius: 4px;
   border: 1px solid var(--blue-50);
   margin-top: 0;
-  padding: 4px;
-  font-size: 100%;
   color: black;
   background: rgb(96,99,104);
 }
@@ -29,31 +27,21 @@ exports[`Header renders correctly 1`] = `
 
 .c3 {
   margin: 5px;
-  backgroundcolor: grey;
+  background: grey;
 }
 
 .c1 {
   display: block;
-  width: 100%;
-  padding: 20px;
   border-radius: 4px;
   border: 1px solid var(--blue-50);
-  margin-top: 0;
-  padding: 4px;
-  font-size: 100%;
   color: black;
   background: rgb(96,99,104);
 }
 
 .c2 {
   display: block;
-  width: 100%;
-  padding: 20px;
   border-radius: 4px;
   border: 1px solid var(--blue-50);
-  margin-top: 0;
-  padding: 4px;
-  font-size: 100%;
   color: black;
   background: rgb(96,99,104);
 }
@@ -62,88 +50,186 @@ exports[`Header renders correctly 1`] = `
   margin: 5px;
 }
 
-<header>
-  <div
-    className="c0"
-  >
-    <select
-      className="c1"
-      id="filter"
-      name={
-        Array [
-          "date",
-          "a-Z",
-          "Z-a",
-        ]
-      }
-    >
-      <option
-        className="c2"
-        onClick={[Function]}
+<body>
+    <div>
+      <header>
+        <div
+          class="c0"
+        >
+          <select
+            class="c1"
+            id="filter"
+            name="date,a-Z,Z-a"
+          >
+            <option
+              class="c2"
+            >
+              date
+            </option>
+            <option
+              class="c2"
+            >
+              a-Z
+            </option>
+            <option
+              class="c2"
+            >
+              Z-a
+            </option>
+          </select>
+        </div>
+        <div
+          class="c3"
+        >
+          <select
+            class="c4"
+            id="category"
+            name="all,metal,medieval,sand,other"
+          >
+            <option
+              class="c5"
+            >
+              all
+            </option>
+            <option
+              class="c5"
+            >
+              metal
+            </option>
+            <option
+              class="c5"
+            >
+              medieval
+            </option>
+            <option
+              class="c5"
+            >
+              sand
+            </option>
+            <option
+              class="c5"
+            >
+              other
+            </option>
+          </select>
+        </div>
+      </header>
+    </div>
+  </body>,
+  "container": <div>
+    <header>
+      <div
+        class="Header__ButtonContainer-mnmp8e-0 hThdJr"
       >
-        date
-      </option>
-      <option
-        className="c2"
-        onClick={[Function]}
+        <select
+          class="SelectEvents__SelectStyled-sc-11glujg-0 hSgPVQ"
+          id="filter"
+          name="date,a-Z,Z-a"
+        >
+          <option
+            class="SelectEvents__OptionStyled-sc-11glujg-1 cwcQHy"
+          >
+            date
+          </option>
+          <option
+            class="SelectEvents__OptionStyled-sc-11glujg-1 cwcQHy"
+          >
+            a-Z
+          </option>
+          <option
+            class="SelectEvents__OptionStyled-sc-11glujg-1 cwcQHy"
+          >
+            Z-a
+          </option>
+        </select>
+      </div>
+      <div
+        class="CategoryFilter__FilterContainer-rogkyz-0 hZRjJN"
       >
-        a-Z
-      </option>
-      <option
-        className="c2"
-        onClick={[Function]}
-      >
-        Z-a
-      </option>
-    </select>
-  </div>
-  <div
-    className="c3"
-  >
-    <select
-      className="c4"
-      id="category"
-      name={
-        Array [
-          "all",
-          "metal",
-          "medieval",
-          "sand",
-          "other",
-        ]
-      }
-    >
-      <option
-        className="c5"
-        onClick={[Function]}
-      >
-        all
-      </option>
-      <option
-        className="c5"
-        onClick={[Function]}
-      >
-        metal
-      </option>
-      <option
-        className="c5"
-        onClick={[Function]}
-      >
-        medieval
-      </option>
-      <option
-        className="c5"
-        onClick={[Function]}
-      >
-        sand
-      </option>
-      <option
-        className="c5"
-        onClick={[Function]}
-      >
-        other
-      </option>
-    </select>
-  </div>
-</header>
+        <select
+          class="SelectCategory__SelectStyled-sc-1n16935-0 ibPEVO"
+          id="category"
+          name="all,metal,medieval,sand,other"
+        >
+          <option
+            class="SelectCategory__OptionStyled-sc-1n16935-1 delmdz"
+          >
+            all
+          </option>
+          <option
+            class="SelectCategory__OptionStyled-sc-1n16935-1 delmdz"
+          >
+            metal
+          </option>
+          <option
+            class="SelectCategory__OptionStyled-sc-1n16935-1 delmdz"
+          >
+            medieval
+          </option>
+          <option
+            class="SelectCategory__OptionStyled-sc-1n16935-1 delmdz"
+          >
+            sand
+          </option>
+          <option
+            class="SelectCategory__OptionStyled-sc-1n16935-1 delmdz"
+          >
+            other
+          </option>
+        </select>
+      </div>
+    </header>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
