@@ -1,5 +1,5 @@
 import React from 'react';
-import EventForm from '../componentsEventPage/EventForm';
+import EventForm from '../components/EventForm';
 
 export default {
   title: 'EventPlanner/EventForm',
@@ -10,5 +10,6 @@ const Template = (args) => <EventForm {...args} />;
 
 export const Formular = Template.bind({});
 Formular.args = {
+  packlists:['medieval', 'festival']
 
 };

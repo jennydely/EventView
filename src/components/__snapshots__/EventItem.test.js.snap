@@ -1,0 +1,259 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventItem renders correctly 1`] = `
+.c2 {
+  display: grid;
+  grid-template-columns: 20% repeat(4,auto);
+  grid-template-rows: repeat(8,auto) 30px auto;
+  margin: 0;
+  margin-top: -2px;
+  border: 2px solid rgb(96,99,104);
+  border-top: 0;
+  overflow: hidden;
+}
+
+.c2::before,
+.c2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.c2::before {
+  height: 0;
+}
+
+.c2::after {
+  height: 8px;
+  bottom: 0;
+}
+
+.c3 {
+  grid-column: 1;
+  grid-row: 1 / span 5;
+}
+
+.c4 {
+  grid-column: 1 /span 1;
+  grid-row: 1 / span 5;
+  margin: 7px;
+  object-fit: cover;
+  width: 90%;
+  max-height: 90%;
+}
+
+.c5 {
+  grid-column: 2;
+  grid-row: 1/ span 4;
+  text-align: right;
+  margin: 2px;
+  margin-top: 7px;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.c6 {
+  grid-column: 2;
+  grid-row: 5;
+  text-align: right;
+  margin: 2px;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.c11 {
+  grid-column: 2;
+  grid-row: 6;
+  text-align: right;
+  margin: 2px;
+  font-weight: bold;
+  font-size: 100%;
+  display: none;
+}
+
+.c7 {
+  grid-column: 3/5;
+  grid-row: 1;
+  text-align: left;
+  margin: 2px;
+  margin-top: 7px;
+  font-size: 100%;
+}
+
+.c8 {
+  grid-column: 3/5;
+  grid-row: 2;
+  text-align: left;
+  margin: 2px;
+  font-size: 100%;
+}
+
+.c9 {
+  grid-column: 3/5;
+  grid-row: 3;
+  text-align: left;
+  margin: 2px;
+  font-size: 100%;
+}
+
+.c10 {
+  grid-column: 3/5;
+  grid-row: 5;
+  text-align: left;
+  margin: 2px;
+  font-size: 100%;
+}
+
+.c12 {
+  grid-column: 3;
+  grid-row: 6;
+  text-align: right;
+  margin: 2px;
+  font-weight: bold;
+  font-size: 100%;
+  display: none;
+}
+
+.c13 {
+  grid-column: 1/6;
+  grid-row: 7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  with: 100%;
+  padding: 7px;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+}
+
+.c14 {
+  display: inline-block;
+  with: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 2px;
+  padding: 0.3px 4px;
+  border: solid 2px rgb(49,42,42);
+  border-radius: 6px;
+  background-color: rgba(49,42,42,0.75);
+  color: rgb(187,148,87);
+  font-size: 100%;
+  text-align: center;
+}
+
+.c0 {
+  list-style: none;
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 4px;
+  text-align: center;
+}
+
+.c1 {
+  margin: 0;
+  background: rgb(96,99,104);
+}
+
+<div>
+  <li
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <h2>
+        This is the eventname
+         - 
+        This is the eventlocation
+      </h2>
+      <h3>
+        Invalid Date - Invalid Date
+      </h3>
+    </div>
+    <section
+      class="c2"
+      style="height: 0px;"
+    >
+      <a
+        class="c3"
+        target="blank"
+      >
+         
+        <img
+          alt="This is the eventname Poster"
+          class="c4"
+          src="https://delyed.de/wp-content/uploads/2018/01/5d737e918441914a9d2743268ef65439.jpg"
+        />
+      </a>
+      <p
+        class="c5"
+      >
+        Address: 
+      </p>
+      <p
+        class="c6"
+      >
+        Price: 
+      </p>
+      <p
+        class="c7"
+      >
+        This is the eventname
+      </p>
+      <p
+        class="c8"
+      />
+      <p
+        class="c9"
+      >
+         
+        This is the eventlocation
+      </p>
+      <p
+        class="c10"
+      >
+        kostenlos
+         
+      </p>
+      <label
+        class="c11"
+        id="Ticket"
+      >
+        Ticket
+      </label>
+      <input
+        class="c12"
+        for="Ticket"
+        type="checkbox"
+      />
+      <div
+        class="c13"
+      >
+        <button>
+          PackList
+        </button>
+        <a
+          class="c14"
+          target="blank"
+          title="link"
+        >
+          Website
+        </a>
+        <a
+          class="c14"
+          href="https://www.google.de/maps"
+          target="blank"
+          title="link"
+        >
+          Googlemaps
+        </a>
+      </div>
+    </section>
+  </li>
+</div>
+`;

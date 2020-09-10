@@ -1,9 +1,8 @@
-import React from 'react';
+import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import PacklistPage from './PackListPage'
+import PacklistPage from './Packlist/PacklistPage'
 import EventPage from './EventPage'
 export default function App() {
-
   return (
     <Router>
       <Switch>
@@ -13,10 +12,7 @@ export default function App() {
         <Route path="/">
           <EventPage />
         </Route>
-
       </Switch>
     </Router>
-  );
+  )
 }
-
-
