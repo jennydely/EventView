@@ -72,4 +72,37 @@ select {
   min-height:fit-content;
   font-size: 135%;  
 }
+
+:root {
+  /* font-colors */
+   --yellow-main:rgb(253, 230, 167);
+
+  /* background-colors */
+    --lightbrown-main: rgb(153,88,42);
+    --lightbrown-70: rgba(153,88,42,0.70);
+    --lightbrown-40: rgba(153,88,42,0.40);
+
+    --darkbrown-main: rgb(67,40,24);
+    --darkbrown-70: rgba(67,40,24,0.70);
+    --darkbrown-40: rgba(67,40,24,0.40);
+
+    --yellow-main: rgb(248,149,17);
+    --yellow-46: rgba(248,149,17,0.46);
+    --yellow-16: rgba(248,149,17,0.16);
+
+    --lightgrey-main: rgb(96,99,104);
+    --lightgrey-70: rgb(96,99,104,0.70);
+    --lightgrey-40: rgb(96,99,104,0.40);
+
+    --darkgrey-main: rgb(49,42,42);
+    --darkgrey-75: rgba(49,42,42,0.75);
+    --darkgrey-45: rgba(49,42,42,0.45);
+
+    --red-main: rgba(246, 71, 71);
+
+    --darkred-main:rgb(111, 29, 27);
+    --darkred-75:rgba(111, 29, 27, 0.75);
+
+    --border-darkgrey: 1px solid var(--darkgrey-75);
+}
 `

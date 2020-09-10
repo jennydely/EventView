@@ -56,7 +56,7 @@ const ListItemStyled = styled(ListItem)`
   justify-content: flex-start;
 `
 const PacklistButton = styled.button`
-  border: 2px solid black;
+  border: var(--border-darkgrey);
   margin: 4px 0 0 7px;
   padding-bottom: 0;
 `
