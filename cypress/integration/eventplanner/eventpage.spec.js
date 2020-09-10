@@ -9,7 +9,7 @@ context('Eventpage', () => {
     cy.title().should('contain', 'Eventplanner')
   })
 
-  it('has a sort function', () => {
+  it('can be sorted', () => {
     cy.get('select').should('contain', 'date')
   })
 
@@ -17,7 +17,7 @@ context('Eventpage', () => {
     cy.get('select').should('contain', 'all')
   })
 
-  it('has an event with name, location and duration', () => {
+  it('has an event with name, location and durationyear', () => {
     cy.get('h2').should('contain', 'WackenWinterNights - Wacken')
     cy.contains('2020')
   })
@@ -43,10 +43,19 @@ context('Eventpage', () => {
   })
 
   it('.click() - on the create event button', () => {
-    cy.get('button').contains('Create Event').click()
+    cy.get('button')
+      .contains('Create Event')
+      .click()
+      .should('be.visible')
+      .get('button')
+      .contains('Back')
+      .click()
   })
 
   it('.click() - on the create packlist button', () => {
-    cy.get('button').contains('Create PackList').click()
+    cy.get('footer')
+      .should('contain', 'Create PackList')
+      .click()
+      .should('be.visible')
   })
 })
