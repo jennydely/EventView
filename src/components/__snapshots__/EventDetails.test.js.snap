@@ -1,0 +1,380 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventDetails renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .c11 {
+  min-width: 44px;
+  min-height: 44px;
+  text-align: right;
+  margin: 2px;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.c3 {
+  text-align: right;
+  margin: 2px;
+  font-size: 100%;
+}
+
+.c0 {
+  display: grid;
+  grid-template-columns: 20% repeat(4,auto);
+  grid-template-rows: repeat(8,auto) 30px auto;
+  margin: 0;
+  margin-top: -2px;
+  border: 2px solid rgba(49,42,42,0.75);
+  border-top: 0;
+  overflow: hidden;
+}
+
+.c0::before,
+.c0::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.c0::before {
+  height: 0;
+}
+
+.c0::after {
+  height: 8px;
+  bottom: 0;
+}
+
+.c7 {
+  grid-column: 3/5;
+  grid-row: 2;
+  text-align: left;
+}
+
+.c8 {
+  grid-column: 3/5;
+  grid-row: 3;
+  text-align: left;
+}
+
+.c9 {
+  grid-column: 3/5;
+  grid-row: 5;
+  text-align: left;
+}
+
+.c1 {
+  grid-column: 1;
+  grid-row: 1 / span 5;
+}
+
+.c2 {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 5;
+  margin: 7px;
+  object-fit: cover;
+  width: 90%;
+  max-height: 90%;
+}
+
+.c4 {
+  grid-column: 2;
+  grid-row: 1 / span 4;
+  margin-top: 7px;
+  font-weight: bold;
+}
+
+.c5 {
+  grid-column: 2;
+  grid-row: 5;
+  font-weight: bold;
+}
+
+.c10 {
+  grid-column: 2;
+  grid-row: 6;
+  text-align: right;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin: 2px;
+  font-weight: bold;
+  font-size: 112.5%;
+}
+
+.c6 {
+  grid-column: 3/5;
+  grid-row: 1;
+  text-align: left;
+  margin-top: 7px;
+}
+
+.c12 {
+  grid-column: 3;
+  grid-row: 6;
+}
+
+.c13 {
+  grid-column: 1/6;
+  grid-row: 7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding: 7px;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+}
+
+.c14 {
+  display: inline-block;
+  min-width: 45px;
+  min-height: 45px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 2px;
+  padding: 6.375px 4px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgba(49,42,42,0.75);
+  color: rgb(187,148,87);
+  font-size: 135%;
+  text-align: center;
+}
+
+<body>
+    <div>
+      <section
+        class="c0"
+        name="metal"
+      >
+        <a
+          class="c1"
+          href="https://www.wacken-winter-nights.com/fileadmin/_processed_/csm_wwn_20_191024-web_6495c0af7f.jpg"
+          target="blank"
+        >
+           
+          <img
+            alt="WackenWinterNights Poster"
+            class="c2"
+            src="https://www.wacken-winter-nights.com/fileadmin/_processed_/csm_wwn_20_191024-web_6495c0af7f.jpg"
+          />
+        </a>
+        <p
+          class="c3 c4"
+        >
+          Address: 
+        </p>
+        <p
+          class="c3 c5"
+        >
+          Price: 
+        </p>
+        <p
+          class="c3 c6"
+        >
+          WackenWinterNights
+        </p>
+        <p
+          class="c3 c7"
+        >
+          Reselithweg 17
+        </p>
+        <p
+          class="c3 c8"
+        >
+          25596
+           
+          Wacken
+        </p>
+        <p
+          class="c3 c9"
+        >
+          99 €
+           
+        </p>
+        <label
+          class="c10"
+          id="Ticket"
+        >
+          Ticket
+        </label>
+        <input
+          class="c11 c12"
+          for="Ticket"
+          type="checkbox"
+        />
+        <div
+          class="c13"
+        >
+          <button>
+            PackList
+          </button>
+          <a
+            class="c14"
+            href="https://www.wacken-winter-nights.com/"
+            target="blank"
+            title="link"
+          >
+            Website
+          </a>
+          <a
+            class="c14"
+            href="https://www.google.de/maps"
+            target="blank"
+            title="link"
+          >
+            Googlemaps
+          </a>
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <section
+      class="EventDetails__Details-sc-5njpgn-0 iaeobH"
+      name="metal"
+    >
+      <a
+        class="EventDetails__LinkPoster-sc-5njpgn-2 bTgyqo"
+        href="https://www.wacken-winter-nights.com/fileadmin/_processed_/csm_wwn_20_191024-web_6495c0af7f.jpg"
+        target="blank"
+      >
+         
+        <img
+          alt="WackenWinterNights Poster"
+          class="EventDetails__EventPoster-sc-5njpgn-3 cnaSWE"
+          src="https://www.wacken-winter-nights.com/fileadmin/_processed_/csm_wwn_20_191024-web_6495c0af7f.jpg"
+        />
+      </a>
+      <p
+        class="Paragraph-sc-1mi161p-0 EventDetails__Address-sc-5njpgn-4 byOeOf ihFXXR"
+      >
+        Address: 
+      </p>
+      <p
+        class="Paragraph-sc-1mi161p-0 EventDetails__Price-sc-5njpgn-5 byOeOf jZwNTS"
+      >
+        Price: 
+      </p>
+      <p
+        class="Paragraph-sc-1mi161p-0 EventDetails__Name-sc-5njpgn-7 byOeOf bDjoam"
+      >
+        WackenWinterNights
+      </p>
+      <p
+        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 byOeOf hXNTKG"
+      >
+        Reselithweg 17
+      </p>
+      <p
+        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 byOeOf kmtXNf"
+      >
+        25596
+         
+        Wacken
+      </p>
+      <p
+        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 byOeOf gFLMdl"
+      >
+        99 €
+         
+      </p>
+      <label
+        class="EventDetails__TicketLabel-sc-5njpgn-6 dSspxY"
+        id="Ticket"
+      >
+        Ticket
+      </label>
+      <input
+        class="Checkbox-sc-1a8a6ug-0 EventDetails__Ticket-sc-5njpgn-8 KEjef fiAzfq"
+        for="Ticket"
+        type="checkbox"
+      />
+      <div
+        class="EventDetails__ButtonContainer-sc-5njpgn-9 fXkSqJ"
+      >
+        <button>
+          PackList
+        </button>
+        <a
+          class="EventDetails__ExternalLink-sc-5njpgn-10 jRcSjc"
+          href="https://www.wacken-winter-nights.com/"
+          target="blank"
+          title="link"
+        >
+          Website
+        </a>
+        <a
+          class="EventDetails__ExternalLink-sc-5njpgn-10 jRcSjc"
+          href="https://www.google.de/maps"
+          target="blank"
+          title="link"
+        >
+          Googlemaps
+        </a>
+      </div>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

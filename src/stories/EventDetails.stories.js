@@ -1,5 +1,5 @@
 import React from 'react';
-import EventDetails from '../componentsEventPage/EventDetails';
+import EventDetails from '../components/EventDetails';
 
 export default {
   title: 'EventPlanner/EventDetails',

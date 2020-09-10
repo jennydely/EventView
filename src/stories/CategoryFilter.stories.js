@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CategoryFilter from '../componentsEventPage/CategoryFilter';
+import CategoryFilter from '../components/CategoryFilter';
 
 export default {
   title: 'Eventplanner/CategoryFilter',
