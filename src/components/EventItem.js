@@ -21,9 +21,8 @@ export default function EventItem({ event, id, onHideButtonClick }) {
     <>
       <Event>
         <EventHeader name={category} onClick={toggleEventDetail}>
-          <h2>
-            {name} - {location}
-          </h2>
+          <h2>~ {name} ~</h2>
+          <h3>{location}</h3>
           <h3>{formatDate(eventStartDate, eventEndDate)}</h3>
         </EventHeader>
         <EventDetails event={event} style={detailStyle} bind={bind} />
@@ -87,6 +86,6 @@ const HideButton = styled.button`
   justify-self: start;
   margin: 0;
   padding: 5px 0;
-  margin-top: 7.325px;
+  margin-top: 23.325px;
   background: none;
 `

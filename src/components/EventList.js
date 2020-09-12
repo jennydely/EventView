@@ -47,8 +47,8 @@ export default function EventList({
 
 const EventContainer = styled.ul`
   display: grid;
-  grid-template-columns: 300px 45px;
-  margin: 10px;
+  grid-template-columns: 316px 45px;
+  margin: 0;
   padding: 0;
 `
 const EventYearHeadline = styled.h1`

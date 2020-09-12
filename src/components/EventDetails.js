@@ -56,7 +56,7 @@ export default function EventDetails({ event, style, bind }) {
           target="blank"
           title="link"
         >
-          Googlemaps
+          Route
         </ExternalLink>
       </ButtonContainer>
     </Details>
@@ -122,12 +122,14 @@ const Address = styled(Paragraph)`
   grid-column: 2;
   grid-row: 1 / span 4;
   margin-top: 7px;
-  font-weight: bold;
+  font-weight: 400;
+  font-size: 112.5%;
 `
 const Price = styled(Paragraph)`
   grid-column: 2;
   grid-row: 5;
-  font-weight: bold;
+  font-weight: 400;
+  font-size: 112.5%;
 `
 const TicketLabel = styled.label`
   grid-column: 2;
@@ -155,21 +157,20 @@ const ButtonContainer = styled.div`
   grid-row: 7;
   display: flex;
   width: 100%;
-  padding: 7px;
+  margin: 1px;
+  padding: 0;
   justify-content: space-around;
 `
 const ExternalLink = styled.a`
   display: inline-block;
-  min-width: 45px;
-  min-height: 45px;
-  width: fit-content;
-  height: fit-content;
+  min-width: fit-content;
+  min-height: fit-content;
   margin: 2px;
-  padding: 6.375px 4px;
+  padding: 4px 6px;
   border: none;
   border-radius: 6px;
   background-color: var(--darkgrey-75);
-  color: var(--sandyellow-main);
-  font-size: 135%;
+  font-size: 130%;
   text-align: center;
+  color: var(--sandyellow-main);
 `

@@ -19,5 +19,4 @@ export default function CategoryFilter({ onSelectFilter }) {
 
 const FilterContainer = styled.div`
   margin: 5px;
-  background: grey;
 `

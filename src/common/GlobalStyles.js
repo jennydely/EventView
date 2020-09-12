@@ -18,19 +18,19 @@ export default createGlobalStyle`
   }
  
   h1 {
-    font-size: 130%;
+    font-size: 140%;
     margin:0;
     margin-left: 7px;
     align-self:center;
   }
 
   h2 {
-    font-size: 120%;
+    font-size: 130%;
     margin:0;
   }
 
   h3 {
-    font-size: 115%;
+    font-size: 112,5%;
     margin:0;
   }
   header {
@@ -53,7 +53,7 @@ export default createGlobalStyle`
     justify-content:center;
   }
 
-  button {
+  button{
   display: inline-block; 
   min-width:fit-content;
   min-height:fit-content;
@@ -63,7 +63,7 @@ export default createGlobalStyle`
   border-radius: 6px;
   background-color:var( --darkgrey-75);
   color: var(--lightyellow-90);
-  font-size: 135%; 
+  font-size: 130%; 
   text-align: center; 
 }
 

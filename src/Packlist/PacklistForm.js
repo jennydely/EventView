@@ -19,6 +19,7 @@ export default function PacklistForm({ onPacklistSave }) {
   const { register, handleSubmit, reset, errors } = useForm()
   const [items, setItems] = useState([])
   const { packlists } = usePacklists()
+  const [itemError, setItemError] = useState(false)
   const itemRef = useRef(null)
   const onSubmit = (packlist, event) => {
     event.preventDefault()
@@ -98,24 +99,18 @@ export default function PacklistForm({ onPacklistSave }) {
           {errors.shouldHaveOneItem?.type === 'validate' && (
             <ErrorMessage>You need to add one item/task!</ErrorMessage>
           )}
-          {(errors.item?.type === 'validate' ||
-            errors.item?.type === 'minLength') && (
+
+          {itemError && (
             <ErrorMessage>
-              This field requires at least 3 characters!
+              'This item field requires at least 3 characters and can reach a
+              maximum of 20 characters!'
             </ErrorMessage>
           )}
-          {(errors.item?.type === 'validate' ||
-            errors.item?.type === 'maxLength') && (
-            <ErrorMessage>
-              The Item can reach a maximum of 20 characters!
-            </ErrorMessage>
-          )}
+
           <AddButton
             type="button"
             onClick={() => {
-              itemRef.current.value?.trim().length >= 3 &&
-                itemRef.current.value?.trim().length <= 20 &&
-                addItem({ text: itemRef.current.value, id: uuid() })
+              addItem({ text: itemRef.current.value, id: uuid() })
             }}
           >
             Add
@@ -143,8 +138,11 @@ export default function PacklistForm({ onPacklistSave }) {
   )
 
   function addItem(item) {
-    setItems([item, ...items])
-    itemRef.current.value = ''
+    if (item.text?.trim().length >= 3 && item.text?.trim().length <= 20) {
+      setItems([item, ...items])
+      itemRef.current.value = ''
+      setItemError(false)
+    } else setItemError(true)
   }
 
   function deleteItem(index) {
@@ -180,6 +178,7 @@ const ItemContainer = styled(ListContainer)`
 `
 const TextSpan = styled.span`
   width: 100%;
+  color: var(--lightyellow-90);
 `
 const HiddenInput = styled.input`
   display: none;
