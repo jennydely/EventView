@@ -6,6 +6,7 @@ import Label from '../common/Label'
 import ErrorMessage from '../common/ErrorMessage'
 import Select from '../common/Select'
 import PropTypes from 'prop-types'
+import getColorByName from '../services/getColorByName'
 
 EventForm.propTypes = {
   onEventSave: PropTypes.func.isRequired,
@@ -15,14 +16,14 @@ EventForm.propTypes = {
 export default function EventForm({ onEventSave, packlists }) {
   const { register, handleSubmit, errors, reset } = useForm()
   const onSubmit = (eventEntry, event) => {
-    // for testing...
     if (event && event.target && typeof event.target.reset === 'function')
+      // for testing
+
       event.target.reset()
     onEventSave(eventEntry)
   }
   const endDateRef = useRef(null)
   const allPacklists = packlists.map((packlist) => packlist.name)
-
   return (
     <>
       <Form data-testid="eventform" onSubmit={handleSubmit(onSubmit)}>
@@ -331,16 +332,7 @@ const CategoryInput = styled(Select)`
   padding: 4px;
   font-size: 112.5%;
   color: black;
-  background: ${({ name }) =>
-    name === 'holiday'
-      ? 'var(--blue-70)'
-      : name === 'metal'
-      ? '(--darkgrey-75)'
-      : name === 'medieval'
-      ? 'var(--darkbrown-70)'
-      : name === 'other'
-      ? 'var(--lightbrown-70)'
-      : 'var(--lightgrey-main)'};
+  background: ${(opt) => getColorByName(opt.name)};
 `
 const ErrorMessageCategoryReq = styled(ErrorMessage)`
   grid-column: 1;

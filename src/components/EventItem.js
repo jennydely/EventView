@@ -6,6 +6,7 @@ import { formatDate } from '../services/date'
 import EventDetails from './EventDetails'
 import IconEye from '../img/IconEye.svg'
 import IconHideEye from '../img/IconHideEye.svg'
+import getColorByName from '../services/getColorByName'
 
 export default function EventItem({ event, id, onHideButtonClick }) {
   const { name, location, category, eventStartDate, eventEndDate } = event
@@ -57,28 +58,8 @@ const Event = styled.li`
 const EventHeader = styled.div`
   margin: 0;
   border-radius: 6px;
-  border: solid 3px
-    ${({ name }) =>
-      name === 'holiday'
-        ? 'var(--blue-70)'
-        : name === 'metal'
-        ? 'var(--darkgrey-75)'
-        : name === 'medieval'
-        ? 'var(--darkbrown-70)'
-        : name === 'other'
-        ? 'var(--lightbrown-70)'
-        : 'var(--lightgrey-main)'};
-  border-left: solid 10px
-    ${({ name }) =>
-      name === 'holiday'
-        ? 'var(--blue-70)'
-        : name === 'metal'
-        ? 'var(--darkgrey-75)'
-        : name === 'medieval'
-        ? 'var(--darkbrown-70)'
-        : name === 'other'
-        ? 'var(--lightbrown-70)'
-        : 'var(--lightgrey-main)'};
+  border: solid 3px ${(props) => getColorByName(props.name)};
+  border-left: solid 10px ${(props) => getColorByName(props.name)};
 `
 const HideButton = styled.button`
   grid-column: 2;

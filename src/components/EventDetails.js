@@ -4,6 +4,7 @@ import styled from 'styled-components/macro'
 import { useHistory } from 'react-router-dom'
 import Checkbox from '../common/Checkbox'
 import Paragraph from '../common/Paragraph'
+import getColorByName from '../services/getColorByName'
 
 export default function EventDetails({ event, style, bind }) {
   const {
@@ -69,17 +70,7 @@ const Details = styled(animated.section)`
   grid-template-rows: repeat(8, auto) 30px auto;
   margin: 0;
   margin-top: -2px;
-  border: 2px solid
-    ${({ name }) =>
-      name === 'holiday'
-        ? 'var(--blue-70)'
-        : name === 'metal'
-        ? '(--darkgrey-75)'
-        : name === 'medieval'
-        ? 'var(--darkbrown-70)'
-        : name === 'other'
-        ? 'var(--lightbrown-70)'
-        : 'var(--lightgrey-main)'};
+  border: 2px solid ${(opt) => getColorByName(opt.name)};
   border-top: 0;
   overflow: hidden;
 
