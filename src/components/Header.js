@@ -3,8 +3,12 @@ import styled from 'styled-components/macro'
 import CategoryFilter from './CategoryFilter'
 import SelectEvents from '../common/SelectEvents'
 
-export default function Header({ onSelectFilter, onSelectEventFilter }) {
-  const sortOptions = ['date', 'a-Z', 'Z-a']
+export default function Header({
+  onSelectFilter,
+  onSelectEventFilter,
+  onHideButtonClick,
+}) {
+  const sortOptions = ['date', 'a-Z', 'Z-a', 'Hidden']
   return (
     <header>
       <ButtonContainer>

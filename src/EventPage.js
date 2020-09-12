@@ -11,7 +11,7 @@ import usePacklists from './Packlist/usePacklists'
 export default function EventPage() {
   const [categoryFilter, setCategoryFilter] = useState('all')
   const [eventFilter, setEventFilter] = useState('date')
-  const { eventArray, addEvent } = useEvents()
+  const { eventArray, addEvent, updateEvent } = useEvents()
   const {
     eventFormIsVisible,
     showEventForm,
@@ -60,6 +60,7 @@ export default function EventPage() {
           <Header
             onSelectFilter={setCategoryFilter}
             onSelectEventFilter={setEventFilter}
+            onHideButtonClick={toggleHide}
             eventArray={eventArray}
           />
           <main>
@@ -67,6 +68,7 @@ export default function EventPage() {
               eventArray={eventArray}
               eventFilter={eventFilter}
               categoryFilter={categoryFilter}
+              onHideButtonClick={toggleHide}
             />
           </main>
           <footer>
@@ -77,4 +79,10 @@ export default function EventPage() {
       )}
     </>
   )
+  function toggleHide(id) {
+    const index = eventArray.findIndex((event) => event.id === id)
+    const eventUpdate = eventArray[index]
+    eventUpdate.isHide = !eventUpdate.isHide
+    updateEvent(eventUpdate)
+  }
 }

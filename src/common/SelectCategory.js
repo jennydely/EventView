@@ -27,8 +27,7 @@ const SelectStyled = styled.select`
   display: block;
   border-radius: 4px;
   border: var(--border-darkgrey);
-  margin-top: 0;
-  color: black;
+  color: var(--lightyellow-90);
   background: ${({ name }) =>
     name === 'holiday'
       ? 'var(--blue-70)'
@@ -42,14 +41,10 @@ const SelectStyled = styled.select`
 `
 const OptionStyled = styled.option`
   display: block;
-  width: 100%;
-  padding: 20px;
   border-radius: 4px;
   border: var(--border-darkgrey);
-  margin-top: 0;
-  padding: 4px;
   font-size: 100%;
-  color: black;
+  color: var(--lightyellow-90);
   background: ${({ value }) =>
     value === 'holiday'
       ? 'var(--blue-70)'

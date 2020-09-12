@@ -4,12 +4,13 @@ import useHeight from './useHeight'
 import styled from 'styled-components/macro'
 import { formatDate } from '../services/date'
 import EventDetails from './EventDetails'
+import IconEye from '../img/IconEye.svg'
+import IconHideEye from '../img/IconHideEye.svg'
 
-export default function EventItem({ event }) {
+export default function EventItem({ event, id, onHideButtonClick }) {
   const { name, location, category, eventStartDate, eventEndDate } = event
   const { height, bind } = useHeight([event])
   const [isEventDetailVisible, setIsEventDetailVisible] = useState(false)
-  const [isEventVisible, setIsEventVisible] = useState(true)
   const detailStyle = {
     ...useSpring({
       height: isEventDetailVisible ? height : 0,
@@ -18,7 +19,7 @@ export default function EventItem({ event }) {
 
   return (
     <>
-      <Event isEventVisible={isEventVisible}>
+      <Event>
         <EventHeader name={category} onClick={toggleEventDetail}>
           <h2>
             {name} - {location}
@@ -27,7 +28,13 @@ export default function EventItem({ event }) {
         </EventHeader>
         <EventDetails event={event} style={detailStyle} bind={bind} />
       </Event>
-      <HideButton onClick={toggleHide}>Hide</HideButton>
+      <HideButton onClick={handleHideButtonClick} id={id}>
+        {event.isHide ? (
+          <img src={IconEye} alt="show" />
+        ) : (
+          <img src={IconHideEye} alt="hide" />
+        )}
+      </HideButton>
     </>
   )
 
@@ -35,8 +42,8 @@ export default function EventItem({ event }) {
     setIsEventDetailVisible(!isEventDetailVisible)
   }
 
-  function toggleHide() {
-    setIsEventVisible(!isEventVisible)
+  function handleHideButtonClick() {
+    onHideButtonClick(event.id)
   }
 }
 
@@ -50,19 +57,36 @@ const Event = styled.li`
 `
 const EventHeader = styled.div`
   margin: 0;
-  background: ${({ name }) =>
-    name === 'holiday'
-      ? 'var(--blue-70)'
-      : name === 'metal'
-      ? 'var(--darkgrey-75)'
-      : name === 'medieval'
-      ? 'var(--darkbrown-70)'
-      : name === 'other'
-      ? 'var(--lightbrown-70)'
-      : 'var(--lightgrey-main)'};
+  border-radius: 6px;
+  border: solid 3px
+    ${({ name }) =>
+      name === 'holiday'
+        ? 'var(--blue-70)'
+        : name === 'metal'
+        ? 'var(--darkgrey-75)'
+        : name === 'medieval'
+        ? 'var(--darkbrown-70)'
+        : name === 'other'
+        ? 'var(--lightbrown-70)'
+        : 'var(--lightgrey-main)'};
+  border-left: solid 10px
+    ${({ name }) =>
+      name === 'holiday'
+        ? 'var(--blue-70)'
+        : name === 'metal'
+        ? 'var(--darkgrey-75)'
+        : name === 'medieval'
+        ? 'var(--darkbrown-70)'
+        : name === 'other'
+        ? 'var(--lightbrown-70)'
+        : 'var(--lightgrey-main)'};
 `
 const HideButton = styled.button`
+  grid-column: 2;
   align-self: start;
   justify-self: start;
-  margin-top: 13.325px;
+  margin: 0;
+  padding: 5px 0;
+  margin-top: 7.325px;
+  background: none;
 `

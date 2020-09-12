@@ -27,15 +27,15 @@ const SelectStyled = styled.select`
   display: block;
   border-radius: 4px;
   border: var(--border-darkgrey);
-  color: black;
-  background: ${({ name }) =>
-    name === 'holiday'
+  color: var(--lightyellow-90);
+  background: ${({ optionsname }) =>
+    optionsname === 'holiday'
       ? 'var(--blue-70)'
-      : name === 'metal'
+      : optionsname === 'metal'
       ? '(--darkgrey-75)'
-      : name === 'medieval'
+      : optionsname === 'medieval'
       ? 'var(--darkbrown-70)'
-      : name === 'other'
+      : optionsname === 'other'
       ? 'var(--lightbrown-70)'
       : 'var(--lightgrey-main)'};
 `
@@ -43,7 +43,7 @@ const OptionStyled = styled.option`
   display: block;
   border-radius: 4px;
   border: var(--border-darkgrey);
-  color: black;
+  color: var(--lightyellow-90);
   background: ${({ value }) =>
     value === 'holiday'
       ? 'var(--blue-70)'

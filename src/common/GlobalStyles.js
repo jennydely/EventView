@@ -8,11 +8,12 @@ export default createGlobalStyle`
   body {
     
     margin: 0;
-    background: var(--lightgrey-80);
+    background: var(--darkgrey-75);
     font-family: sans-serif;
     line-height: 1.4;
     overflow: hidden;
     height: 100vh;
+    width:100vw;
     color: var(--lightyellow-90);
   }
  
@@ -42,6 +43,7 @@ export default createGlobalStyle`
     grid-row: 2;
     margin:7px;
     overflow-y:scroll;
+    
    }
 
   footer {
@@ -59,7 +61,8 @@ export default createGlobalStyle`
   padding: 4px 6px;
   border: none;
   border-radius: 6px;
-  background-color:var(--lightgrey-main);
+  background-color:var( --darkgrey-75);
+  color: var(--lightyellow-90);
   font-size: 135%; 
   text-align: center; 
 }
@@ -78,17 +81,17 @@ select {
    --sandyellow-main:rgb(187, 148, 87);
 
   /* background-colors */
-    --lightbrown-main: rgb(153,88,42);
-    --lightbrown-70: rgba(153,88,42,0.70);
-    --lightbrown-40: rgba(153,88,42,0.40);
+    --lightbrown-main: rgb(188,84,10);
+    --lightbrown-70: rgba(188,84,10,0.70);
+    --lightbrown-40: rgba(188,84,10,0.40);
 
     --darkbrown-main: rgb(67,40,24);
     --darkbrown-70: rgba(67,40,24,0.70);
     --darkbrown-40: rgba(67,40,24,0.40);
 
     --yellow-main: rgb(248,149,17);
-    --yellow-46: rgba(248,149,17,0.46);
-    --yellow-16: rgba(248,149,17,0.16);
+    --yellow-70: rgba(248,149,17,0.70);
+    --yellow-40: rgba(248,149,17,0.40);
 
     --blue-main: rgb(1,87,155);
     --blue-70: rgba(1,87,155,0.70);
