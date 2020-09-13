@@ -4,7 +4,9 @@ exports[`EventList renders correctly 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .c0 {
-  margin: 10px;
+  display: grid;
+  grid-template-columns: 316px 45px;
+  margin: 0;
   padding: 0;
 }
 
@@ -30,7 +32,7 @@ Object {
   </body>,
   "container": <div>
     <ul
-      class="EventList__EventContainer-sc-1c1tgab-0 iofBtd"
+      class="EventList__EventContainer-sc-1c1tgab-0 jFhGDi"
     >
       <h1
         class="EventList__EventYearHeadline-sc-1c1tgab-1 boyGhL"

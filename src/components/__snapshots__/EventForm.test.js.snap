@@ -8,7 +8,7 @@ Object {
   width: 100%;
   padding: 20px;
   border-radius: 4px;
-  border: 1px solid var(--blue-50);
+  border: var(--border-darkgrey);
   margin-top: 0;
   padding: 4px;
   font-size: 112.5%;
@@ -17,8 +17,7 @@ Object {
 
 .c1 {
   font-weight: 400;
-  font-size: 100%;
-  line-height: 1.143;
+  size: 112.5%;
   margin: 4px;
   text-align: right;
 }
@@ -118,13 +117,13 @@ Object {
   display: block;
   width: 100%;
   padding: 20px;
-  border: 1px solid rgb(96,99,104);
+  border: var(--border-darkgrey);
   border-radius: 4px;
   margin-top: 0;
   padding: 4px;
   font-size: 112.5%;
   color: black;
-  background: rgb(96,99,104);
+  background: var(--lightgrey-main);
 }
 
 .c9 {
@@ -154,12 +153,12 @@ Object {
   display: block;
   width: 100%;
   border-radius: 4px;
-  border: 1px solid rgb(96,99,104);
+  border: var(--border-darkgrey);
   margin-top: 0;
   padding: 4px;
   font-size: 112.5%;
   color: black;
-  background: rgb(96,99,104);
+  background: var(--lightgrey-main);
 }
 
 .c24 {
@@ -180,14 +179,14 @@ Object {
 .c25 {
   grid-column: 1 / span 3;
   grid-row: 20;
-  background-color: rgba(111,29,27,0.75);
+  background-color: var(--darkred-75);
 }
 
 <body>
     <div>
       <form
         class="c0"
-        data-testid="1337"
+        data-testid="eventform"
       >
         <label
           class="c1 c2"
@@ -211,9 +210,9 @@ Object {
             medieval
           </option>
           <option
-            value="sand"
+            value="holiday"
           >
-            sand
+            holiday
           </option>
           <option
             value="other"
@@ -366,16 +365,16 @@ Object {
   "container": <div>
     <form
       class="EventForm__Form-sc-1hr7ssh-0 gUpAAc"
-      data-testid="1337"
+      data-testid="eventform"
     >
       <label
-        class="Label-sc-4r18cf-0 EventForm__CategoryInputLabel-sc-1hr7ssh-5 bAiPNX kKWTAK"
+        class="Label-sc-4r18cf-0 EventForm__CategoryInputLabel-sc-1hr7ssh-5 kTDDAh kKWTAK"
         for="category"
       >
         Category:
       </label>
       <select
-        class="EventForm__CategoryInput-sc-1hr7ssh-6 iFDneT"
+        class="EventForm__CategoryInput-sc-1hr7ssh-6 cezilq"
         id="category"
         name="category"
       >
@@ -390,9 +389,9 @@ Object {
           medieval
         </option>
         <option
-          value="sand"
+          value="holiday"
         >
-          sand
+          holiday
         </option>
         <option
           value="other"
@@ -401,25 +400,25 @@ Object {
         </option>
       </select>
       <label
-        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn2-sc-1hr7ssh-2 bAiPNX bMMjQM"
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn2-sc-1hr7ssh-2 kTDDAh bMMjQM"
         for="name"
       >
         EventName:
       </label>
       <input
-        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 ebcVIA ekNFAh"
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 hKSNO ekNFAh"
         id="name"
         name="name"
         placeholder="event name"
       />
       <label
-        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn2-sc-1hr7ssh-2 bAiPNX eCVOzL"
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn2-sc-1hr7ssh-2 kTDDAh eCVOzL"
         for="location"
       >
         EventLocation:
       </label>
       <input
-        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 ebcVIA ekNFdU"
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 hKSNO ekNFdU"
         id="location"
         name="location"
         placeholder="location of the event"
@@ -430,86 +429,86 @@ Object {
         EventInfos
       </h2>
       <label
-        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 bAiPNX ckpfaq"
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 kTDDAh ckpfaq"
         for="EventStartDate"
       >
         Duration:
       </label>
       <input
-        class="Input-sc-1qrq46f-0 EventForm__EventStartDateInput-sc-1hr7ssh-9 ebcVIA huDgP"
+        class="Input-sc-1qrq46f-0 EventForm__EventStartDateInput-sc-1hr7ssh-9 hKSNO huDgP"
         id="EventStartDate"
         name="eventStartDate"
         placeholder="yyyy-mm-dd"
       />
       <input
-        class="Input-sc-1qrq46f-0 EventForm__EventEndDateInput-sc-1hr7ssh-11 ebcVIA gLFIWg"
+        class="Input-sc-1qrq46f-0 EventForm__EventEndDateInput-sc-1hr7ssh-11 hKSNO gLFIWg"
         id="EventEndDate"
         name="eventEndDate"
         placeholder="yyyy-mm-dd"
       />
       <label
-        class="Label-sc-4r18cf-0 EventForm__AddressInputLabel-sc-1hr7ssh-13 bAiPNX iTJSGP"
+        class="Label-sc-4r18cf-0 EventForm__AddressInputLabel-sc-1hr7ssh-13 kTDDAh iTJSGP"
         for="Street"
       >
         Address:
       </label>
       <input
-        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 ebcVIA dogpCS"
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 hKSNO dogpCS"
         id="street"
         name="street"
         placeholder="street + number"
       />
       <input
-        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 ebcVIA dogQeE"
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 hKSNO dogQeE"
         id="zip"
         name="zip"
         placeholder="zip"
       />
       <label
-        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 bAiPNX eNdbsf"
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 kTDDAh eNdbsf"
         for="website"
       >
         Website:
       </label>
       <input
-        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 ebcVIA dofouy"
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 hKSNO dofouy"
         id="website"
         name="website"
         placeholder="http://www.website.de"
       />
       <label
-        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 bAiPNX eNdBTR"
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 kTDDAh eNdBTR"
         for="price"
       >
         TicketPrice:
       </label>
       <input
-        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 ebcVIA dofOWk"
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 hKSNO dofOWk"
         id="price"
         name="price"
         placeholder="ticket price or range"
       />
       <label
-        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 bAiPNX eNdqlu"
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 kTDDAh eNdqlu"
         for="poster"
       >
         Picture:
          
       </label>
       <input
-        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 ebcVIA dojeif"
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 hKSNO dojeif"
         id="poster"
         name="poster"
         placeholder="http://www.website.de/banner.jpg"
       />
       <label
-        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 bAiPNX eNecAj"
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 kTDDAh eNecAj"
         for="packlist"
       >
         Add PackList:
       </label>
       <select
-        class="EventForm__PacklistInput-sc-1hr7ssh-14 eDnimv"
+        class="EventForm__PacklistInput-sc-1hr7ssh-14 kpnGRO"
         id="packlist"
         name="packlistCategory"
       >
@@ -533,7 +532,7 @@ Object {
           Reset
         </button>
         <button
-          class="EventForm__SubmitButton-sc-1hr7ssh-16 ATDzO"
+          class="EventForm__SubmitButton-sc-1hr7ssh-16 dvZRfC"
           type="submit"
         >
           Save

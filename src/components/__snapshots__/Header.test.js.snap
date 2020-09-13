@@ -6,44 +6,74 @@ Object {
   "baseElement": .c4 {
   display: block;
   border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  margin-top: 0;
-  color: black;
-  background: rgb(96,99,104);
+  border: var(--border-darkgrey);
+  color: var(--lightyellow-90);
+  background: var(--lightgrey-main);
 }
 
 .c5 {
   display: block;
-  width: 100%;
-  padding: 20px;
   border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  margin-top: 0;
-  padding: 4px;
+  border: var(--border-darkgrey);
   font-size: 100%;
-  color: black;
-  background: rgb(96,99,104);
+  color: var(--lightyellow-90);
+  background: var(--lightgrey-main);
+}
+
+.c6 {
+  display: block;
+  border-radius: 4px;
+  border: var(--border-darkgrey);
+  font-size: 100%;
+  color: var(--lightyellow-90);
+  background: var(--darkgrey-75);
+}
+
+.c7 {
+  display: block;
+  border-radius: 4px;
+  border: var(--border-darkgrey);
+  font-size: 100%;
+  color: var(--lightyellow-90);
+  background: var(--darkbrown-70);
+}
+
+.c8 {
+  display: block;
+  border-radius: 4px;
+  border: var(--border-darkgrey);
+  font-size: 100%;
+  color: var(--lightyellow-90);
+  background: var(--blue-70);
+}
+
+.c9 {
+  display: block;
+  border-radius: 4px;
+  border: var(--border-darkgrey);
+  font-size: 100%;
+  color: var(--lightyellow-90);
+  background: var(--lightbrown-70);
 }
 
 .c3 {
   margin: 5px;
-  background: grey;
 }
 
 .c1 {
   display: block;
   border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  color: black;
-  background: rgb(96,99,104);
+  border: var(--border-darkgrey);
+  color: var(--lightyellow-90);
+  background: var(--lightgrey-main);
 }
 
 .c2 {
   display: block;
   border-radius: 4px;
-  border: 1px solid var(--blue-50);
-  color: black;
-  background: rgb(96,99,104);
+  border: var(--border-darkgrey);
+  color: var(--lightyellow-90);
+  background: var(--lightgrey-main);
 }
 
 .c0 {
@@ -84,7 +114,7 @@ Object {
           <select
             class="c4"
             id="category"
-            name="all,metal,medieval,sand,other"
+            name="all,metal,medieval,holiday,other"
           >
             <option
               class="c5"
@@ -92,22 +122,22 @@ Object {
               all
             </option>
             <option
-              class="c5"
+              class="c6"
             >
               metal
             </option>
             <option
-              class="c5"
+              class="c7"
             >
               medieval
             </option>
             <option
-              class="c5"
+              class="c8"
             >
-              sand
+              holiday
             </option>
             <option
-              class="c5"
+              class="c9"
             >
               other
             </option>
@@ -122,57 +152,57 @@ Object {
         class="Header__ButtonContainer-mnmp8e-0 hThdJr"
       >
         <select
-          class="SelectEvents__SelectStyled-sc-11glujg-0 hSgPVQ"
+          class="SelectEvents__SelectStyled-sc-11glujg-0 iWWXzJ"
           id="filter"
           name="date,a-Z,Z-a"
         >
           <option
-            class="SelectEvents__OptionStyled-sc-11glujg-1 cwcQHy"
+            class="SelectEvents__OptionStyled-sc-11glujg-1 jxhKyn"
           >
             date
           </option>
           <option
-            class="SelectEvents__OptionStyled-sc-11glujg-1 cwcQHy"
+            class="SelectEvents__OptionStyled-sc-11glujg-1 jxhKyn"
           >
             a-Z
           </option>
           <option
-            class="SelectEvents__OptionStyled-sc-11glujg-1 cwcQHy"
+            class="SelectEvents__OptionStyled-sc-11glujg-1 jxhKyn"
           >
             Z-a
           </option>
         </select>
       </div>
       <div
-        class="CategoryFilter__FilterContainer-rogkyz-0 hZRjJN"
+        class="CategoryFilter__FilterContainer-rogkyz-0 fmiTmv"
       >
         <select
-          class="SelectCategory__SelectStyled-sc-1n16935-0 ibPEVO"
+          class="SelectCategory__SelectStyled-sc-1n16935-0 kPEDeF"
           id="category"
-          name="all,metal,medieval,sand,other"
+          name="all,metal,medieval,holiday,other"
         >
           <option
-            class="SelectCategory__OptionStyled-sc-1n16935-1 delmdz"
+            class="SelectCategory__OptionStyled-sc-1n16935-1 fMxUKl"
           >
             all
           </option>
           <option
-            class="SelectCategory__OptionStyled-sc-1n16935-1 delmdz"
+            class="SelectCategory__OptionStyled-sc-1n16935-1 lgliYi"
           >
             metal
           </option>
           <option
-            class="SelectCategory__OptionStyled-sc-1n16935-1 delmdz"
+            class="SelectCategory__OptionStyled-sc-1n16935-1 gukUCk"
           >
             medieval
           </option>
           <option
-            class="SelectCategory__OptionStyled-sc-1n16935-1 delmdz"
+            class="SelectCategory__OptionStyled-sc-1n16935-1 cyepkg"
           >
-            sand
+            holiday
           </option>
           <option
-            class="SelectCategory__OptionStyled-sc-1n16935-1 delmdz"
+            class="SelectCategory__OptionStyled-sc-1n16935-1 hvLasW"
           >
             other
           </option>

@@ -3,12 +3,23 @@ import EventItem from './EventItem'
 import styled from 'styled-components/macro'
 import { sortEvents } from '../services/sortEvents'
 import { filterEvents } from '../services/filterEvents'
-import { getYearsOfEvents } from '../services/getYearsOfEvents'
+import { getFilteredEvents } from '../services/getFilteredEvents'
+import { getAvailableYears } from '../services/getAvailableYears'
 
-export default function EventList({ eventArray, categoryFilter, eventFilter }) {
+export default function EventList({
+  eventArray,
+  categoryFilter,
+  eventFilter,
+  onHideButtonClick,
+}) {
   const events = sortEvents(eventArray, eventFilter)
-  const filteredEvents = filterEvents(events, categoryFilter)
-  const availableYears = getYearsOfEvents(filteredEvents)
+  const categoryfilteredEvents = filterEvents(events, categoryFilter)
+  const filteredEvents = getFilteredEvents(
+    eventArray,
+    eventFilter,
+    categoryfilteredEvents
+  )
+  const availableYears = getAvailableYears(eventFilter, filteredEvents)
 
   return (
     <>
@@ -18,7 +29,12 @@ export default function EventList({ eventArray, categoryFilter, eventFilter }) {
           {filteredEvents.map(
             (event) =>
               event.eventStartDate.slice(0, 4) === year && (
-                <EventItem event={event} key={event.id}></EventItem>
+                <EventItem
+                  event={event}
+                  key={event.id}
+                  id={event.id}
+                  onHideButtonClick={onHideButtonClick}
+                ></EventItem>
               )
           )}
         </EventContainer>
@@ -28,7 +44,9 @@ export default function EventList({ eventArray, categoryFilter, eventFilter }) {
 }
 
 const EventContainer = styled.ul`
-  margin: 10px;
+  display: grid;
+  grid-template-columns: 316px 45px;
+  margin: 0;
   padding: 0;
 `
 const EventYearHeadline = styled.h1`

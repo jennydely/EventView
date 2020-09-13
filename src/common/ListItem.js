@@ -10,5 +10,5 @@ export default styled.li`
   padding: 4px 0;
   align-items: center;
   justify-content: space-between;
-  color: var(--yellow-main);
+  color: var(--lightyellow-90);
 `

@@ -1,15 +1,18 @@
-import React from 'react';
-import EventForm from '../components/EventForm';
+import React from 'react'
+import EventForm from '../components/EventForm'
 
 export default {
   title: 'EventPlanner/EventForm',
   component: EventForm,
-};
+}
 
-const Template = (args) => <EventForm {...args} />;
+const Template = (args) => (
+  <main>
+    <EventForm {...args} />
+  </main>
+)
 
-export const Formular = Template.bind({});
+export const Formular = Template.bind({})
 Formular.args = {
-  packlists:['medieval', 'festival']
-
-};
+  packlists: [{ name: 'medieval' }, { name: 'festival' }],
+}

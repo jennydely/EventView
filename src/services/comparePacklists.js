@@ -1,5 +1,6 @@
 export function comparePacklists(packlists, packlistName) {
-  packlists.find(
+  const chosenPacklist = packlists.find(
     (packlist) => packlist.name === '' || packlist.name === packlistName
   )
+  return chosenPacklist
 }

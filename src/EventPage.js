@@ -7,11 +7,12 @@ import useEvents from './components/useEvents'
 import PacklistForm from './Packlist/PacklistForm'
 import usePacklistForm from './Packlist/usePacklistForm'
 import usePacklists from './Packlist/usePacklists'
+import { getYearsOfEvents } from './services/getYearsOfEvents'
 
 export default function EventPage() {
   const [categoryFilter, setCategoryFilter] = useState('all')
   const [eventFilter, setEventFilter] = useState('date')
-  const { eventArray, addEvent } = useEvents()
+  const { eventArray, addEvent, updateEvent } = useEvents()
   const {
     eventFormIsVisible,
     showEventForm,
@@ -25,6 +26,12 @@ export default function EventPage() {
     onPacklistSave,
     goPacklistBack,
   } = usePacklistForm(addPacklist)
+  const hasHiddenEvent = eventArray.some((event) => event.isHidden === true)
+  const hasOldEvent = eventArray.some(
+    (event) =>
+      event.eventStartDate.slice(0, 4) < getYearsOfEvents(eventArray)[0]
+  )
+
   return (
     <>
       {eventFormIsVisible ? (
@@ -61,12 +68,15 @@ export default function EventPage() {
             onSelectFilter={setCategoryFilter}
             onSelectEventFilter={setEventFilter}
             eventArray={eventArray}
+            hasHiddenEvent={hasHiddenEvent}
+            hasOldEvent={hasOldEvent}
           />
           <main>
             <EventList
               eventArray={eventArray}
               eventFilter={eventFilter}
               categoryFilter={categoryFilter}
+              onHideButtonClick={toggleHide}
             />
           </main>
           <footer>
@@ -77,4 +87,10 @@ export default function EventPage() {
       )}
     </>
   )
+  function toggleHide(id) {
+    const index = eventArray.findIndex((event) => event.id === id)
+    const eventUpdate = eventArray[index]
+    eventUpdate.isHidden = !eventUpdate.isHidden
+    updateEvent(eventUpdate)
+  }
 }
