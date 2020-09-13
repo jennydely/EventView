@@ -189,4 +189,6 @@ const DeleteButton = styled.button`
   background: none;
   margin: 4px;
   margin-top: 7px;
+  min-width: 40px;
+  min-height: 40px;
 `
