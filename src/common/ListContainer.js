@@ -4,7 +4,7 @@ export default styled.ul`
   display: block;
   width: 95%;
   border-radius: 7px;
-  border: 2px solid black;
+  border: var(--border-darkgrey);
   margin: 7px;
   margin-top: 0;
   padding: 7px 4px;

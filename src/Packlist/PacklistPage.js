@@ -5,13 +5,12 @@ import usePacklists from './usePacklists'
 import ListItem from '../common/ListItem'
 import ListContainer from '../common/ListContainer'
 import Checkbox from '../common/Checkbox'
+import { comparePacklists } from '../services/comparePacklists'
 
 export default function PackListPage() {
   const { packlistName } = useParams()
   const { packlists } = usePacklists()
-  const chosenPacklist = packlists.find(
-    (packlist) => packlist.name === '' || packlist.name === packlistName
-  )
+  const chosenPacklist = comparePacklists(packlists, packlistName)
   const history = useHistory()
   function goBackButton() {
     history.goBack()
@@ -56,7 +55,7 @@ const ListItemStyled = styled(ListItem)`
   justify-content: flex-start;
 `
 const PacklistButton = styled.button`
-  border: 2px solid black;
+  border: var(--border-darkgrey);
   margin: 4px 0 0 7px;
   padding-bottom: 0;
 `

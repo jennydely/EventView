@@ -31,7 +31,7 @@ export default function EventForm({ onEventSave, packlists }) {
           name="category"
           id="category"
           register={register({ required: true })}
-          options={['metal', 'medieval', 'sand', 'other']}
+          options={['metal', 'medieval', 'holiday', 'other']}
         />
         {errors.category && errors.category.type === 'required' && (
           <ErrorMessageCategoryReq>
@@ -325,22 +325,22 @@ const CategoryInput = styled(Select)`
   display: block;
   width: 100%;
   padding: 20px;
-  border: 1px solid rgb(96, 99, 104);
+  border: var(--border-darkgrey);
   border-radius: 4px;
   margin-top: 0;
   padding: 4px;
   font-size: 112.5%;
   color: black;
   background: ${({ name }) =>
-    name === 'sand'
-      ? 'rgba(248,149,17,0.46)'
+    name === 'holiday'
+      ? 'var(--blue-70)'
       : name === 'metal'
-      ? 'rgba(49,42,42,0.75)'
+      ? '(--darkgrey-75)'
       : name === 'medieval'
-      ? 'rgba(67,40,24,0.70)'
+      ? 'var(--darkbrown-70)'
       : name === 'other'
-      ? 'rgba(153,88,42,0.70)'
-      : 'rgb(96,99,104)'};
+      ? 'var(--lightbrown-70)'
+      : 'var(--lightgrey-main)'};
 `
 const ErrorMessageCategoryReq = styled(ErrorMessage)`
   grid-column: 1;
@@ -377,12 +377,12 @@ const PacklistInput = styled(Select)`
   display: block;
   width: 100%;
   border-radius: 4px;
-  border: 1px solid rgb(96, 99, 104);
+  border: var(--border-darkgrey);
   margin-top: 0;
   padding: 4px;
   font-size: 112.5%;
   color: black;
-  background: rgb(96, 99, 104);
+  background: var(--lightgrey-main);
 `
 const ButtonGroup = styled.div`
   grid-column: 1 / span 3;
@@ -395,5 +395,5 @@ const ButtonGroup = styled.div`
 const SubmitButton = styled.button`
   grid-column: 1 / span 3;
   grid-row: 20;
-  background-color: rgba(111, 29, 27, 0.75);
+  background-color: var(--darkred-75);
 `

@@ -162,7 +162,7 @@ const FormInputContainer = styled.div`
   align-items: flex-start;
   min-width: 300px;
   border-radius: 7px;
-  border: 2px solid black;
+  border: var(--border-darkgrey);
   margin: 7px;
   margin-top: 0;
   padding: 7px 4px;
@@ -185,7 +185,7 @@ const HiddenInput = styled.input`
   display: none;
 `
 const DeleteButton = styled.button`
-  color: rgba(246, 71, 71, 1);
+  color: var(--red-main);
   float: right;
   text-decoration: none;
   border: none;
@@ -202,5 +202,5 @@ const ButtonGroup = styled.div`
   margin-top: 30px;
 `
 const SubmitButton = styled.button`
-  background-color: rgba(111, 29, 27, 0.75);
+  background-color: var(--darkred-75);
 `

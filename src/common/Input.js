@@ -5,7 +5,7 @@ export default styled.input`
   width: 100%;
   padding: 20px;
   border-radius: 4px;
-  border: 1px solid var(--blue-50);
+  border: var(--border-darkgrey);
   margin-top: 0;
   padding: 4px;
   font-size: 112.5%;
