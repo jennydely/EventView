@@ -5,8 +5,14 @@ import { useHistory } from 'react-router-dom'
 import Checkbox from '../common/Checkbox'
 import Paragraph from '../common/Paragraph'
 import getColorByName from '../services/getColorByName'
+import trashIcon from '../img/trash.svg'
 
-export default function EventDetails({ event, style, bind }) {
+export default function EventDetails({
+  event,
+  style,
+  bind,
+  onDeleteButtonClick,
+}) {
   const {
     poster,
     name,
@@ -60,14 +66,20 @@ export default function EventDetails({ event, style, bind }) {
           Route
         </ExternalLink>
       </ButtonContainer>
+      <DeleteButton onClick={handleDeleteButtonClick}>
+        <img src={trashIcon} alt="delete" />
+      </DeleteButton>
     </Details>
   )
+  function handleDeleteButtonClick() {
+    onDeleteButtonClick(event.id)
+  }
 }
 
 const Details = styled(animated.section)`
   display: grid;
   grid-template-columns: 20% repeat(4, auto);
-  grid-template-rows: repeat(8, auto) 30px auto;
+  grid-template-rows: repeat(8, auto);
   margin: 0;
   margin-top: -2px;
   border: 2px solid ${(opt) => getColorByName(opt.name)};
@@ -164,4 +176,16 @@ const ExternalLink = styled.a`
   font-size: 130%;
   text-align: center;
   color: var(--sandyellow-main);
+`
+const DeleteButton = styled.button`
+  grid-column: 5;
+  grid-row: 8;
+  color: var(--red-main);
+  font-size: 130%;
+  float: right;
+  text-decoration: none;
+  border-radius: 20px;
+  background: none;
+  margin: 4px;
+  margin-top: 7px;
 `

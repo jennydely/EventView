@@ -8,7 +8,12 @@ import IconEye from '../img/IconEye.svg'
 import IconHideEye from '../img/IconHideEye.svg'
 import getColorByName from '../services/getColorByName'
 
-export default function EventItem({ event, id, onHideButtonClick }) {
+export default function EventItem({
+  event,
+  id,
+  onHideButtonClick,
+  onDeleteButtonClick,
+}) {
   const { name, location, category, eventStartDate, eventEndDate } = event
   const { height, bind } = useHeight([event])
   const [isEventDetailVisible, setIsEventDetailVisible] = useState(false)
@@ -26,7 +31,12 @@ export default function EventItem({ event, id, onHideButtonClick }) {
           <h3>{location}</h3>
           <h3>{formatDate(eventStartDate, eventEndDate)}</h3>
         </EventHeader>
-        <EventDetails event={event} style={detailStyle} bind={bind} />
+        <EventDetails
+          event={event}
+          style={detailStyle}
+          bind={bind}
+          onDeleteButtonClick={onDeleteButtonClick}
+        />
       </Event>
       <HideButton onClick={handleHideButtonClick} id={id}>
         {event.isHide ? (

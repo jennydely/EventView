@@ -12,7 +12,7 @@ import { getYearsOfEvents } from './services/getYearsOfEvents'
 export default function EventPage() {
   const [categoryFilter, setCategoryFilter] = useState('all')
   const [eventFilter, setEventFilter] = useState('date')
-  const { eventArray, addEvent, updateEvent } = useEvents()
+  const { eventArray, addEvent, updateEvent, removeEvent } = useEvents()
   const {
     eventFormIsVisible,
     showEventForm,
@@ -77,6 +77,7 @@ export default function EventPage() {
               eventFilter={eventFilter}
               categoryFilter={categoryFilter}
               onHideButtonClick={toggleHide}
+              onDeleteButtonClick={delEvent}
             />
           </main>
           <footer>
@@ -92,5 +93,10 @@ export default function EventPage() {
     const eventUpdate = eventArray[index]
     eventUpdate.isHide = !eventUpdate.isHide
     updateEvent(eventUpdate)
+  }
+  function delEvent(id) {
+    const index = eventArray.findIndex((event) => event.id === id)
+    const deletedEvent = eventArray[index]
+    removeEvent(deletedEvent)
   }
 }
