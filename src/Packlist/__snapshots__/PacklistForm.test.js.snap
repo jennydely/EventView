@@ -8,7 +8,7 @@ Object {
   width: 100%;
   padding: 20px;
   border-radius: 4px;
-  border: 1px solid var(--blue-50);
+  border: var(--border-darkgrey);
   margin-top: 0;
   padding: 4px;
   font-size: 112.5%;
@@ -17,8 +17,7 @@ Object {
 
 .c2 {
   font-weight: 400;
-  font-size: 100%;
-  line-height: 1.143;
+  size: 112.5%;
   margin: 4px;
   text-align: right;
 }
@@ -27,7 +26,7 @@ Object {
   display: block;
   width: 95%;
   border-radius: 7px;
-  border: 2px solid black;
+  border: var(--border-darkgrey);
   margin: 7px;
   margin-top: 0;
   padding: 7px 4px;
@@ -54,7 +53,7 @@ Object {
   align-items: flex-start;
   min-width: 300px;
   border-radius: 7px;
-  border: 2px solid black;
+  border: var(--border-darkgrey);
   margin: 7px;
   margin-top: 0;
   padding: 7px 4px;
@@ -97,13 +96,14 @@ Object {
 }
 
 .c10 {
-  background-color: rgba(111,29,27,0.75);
+  background-color: var(--darkred-75);
 }
 
 <body>
     <div>
       <form
         class="c0"
+        data-testid="packlistform"
       >
         <div
           class="c1"
@@ -167,30 +167,31 @@ Object {
   "container": <div>
     <form
       class="PacklistForm__Form-sc-1jem4nf-0 eBgvOZ"
+      data-testid="packlistform"
     >
       <div
-        class="PacklistForm__FormInputContainer-sc-1jem4nf-1 eJNxar"
+        class="PacklistForm__FormInputContainer-sc-1jem4nf-1 cTCBWH"
       >
         <label
-          class="Label-sc-4r18cf-0 PacklistForm__PacklistNameInputLabel-sc-1jem4nf-2 bAiPNX VRePq"
+          class="Label-sc-4r18cf-0 PacklistForm__PacklistNameInputLabel-sc-1jem4nf-2 kTDDAh VRePq"
           for="name"
         >
           Name of the new PackList:
         </label>
         <input
-          class="Input-sc-1qrq46f-0 ebcVIA"
+          class="Input-sc-1qrq46f-0 hKSNO"
           id="name"
           name="name"
           placeholder="PackList name"
         />
         <label
-          class="Label-sc-4r18cf-0 bAiPNX"
+          class="Label-sc-4r18cf-0 kTDDAh"
           for="itemInput"
         >
           Create new item or task:
         </label>
         <input
-          class="Input-sc-1qrq46f-0 ebcVIA"
+          class="Input-sc-1qrq46f-0 hKSNO"
           id="itemInput"
           name="item"
           placeholder="Item you need or task you have to do"
@@ -206,7 +207,7 @@ Object {
           Add
         </button>
         <ul
-          class="ListContainer-sc-106yz72-0 PacklistForm__ItemContainer-sc-1jem4nf-4 eRyYgF dUWpou"
+          class="ListContainer-sc-106yz72-0 PacklistForm__ItemContainer-sc-1jem4nf-4 fNjykF dUWpou"
         />
       </div>
       <div
@@ -218,7 +219,7 @@ Object {
           Reset
         </button>
         <button
-          class="PacklistForm__SubmitButton-sc-1jem4nf-9 hdWVUz"
+          class="PacklistForm__SubmitButton-sc-1jem4nf-9 gaBTWT"
           type="submit"
         >
           Save

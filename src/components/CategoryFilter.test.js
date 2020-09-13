@@ -13,7 +13,7 @@ describe('CategoryFilter', () => {
     expect(getByText('all')).toBeInTheDocument()
     expect(getByText('medieval')).toBeInTheDocument()
     expect(getByText('metal')).toBeInTheDocument()
-    expect(getByText('sand')).toBeInTheDocument()
+    expect(getByText('holiday')).toBeInTheDocument()
     expect(getByText('other')).toBeInTheDocument()
     fireEvent.click(getByText('medieval'))
     expect(onSelectFilter).toHaveBeenCalledWith('medieval')

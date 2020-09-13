@@ -24,7 +24,7 @@ Object {
   grid-template-rows: repeat(8,auto) 30px auto;
   margin: 0;
   margin-top: -2px;
-  border: 2px solid rgba(49,42,42,0.75);
+  border: 2px solid var(--darkgrey-75);
   border-top: 0;
   overflow: hidden;
 }
@@ -83,13 +83,15 @@ Object {
   grid-column: 2;
   grid-row: 1 / span 4;
   margin-top: 7px;
-  font-weight: bold;
+  font-weight: 400;
+  font-size: 112.5%;
 }
 
 .c5 {
   grid-column: 2;
   grid-row: 5;
-  font-weight: bold;
+  font-weight: 400;
+  font-size: 112.5%;
 }
 
 .c10 {
@@ -124,7 +126,8 @@ Object {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  padding: 7px;
+  margin: 1px;
+  padding: 0;
   -webkit-box-pack: space-around;
   -webkit-justify-content: space-around;
   -ms-flex-pack: space-around;
@@ -133,22 +136,20 @@ Object {
 
 .c14 {
   display: inline-block;
-  min-width: 45px;
-  min-height: 45px;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  min-height: -webkit-fit-content;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
   margin: 2px;
-  padding: 6.375px 4px;
+  padding: 4px 6px;
   border: none;
   border-radius: 6px;
-  background-color: rgba(49,42,42,0.75);
-  color: rgb(187,148,87);
-  font-size: 135%;
+  background-color: var(--darkgrey-75);
+  font-size: 130%;
   text-align: center;
+  color: var(--sandyellow-main);
 }
 
 <body>
@@ -233,7 +234,7 @@ Object {
             target="blank"
             title="link"
           >
-            Googlemaps
+            Route
           </a>
         </div>
       </section>
@@ -241,7 +242,7 @@ Object {
   </body>,
   "container": <div>
     <section
-      class="EventDetails__Details-sc-5njpgn-0 iaeobH"
+      class="EventDetails__Details-sc-5njpgn-0 bvWrsj"
       name="metal"
     >
       <a
@@ -257,12 +258,12 @@ Object {
         />
       </a>
       <p
-        class="Paragraph-sc-1mi161p-0 EventDetails__Address-sc-5njpgn-4 byOeOf ihFXXR"
+        class="Paragraph-sc-1mi161p-0 EventDetails__Address-sc-5njpgn-4 byOeOf jeXSoW"
       >
         Address: 
       </p>
       <p
-        class="Paragraph-sc-1mi161p-0 EventDetails__Price-sc-5njpgn-5 byOeOf jZwNTS"
+        class="Paragraph-sc-1mi161p-0 EventDetails__Price-sc-5njpgn-5 byOeOf fZtPPd"
       >
         Price: 
       </p>
@@ -301,13 +302,13 @@ Object {
         type="checkbox"
       />
       <div
-        class="EventDetails__ButtonContainer-sc-5njpgn-9 fXkSqJ"
+        class="EventDetails__ButtonContainer-sc-5njpgn-9 gSLsaQ"
       >
         <button>
           PackList
         </button>
         <a
-          class="EventDetails__ExternalLink-sc-5njpgn-10 jRcSjc"
+          class="EventDetails__ExternalLink-sc-5njpgn-10 juBvfX"
           href="https://www.wacken-winter-nights.com/"
           target="blank"
           title="link"
@@ -315,12 +316,12 @@ Object {
           Website
         </a>
         <a
-          class="EventDetails__ExternalLink-sc-5njpgn-10 jRcSjc"
+          class="EventDetails__ExternalLink-sc-5njpgn-10 juBvfX"
           href="https://www.google.de/maps"
           target="blank"
           title="link"
         >
-          Googlemaps
+          Route
         </a>
       </div>
     </section>

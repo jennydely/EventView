@@ -1,13 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EventItem renders correctly 1`] = `
+.c13 {
+  min-width: 44px;
+  min-height: 44px;
+  text-align: right;
+  margin: 2px;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.c5 {
+  text-align: right;
+  margin: 2px;
+  font-size: 100%;
+}
+
 .c2 {
   display: grid;
   grid-template-columns: 20% repeat(4,auto);
   grid-template-rows: repeat(8,auto) 30px auto;
   margin: 0;
   margin-top: -2px;
-  border: 2px solid rgb(96,99,104);
+  border: 2px solid var(--lightgrey-main);
   border-top: 0;
   overflow: hidden;
 }
@@ -18,6 +33,7 @@ exports[`EventItem renders correctly 1`] = `
   position: absolute;
   left: 0;
   width: 100%;
+  height: 100%;
 }
 
 .c2::before {
@@ -29,13 +45,31 @@ exports[`EventItem renders correctly 1`] = `
   bottom: 0;
 }
 
+.c9 {
+  grid-column: 3/5;
+  grid-row: 2;
+  text-align: left;
+}
+
+.c10 {
+  grid-column: 3/5;
+  grid-row: 3;
+  text-align: left;
+}
+
+.c11 {
+  grid-column: 3/5;
+  grid-row: 5;
+  text-align: left;
+}
+
 .c3 {
   grid-column: 1;
   grid-row: 1 / span 5;
 }
 
 .c4 {
-  grid-column: 1 /span 1;
+  grid-column: 1 / span 1;
   grid-row: 1 / span 5;
   margin: 7px;
   object-fit: cover;
@@ -43,110 +77,83 @@ exports[`EventItem renders correctly 1`] = `
   max-height: 90%;
 }
 
-.c5 {
-  grid-column: 2;
-  grid-row: 1/ span 4;
-  text-align: right;
-  margin: 2px;
-  margin-top: 7px;
-  font-weight: bold;
-  font-size: 100%;
-}
-
 .c6 {
   grid-column: 2;
-  grid-row: 5;
-  text-align: right;
-  margin: 2px;
-  font-weight: bold;
-  font-size: 100%;
-}
-
-.c11 {
-  grid-column: 2;
-  grid-row: 6;
-  text-align: right;
-  margin: 2px;
-  font-weight: bold;
-  font-size: 100%;
-  display: none;
+  grid-row: 1 / span 4;
+  margin-top: 7px;
+  font-weight: 400;
+  font-size: 112.5%;
 }
 
 .c7 {
-  grid-column: 3/5;
-  grid-row: 1;
-  text-align: left;
+  grid-column: 2;
+  grid-row: 5;
+  font-weight: 400;
+  font-size: 112.5%;
+}
+
+.c12 {
+  grid-column: 2;
+  grid-row: 6;
+  text-align: right;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
   margin: 2px;
-  margin-top: 7px;
-  font-size: 100%;
+  font-weight: bold;
+  font-size: 112.5%;
+  display: none;
 }
 
 .c8 {
   grid-column: 3/5;
-  grid-row: 2;
+  grid-row: 1;
   text-align: left;
-  margin: 2px;
-  font-size: 100%;
+  margin-top: 7px;
 }
 
-.c9 {
-  grid-column: 3/5;
-  grid-row: 3;
-  text-align: left;
-  margin: 2px;
-  font-size: 100%;
-}
-
-.c10 {
-  grid-column: 3/5;
-  grid-row: 5;
-  text-align: left;
-  margin: 2px;
-  font-size: 100%;
-}
-
-.c12 {
+.c14 {
   grid-column: 3;
   grid-row: 6;
-  text-align: right;
-  margin: 2px;
-  font-weight: bold;
-  font-size: 100%;
   display: none;
 }
 
-.c13 {
+.c15 {
   grid-column: 1/6;
   grid-row: 7;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  with: 100%;
-  padding: 7px;
+  width: 100%;
+  margin: 1px;
+  padding: 0;
   -webkit-box-pack: space-around;
   -webkit-justify-content: space-around;
   -ms-flex-pack: space-around;
   justify-content: space-around;
 }
 
-.c14 {
+.c16 {
   display: inline-block;
-  with: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  min-height: -webkit-fit-content;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
   margin: 2px;
-  padding: 0.3px 4px;
-  border: solid 2px rgb(49,42,42);
+  padding: 4px 6px;
+  border: none;
   border-radius: 6px;
-  background-color: rgba(49,42,42,0.75);
-  color: rgb(187,148,87);
-  font-size: 100%;
+  background-color: var(--darkgrey-75);
+  font-size: 130%;
   text-align: center;
+  color: var(--sandyellow-main);
 }
 
 .c0 {
+  grid-column: 1;
   list-style: none;
   margin: 0;
   margin-bottom: 20px;
@@ -156,7 +163,21 @@ exports[`EventItem renders correctly 1`] = `
 
 .c1 {
   margin: 0;
-  background: rgb(96,99,104);
+  border-radius: 6px;
+  border: solid 3px var(--lightgrey-main);
+  border-left: solid 10px var(--lightgrey-main);
+}
+
+.c17 {
+  grid-column: 2;
+  -webkit-align-self: start;
+  -ms-flex-item-align: start;
+  align-self: start;
+  justify-self: start;
+  margin: 0;
+  padding: 5px 0;
+  margin-top: 23.325px;
+  background: none;
 }
 
 <div>
@@ -167,10 +188,13 @@ exports[`EventItem renders correctly 1`] = `
       class="c1"
     >
       <h2>
+        ~ 
         This is the eventname
-         - 
-        This is the eventlocation
+         ~
       </h2>
+      <h3>
+        This is the eventlocation
+      </h3>
       <h3>
         Invalid Date - Invalid Date
       </h3>
@@ -191,69 +215,77 @@ exports[`EventItem renders correctly 1`] = `
         />
       </a>
       <p
-        class="c5"
+        class="c5 c6"
       >
         Address: 
       </p>
       <p
-        class="c6"
+        class="c5 c7"
       >
         Price: 
       </p>
       <p
-        class="c7"
+        class="c5 c8"
       >
         This is the eventname
       </p>
       <p
-        class="c8"
+        class="c5 c9"
       />
       <p
-        class="c9"
+        class="c5 c10"
       >
          
         This is the eventlocation
       </p>
       <p
-        class="c10"
+        class="c5 c11"
       >
         kostenlos
          
       </p>
       <label
-        class="c11"
+        class="c12"
         id="Ticket"
       >
         Ticket
       </label>
       <input
-        class="c12"
+        class="c13 c14"
         for="Ticket"
         type="checkbox"
       />
       <div
-        class="c13"
+        class="c15"
       >
         <button>
           PackList
         </button>
         <a
-          class="c14"
+          class="c16"
           target="blank"
           title="link"
         >
           Website
         </a>
         <a
-          class="c14"
+          class="c16"
           href="https://www.google.de/maps"
           target="blank"
           title="link"
         >
-          Googlemaps
+          Route
         </a>
       </div>
     </section>
   </li>
+  <button
+    class="c17"
+  >
+    <img
+      alt="hide"
+      src="IconHideEye.svg"
+    />
+  </button>
 </div>
 `;
