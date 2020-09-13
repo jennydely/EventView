@@ -105,7 +105,7 @@ const Details = styled(animated.section)`
   }
 `
 const ParagraphColumn3 = styled(Paragraph)`
-  grid-column: 3/5;
+  grid-column: 3/6;
   grid-row: ${(props) => props.row};
   text-align: left;
 `
@@ -145,7 +145,7 @@ const TicketLabel = styled.label`
   display: ${({ price }) => (price ? '' : 'none')};
 `
 const Name = styled(Paragraph)`
-  grid-column: 3/5;
+  grid-column: 3/6;
   grid-row: 1;
   text-align: left;
   margin-top: 7px;

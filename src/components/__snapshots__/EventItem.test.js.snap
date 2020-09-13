@@ -2,12 +2,10 @@
 
 exports[`EventItem renders correctly 1`] = `
 .c13 {
-  min-width: 44px;
-  min-height: 44px;
+  min-width: 35px;
+  min-height: 35px;
   text-align: right;
   margin: 2px;
-  font-weight: bold;
-  font-size: 100%;
 }
 
 .c5 {
@@ -19,7 +17,7 @@ exports[`EventItem renders correctly 1`] = `
 .c2 {
   display: grid;
   grid-template-columns: 20% repeat(4,auto);
-  grid-template-rows: repeat(8,auto) 30px auto;
+  grid-template-rows: repeat(8,auto);
   margin: 0;
   margin-top: -2px;
   border: 2px solid var(--lightgrey-main);
@@ -46,19 +44,19 @@ exports[`EventItem renders correctly 1`] = `
 }
 
 .c9 {
-  grid-column: 3/5;
+  grid-column: 3/6;
   grid-row: 2;
   text-align: left;
 }
 
 .c10 {
-  grid-column: 3/5;
+  grid-column: 3/6;
   grid-row: 3;
   text-align: left;
 }
 
 .c11 {
-  grid-column: 3/5;
+  grid-column: 3/6;
   grid-row: 5;
   text-align: left;
 }
@@ -106,7 +104,7 @@ exports[`EventItem renders correctly 1`] = `
 }
 
 .c8 {
-  grid-column: 3/5;
+  grid-column: 3/6;
   grid-row: 1;
   text-align: left;
   margin-top: 7px;
@@ -152,6 +150,20 @@ exports[`EventItem renders correctly 1`] = `
   color: var(--sandyellow-main);
 }
 
+.c17 {
+  grid-column: 5;
+  grid-row: 8;
+  color: var(--red-main);
+  font-size: 130%;
+  float: right;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  border-radius: 20px;
+  background: none;
+  margin: 4px;
+  margin-top: 7px;
+}
+
 .c0 {
   grid-column: 1;
   list-style: none;
@@ -168,7 +180,7 @@ exports[`EventItem renders correctly 1`] = `
   border-left: solid 10px var(--lightgrey-main);
 }
 
-.c17 {
+.c18 {
   grid-column: 2;
   -webkit-align-self: start;
   -ms-flex-item-align: start;
@@ -277,10 +289,18 @@ exports[`EventItem renders correctly 1`] = `
           Route
         </a>
       </div>
+      <button
+        class="c17"
+      >
+        <img
+          alt="delete"
+          src="trash.svg"
+        />
+      </button>
     </section>
   </li>
   <button
-    class="c17"
+    class="c18"
   >
     <img
       alt="hide"
