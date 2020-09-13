@@ -6,9 +6,13 @@ import SelectEvents from '../common/SelectEvents'
 export default function Header({
   onSelectFilter,
   onSelectEventFilter,
-  onHideButtonClick,
+  hasHiddenEvent,
+  hasOldEvent,
 }) {
-  const sortOptions = ['date', 'a-Z', 'Z-a', 'Hidden']
+  const sortOptions = ['date', 'a-Z', 'Z-a']
+  if (hasHiddenEvent) sortOptions.push('Hidden')
+  if (hasOldEvent) sortOptions.push('Old')
+
   return (
     <header>
       <ButtonContainer>

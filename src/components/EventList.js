@@ -3,7 +3,8 @@ import EventItem from './EventItem'
 import styled from 'styled-components/macro'
 import { sortEvents } from '../services/sortEvents'
 import { filterEvents } from '../services/filterEvents'
-import { getYearsOfEvents } from '../services/getYearsOfEvents'
+import { getFilteredEvents } from '../services/getFilteredEvents'
+import { getAvailableYears } from '../services/getAvailableYears'
 
 export default function EventList({
   eventArray,
@@ -13,15 +14,12 @@ export default function EventList({
 }) {
   const events = sortEvents(eventArray, eventFilter)
   const categoryfilteredEvents = filterEvents(events, categoryFilter)
-  const filteredNotHiddenEvents = categoryfilteredEvents.filter(
-    (event) => event.isHide !== true
+  const filteredEvents = getFilteredEvents(
+    eventArray,
+    eventFilter,
+    categoryfilteredEvents
   )
-  const filteredHiddenEvents = categoryfilteredEvents.filter(
-    (event) => event.isHide === true
-  )
-  const filteredEvents =
-    eventFilter === 'Hidden' ? filteredHiddenEvents : filteredNotHiddenEvents
-  const availableYears = getYearsOfEvents(filteredEvents)
+  const availableYears = getAvailableYears(eventFilter, filteredEvents)
 
   return (
     <>

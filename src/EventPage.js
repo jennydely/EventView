@@ -7,6 +7,7 @@ import useEvents from './components/useEvents'
 import PacklistForm from './Packlist/PacklistForm'
 import usePacklistForm from './Packlist/usePacklistForm'
 import usePacklists from './Packlist/usePacklists'
+import { getYearsOfEvents } from './services/getYearsOfEvents'
 
 export default function EventPage() {
   const [categoryFilter, setCategoryFilter] = useState('all')
@@ -25,6 +26,12 @@ export default function EventPage() {
     onPacklistSave,
     goPacklistBack,
   } = usePacklistForm(addPacklist)
+  const hasHiddenEvent = eventArray.some((event) => event.isHide === true)
+  const hasOldEvent = eventArray.some(
+    (event) =>
+      event.eventStartDate.slice(0, 4) < getYearsOfEvents(eventArray)[0]
+  )
+
   return (
     <>
       {eventFormIsVisible ? (
@@ -60,8 +67,9 @@ export default function EventPage() {
           <Header
             onSelectFilter={setCategoryFilter}
             onSelectEventFilter={setEventFilter}
-            onHideButtonClick={toggleHide}
             eventArray={eventArray}
+            hasHiddenEvent={hasHiddenEvent}
+            hasOldEvent={hasOldEvent}
           />
           <main>
             <EventList
