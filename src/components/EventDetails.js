@@ -72,7 +72,8 @@ export default function EventDetails({
     </Details>
   )
   function handleDeleteButtonClick() {
-    onDeleteButtonClick(event.id)
+    if (window.confirm('Are you sure you wish to delete this item?'))
+      onDeleteButtonClick(event.id)
   }
 }
 
