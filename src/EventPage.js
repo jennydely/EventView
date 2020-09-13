@@ -26,7 +26,7 @@ export default function EventPage() {
     onPacklistSave,
     goPacklistBack,
   } = usePacklistForm(addPacklist)
-  const hasHiddenEvent = eventArray.some((event) => event.isHide === true)
+  const hasHiddenEvent = eventArray.some((event) => event.isHidden === true)
   const hasOldEvent = eventArray.some(
     (event) =>
       event.eventStartDate.slice(0, 4) < getYearsOfEvents(eventArray)[0]
@@ -91,7 +91,7 @@ export default function EventPage() {
   function toggleHide(id) {
     const index = eventArray.findIndex((event) => event.id === id)
     const eventUpdate = eventArray[index]
-    eventUpdate.isHide = !eventUpdate.isHide
+    eventUpdate.isHidden = !eventUpdate.isHidden
     updateEvent(eventUpdate)
   }
   function delEvent(id) {

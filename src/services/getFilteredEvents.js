@@ -10,10 +10,10 @@ export function getFilteredEvents(
       event.eventStartDate.slice(0, 4) < getYearsOfEvents(eventArray)[0]
   )
   const filteredNotHiddenEvents = categoryfilteredEvents.filter(
-    (event) => event.isHide !== true
+    (event) => event.isHidden !== true
   )
   const filteredHiddenEvents = categoryfilteredEvents.filter(
-    (event) => event.isHide === true
+    (event) => event.isHidden === true
   )
   const filteredEvents =
     eventFilter === 'Hidden'

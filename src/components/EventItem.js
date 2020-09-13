@@ -39,7 +39,7 @@ export default function EventItem({
         />
       </Event>
       <HideButton onClick={handleHideButtonClick} id={id}>
-        {event.isHide ? (
+        {event.isHidden ? (
           <img src={IconEye} alt="show" />
         ) : (
           <img src={IconHideEye} alt="hide" />
