@@ -6,6 +6,7 @@ import ListItem from '../common/ListItem'
 import ListContainer from '../common/ListContainer'
 import Checkbox from '../common/Checkbox'
 import { comparePacklists } from '../services/comparePacklists'
+import { onCheckboxClick } from '../services/onCheckboxClick'
 
 export default function PackListPage() {
   const { packlistName } = useParams()
@@ -25,8 +26,12 @@ export default function PackListPage() {
           <ListContainer>
             {chosenPacklist.packlist.sort().map((item) => (
               <ListItemStyled key={item}>
-                <Checkbox type="checkbox" />
-                <span>{item}</span>
+                <Checkbox
+                  type="checkbox"
+                  checked={chosenPacklist.item.completed}
+                  onCLick={handleCheckbox()}
+                />
+                <span>{item.item}</span>
                 <div></div>
               </ListItemStyled>
             ))}
@@ -46,6 +51,8 @@ export default function PackListPage() {
       </>
     </>
   )
+  function handleCheckbox() {
+    onCheckboxClick(packlist.id)
 }
 
 const NoPacklistText = styled.p`

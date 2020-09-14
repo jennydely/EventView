@@ -17,8 +17,24 @@ export default function useEvents() {
       .then((newEvent) => setEventArray([newEvent, ...eventArray]))
       .catch(setError)
   }
+
   const updateEvent = (eventItem) => {
     putEvent(eventItem)
+      .then((eventUpdate) => {
+        const index = eventArray.findIndex(
+          (event) => event.id === eventUpdate.id
+        )
+        return setEventArray([
+          ...eventArray.slice(0, index),
+          { ...eventUpdate },
+          ...eventArray.slice(index + 1),
+        ])
+      })
+      .catch(setError)
+  }
+
+  const updateCheckbox = (eventCheckbox) => {
+    putEvent(eventCheckbox)
       .then((eventUpdate) => {
         const index = eventArray.findIndex(
           (event) => event.id === eventUpdate.id
@@ -44,5 +60,12 @@ export default function useEvents() {
       .catch(setError)
   }
 
-  return { eventArray, addEvent, updateEvent, removeEvent, error }
+  return {
+    eventArray,
+    addEvent,
+    updateEvent,
+    updateCheckbox,
+    removeEvent,
+    error,
+  }
 }

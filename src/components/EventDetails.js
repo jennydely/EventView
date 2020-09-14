@@ -6,6 +6,7 @@ import Checkbox from '../common/Checkbox'
 import Paragraph from '../common/Paragraph'
 import getColorByName from '../services/getColorByName'
 import trashIcon from '../img/trash.svg'
+import { handleCheckbox } from '../services/handleCheckbox'
 
 export default function EventDetails({
   event,
@@ -52,7 +53,13 @@ export default function EventDetails({
       <TicketLabel id="Ticket" price={price}>
         Ticket
       </TicketLabel>
-      <Ticket type="checkbox" htmlFor="Ticket" price={price} />
+      <Ticket
+        type="checkbox"
+        checked={event.ticketBought}
+        onChange={handleCheckbox()}
+        htmlFor="Ticket"
+        price={price}
+      />
       <ButtonContainer>
         <button onClick={handleBackButtonClick}>PackList</button>
         <ExternalLink href={website} target="blank" title="link">
