@@ -35,7 +35,7 @@ const OptionStyled = styled.option`
   display: block;
   border-radius: 4px;
   border: var(--border-darkgrey);
-  font-size: 100%;
+  font-size: 112.5%;
   color: var(--lightyellow-90);
   background: ${(opt) => getColorByName(opt.optionsValue)};
 `

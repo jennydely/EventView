@@ -11,6 +11,7 @@ export default function EventList({
   categoryFilter,
   eventFilter,
   onHideButtonClick,
+  onDeleteButtonClick,
 }) {
   const events = sortEvents(eventArray, eventFilter)
   const categoryfilteredEvents = filterEvents(events, categoryFilter)
@@ -34,6 +35,7 @@ export default function EventList({
                   key={event.id}
                   id={event.id}
                   onHideButtonClick={onHideButtonClick}
+                  onDeleteButtonClick={onDeleteButtonClick}
                 ></EventItem>
               )
           )}

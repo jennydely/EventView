@@ -4,12 +4,10 @@ exports[`EventDetails renders correctly 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .c11 {
-  min-width: 44px;
-  min-height: 44px;
+  min-width: 35px;
+  min-height: 35px;
   text-align: right;
   margin: 2px;
-  font-weight: bold;
-  font-size: 100%;
 }
 
 .c3 {
@@ -21,7 +19,7 @@ Object {
 .c0 {
   display: grid;
   grid-template-columns: 20% repeat(4,auto);
-  grid-template-rows: repeat(8,auto) 30px auto;
+  grid-template-rows: repeat(8,auto);
   margin: 0;
   margin-top: -2px;
   border: 2px solid var(--darkgrey-75);
@@ -48,19 +46,19 @@ Object {
 }
 
 .c7 {
-  grid-column: 3/5;
+  grid-column: 3/6;
   grid-row: 2;
   text-align: left;
 }
 
 .c8 {
-  grid-column: 3/5;
+  grid-column: 3/6;
   grid-row: 3;
   text-align: left;
 }
 
 .c9 {
-  grid-column: 3/5;
+  grid-column: 3/6;
   grid-row: 5;
   text-align: left;
 }
@@ -107,7 +105,7 @@ Object {
 }
 
 .c6 {
-  grid-column: 3/5;
+  grid-column: 3/6;
   grid-row: 1;
   text-align: left;
   margin-top: 7px;
@@ -150,6 +148,20 @@ Object {
   font-size: 130%;
   text-align: center;
   color: var(--sandyellow-main);
+}
+
+.c15 {
+  grid-column: 5;
+  grid-row: 8;
+  color: var(--red-main);
+  font-size: 130%;
+  float: right;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  border-radius: 20px;
+  background: none;
+  margin: 4px;
+  margin-top: 7px;
 }
 
 <body>
@@ -237,12 +249,20 @@ Object {
             Route
           </a>
         </div>
+        <button
+          class="c15"
+        >
+          <img
+            alt="delete"
+            src="trash.svg"
+          />
+        </button>
       </section>
     </div>
   </body>,
   "container": <div>
     <section
-      class="EventDetails__Details-sc-5njpgn-0 bvWrsj"
+      class="EventDetails__Details-sc-5njpgn-0 jzyqOf"
       name="metal"
     >
       <a
@@ -268,24 +288,24 @@ Object {
         Price: 
       </p>
       <p
-        class="Paragraph-sc-1mi161p-0 EventDetails__Name-sc-5njpgn-7 byOeOf bDjoam"
+        class="Paragraph-sc-1mi161p-0 EventDetails__Name-sc-5njpgn-7 byOeOf bYAJMh"
       >
         WackenWinterNights
       </p>
       <p
-        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 byOeOf hXNTKG"
+        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 byOeOf ietIPp"
       >
         Reselithweg 17
       </p>
       <p
-        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 byOeOf kmtXNf"
+        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 byOeOf dRfJVg"
       >
         25596
          
         Wacken
       </p>
       <p
-        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 byOeOf gFLMdl"
+        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 byOeOf dDFOva"
       >
         99 €
          
@@ -297,7 +317,7 @@ Object {
         Ticket
       </label>
       <input
-        class="Checkbox-sc-1a8a6ug-0 EventDetails__Ticket-sc-5njpgn-8 KEjef fiAzfq"
+        class="Checkbox-sc-1a8a6ug-0 EventDetails__Ticket-sc-5njpgn-8 gzSQNf fiAzfq"
         for="Ticket"
         type="checkbox"
       />
@@ -324,6 +344,14 @@ Object {
           Route
         </a>
       </div>
+      <button
+        class="EventDetails__DeleteButton-sc-5njpgn-11 kdsYwL"
+      >
+        <img
+          alt="delete"
+          src="trash.svg"
+        />
+      </button>
     </section>
   </div>,
   "debug": [Function],

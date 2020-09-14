@@ -11,10 +11,10 @@ export default createGlobalStyle`
     background: var(--darkgrey-75);
     font-family: sans-serif;
     line-height: 1.4;
-    overflow: hidden;
     height: 100vh;
     width:100vw;
     color: var(--lightyellow-90);
+    overflow: hidden;
   }
  
   h1 {
@@ -43,6 +43,9 @@ export default createGlobalStyle`
     grid-row: 2;
     margin:7px;
     overflow-y:scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    
     
    }
 

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { getEvents } from '../services/getEvents'
 import { postEvent } from '../services/postEvent'
 import { putEvent } from '../services/putEvent'
+import { deleteEvent } from '../services/deleteEvent'
 
 export default function useEvents() {
   const [eventArray, setEventArray] = useState([])
@@ -31,5 +32,17 @@ export default function useEvents() {
       .catch(setError)
   }
 
-  return { eventArray, addEvent, updateEvent, error }
+  const removeEvent = (eventItem) => {
+    deleteEvent(eventItem)
+      .then((eventDel) => {
+        const index = eventArray.findIndex((event) => event.id === eventDel.id)
+        return setEventArray([
+          ...eventArray.slice(0, index),
+          ...eventArray.slice(index + 1),
+        ])
+      })
+      .catch(setError)
+  }
+
+  return { eventArray, addEvent, updateEvent, removeEvent, error }
 }

@@ -1,9 +1,10 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, fireEvent, waitFor } from '@testing-library/react'
 import EventDetails from './EventDetails'
 import 'jest-styled-components'
 
 describe('EventDetails', () => {
+  const onDeleteButtonClick = jest.fn()
   const event = {
     id: '7',
     poster:
@@ -21,20 +22,23 @@ describe('EventDetails', () => {
   }
 
   it('displays the eventdetails, like name, location & price', () => {
-    const { getByText, getByRole, getAllByTitle } = render(
-      <EventDetails event={event} />
+    const { getByText, getByRole, getAllByTitle, getByAltText } = render(
+      <EventDetails event={event} onDeleteButtonClick={onDeleteButtonClick} />
     )
 
     expect(getByText(event.name)).toBeInTheDocument()
     expect(getByText(event.zip + ' ' + event.location)).toBeInTheDocument()
     expect(getByText(event.street)).toBeInTheDocument()
     expect(getByText(event.price + ' €')).toBeInTheDocument()
-    //expect(getByRole('button')).toBeInTheDocument()
     expect(getAllByTitle('link')).toHaveLength(2)
     expect(getByRole('checkbox', { checked: false })).toBeInTheDocument()
+    fireEvent.click(getByAltText('delete'))
+    waitFor(() => expect(onDeleteButtonClick).toHaveBeenCalled())
   })
   it('renders correctly', () => {
-    const tree = render(<EventDetails event={event} />)
+    const tree = render(
+      <EventDetails event={event} onDeleteButtonClick={onDeleteButtonClick} />
+    )
     expect(tree).toMatchSnapshot()
   })
 })

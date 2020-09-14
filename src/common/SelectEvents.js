@@ -33,6 +33,7 @@ const SelectStyled = styled.select`
 const OptionStyled = styled.option`
   display: block;
   border-radius: 4px;
+  font-size: 112.5%;
   border: var(--border-darkgrey);
   color: var(--lightyellow-90);
   background: var(--lightgrey-main);
