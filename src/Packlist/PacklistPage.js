@@ -25,7 +25,7 @@ export default function PackListPage() {
         {chosenPacklist ? (
           <ListContainer>
             {chosenPacklist.packlist.sort().map((item) => (
-              <ListItemStyled key={item}>
+              <ListItemStyled key={item} id={item}>
                 <Checkbox
                   type="checkbox"
                   checked={chosenPacklist.item.completed}
@@ -52,7 +52,8 @@ export default function PackListPage() {
     </>
   )
   function handleCheckbox() {
-    onCheckboxClick(packlist.id)
+    onCheckboxClick(packlists.packlist.id)
+  }
 }
 
 const NoPacklistText = styled.p`

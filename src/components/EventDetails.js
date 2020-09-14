@@ -6,13 +6,13 @@ import Checkbox from '../common/Checkbox'
 import Paragraph from '../common/Paragraph'
 import getColorByName from '../services/getColorByName'
 import trashIcon from '../img/trash.svg'
-import { handleCheckbox } from '../services/handleCheckbox'
 
 export default function EventDetails({
   event,
   style,
   bind,
   onDeleteButtonClick,
+  onCheckboxClick,
 }) {
   const {
     poster,
@@ -56,7 +56,7 @@ export default function EventDetails({
       <Ticket
         type="checkbox"
         checked={event.ticketBought}
-        onChange={handleCheckbox()}
+        onChange={handleCheckboxClick}
         htmlFor="Ticket"
         price={price}
       />
@@ -81,6 +81,10 @@ export default function EventDetails({
   function handleDeleteButtonClick() {
     if (window.confirm('Are you sure you wish to delete this item?'))
       onDeleteButtonClick(event.id)
+  }
+
+  function handleCheckboxClick() {
+    onCheckboxClick(event.id)
   }
 }
 
