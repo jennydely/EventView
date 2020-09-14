@@ -7,6 +7,7 @@ import ErrorMessage from '../common/ErrorMessage'
 import Select from '../common/Select'
 import PropTypes from 'prop-types'
 import getColorByName from '../services/getColorByName'
+import { v4 as uuid } from 'uuid'
 
 EventForm.propTypes = {
   onEventSave: PropTypes.func.isRequired,
@@ -23,7 +24,11 @@ export default function EventForm({ onEventSave, packlists }) {
     onEventSave(eventEntry)
   }
   const endDateRef = useRef(null)
-  const allPacklists = packlists.map((packlist) => packlist.name)
+  const copyPacklists = JSON.parse(
+    JSON.stringify(packlists)
+  ).map((packlist) => ({ ...packlist, id: uuid() }))
+  const allPacklists = copyPacklists.map((packlist) => packlist.name)
+  console.log(copyPacklists)
   return (
     <>
       <Form data-testid="eventform" onSubmit={handleSubmit(onSubmit)}>

@@ -51,8 +51,8 @@ export default function PackListPage() {
     </>
   )
 
-  function handleCheckboxClick(item) {
-    const id = item.itemID
+  function handleCheckboxClick(checkedItem) {
+    const id = checkedItem.itemID
     const index = chosenPacklist.packlist.findIndex(
       (item) => item.itemID === id
     )

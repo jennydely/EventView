@@ -27,7 +27,7 @@ export default function PacklistForm({ onPacklistSave }) {
     if (event?.target && typeof event?.target.reset === 'function')
       //
       event.target.reset()
-    onPacklistSave({ name: packlist.name, packlist: items })
+    onPacklistSave({ name: packlist.name, packlist: items, id: uuid })
   }
   const handlePacklistKeyDown = (event) => {
     if (event.key === 'Enter') {
