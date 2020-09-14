@@ -84,7 +84,7 @@ export default function EventPage() {
               categoryFilter={categoryFilter}
               onHideButtonClick={toggleHide}
               onDeleteButtonClick={delEvent}
-              onCheckboxClick={handleCheckbox}
+              onTicketCheckboxClick={handleTicketCheckbox}
             />
           </main>
           <footer>
@@ -109,7 +109,7 @@ export default function EventPage() {
     removeEvent(deletedEvent)
   }
 
-  function handleCheckbox(id) {
+  function handleTicketCheckbox(id) {
     const index = eventArray.findIndex((event) => event.id === id)
     const clickedTicket = eventArray[index]
     clickedTicket.ticketBought = !clickedTicket.ticketBought

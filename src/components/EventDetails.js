@@ -12,7 +12,7 @@ export default function EventDetails({
   style,
   bind,
   onDeleteButtonClick,
-  onCheckboxClick,
+  onTicketCheckboxClick,
 }) {
   const {
     poster,
@@ -84,7 +84,7 @@ export default function EventDetails({
   }
 
   function handleCheckboxClick() {
-    onCheckboxClick(event.id)
+    onTicketCheckboxClick(event.id)
   }
 }
 

@@ -6,11 +6,10 @@ import ListItem from '../common/ListItem'
 import ListContainer from '../common/ListContainer'
 import Checkbox from '../common/Checkbox'
 import { comparePacklists } from '../services/comparePacklists'
-import { onCheckboxClick } from '../services/onCheckboxClick'
 
 export default function PackListPage() {
   const { packlistName } = useParams()
-  const { packlists } = usePacklists()
+  const { packlists, updatePacklistCheckbox } = usePacklists()
   const chosenPacklist = comparePacklists(packlists, packlistName)
   const history = useHistory()
   function goBackButton() {
@@ -25,11 +24,11 @@ export default function PackListPage() {
         {chosenPacklist ? (
           <ListContainer>
             {chosenPacklist.packlist.sort().map((item) => (
-              <ListItemStyled key={item} id={item}>
+              <ListItemStyled key={item.itemID} id={item.itemID}>
                 <Checkbox
                   type="checkbox"
-                  checked={chosenPacklist.item.completed}
-                  onCLick={handleCheckbox()}
+                  checked={item.checked}
+                  onChange={() => handleCheckboxClick(item)}
                 />
                 <span>{item.item}</span>
                 <div></div>
@@ -51,8 +50,15 @@ export default function PackListPage() {
       </>
     </>
   )
-  function handleCheckbox() {
-    onCheckboxClick(packlists.packlist.id)
+
+  function handleCheckboxClick(item) {
+    const id = item.itemID
+    const index = chosenPacklist.packlist.findIndex(
+      (item) => item.itemID === id
+    )
+    const clickedPacklistItem = chosenPacklist.packlist[index]
+    clickedPacklistItem.checked = !clickedPacklistItem.checked
+    updatePacklistCheckbox(clickedPacklistItem)
   }
 }
 

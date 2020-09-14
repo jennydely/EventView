@@ -33,8 +33,8 @@ export default function useEvents() {
       .catch(setError)
   }
 
-  const updateTicketCheckbox = (eventclickedCheckbox) => {
-    putEvent(eventclickedCheckbox)
+  const updateTicketCheckbox = (eventClickedCheckbox) => {
+    putEvent(eventClickedCheckbox)
       .then((eventUpdate) => {
         const index = eventArray.findIndex(
           (event) => event.id === eventUpdate.id
