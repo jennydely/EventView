@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import styled from 'styled-components/macro'
 import Input from '../common/Input'
 import Label from '../common/Label'
@@ -7,6 +7,7 @@ import ErrorMessage from '../common/ErrorMessage'
 import Select from '../common/Select'
 import PropTypes from 'prop-types'
 import getColorByName from '../services/getColorByName'
+import ReactDatePicker from '../lib/ReactDatePicker'
 
 EventForm.propTypes = {
   onEventSave: PropTypes.func.isRequired,
@@ -14,7 +15,7 @@ EventForm.propTypes = {
 }
 
 export default function EventForm({ onEventSave, packlists }) {
-  const { register, handleSubmit, errors, reset } = useForm()
+  const { register, handleSubmit, errors, reset, control } = useForm()
   const onSubmit = (eventEntry, event) => {
     if (event && event.target && typeof event.target.reset === 'function')
       // for testing
@@ -24,6 +25,7 @@ export default function EventForm({ onEventSave, packlists }) {
   }
   const endDateRef = useRef(null)
   const allPacklists = packlists.map((packlist) => packlist.name)
+
   return (
     <>
       <Form data-testid="eventform" onSubmit={handleSubmit(onSubmit)}>
@@ -114,15 +116,25 @@ export default function EventForm({ onEventSave, packlists }) {
         </InputLabelColumn1>
 
         <EventStartDateInput
-          placeholder="yyyy-mm-dd"
           id="EventStartDate"
           name="eventStartDate"
+          defaultValues="eventStartDate"
+          control={control}
           ref={register({
             required: true,
             pattern: /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/,
             validate: (value) => value <= endDateRef.current.value,
           })}
+          render={({ onChange, onBlur, value }) => (
+            <ReactDatePicker
+              selected={value}
+              onChange={onChange}
+              onBlur={onBlur}
+              defaultValues={''}
+            />
+          )}
         />
+
         {errors.eventStartDate?.type === 'validate' && (
           <ErrorMessageStartDate>
             Start date must be before end date!{' '}
@@ -142,9 +154,10 @@ export default function EventForm({ onEventSave, packlists }) {
         )}
 
         <EventEndDateInput
-          placeholder="yyyy-mm-dd"
           id="EventEndDate"
           name="eventEndDate"
+          defaultValues=""
+          control={control}
           ref={(el) => {
             endDateRef.current = el
             register(el, {
@@ -152,6 +165,14 @@ export default function EventForm({ onEventSave, packlists }) {
               pattern: /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/,
             })
           }}
+          render={({ onChange, onBlur, value }) => (
+            <ReactDatePicker
+              selected={value}
+              onChange={onChange}
+              onBlur={onBlur}
+              defaultValues={''}
+            />
+          )}
         />
 
         {errors.eventEndDate?.type === 'required' && (
@@ -343,7 +364,7 @@ const EventInfosText = styled.h2`
   grid-row: 8;
   margin-top: 20px;
 `
-const EventStartDateInput = styled(Input)`
+const EventStartDateInput = styled(Controller)`
   grid-column: 2;
   grid-row: 9;
 `
@@ -351,7 +372,7 @@ const ErrorMessageStartDate = styled(ErrorMessage)`
   grid-column: 2;
   grid-row: 10;
 `
-const EventEndDateInput = styled(Input)`
+const EventEndDateInput = styled(Controller)`
   grid-column: 3;
   grid-row: 9;
 `

@@ -3,7 +3,7 @@ import { saveToLocal } from '../lib/localStorage'
 import { getEvents } from './getEvents'
 
 export function postEvent(event) {
-  const newEvent = { ...event, id: uuid() }
+  const newEvent = { ...JSON.parse(JSON.stringify(event)), id: uuid() }
   return getEvents()
     .then((eventArray) => [newEvent, ...eventArray])
     .then((eventArray) => saveToLocal('eventArray', eventArray))
