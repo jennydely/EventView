@@ -17,11 +17,11 @@ export default function usePacklists() {
       .catch(setError)
   }
 
-  const updatePacklistCheckbox = (clickedPacklistItem) => {
-    putPacklist(clickedPacklistItem)
+  const updatePacklistCheckbox = (chosenPacklist) => {
+    putPacklist(chosenPacklist)
       .then((packlistUpdate) => {
-        const index = packlists.packlist.findIndex(
-          (item) => item.itemID === packlistUpdate.id
+        const index = packlists.findIndex(
+          (packlist) => packlist.id === packlistUpdate.id
         )
         return setPacklists([
           ...packlists.slice(0, index),

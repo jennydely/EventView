@@ -58,7 +58,7 @@ export default function PackListPage() {
     )
     const clickedPacklistItem = chosenPacklist.packlist[index]
     clickedPacklistItem.checked = !clickedPacklistItem.checked
-    updatePacklistCheckbox(clickedPacklistItem)
+    updatePacklistCheckbox(chosenPacklist)
   }
 }
 
