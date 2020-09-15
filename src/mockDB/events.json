@@ -71,7 +71,7 @@
     "zip": "21423",
     "location": "Drage/Winsen (Luhe)",
     "price": "8-15",
-    "ticketBought": false,
+    "ticketBought": true,
     "website": "http://marktvagabunden.de/index.php/naechstemaerkte/stove-elbmarsch",
     "eventStartDate": "2020-09-25",
     "eventEndDate": "2020-09-27",

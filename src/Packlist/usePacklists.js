@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getPacklists } from '../services/getPacklists'
-import { postPacklists } from '../services/postPacklists'
+import { postPacklist } from '../services/postPacklist'
+import { putPacklist } from '../services/putPacklist'
 
 export default function usePacklists() {
   const [packlists, setPacklists] = useState([])
@@ -11,9 +12,25 @@ export default function usePacklists() {
   }, [])
 
   const addPacklist = (packlist) => {
-    postPacklists(packlist)
+    postPacklist(packlist)
       .then((newPacklist) => setPacklists([newPacklist, ...packlists]))
       .catch(setError)
   }
-  return { packlists, addPacklist, error }
+
+  const updatePacklistCheckbox = (clickedPacklistItem) => {
+    putPacklist(clickedPacklistItem)
+      .then((packlistUpdate) => {
+        const index = packlists.packlist.findIndex(
+          (item) => item.itemID === packlistUpdate.id
+        )
+        return setPacklists([
+          ...packlists.slice(0, index),
+          { ...packlistUpdate },
+          ...packlists.slice(index + 1),
+        ])
+      })
+      .catch(setError)
+  }
+
+  return { packlists, addPacklist, updatePacklistCheckbox, error }
 }

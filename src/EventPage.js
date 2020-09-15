@@ -12,7 +12,13 @@ import { getYearsOfEvents } from './services/getYearsOfEvents'
 export default function EventPage() {
   const [categoryFilter, setCategoryFilter] = useState('all')
   const [eventFilter, setEventFilter] = useState('date')
-  const { eventArray, addEvent, updateEvent, removeEvent } = useEvents()
+  const {
+    eventArray,
+    addEvent,
+    updateEvent,
+    removeEvent,
+    updateTicketCheckbox,
+  } = useEvents()
   const {
     eventFormIsVisible,
     showEventForm,
@@ -78,6 +84,7 @@ export default function EventPage() {
               categoryFilter={categoryFilter}
               onHideButtonClick={toggleHide}
               onDeleteButtonClick={delEvent}
+              onTicketCheckboxClick={handleTicketCheckbox}
             />
           </main>
           <footer>
@@ -88,15 +95,24 @@ export default function EventPage() {
       )}
     </>
   )
+
   function toggleHide(id) {
     const index = eventArray.findIndex((event) => event.id === id)
     const eventUpdate = eventArray[index]
     eventUpdate.isHidden = !eventUpdate.isHidden
     updateEvent(eventUpdate)
   }
+
   function delEvent(id) {
     const index = eventArray.findIndex((event) => event.id === id)
     const deletedEvent = eventArray[index]
     removeEvent(deletedEvent)
+  }
+
+  function handleTicketCheckbox(id) {
+    const index = eventArray.findIndex((event) => event.id === id)
+    const clickedTicket = eventArray[index]
+    clickedTicket.ticketBought = !clickedTicket.ticketBought
+    updateTicketCheckbox(clickedTicket)
   }
 }
