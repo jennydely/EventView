@@ -28,7 +28,7 @@ export default function EventForm({ onEventSave, packlists }) {
     JSON.stringify(packlists)
   ).map((packlist) => ({ ...packlist, id: uuid() }))
   const allPacklists = copyPacklists.map((packlist) => packlist.name)
-  console.log(copyPacklists)
+
   return (
     <>
       <Form data-testid="eventform" onSubmit={handleSubmit(onSubmit)}>
