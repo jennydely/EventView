@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import styled from 'styled-components/macro'
 import Input from '../common/Input'
@@ -136,6 +136,7 @@ export default function EventForm({ onEventSave, packlists }) {
                 onChange={onChange}
                 onBlur={onBlur}
                 placeholderText="start date"
+                data-testid="start date"
               />
             )}
           />

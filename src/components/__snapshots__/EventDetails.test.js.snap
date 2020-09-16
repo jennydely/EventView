@@ -13,7 +13,7 @@ Object {
 .c3 {
   text-align: right;
   margin: 2px;
-  font-size: 100%;
+  font-size: 112.5%;
 }
 
 .c0 {
@@ -162,6 +162,8 @@ Object {
   background: none;
   margin: 4px;
   margin-top: 7px;
+  min-width: 40px;
+  min-height: 40px;
 }
 
 <body>
@@ -278,34 +280,34 @@ Object {
         />
       </a>
       <p
-        class="Paragraph-sc-1mi161p-0 EventDetails__Address-sc-5njpgn-4 byOeOf jeXSoW"
+        class="Paragraph-sc-1mi161p-0 EventDetails__Address-sc-5njpgn-4 dOlFuD jeXSoW"
       >
         Address: 
       </p>
       <p
-        class="Paragraph-sc-1mi161p-0 EventDetails__Price-sc-5njpgn-5 byOeOf fZtPPd"
+        class="Paragraph-sc-1mi161p-0 EventDetails__Price-sc-5njpgn-5 dOlFuD fZtPPd"
       >
         Price: 
       </p>
       <p
-        class="Paragraph-sc-1mi161p-0 EventDetails__Name-sc-5njpgn-7 byOeOf bYAJMh"
+        class="Paragraph-sc-1mi161p-0 EventDetails__Name-sc-5njpgn-7 dOlFuD bYAJMh"
       >
         WackenWinterNights
       </p>
       <p
-        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 byOeOf ietIPp"
+        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 dOlFuD ietIPp"
       >
         Reselithweg 17
       </p>
       <p
-        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 byOeOf dRfJVg"
+        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 dOlFuD dRfJVg"
       >
         25596
          
         Wacken
       </p>
       <p
-        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 byOeOf dDFOva"
+        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 dOlFuD dDFOva"
       >
         99 €
          
@@ -345,7 +347,7 @@ Object {
         </a>
       </div>
       <button
-        class="EventDetails__DeleteButton-sc-5njpgn-11 kdsYwL"
+        class="EventDetails__DeleteButton-sc-5njpgn-11 fZjmlO"
       >
         <img
           alt="delete"

@@ -15,8 +15,7 @@ export default createGlobalStyle`
     max-width: 370px;
     color: var(--lightyellow-90);
     overflow: hidden;
-    scrollbar-width: none;
-  }
+      }
  
   h1 {
     font-size: 140%;
@@ -44,7 +43,6 @@ export default createGlobalStyle`
     grid-row: 2;
     margin:3px;
     overflow-y:scroll;
-    scrollbar-width: none;
     max-width: 370px;
     
     

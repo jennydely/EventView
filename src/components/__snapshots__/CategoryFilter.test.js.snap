@@ -15,7 +15,7 @@ Object {
   display: block;
   border-radius: 4px;
   border: var(--border-darkgrey);
-  font-size: 100%;
+  font-size: 112.5%;
   color: var(--lightyellow-90);
   background: var(--lightgrey-main);
 }
@@ -24,7 +24,7 @@ Object {
   display: block;
   border-radius: 4px;
   border: var(--border-darkgrey);
-  font-size: 100%;
+  font-size: 112.5%;
   color: var(--lightyellow-90);
   background: var(--darkgrey-75);
 }
@@ -33,7 +33,7 @@ Object {
   display: block;
   border-radius: 4px;
   border: var(--border-darkgrey);
-  font-size: 100%;
+  font-size: 112.5%;
   color: var(--lightyellow-90);
   background: var(--darkbrown-70);
 }
@@ -42,7 +42,7 @@ Object {
   display: block;
   border-radius: 4px;
   border: var(--border-darkgrey);
-  font-size: 100%;
+  font-size: 112.5%;
   color: var(--lightyellow-90);
   background: var(--blue-70);
 }
@@ -51,7 +51,7 @@ Object {
   display: block;
   border-radius: 4px;
   border: var(--border-darkgrey);
-  font-size: 100%;
+  font-size: 112.5%;
   color: var(--lightyellow-90);
   background: var(--lightbrown-70);
 }
@@ -109,27 +109,27 @@ Object {
         name="all,metal,medieval,holiday,other"
       >
         <option
-          class="SelectCategory__OptionStyled-sc-1n16935-1 fMxUKl"
+          class="SelectCategory__OptionStyled-sc-1n16935-1 kGYOSt"
         >
           all
         </option>
         <option
-          class="SelectCategory__OptionStyled-sc-1n16935-1 lgliYi"
+          class="SelectCategory__OptionStyled-sc-1n16935-1 JZlKi"
         >
           metal
         </option>
         <option
-          class="SelectCategory__OptionStyled-sc-1n16935-1 gukUCk"
+          class="SelectCategory__OptionStyled-sc-1n16935-1 eTyMJM"
         >
           medieval
         </option>
         <option
-          class="SelectCategory__OptionStyled-sc-1n16935-1 cyepkg"
+          class="SelectCategory__OptionStyled-sc-1n16935-1 kSaATc"
         >
           holiday
         </option>
         <option
-          class="SelectCategory__OptionStyled-sc-1n16935-1 hvLasW"
+          class="SelectCategory__OptionStyled-sc-1n16935-1 gxfQXm"
         >
           other
         </option>

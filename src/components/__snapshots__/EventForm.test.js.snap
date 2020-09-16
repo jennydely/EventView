@@ -24,7 +24,7 @@ Object {
 
 .c0 {
   display: grid;
-  grid-template-columns: repeat(3,auto);
+  grid-template-columns: auto repeat(2,120px);
   grid-template-rows: repeat(20,auto);
   -webkit-align-content: center;
   -ms-flex-line-pack: center;
@@ -133,7 +133,7 @@ Object {
 }
 
 .c11 {
-  grid-column: 2;
+  grid-column: 2/3;
   grid-row: 9;
 }
 
@@ -255,18 +255,40 @@ Object {
         >
           Duration:
         </label>
-        <input
-          class="c5 c11"
-          id="EventStartDate"
-          name="eventStartDate"
-          placeholder="yyyy-mm-dd"
-        />
-        <input
-          class="c5 c12"
-          id="EventEndDate"
-          name="eventEndDate"
-          placeholder="yyyy-mm-dd"
-        />
+        <div
+          class="c11"
+        >
+          <div
+            class="react-datepicker-wrapper"
+          >
+            <div
+              class="react-datepicker__input-container"
+            >
+              <input
+                class="c5"
+                placeholder="start date"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="c12"
+        >
+          <div
+            class="react-datepicker-wrapper"
+          >
+            <div
+              class="react-datepicker__input-container"
+            >
+              <input
+                class="c5"
+                placeholder="end date"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
         <label
           class="c1 c13"
           for="Street"
@@ -364,7 +386,7 @@ Object {
   </body>,
   "container": <div>
     <form
-      class="EventForm__Form-sc-1hr7ssh-0 gUpAAc"
+      class="EventForm__Form-sc-1hr7ssh-0 druZya"
       data-testid="eventform"
     >
       <label
@@ -434,20 +456,42 @@ Object {
       >
         Duration:
       </label>
-      <input
-        class="Input-sc-1qrq46f-0 EventForm__EventStartDateInput-sc-1hr7ssh-9 hKSNO huDgP"
-        id="EventStartDate"
-        name="eventStartDate"
-        placeholder="yyyy-mm-dd"
-      />
-      <input
-        class="Input-sc-1qrq46f-0 EventForm__EventEndDateInput-sc-1hr7ssh-11 hKSNO gLFIWg"
-        id="EventEndDate"
-        name="eventEndDate"
-        placeholder="yyyy-mm-dd"
-      />
+      <div
+        class="EventForm__EventStartDateDiv-sc-1hr7ssh-9 gZQGfC"
+      >
+        <div
+          class="react-datepicker-wrapper"
+        >
+          <div
+            class="react-datepicker__input-container"
+          >
+            <input
+              class="Input-sc-1qrq46f-0 hKSNO"
+              placeholder="start date"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="EventForm__EventEndDateDiv-sc-1hr7ssh-12 fPEBNm"
+      >
+        <div
+          class="react-datepicker-wrapper"
+        >
+          <div
+            class="react-datepicker__input-container"
+          >
+            <input
+              class="Input-sc-1qrq46f-0 hKSNO"
+              placeholder="end date"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
       <label
-        class="Label-sc-4r18cf-0 EventForm__AddressInputLabel-sc-1hr7ssh-13 kTDDAh iTJSGP"
+        class="Label-sc-4r18cf-0 EventForm__AddressInputLabel-sc-1hr7ssh-15 kTDDAh jwRQhJ"
         for="Street"
       >
         Address:
@@ -508,7 +552,7 @@ Object {
         Add PackList:
       </label>
       <select
-        class="EventForm__PacklistInput-sc-1hr7ssh-14 kpnGRO"
+        class="EventForm__PacklistInput-sc-1hr7ssh-16 bzsaqM"
         id="packlist"
         name="packlistCategory"
       >
@@ -524,7 +568,7 @@ Object {
         </option>
       </select>
       <div
-        class="EventForm__ButtonGroup-sc-1hr7ssh-15 ZjtlQ"
+        class="EventForm__ButtonGroup-sc-1hr7ssh-17 oIMra"
       >
         <button
           type="reset"
@@ -532,7 +576,7 @@ Object {
           Reset
         </button>
         <button
-          class="EventForm__SubmitButton-sc-1hr7ssh-16 dvZRfC"
+          class="EventForm__SubmitButton-sc-1hr7ssh-18 jeIQTA"
           type="submit"
         >
           Save
