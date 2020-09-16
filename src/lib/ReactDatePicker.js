@@ -2,7 +2,7 @@ import React from 'react'
 import DatePicker from 'react-datepicker'
 import Input from '../common/Input'
 import 'react-datepicker/dist/react-datepicker.css'
-import './ReactDatePicker.css'
+//import './ReactDatePicker.css'
 
 export default function ReactDatePicker({
   selected,

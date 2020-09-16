@@ -26,6 +26,7 @@ export default function EventForm({ onEventSave, packlists }) {
   }
   const allPacklists = packlists.map((packlist) => packlist.name)
   const endDateRef = useRef(null)
+  const startDateRef = useRef(null)
 
   return (
     <>
@@ -158,7 +159,10 @@ export default function EventForm({ onEventSave, packlists }) {
             name="eventEndDate"
             defaultValue=""
             control={control}
-            rules={{ required: true }}
+            rules={{
+              required: true,
+              validate: (value) => value >= startDateRef.current.value,
+            }}
             render={({ onChange, onBlur, value }) => (
               <ReactDatePicker
                 selected={value}
@@ -306,6 +310,7 @@ export default function EventForm({ onEventSave, packlists }) {
   )
   function sendRef(ref) {
     endDateRef.current = ref
+    startDateRef.current = ref
   }
 }
 
