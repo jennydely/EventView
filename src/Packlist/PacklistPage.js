@@ -24,9 +24,9 @@ export default function PackListPage() {
         {chosenPacklist ? (
           <ListContainer>
             {chosenPacklist.packlist.sort().map((item) => (
-              <ListItemStyled key={item}>
+              <ListItemStyled key={item.id}>
                 <Checkbox type="checkbox" />
-                <span>{item}</span>
+                <span>{item.text}</span>
                 <div></div>
               </ListItemStyled>
             ))}

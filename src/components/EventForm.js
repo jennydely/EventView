@@ -24,8 +24,8 @@ export default function EventForm({ onEventSave, packlists }) {
       event.target.reset()
     onEventSave(eventEntry)
   }
-  const endDateRef = useRef(null)
   const allPacklists = packlists.map((packlist) => packlist.name)
+  const endDateRef = useRef(null)
 
   return (
     <>
@@ -120,22 +120,17 @@ export default function EventForm({ onEventSave, packlists }) {
             id="EventStartDate"
             name="eventStartDate"
             defaultValue=""
-            placeholder="startDate"
             control={control}
-            ref={register({
+            rules={{
               required: true,
-              pattern: /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/,
               validate: (value) => value <= endDateRef.current.value,
-            })}
+            }}
             render={({ onChange, onBlur, value }) => (
               <ReactDatePicker
                 selected={value}
                 onChange={onChange}
                 onBlur={onBlur}
-                rules={{
-                  required: true,
-                  validate: (value) => value <= endDateRef.current.value,
-                }}
+                placeholderText="start date"
               />
             )}
           />
@@ -161,24 +156,16 @@ export default function EventForm({ onEventSave, packlists }) {
           <EventEndDateController
             id="EventEndDate"
             name="eventEndDate"
-            className="datePickerEndDate"
             defaultValue=""
-            placeholder="endDate"
             control={control}
-            ref={(el) => {
-              endDateRef.current = el
-              register(el, {
-                required: true,
-                pattern: /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/,
-              })
-            }}
+            rules={{ required: true }}
             render={({ onChange, onBlur, value }) => (
               <ReactDatePicker
                 selected={value}
                 onChange={onChange}
                 onBlur={onBlur}
-                className="datePickerEndDate"
-                rules={{ required: true }}
+                placeholderText="end date"
+                sendRef={sendRef}
               />
             )}
           />
@@ -317,6 +304,9 @@ export default function EventForm({ onEventSave, packlists }) {
       </Form>
     </>
   )
+  function sendRef(ref) {
+    endDateRef.current = ref
+  }
 }
 
 const Form = styled.form`
@@ -373,14 +363,15 @@ const EventInfosText = styled.h2`
   margin-top: 20px;
 `
 const EventStartDateDiv = styled.div`
-  grid-column: 2;
+  grid-column: 2/3;
   grid-row: 9;
+  border: var(--border-darkgrey);
 `
 const EventStartDateController = styled(Controller)`
   grid-column: 2;
   grid-row: 9;
   display: block;
-  width: 100%;
+  width: 120px;
   padding: 20px;
   border-radius: 4px;
   border: var(--border-darkgrey);

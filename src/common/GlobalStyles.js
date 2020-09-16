@@ -12,9 +12,10 @@ export default createGlobalStyle`
     font-family: sans-serif;
     line-height: 1.4;
     height: 100vh;
-    width:100vw;
+    max-width: 370px;
     color: var(--lightyellow-90);
     overflow: hidden;
+    scrollbar-width: none;
   }
  
   h1 {
@@ -41,10 +42,10 @@ export default createGlobalStyle`
 
   main {
     grid-row: 2;
-    margin:7px;
+    margin:3px;
     overflow-y:scroll;
     scrollbar-width: none;
-    -ms-overflow-style: none;
+    max-width: 370px;
     
     
    }
