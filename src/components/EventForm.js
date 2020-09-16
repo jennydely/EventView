@@ -160,7 +160,7 @@ export default function EventForm({ onEventSave, packlists }) {
             Date must be written like: yyyy-mm-dd
           </ErrorMessageStartDate>
         )}
-        <EventEndDateDiv>
+        <EventEndDateContainer>
           <EventEndDateController
             id="EventEndDate"
             name="eventEndDate"
@@ -179,7 +179,7 @@ export default function EventForm({ onEventSave, packlists }) {
               />
             )}
           />
-        </EventEndDateDiv>
+        </EventEndDateContainer>
         {errors.eventEndDate?.type === 'required' && (
           <ErrorMessageEndDate>
             Date is required and needs the right form!{' '}
