@@ -12,6 +12,7 @@ export default function EventDetails({
   style,
   bind,
   onDeleteButtonClick,
+  onTicketCheckboxClick,
 }) {
   const {
     poster,
@@ -52,7 +53,13 @@ export default function EventDetails({
       <TicketLabel id="Ticket" price={price}>
         Ticket
       </TicketLabel>
-      <Ticket type="checkbox" htmlFor="Ticket" price={price} />
+      <Ticket
+        type="checkbox"
+        checked={event.ticketBought}
+        onChange={handleCheckboxClick}
+        htmlFor="Ticket"
+        price={price}
+      />
       <ButtonContainer>
         <button onClick={handleBackButtonClick}>PackList</button>
         <ExternalLink href={website} target="blank" title="link">
@@ -74,6 +81,10 @@ export default function EventDetails({
   function handleDeleteButtonClick() {
     if (window.confirm('Are you sure you wish to delete this item?'))
       onDeleteButtonClick(event.id)
+  }
+
+  function handleCheckboxClick() {
+    onTicketCheckboxClick(event.id)
   }
 }
 

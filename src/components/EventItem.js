@@ -13,6 +13,7 @@ export default function EventItem({
   id,
   onHideButtonClick,
   onDeleteButtonClick,
+  onTicketCheckboxClick,
 }) {
   const { name, location, category, eventStartDate, eventEndDate } = event
   const { height, bind } = useHeight([event])
@@ -36,6 +37,7 @@ export default function EventItem({
           style={detailStyle}
           bind={bind}
           onDeleteButtonClick={onDeleteButtonClick}
+          onTicketCheckboxClick={onTicketCheckboxClick}
         />
       </Event>
       <HideButton onClick={handleHideButtonClick} id={id}>

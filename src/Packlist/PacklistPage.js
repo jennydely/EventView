@@ -9,7 +9,7 @@ import { comparePacklists } from '../services/comparePacklists'
 
 export default function PackListPage() {
   const { packlistName } = useParams()
-  const { packlists } = usePacklists()
+  const { packlists, updatePacklistCheckbox } = usePacklists()
   const chosenPacklist = comparePacklists(packlists, packlistName)
   const history = useHistory()
   function goBackButton() {
@@ -24,9 +24,13 @@ export default function PackListPage() {
         {chosenPacklist ? (
           <ListContainer>
             {chosenPacklist.packlist.sort().map((item) => (
-              <ListItemStyled key={item.id}>
-                <Checkbox type="checkbox" />
-                <span>{item.text}</span>
+              <ListItemStyled key={item.itemID} id={item.itemID}>
+                <Checkbox
+                  type="checkbox"
+                  checked={item.checked}
+                  onChange={() => handleCheckboxClick(item)}
+                />
+                <span>{item.item}</span>
                 <div></div>
               </ListItemStyled>
             ))}
@@ -46,6 +50,16 @@ export default function PackListPage() {
       </>
     </>
   )
+
+  function handleCheckboxClick(checkedItem) {
+    const id = checkedItem.itemID
+    const index = chosenPacklist.packlist.findIndex(
+      (item) => item.itemID === id
+    )
+    const clickedPacklistItem = chosenPacklist.packlist[index]
+    clickedPacklistItem.checked = !clickedPacklistItem.checked
+    updatePacklistCheckbox(chosenPacklist)
+  }
 }
 
 const NoPacklistText = styled.p`
