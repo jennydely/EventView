@@ -16,7 +16,14 @@ EventForm.propTypes = {
 }
 
 export default function EventForm({ onEventSave, packlists }) {
-  const { register, handleSubmit, errors, reset, control } = useForm()
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    errors,
+    reset,
+    control,
+  } = useForm()
   const onSubmit = (eventEntry, event) => {
     if (event && event.target && typeof event.target.reset === 'function')
       // for testing
@@ -25,9 +32,6 @@ export default function EventForm({ onEventSave, packlists }) {
     onEventSave(eventEntry)
   }
   const allPacklists = packlists.map((packlist) => packlist.name)
-  const endDateRef = useRef(null)
-  const startDateRef = useRef(null)
-
   return (
     <>
       <Form data-testid="eventform" onSubmit={handleSubmit(onSubmit)}>
@@ -124,7 +128,7 @@ export default function EventForm({ onEventSave, packlists }) {
             control={control}
             rules={{
               required: true,
-              validate: (value) => value <= endDateRef.current.value,
+              validate: (value) => value <= getValues().eventEndDate,
             }}
             render={({ onChange, onBlur, value }) => (
               <ReactDatePicker
@@ -161,7 +165,7 @@ export default function EventForm({ onEventSave, packlists }) {
             control={control}
             rules={{
               required: true,
-              validate: (value) => value >= startDateRef.current.value,
+              validate: (value) => value >= getValues().eventStartDate,
             }}
             render={({ onChange, onBlur, value }) => (
               <ReactDatePicker
@@ -169,7 +173,6 @@ export default function EventForm({ onEventSave, packlists }) {
                 onChange={onChange}
                 onBlur={onBlur}
                 placeholderText="end date"
-                sendRef={sendRef}
               />
             )}
           />
@@ -308,10 +311,6 @@ export default function EventForm({ onEventSave, packlists }) {
       </Form>
     </>
   )
-  function sendRef(ref) {
-    endDateRef.current = ref
-    startDateRef.current = ref
-  }
 }
 
 const Form = styled.form`
@@ -370,7 +369,6 @@ const EventInfosText = styled.h2`
 const EventStartDateDiv = styled.div`
   grid-column: 2/3;
   grid-row: 9;
-  border: var(--border-darkgrey);
 `
 const EventStartDateController = styled(Controller)`
   grid-column: 2;
