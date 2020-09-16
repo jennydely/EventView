@@ -4,8 +4,8 @@ import useHeight from './useHeight'
 import styled from 'styled-components/macro'
 import { formatDate } from '../services/date'
 import EventDetails from './EventDetails'
-import IconEye from '../img/IconEye.svg'
-import IconHideEye from '../img/IconHideEye.svg'
+import eyeIcon from '../img/eyeIcon.svg'
+import hideEyeIcon from '../img/hideEyeIcon.svg'
 import getColorByName from '../services/getColorByName'
 
 export default function EventItem({
@@ -42,9 +42,9 @@ export default function EventItem({
       </Event>
       <HideButton onClick={handleHideButtonClick} id={id}>
         {event.isHidden ? (
-          <img src={IconEye} alt="show" />
+          <img src={eyeIcon} alt="show" />
         ) : (
-          <img src={IconHideEye} alt="hide" />
+          <img src={hideEyeIcon} alt="hide" />
         )}
       </HideButton>
     </>

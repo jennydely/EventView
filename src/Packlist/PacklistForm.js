@@ -10,6 +10,9 @@ import PropTypes from 'prop-types'
 import ListContainer from '../common/ListContainer'
 import ListItem from '../common/ListItem'
 import usePacklists from './usePacklists'
+import reloadIcon from '../img/reloadIcon.svg'
+import saveIcon from '../img/saveIcon.svg'
+import addIcon from '../img/addIcon.svg'
 
 PacklistForm.propTypes = {
   onPacklistSave: PropTypes.func.isRequired,
@@ -113,7 +116,7 @@ export default function PacklistForm({ onPacklistSave }) {
               addItem({ text: itemRef.current.value, id: uuid() })
             }}
           >
-            Add
+            <img src={addIcon} alt="add" />
           </AddButton>
           <ItemContainer>
             {items.map(({ text, completed, id }, index) => (
@@ -129,9 +132,11 @@ export default function PacklistForm({ onPacklistSave }) {
         </FormInputContainer>
         <ButtonGroup>
           <button type="reset" onClick={() => reset()}>
-            Reset
+            <img src={reloadIcon} alt="reload" />
           </button>
-          <SubmitButton type="submit">Save</SubmitButton>
+          <button type="submit">
+            <img src={saveIcon} alt="save" />
+          </button>
         </ButtonGroup>
       </Form>
     </>
@@ -199,7 +204,4 @@ const ButtonGroup = styled.div`
   width: 100%;
   margin: 7px;
   margin-top: 30px;
-`
-const SubmitButton = styled.button`
-  background-color: var(--darkred-75);
 `

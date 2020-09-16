@@ -59,11 +59,10 @@ export default createGlobalStyle`
   display: inline-block; 
   min-width:fit-content;
   min-height:fit-content;
-  margin: 2px;
-  padding: 4px 6px;
+  margin: 3px 4px;
+  padding: 0 9px;
   border: none;
-  border-radius: 6px;
-  background-color:var( --darkgrey-75);
+  background:none;
   color: var(--lightyellow-90);
   font-size: 130%; 
   text-align: center; 

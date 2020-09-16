@@ -9,13 +9,14 @@ export default function SelectEvents({
   ...rest
 }) {
   return (
-    <SelectStyled name={name} ref={register} {...rest}>
+    <SelectStyled
+      name={name}
+      ref={register}
+      {...rest}
+      onChange={(event) => onSelectEventFilter(event.target.value)}
+    >
       {options.map((optionsName) => (
-        <OptionStyled
-          key={optionsName}
-          optionsName={optionsName}
-          onClick={() => onSelectEventFilter(optionsName)}
-        >
+        <OptionStyled key={optionsName} value={optionsName}>
           {optionsName}
         </OptionStyled>
       ))}
@@ -29,6 +30,7 @@ const SelectStyled = styled.select`
   border: var(--border-darkgrey);
   color: var(--lightyellow-90);
   background: var(--lightgrey-main);
+  min-height: 45px;
 `
 const OptionStyled = styled.option`
   display: block;
