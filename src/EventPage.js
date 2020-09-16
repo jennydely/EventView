@@ -8,7 +8,7 @@ import PacklistForm from './Packlist/PacklistForm'
 import usePacklistForm from './Packlist/usePacklistForm'
 import usePacklists from './Packlist/usePacklists'
 import { getYearsOfEvents } from './services/getYearsOfEvents'
-import addEventIcon from './img/addEventIcon.svg'
+import addEvent1Icon from './img/addEvent1Icon.svg'
 import addPacklistIcon from './img/addPacklistIcon.svg'
 import backIcon from './img/backIcon.svg'
 
@@ -93,7 +93,7 @@ export default function EventPage() {
           <footer>
             <button onClick={showEventForm}>
               {' '}
-              <img src={addEventIcon} alt="create event" />
+              <img src={addEvent1Icon} alt="create event" />
             </button>
             <button onClick={showPacklistForm}>
               {' '}

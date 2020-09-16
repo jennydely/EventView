@@ -8,6 +8,7 @@ import getColorByName from '../services/getColorByName'
 import trashIcon from '../img/trashIcon.svg'
 import packlistIcon from '../img/packlistIcon.svg'
 import routeIcon from '../img/routeIcon.svg'
+import websiteIcon from '../img/websiteIcon.svg'
 
 export default function EventDetails({
   event,
@@ -66,9 +67,9 @@ export default function EventDetails({
         <PacklistButton onClick={handleBackButtonClick}>
           <img src={packlistIcon} alt="packlist" />
         </PacklistButton>
-        <ExternalLink href={website} target="blank" title="link">
-          Website
-        </ExternalLink>
+        <a href={website} target="blank" title="link">
+          <img src={websiteIcon} alt="website" />
+        </a>
         <a href="https://www.google.de/maps" target="blank" title="link">
           <img src={routeIcon} alt="route" />
         </a>
