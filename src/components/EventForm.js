@@ -286,7 +286,7 @@ export default function EventForm({ onEventSave, packlists }) {
         </InputLabelColumn1>
         <InputColumn2
           row={18}
-          placeholder="http://www.website.de/banner.jpg"
+          placeholder="http://website.de/banner.jpg"
           id="poster"
           name="poster"
           ref={register({
