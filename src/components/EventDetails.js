@@ -5,7 +5,9 @@ import { useHistory } from 'react-router-dom'
 import Checkbox from '../common/Checkbox'
 import Paragraph from '../common/Paragraph'
 import getColorByName from '../services/getColorByName'
-import trashIcon from '../img/trash.svg'
+import trashIcon from '../img/trashIcon.svg'
+import packlistIcon from '../img/packlistIcon.svg'
+import routeIcon from '../img/routeIcon.svg'
 
 export default function EventDetails({
   event,
@@ -61,17 +63,15 @@ export default function EventDetails({
         price={price}
       />
       <ButtonContainer>
-        <button onClick={handleBackButtonClick}>PackList</button>
+        <PacklistButton onClick={handleBackButtonClick}>
+          <img src={packlistIcon} alt="packlist" />
+        </PacklistButton>
         <ExternalLink href={website} target="blank" title="link">
           Website
         </ExternalLink>
-        <ExternalLink
-          href="https://www.google.de/maps"
-          target="blank"
-          title="link"
-        >
-          Route
-        </ExternalLink>
+        <a href="https://www.google.de/maps" target="blank" title="link">
+          <img src={routeIcon} alt="route" />
+        </a>
       </ButtonContainer>
       <DeleteButton onClick={handleDeleteButtonClick}>
         <img src={trashIcon} alt="delete" />
@@ -174,32 +174,39 @@ const ButtonContainer = styled.div`
   width: 100%;
   margin: 1px;
   padding: 0;
+  padding-top: 7px;
   justify-content: space-around;
+`
+const PacklistButton = styled.button`
+  display: inline-block;
+  min-width: 45px;
+  min-height: 45px;
+  margin: 0;
+  padding: 0;
+  background: none;
 `
 const ExternalLink = styled.a`
   display: inline-block;
   min-width: fit-content;
   min-height: fit-content;
-  margin: 2px;
-  padding: 4px 6px;
+  padding: 6px 6px;
   border: none;
-  border-radius: 6px;
+  border-radius: 7px;
   background-color: var(--darkgrey-75);
   font-size: 130%;
   text-align: center;
   color: var(--sandyellow-main);
 `
 const DeleteButton = styled.button`
-  grid-column: 5;
-  grid-row: 8;
+  grid-column: 3;
+  grid-row: 9;
   color: var(--red-main);
   font-size: 130%;
-  float: right;
+  text-align: center;
   text-decoration: none;
   border-radius: 20px;
   background: none;
-  margin: 4px;
-  margin-top: 7px;
-  min-width: 40px;
-  min-height: 40px;
+  justify-self: center;
+  margin: 7px;
+  min-height: 45px;
 `

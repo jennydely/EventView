@@ -8,6 +8,8 @@ import Select from '../common/Select'
 import PropTypes from 'prop-types'
 import getColorByName from '../services/getColorByName'
 import { v4 as uuid } from 'uuid'
+import reloadIcon from '../img/reloadIcon.svg'
+import saveIcon from '../img/saveIcon.svg'
 
 EventForm.propTypes = {
   onEventSave: PropTypes.func.isRequired,
@@ -286,9 +288,12 @@ export default function EventForm({ onEventSave, packlists }) {
         />
         <ButtonGroup>
           <button type="reset" onClick={() => reset()}>
-            Reset
+            <img src={reloadIcon} alt="reload" />
           </button>
-          <SubmitButton type="submit">Save</SubmitButton>
+          <SubmitButton type="submit">
+            {' '}
+            <img src={saveIcon} alt="save" />
+          </SubmitButton>
         </ButtonGroup>
       </Form>
     </>
@@ -392,5 +397,4 @@ const ButtonGroup = styled.div`
 const SubmitButton = styled.button`
   grid-column: 1 / span 3;
   grid-row: 20;
-  background-color: var(--darkred-75);
 `

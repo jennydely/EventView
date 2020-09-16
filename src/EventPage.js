@@ -8,6 +8,9 @@ import PacklistForm from './Packlist/PacklistForm'
 import usePacklistForm from './Packlist/usePacklistForm'
 import usePacklists from './Packlist/usePacklists'
 import { getYearsOfEvents } from './services/getYearsOfEvents'
+import addEventIcon from './img/addEventIcon.svg'
+import addPacklistIcon from './img/addPacklistIcon.svg'
+import backIcon from './img/backIcon.svg'
 
 export default function EventPage() {
   const [categoryFilter, setCategoryFilter] = useState('all')
@@ -50,7 +53,7 @@ export default function EventPage() {
           </main>
           <footer>
             <button type="button" onClick={goEventBack}>
-              Back
+              <img src={backIcon} alt="back" />
             </button>
           </footer>
         </>
@@ -64,7 +67,7 @@ export default function EventPage() {
           </main>
           <footer>
             <button type="button" onClick={goPacklistBack}>
-              Back
+              <img src={backIcon} alt="back" />
             </button>
           </footer>
         </>
@@ -88,8 +91,14 @@ export default function EventPage() {
             />
           </main>
           <footer>
-            <button onClick={showEventForm}>Create Event</button>
-            <button onClick={showPacklistForm}>Create PackList</button>
+            <button onClick={showEventForm}>
+              {' '}
+              <img src={addEventIcon} alt="create event" />
+            </button>
+            <button onClick={showPacklistForm}>
+              {' '}
+              <img src={addPacklistIcon} alt="create packlist" />
+            </button>
           </footer>
         </>
       )}
