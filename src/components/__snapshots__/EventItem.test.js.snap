@@ -11,7 +11,7 @@ exports[`EventItem renders correctly 1`] = `
 .c5 {
   text-align: right;
   margin: 2px;
-  font-size: 100%;
+  font-size: 112.5%;
 }
 
 .c2 {
@@ -162,6 +162,8 @@ exports[`EventItem renders correctly 1`] = `
   background: none;
   margin: 4px;
   margin-top: 7px;
+  min-width: 40px;
+  min-height: 40px;
 }
 
 .c0 {

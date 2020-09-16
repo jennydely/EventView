@@ -1,5 +1,5 @@
-import React, { useRef } from 'react'
-import { useForm } from 'react-hook-form'
+import React from 'react'
+import { useForm, Controller } from 'react-hook-form'
 import styled from 'styled-components/macro'
 import Input from '../common/Input'
 import Label from '../common/Label'
@@ -7,7 +7,8 @@ import ErrorMessage from '../common/ErrorMessage'
 import Select from '../common/Select'
 import PropTypes from 'prop-types'
 import getColorByName from '../services/getColorByName'
-import { v4 as uuid } from 'uuid'
+import ReactDatePicker from '../lib/ReactDatePicker'
+import '../lib/ReactDatePicker.css'
 import reloadIcon from '../img/reloadIcon.svg'
 import saveIcon from '../img/saveIcon.svg'
 
@@ -17,7 +18,14 @@ EventForm.propTypes = {
 }
 
 export default function EventForm({ onEventSave, packlists }) {
-  const { register, handleSubmit, errors, reset } = useForm()
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    errors,
+    reset,
+    control,
+  } = useForm()
   const onSubmit = (eventEntry, event) => {
     if (event && event.target && typeof event.target.reset === 'function')
       // for testing
@@ -25,12 +33,7 @@ export default function EventForm({ onEventSave, packlists }) {
       event.target.reset()
     onEventSave(eventEntry)
   }
-  const endDateRef = useRef(null)
-  const copyPacklists = JSON.parse(
-    JSON.stringify(packlists)
-  ).map((packlist) => ({ ...packlist, id: uuid() }))
-  const allPacklists = copyPacklists.map((packlist) => packlist.name)
-
+  const allPacklists = packlists.map((packlist) => packlist.name)
   return (
     <>
       <Form data-testid="eventform" onSubmit={handleSubmit(onSubmit)}>
@@ -119,17 +122,27 @@ export default function EventForm({ onEventSave, packlists }) {
         <InputLabelColumn1 row={9} htmlFor="EventStartDate">
           Duration:
         </InputLabelColumn1>
-
-        <EventStartDateInput
-          placeholder="yyyy-mm-dd"
-          id="EventStartDate"
-          name="eventStartDate"
-          ref={register({
-            required: true,
-            pattern: /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/,
-            validate: (value) => value <= endDateRef.current.value,
-          })}
-        />
+        <EventStartDateContainer>
+          <EventStartDateController
+            id="EventStartDate"
+            name="eventStartDate"
+            defaultValue=""
+            control={control}
+            rules={{
+              required: true,
+              validate: (value) => value <= getValues().eventEndDate,
+            }}
+            render={({ onChange, onBlur, value }) => (
+              <ReactDatePicker
+                selected={value}
+                onChange={onChange}
+                onBlur={onBlur}
+                placeholderText="start date"
+                data-testid="start date"
+              />
+            )}
+          />
+        </EventStartDateContainer>
         {errors.eventStartDate?.type === 'validate' && (
           <ErrorMessageStartDate>
             Start date must be before end date!{' '}
@@ -147,20 +160,26 @@ export default function EventForm({ onEventSave, packlists }) {
             Date must be written like: yyyy-mm-dd
           </ErrorMessageStartDate>
         )}
-
-        <EventEndDateInput
-          placeholder="yyyy-mm-dd"
-          id="EventEndDate"
-          name="eventEndDate"
-          ref={(el) => {
-            endDateRef.current = el
-            register(el, {
+        <EventEndDateDiv>
+          <EventEndDateController
+            id="EventEndDate"
+            name="eventEndDate"
+            defaultValue=""
+            control={control}
+            rules={{
               required: true,
-              pattern: /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/,
-            })
-          }}
-        />
-
+              validate: (value) => value >= getValues().eventStartDate,
+            }}
+            render={({ onChange, onBlur, value }) => (
+              <ReactDatePicker
+                selected={value}
+                onChange={onChange}
+                onBlur={onBlur}
+                placeholderText="end date"
+              />
+            )}
+          />
+        </EventEndDateDiv>
         {errors.eventEndDate?.type === 'required' && (
           <ErrorMessageEndDate>
             Date is required and needs the right form!{' '}
@@ -269,7 +288,7 @@ export default function EventForm({ onEventSave, packlists }) {
         </InputLabelColumn1>
         <InputColumn2
           row={18}
-          placeholder="http://www.website.de/banner.jpg"
+          placeholder="http://website.de/banner.jpg"
           id="poster"
           name="poster"
           ref={register({
@@ -302,7 +321,7 @@ export default function EventForm({ onEventSave, packlists }) {
 
 const Form = styled.form`
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: auto repeat(2, 120px);
   grid-template-rows: repeat(20, auto);
   align-content: center;
   min-width: 300px;
@@ -353,17 +372,43 @@ const EventInfosText = styled.h2`
   grid-row: 8;
   margin-top: 20px;
 `
-const EventStartDateInput = styled(Input)`
+const EventStartDateContainer = styled.div`
+  grid-column: 2/3;
+  grid-row: 9;
+`
+const EventStartDateController = styled(Controller)`
   grid-column: 2;
   grid-row: 9;
+  display: block;
+  width: 120px;
+  padding: 20px;
+  border-radius: 4px;
+  border: var(--border-darkgrey);
+  margin-top: 0;
+  padding: 4px;
+  font-size: 112.5%;
+  color: black;
 `
 const ErrorMessageStartDate = styled(ErrorMessage)`
   grid-column: 2;
   grid-row: 10;
 `
-const EventEndDateInput = styled(Input)`
+const EventEndDateContainer = styled.div`
   grid-column: 3;
   grid-row: 9;
+`
+const EventEndDateController = styled(Controller)`
+  grid-column: 3;
+  grid-row: 9;
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border-radius: 4px;
+  border: var(--border-darkgrey);
+  margin-top: 0;
+  padding: 4px;
+  font-size: 112.5%;
+  color: black;
 `
 const ErrorMessageEndDate = styled(ErrorMessage)`
   grid-column: 3;

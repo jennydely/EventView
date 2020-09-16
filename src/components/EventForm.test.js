@@ -30,12 +30,9 @@ describe('EventForm', () => {
         ],
       },
     ]
-    const {
-      getByText,
-      getByLabelText,
-      getByPlaceholderText,
-      getAllByPlaceholderText,
-    } = render(<EventForm packlists={packlists} onEventSave={onEventSave} />)
+    const { getByText, getByLabelText, getByPlaceholderText } = render(
+      <EventForm packlists={packlists} onEventSave={onEventSave} />
+    )
 
     fireEvent.change(getByLabelText('Category:'), {
       target: { value: 'medieval' },
@@ -53,12 +50,14 @@ describe('EventForm', () => {
       target: { value: 'www.website.de' },
     })
     fireEvent.input(getByPlaceholderText('zip'), { target: { value: '12345' } })
-    fireEvent.input(getAllByPlaceholderText('yyyy-mm-dd')[0], {
-      target: { value: '2020-05-20' },
-    })
-    fireEvent.input(getAllByPlaceholderText('yyyy-mm-dd')[1], {
-      target: { value: '2020-05-25' },
-    })
+
+    const startDate = getByPlaceholderText('start date')
+    fireEvent.mouseDown(startDate)
+    fireEvent.change(startDate, { target: { value: '2020-05-25' } })
+
+    const endDate = getByPlaceholderText('end date')
+    fireEvent.mouseDown(endDate)
+    fireEvent.change(endDate, { target: { value: '2020-05-25' } })
 
     fireEvent.submit(getByText('Save'))
     await waitFor(() => expect(onEventSave).toHaveBeenCalled())
