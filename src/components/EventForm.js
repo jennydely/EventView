@@ -120,7 +120,7 @@ export default function EventForm({ onEventSave, packlists }) {
         <InputLabelColumn1 row={9} htmlFor="EventStartDate">
           Duration:
         </InputLabelColumn1>
-        <EventStartDateDiv>
+        <EventStartDateContainer>
           <EventStartDateController
             id="EventStartDate"
             name="eventStartDate"
@@ -140,7 +140,7 @@ export default function EventForm({ onEventSave, packlists }) {
               />
             )}
           />
-        </EventStartDateDiv>
+        </EventStartDateContainer>
         {errors.eventStartDate?.type === 'validate' && (
           <ErrorMessageStartDate>
             Start date must be before end date!{' '}
@@ -367,7 +367,7 @@ const EventInfosText = styled.h2`
   grid-row: 8;
   margin-top: 20px;
 `
-const EventStartDateDiv = styled.div`
+const EventStartDateContainer = styled.div`
   grid-column: 2/3;
   grid-row: 9;
 `
@@ -388,11 +388,10 @@ const ErrorMessageStartDate = styled(ErrorMessage)`
   grid-column: 2;
   grid-row: 10;
 `
-const EventEndDateDiv = styled.div`
+const EventEndDateContainer = styled.div`
   grid-column: 3;
   grid-row: 9;
 `
-
 const EventEndDateController = styled(Controller)`
   grid-column: 3;
   grid-row: 9;
