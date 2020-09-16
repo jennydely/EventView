@@ -14,7 +14,7 @@ code {
 
 #root {
   display: grid;
-  grid-template-rows: 50px auto 50px;
+  grid-template-rows: 50px auto 55px;
   max-width: 375px;
   position: fixed;
   left: 0;
