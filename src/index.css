@@ -17,6 +17,7 @@ code {
   grid-template-rows: 50px auto 55px;
   max-width: 375px;
   position: fixed;
+  overflow: hidden;
   left: 0;
   top: 0;
   height: 100%;

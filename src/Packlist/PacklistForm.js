@@ -157,7 +157,8 @@ export default function PacklistForm({ onPacklistSave }) {
 
 const Form = styled.form`
   align-content: center;
-  min-width: 300px;
+  overflow: hidden;
+  min-width: 365px;
 `
 const FormInputContainer = styled.div`
   display: flex;
@@ -169,7 +170,6 @@ const FormInputContainer = styled.div`
   margin: 7px;
   margin-top: 0;
   padding: 7px 4px;
-  padding-bottom: 20px;
 `
 const PacklistNameInputLabel = styled(Label)`
   text-align: left;

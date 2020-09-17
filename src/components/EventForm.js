@@ -321,10 +321,12 @@ export default function EventForm({ onEventSave, packlists }) {
 
 const Form = styled.form`
   display: grid;
-  grid-template-columns: auto repeat(2, 120px);
+  grid-template-columns: repeat(3, 118px);
   grid-template-rows: repeat(20, auto);
-  align-content: center;
-  min-width: 300px;
+  align-content: left;
+  overflow: hidden;
+  max-width: 365px;
+  padding: 2px;
   gap: 4px;
 `
 const InputLabelColumn1 = styled(Label)`
@@ -353,7 +355,6 @@ const CategoryInput = styled(Select)`
   grid-column: 1;
   grid-row: 3;
   display: block;
-  width: 100%;
   padding: 20px;
   border: var(--border-darkgrey);
   border-radius: 4px;
@@ -401,11 +402,13 @@ const EventEndDateController = styled(Controller)`
   grid-column: 3;
   grid-row: 9;
   display: block;
-  width: 100%;
+  display: block;
+  width: 120px;
   padding: 20px;
   border-radius: 4px;
   border: var(--border-darkgrey);
   margin-top: 0;
+  margin-right: 7px;
   padding: 4px;
   font-size: 112.5%;
   color: black;
@@ -422,7 +425,6 @@ const PacklistInput = styled(Select)`
   grid-column: 2 / span 2;
   grid-row: 19;
   display: block;
-  width: 100%;
   border-radius: 4px;
   border: var(--border-darkgrey);
   margin-top: 0;
@@ -436,8 +438,7 @@ const ButtonGroup = styled.div`
   grid-row: 20;
   display: flex;
   justify-content: center;
-  width: 100%;
-  margin: 20px 7px;
+  margin: 14px 7px;
 `
 const SubmitButton = styled.button`
   grid-column: 1 / span 3;

@@ -9,6 +9,7 @@ import trashIcon from '../img/trashIcon.svg'
 import packlistIcon from '../img/packlistIcon.svg'
 import routeIcon from '../img/routeIcon.svg'
 import websiteIcon from '../img/websiteIcon.svg'
+import editIcon from '../img/editIcon.svg'
 
 export default function EventDetails({
   event,
@@ -63,7 +64,7 @@ export default function EventDetails({
         htmlFor="Ticket"
         price={price}
       />
-      <ButtonContainer>
+      <ButtonContainer row={7} space={'space-around'}>
         <PacklistButton onClick={handleBackButtonClick}>
           <img src={packlistIcon} alt="packlist" />
         </PacklistButton>
@@ -74,11 +75,21 @@ export default function EventDetails({
           <img src={routeIcon} alt="route" />
         </a>
       </ButtonContainer>
-      <DeleteButton onClick={handleDeleteButtonClick}>
-        <img src={trashIcon} alt="delete" />
-      </DeleteButton>
+      <ButtonContainer row={8} space={'space-evenly'}>
+        <EditButton onClick={handleEditButtonClick}>
+          <img src={editIcon} alt="edit" />
+        </EditButton>
+        <DeleteButton onClick={handleDeleteButtonClick}>
+          <img src={trashIcon} alt="delete" />
+        </DeleteButton>
+      </ButtonContainer>
     </Details>
   )
+
+  function handleEditButtonClick() {
+    //onEditButtonClick(event.id)
+  }
+
   function handleDeleteButtonClick() {
     if (window.confirm('Are you sure you wish to delete this item?'))
       onDeleteButtonClick(event.id)
@@ -91,7 +102,7 @@ export default function EventDetails({
 
 const Details = styled(animated.section)`
   display: grid;
-  grid-template-columns: 20% repeat(4, auto);
+  grid-template-columns: 20% repeat(4, auto) 20%;
   grid-template-rows: repeat(8, auto);
   margin: 0;
   margin-top: -2px;
@@ -118,7 +129,7 @@ const Details = styled(animated.section)`
   }
 `
 const ParagraphColumn3 = styled(Paragraph)`
-  grid-column: 3/6;
+  grid-column: 3/7;
   grid-row: ${(props) => props.row};
   text-align: left;
 `
@@ -138,6 +149,7 @@ const Address = styled(Paragraph)`
   grid-column: 2;
   grid-row: 1 / span 4;
   margin-top: 7px;
+  margin-left: 4px;
   font-weight: 400;
   font-size: 112.5%;
 `
@@ -158,7 +170,7 @@ const TicketLabel = styled.label`
   display: ${({ price }) => (price ? '' : 'none')};
 `
 const Name = styled(Paragraph)`
-  grid-column: 3/6;
+  grid-column: 3/7;
   grid-row: 1;
   text-align: left;
   margin-top: 7px;
@@ -169,45 +181,27 @@ const Ticket = styled(Checkbox)`
   display: ${({ price }) => (price ? '' : 'none')};
 `
 const ButtonContainer = styled.div`
-  grid-column: 1/6;
-  grid-row: 7;
+  grid-column: 1/7;
+  grid-row: ${(props) => props.row};
   display: flex;
   width: 100%;
   margin: 1px;
   padding: 0;
   padding-top: 7px;
-  justify-content: space-around;
+  justify-content: ${(props) => props.space};
 `
 const PacklistButton = styled.button`
   display: inline-block;
-  min-width: 45px;
-  min-height: 45px;
   margin: 0;
   padding: 0;
-  background: none;
 `
-const ExternalLink = styled.a`
-  display: inline-block;
-  min-width: fit-content;
-  min-height: fit-content;
-  padding: 6px 6px;
-  border: none;
-  border-radius: 7px;
-  background-color: var(--darkgrey-75);
-  font-size: 130%;
-  text-align: center;
-  color: var(--sandyellow-main);
+const EditButton = styled.button`
+  grid-column: 1 / span 2;
+  grid-row: 9;
+  margin: 7px;
 `
 const DeleteButton = styled.button`
-  grid-column: 3;
+  grid-column: 3 / span 2;
   grid-row: 9;
-  color: var(--red-main);
-  font-size: 130%;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 20px;
-  background: none;
-  justify-self: center;
   margin: 7px;
-  min-height: 45px;
 `

@@ -43,9 +43,7 @@ export default createGlobalStyle`
     grid-row: 2;
     margin:3px;
     overflow-y:scroll;
-    max-width: 370px;
-    
-    
+    max-width: 365px;    
    }
 
   footer {
