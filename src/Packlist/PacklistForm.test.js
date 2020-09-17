@@ -8,7 +8,7 @@ window.MutationObserver = require('mutation-observer')
 describe('PacklistForm', () => {
   it('creates a new packlist with item', async () => {
     const onPacklistSave = jest.fn()
-    const { getByText, getByPlaceholderText } = render(
+    const { getByText, getByAltText, getByPlaceholderText } = render(
       <PacklistForm onPacklistSave={onPacklistSave} />
     )
 
@@ -21,16 +21,16 @@ describe('PacklistForm', () => {
         target: { value: 'needed item' },
       }
     )
-    fireEvent.click(getByText('Add'))
+    fireEvent.click(getByAltText('add'))
     expect(getByText('needed item')).toBeInTheDocument()
 
-    fireEvent.submit(getByText('Save'))
+    fireEvent.submit(getByAltText('save'))
     await waitFor(() => expect(onPacklistSave).toHaveBeenCalled())
   })
 
   it('displays a form to create packlist', async () => {
     const onPacklistSave = jest.fn()
-    const { getByText, getByPlaceholderText } = render(
+    const { getByAltText, getByPlaceholderText } = render(
       <PacklistForm onPacklistSave={onPacklistSave} />
     )
 
@@ -39,7 +39,7 @@ describe('PacklistForm', () => {
     fireEvent.input(nameInput, { target: { value: 'My PacklistName' } })
     expect(nameInput.value).toBe('My PacklistName')
 
-    fireEvent.click(getByText('Reset'))
+    fireEvent.click(getByAltText('reload'))
     await waitFor(() => expect(nameInput.value).toBe(''))
   })
 

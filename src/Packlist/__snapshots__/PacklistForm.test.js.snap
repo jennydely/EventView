@@ -6,10 +6,10 @@ Object {
   "baseElement": .c4 {
   display: block;
   width: 100%;
-  padding: 20px;
   border-radius: 4px;
   border: var(--border-darkgrey);
   margin-top: 0;
+  margin-right: 7px;
   padding: 4px;
   font-size: 112.5%;
   color: black;
@@ -19,6 +19,7 @@ Object {
   font-weight: 400;
   size: 112.5%;
   margin: 4px;
+  margin-right: 7px;
   text-align: right;
 }
 
@@ -29,6 +30,7 @@ Object {
   border: var(--border-darkgrey);
   margin: 7px;
   margin-top: 0;
+  margin-right: 7px;
   padding: 7px 4px;
 }
 
@@ -36,7 +38,8 @@ Object {
   -webkit-align-content: center;
   -ms-flex-line-pack: center;
   align-content: center;
-  min-width: 300px;
+  overflow: hidden;
+  min-width: 365px;
 }
 
 .c1 {
@@ -57,7 +60,6 @@ Object {
   margin: 7px;
   margin-top: 0;
   padding: 7px 4px;
-  padding-bottom: 20px;
 }
 
 .c3 {
@@ -93,10 +95,6 @@ Object {
   width: 100%;
   margin: 7px;
   margin-top: 30px;
-}
-
-.c10 {
-  background-color: var(--darkred-75);
 }
 
 <body>
@@ -140,7 +138,10 @@ Object {
             class="c6"
             type="button"
           >
-            Add
+            <img
+              alt="add"
+              src="addIcon.svg"
+            />
           </button>
           <ul
             class="c7 c8"
@@ -152,13 +153,18 @@ Object {
           <button
             type="reset"
           >
-            Reset
+            <img
+              alt="reload"
+              src="reloadIcon.svg"
+            />
           </button>
           <button
-            class="c10"
             type="submit"
           >
-            Save
+            <img
+              alt="save"
+              src="saveIcon.svg"
+            />
           </button>
         </div>
       </form>
@@ -166,32 +172,32 @@ Object {
   </body>,
   "container": <div>
     <form
-      class="PacklistForm__Form-sc-1jem4nf-0 eBgvOZ"
+      class="PacklistForm__Form-sc-1jem4nf-0 blZlR"
       data-testid="packlistform"
     >
       <div
-        class="PacklistForm__FormInputContainer-sc-1jem4nf-1 cTCBWH"
+        class="PacklistForm__FormInputContainer-sc-1jem4nf-1 hqLshD"
       >
         <label
-          class="Label-sc-4r18cf-0 PacklistForm__PacklistNameInputLabel-sc-1jem4nf-2 kTDDAh VRePq"
+          class="Label-sc-4r18cf-0 PacklistForm__PacklistNameInputLabel-sc-1jem4nf-2 iATavU VRePq"
           for="name"
         >
           Name of the new PackList:
         </label>
         <input
-          class="Input-sc-1qrq46f-0 hKSNO"
+          class="Input-sc-1qrq46f-0 gSnath"
           id="name"
           name="name"
           placeholder="PackList name"
         />
         <label
-          class="Label-sc-4r18cf-0 kTDDAh"
+          class="Label-sc-4r18cf-0 iATavU"
           for="itemInput"
         >
           Create new item or task:
         </label>
         <input
-          class="Input-sc-1qrq46f-0 hKSNO"
+          class="Input-sc-1qrq46f-0 gSnath"
           id="itemInput"
           name="item"
           placeholder="Item you need or task you have to do"
@@ -204,10 +210,13 @@ Object {
           class="PacklistForm__AddButton-sc-1jem4nf-3 eERlGT"
           type="button"
         >
-          Add
+          <img
+            alt="add"
+            src="addIcon.svg"
+          />
         </button>
         <ul
-          class="ListContainer-sc-106yz72-0 PacklistForm__ItemContainer-sc-1jem4nf-4 fNjykF dUWpou"
+          class="ListContainer-sc-106yz72-0 PacklistForm__ItemContainer-sc-1jem4nf-4 jFPvJE dUWpou"
         />
       </div>
       <div
@@ -216,13 +225,18 @@ Object {
         <button
           type="reset"
         >
-          Reset
+          <img
+            alt="reload"
+            src="reloadIcon.svg"
+          />
         </button>
         <button
-          class="PacklistForm__SubmitButton-sc-1jem4nf-9 gaBTWT"
           type="submit"
         >
-          Save
+          <img
+            alt="save"
+            src="saveIcon.svg"
+          />
         </button>
       </div>
     </form>

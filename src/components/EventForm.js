@@ -32,15 +32,15 @@ export default function EventForm({
     control,
   } = useForm()
   const onSubmit = (eventEntry, event) => {
+    eventToEdit
+      ? onEventSaveEdit({
+          ...eventEntry,
+          id: eventToEdit.id,
+          isBought: eventToEdit.isBought,
+        })
+      : onEventSave(eventEntry)
     if (event && event.target && typeof event.target.reset === 'function')
-      eventToEdit
-        ? onEventSaveEdit({
-            ...eventEntry,
-            id: eventToEdit.id,
-            isBought: eventToEdit.isBought,
-          })
-        : onEventSave(eventEntry)
-    event.target.reset()
+      event.target.reset()
   }
 
   const allPacklists = packlists.map((packlist) => packlist.name)

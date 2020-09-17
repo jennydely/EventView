@@ -7,18 +7,22 @@ Object {
   min-width: 35px;
   min-height: 35px;
   text-align: right;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
   margin: 2px;
 }
 
 .c3 {
   text-align: right;
   margin: 2px;
+  margin-right: 7px;
   font-size: 112.5%;
 }
 
 .c0 {
   display: grid;
-  grid-template-columns: 20% repeat(4,auto);
+  grid-template-columns: 20% repeat(4,auto) 20%;
   grid-template-rows: repeat(8,auto);
   margin: 0;
   margin-top: -2px;
@@ -46,19 +50,19 @@ Object {
 }
 
 .c7 {
-  grid-column: 3/6;
+  grid-column: 3/7;
   grid-row: 2;
   text-align: left;
 }
 
 .c8 {
-  grid-column: 3/6;
+  grid-column: 3/7;
   grid-row: 3;
   text-align: left;
 }
 
 .c9 {
-  grid-column: 3/6;
+  grid-column: 3/7;
   grid-row: 5;
   text-align: left;
 }
@@ -81,6 +85,7 @@ Object {
   grid-column: 2;
   grid-row: 1 / span 4;
   margin-top: 7px;
+  margin-left: 4px;
   font-weight: 400;
   font-size: 112.5%;
 }
@@ -105,7 +110,7 @@ Object {
 }
 
 .c6 {
-  grid-column: 3/6;
+  grid-column: 3/7;
   grid-row: 1;
   text-align: left;
   margin-top: 7px;
@@ -117,7 +122,7 @@ Object {
 }
 
 .c13 {
-  grid-column: 1/6;
+  grid-column: 1/7;
   grid-row: 7;
   display: -webkit-box;
   display: -webkit-flex;
@@ -126,44 +131,46 @@ Object {
   width: 100%;
   margin: 1px;
   padding: 0;
+  padding-top: 7px;
   -webkit-box-pack: space-around;
   -webkit-justify-content: space-around;
   -ms-flex-pack: space-around;
   justify-content: space-around;
 }
 
-.c14 {
-  display: inline-block;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-  min-height: -webkit-fit-content;
-  min-height: -moz-fit-content;
-  min-height: fit-content;
-  margin: 2px;
-  padding: 4px 6px;
-  border: none;
-  border-radius: 6px;
-  background-color: var(--darkgrey-75);
-  font-size: 130%;
-  text-align: center;
-  color: var(--sandyellow-main);
+.c15 {
+  grid-column: 1/7;
+  grid-row: 8;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin: 1px;
+  padding: 0;
+  padding-top: 7px;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
 }
 
-.c15 {
-  grid-column: 5;
-  grid-row: 8;
-  color: var(--red-main);
-  font-size: 130%;
-  float: right;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  border-radius: 20px;
-  background: none;
-  margin: 4px;
-  margin-top: 7px;
-  min-width: 40px;
-  min-height: 40px;
+.c14 {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.c16 {
+  grid-column: 1 / span 2;
+  grid-row: 9;
+  margin: 7px;
+}
+
+.c17 {
+  grid-column: 3 / span 2;
+  grid-row: 9;
+  margin: 7px;
 }
 
 <body>
@@ -231,40 +238,61 @@ Object {
         <div
           class="c13"
         >
-          <button>
-            PackList
+          <button
+            class="c14"
+          >
+            <img
+              alt="packlist"
+              src="packlistIcon.svg"
+            />
           </button>
           <a
-            class="c14"
             href="https://www.wacken-winter-nights.com/"
             target="blank"
             title="link"
           >
-            Website
+            <img
+              alt="website"
+              src="websiteIcon.svg"
+            />
           </a>
           <a
-            class="c14"
             href="https://www.google.de/maps"
             target="blank"
             title="link"
           >
-            Route
+            <img
+              alt="route"
+              src="routeIcon.svg"
+            />
           </a>
         </div>
-        <button
+        <div
           class="c15"
         >
-          <img
-            alt="delete"
-            src="trash.svg"
-          />
-        </button>
+          <button
+            class="c16"
+          >
+            <img
+              alt="edit"
+              src="editIcon.svg"
+            />
+          </button>
+          <button
+            class="c17"
+          >
+            <img
+              alt="delete"
+              src="trashIcon.svg"
+            />
+          </button>
+        </div>
       </section>
     </div>
   </body>,
   "container": <div>
     <section
-      class="EventDetails__Details-sc-5njpgn-0 jzyqOf"
+      class="EventDetails__Details-sc-5njpgn-0 bVrAyc"
       name="metal"
     >
       <a
@@ -280,34 +308,34 @@ Object {
         />
       </a>
       <p
-        class="Paragraph-sc-1mi161p-0 EventDetails__Address-sc-5njpgn-4 dOlFuD jeXSoW"
+        class="Paragraph-sc-1mi161p-0 EventDetails__Address-sc-5njpgn-4 fEcaUy jDhRjz"
       >
         Address: 
       </p>
       <p
-        class="Paragraph-sc-1mi161p-0 EventDetails__Price-sc-5njpgn-5 dOlFuD fZtPPd"
+        class="Paragraph-sc-1mi161p-0 EventDetails__Price-sc-5njpgn-5 fEcaUy fZtPPd"
       >
         Price: 
       </p>
       <p
-        class="Paragraph-sc-1mi161p-0 EventDetails__Name-sc-5njpgn-7 dOlFuD bYAJMh"
+        class="Paragraph-sc-1mi161p-0 EventDetails__Name-sc-5njpgn-7 fEcaUy kidTkw"
       >
         WackenWinterNights
       </p>
       <p
-        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 dOlFuD ietIPp"
+        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 fEcaUy daydTU"
       >
         Reselithweg 17
       </p>
       <p
-        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 dOlFuD dRfJVg"
+        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 fEcaUy hnMcOd"
       >
         25596
          
         Wacken
       </p>
       <p
-        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 dOlFuD dDFOva"
+        class="Paragraph-sc-1mi161p-0 EventDetails__ParagraphColumn3-sc-5njpgn-1 fEcaUy fbEmwn"
       >
         99 €
          
@@ -319,41 +347,62 @@ Object {
         Ticket
       </label>
       <input
-        class="Checkbox-sc-1a8a6ug-0 EventDetails__Ticket-sc-5njpgn-8 gzSQNf fiAzfq"
+        class="Checkbox-sc-1a8a6ug-0 EventDetails__Ticket-sc-5njpgn-8 inBMjt fiAzfq"
         for="Ticket"
         type="checkbox"
       />
       <div
-        class="EventDetails__ButtonContainer-sc-5njpgn-9 gSLsaQ"
+        class="EventDetails__ButtonContainer-sc-5njpgn-9 jGkBco"
       >
-        <button>
-          PackList
+        <button
+          class="EventDetails__PacklistButton-sc-5njpgn-10 ilXAzy"
+        >
+          <img
+            alt="packlist"
+            src="packlistIcon.svg"
+          />
         </button>
         <a
-          class="EventDetails__ExternalLink-sc-5njpgn-10 juBvfX"
           href="https://www.wacken-winter-nights.com/"
           target="blank"
           title="link"
         >
-          Website
+          <img
+            alt="website"
+            src="websiteIcon.svg"
+          />
         </a>
         <a
-          class="EventDetails__ExternalLink-sc-5njpgn-10 juBvfX"
           href="https://www.google.de/maps"
           target="blank"
           title="link"
         >
-          Route
+          <img
+            alt="route"
+            src="routeIcon.svg"
+          />
         </a>
       </div>
-      <button
-        class="EventDetails__DeleteButton-sc-5njpgn-11 fZjmlO"
+      <div
+        class="EventDetails__ButtonContainer-sc-5njpgn-9 ipaQgp"
       >
-        <img
-          alt="delete"
-          src="trash.svg"
-        />
-      </button>
+        <button
+          class="EventDetails__EditButton-sc-5njpgn-11 bCmRUo"
+        >
+          <img
+            alt="edit"
+            src="editIcon.svg"
+          />
+        </button>
+        <button
+          class="EventDetails__DeleteButton-sc-5njpgn-12 iuTjAA"
+        >
+          <img
+            alt="delete"
+            src="trashIcon.svg"
+          />
+        </button>
+      </div>
     </section>
   </div>,
   "debug": [Function],

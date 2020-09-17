@@ -9,6 +9,7 @@ Object {
   border: var(--border-darkgrey);
   color: var(--lightyellow-90);
   background: var(--lightgrey-main);
+  min-height: 45px;
 }
 
 .c5 {
@@ -18,42 +19,6 @@ Object {
   font-size: 112.5%;
   color: var(--lightyellow-90);
   background: var(--lightgrey-main);
-}
-
-.c6 {
-  display: block;
-  border-radius: 4px;
-  border: var(--border-darkgrey);
-  font-size: 112.5%;
-  color: var(--lightyellow-90);
-  background: var(--darkgrey-75);
-}
-
-.c7 {
-  display: block;
-  border-radius: 4px;
-  border: var(--border-darkgrey);
-  font-size: 112.5%;
-  color: var(--lightyellow-90);
-  background: var(--darkbrown-70);
-}
-
-.c8 {
-  display: block;
-  border-radius: 4px;
-  border: var(--border-darkgrey);
-  font-size: 112.5%;
-  color: var(--lightyellow-90);
-  background: var(--blue-70);
-}
-
-.c9 {
-  display: block;
-  border-radius: 4px;
-  border: var(--border-darkgrey);
-  font-size: 112.5%;
-  color: var(--lightyellow-90);
-  background: var(--lightbrown-70);
 }
 
 .c3 {
@@ -66,6 +31,7 @@ Object {
   border: var(--border-darkgrey);
   color: var(--lightyellow-90);
   background: var(--lightgrey-main);
+  min-height: 45px;
 }
 
 .c2 {
@@ -94,16 +60,19 @@ Object {
           >
             <option
               class="c2"
+              value="date"
             >
               date
             </option>
             <option
               class="c2"
+              value="a-Z"
             >
               a-Z
             </option>
             <option
               class="c2"
+              value="Z-a"
             >
               Z-a
             </option>
@@ -111,6 +80,7 @@ Object {
         </div>
         <div
           class="c3"
+          data-testid="my-select-component"
         >
           <select
             class="c4"
@@ -119,26 +89,31 @@ Object {
           >
             <option
               class="c5"
+              value="all"
             >
               all
             </option>
             <option
-              class="c6"
+              class="c5"
+              value="metal"
             >
               metal
             </option>
             <option
-              class="c7"
+              class="c5"
+              value="medieval"
             >
               medieval
             </option>
             <option
-              class="c8"
+              class="c5"
+              value="holiday"
             >
               holiday
             </option>
             <option
-              class="c9"
+              class="c5"
+              value="other"
             >
               other
             </option>
@@ -153,22 +128,25 @@ Object {
         class="Header__ButtonContainer-mnmp8e-0 hThdJr"
       >
         <select
-          class="SelectEvents__SelectStyled-sc-11glujg-0 iWWXzJ"
+          class="SelectEvents__SelectStyled-sc-11glujg-0 elJhvd"
           id="filter"
           name="date,a-Z,Z-a"
         >
           <option
             class="SelectEvents__OptionStyled-sc-11glujg-1 ituhoZ"
+            value="date"
           >
             date
           </option>
           <option
             class="SelectEvents__OptionStyled-sc-11glujg-1 ituhoZ"
+            value="a-Z"
           >
             a-Z
           </option>
           <option
             class="SelectEvents__OptionStyled-sc-11glujg-1 ituhoZ"
+            value="Z-a"
           >
             Z-a
           </option>
@@ -176,34 +154,40 @@ Object {
       </div>
       <div
         class="CategoryFilter__FilterContainer-rogkyz-0 fmiTmv"
+        data-testid="my-select-component"
       >
         <select
-          class="SelectCategory__SelectStyled-sc-1n16935-0 kPEDeF"
+          class="SelectCategory__SelectStyled-sc-1n16935-0 bdBdqF"
           id="category"
           name="all,metal,medieval,holiday,other"
         >
           <option
             class="SelectCategory__OptionStyled-sc-1n16935-1 kGYOSt"
+            value="all"
           >
             all
           </option>
           <option
-            class="SelectCategory__OptionStyled-sc-1n16935-1 JZlKi"
+            class="SelectCategory__OptionStyled-sc-1n16935-1 kGYOSt"
+            value="metal"
           >
             metal
           </option>
           <option
-            class="SelectCategory__OptionStyled-sc-1n16935-1 eTyMJM"
+            class="SelectCategory__OptionStyled-sc-1n16935-1 kGYOSt"
+            value="medieval"
           >
             medieval
           </option>
           <option
-            class="SelectCategory__OptionStyled-sc-1n16935-1 kSaATc"
+            class="SelectCategory__OptionStyled-sc-1n16935-1 kGYOSt"
+            value="holiday"
           >
             holiday
           </option>
           <option
-            class="SelectCategory__OptionStyled-sc-1n16935-1 gxfQXm"
+            class="SelectCategory__OptionStyled-sc-1n16935-1 kGYOSt"
+            value="other"
           >
             other
           </option>
