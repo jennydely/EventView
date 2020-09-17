@@ -34,7 +34,11 @@ export default function EventForm({
   const onSubmit = (eventEntry, event) => {
     if (event && event.target && typeof event.target.reset === 'function')
       eventToEdit
-        ? onEventSaveEdit({ ...eventEntry, id: eventToEdit.id })
+        ? onEventSaveEdit({
+            ...eventEntry,
+            id: eventToEdit.id,
+            isBought: eventToEdit.isBought,
+          })
         : onEventSave(eventEntry)
     event.target.reset()
   }

@@ -14,7 +14,8 @@ export default function useEventForm(addEvent, updateEvent) {
   }
   const onEventSaveEdit = (event) => {
     console.log('eventSaveEdit', event)
-    updateEvent(event)
+    const newEvent = JSON.parse(JSON.stringify(event))
+    updateEvent(newEvent)
     setEventFormIsVisible(false)
   }
   const goEventBack = () =>
