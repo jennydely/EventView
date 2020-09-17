@@ -8,12 +8,10 @@ export default function useEventForm(addEvent, updateEvent) {
   }
 
   const onEventSave = (event) => {
-    console.log('eventSave', event)
     addEvent(event)
     setEventFormIsVisible(false)
   }
   const onEventSaveEdit = (event) => {
-    console.log('eventSaveEdit', event)
     const newEvent = JSON.parse(JSON.stringify(event))
     updateEvent(newEvent)
     setEventFormIsVisible(false)
