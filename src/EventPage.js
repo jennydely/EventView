@@ -15,6 +15,7 @@ import backIcon from './img/backIcon.svg'
 export default function EventPage() {
   const [categoryFilter, setCategoryFilter] = useState('all')
   const [eventFilter, setEventFilter] = useState('date')
+  const [eventToEdit, setEventToEdit] = useState()
   const {
     eventArray,
     addEvent,
@@ -26,8 +27,9 @@ export default function EventPage() {
     eventFormIsVisible,
     showEventForm,
     onEventSave,
+    onEventSaveEdit,
     goEventBack,
-  } = useEventForm(addEvent)
+  } = useEventForm(addEvent, updateEvent)
   const { packlists, addPacklist } = usePacklists()
   const {
     packlistFormIsVisible,
@@ -49,7 +51,12 @@ export default function EventPage() {
             <h1>Create Event</h1>
           </header>
           <main>
-            <EventForm onEventSave={onEventSave} packlists={packlists} />
+            <EventForm
+              onEventSave={onEventSave}
+              packlists={packlists}
+              eventToEdit={eventToEdit}
+              onEventSaveEdit={onEventSaveEdit}
+            />
           </main>
           <footer>
             <button type="button" onClick={goEventBack}>
@@ -86,6 +93,7 @@ export default function EventPage() {
               eventFilter={eventFilter}
               categoryFilter={categoryFilter}
               onHideButtonClick={toggleHide}
+              onEditButtonClick={editEvent}
               onDeleteButtonClick={delEvent}
               onTicketCheckboxClick={handleTicketCheckbox}
             />
@@ -110,6 +118,13 @@ export default function EventPage() {
     const eventUpdate = eventArray[index]
     eventUpdate.isHidden = !eventUpdate.isHidden
     updateEvent(eventUpdate)
+  }
+
+  function editEvent(id) {
+    const index = eventArray.findIndex((event) => event.id === id)
+    const eventToEdit = eventArray[index]
+    setEventToEdit(eventToEdit)
+    showEventForm()
   }
 
   function delEvent(id) {

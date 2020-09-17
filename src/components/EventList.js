@@ -11,6 +11,7 @@ export default function EventList({
   categoryFilter,
   eventFilter,
   onHideButtonClick,
+  onEditButtonClick,
   onDeleteButtonClick,
   onTicketCheckboxClick,
 }) {
@@ -37,6 +38,7 @@ export default function EventList({
                   id={event.id}
                   onHideButtonClick={onHideButtonClick}
                   onDeleteButtonClick={onDeleteButtonClick}
+                  onEditButtonClick={onEditButtonClick}
                   onTicketCheckboxClick={onTicketCheckboxClick}
                 ></EventItem>
               )

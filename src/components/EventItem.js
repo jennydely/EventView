@@ -12,6 +12,7 @@ export default function EventItem({
   event,
   id,
   onHideButtonClick,
+  onEditButtonClick,
   onDeleteButtonClick,
   onTicketCheckboxClick,
 }) {
@@ -37,6 +38,7 @@ export default function EventItem({
           style={detailStyle}
           bind={bind}
           onDeleteButtonClick={onDeleteButtonClick}
+          onEditButtonClick={onEditButtonClick}
           onTicketCheckboxClick={onTicketCheckboxClick}
         />
       </Event>

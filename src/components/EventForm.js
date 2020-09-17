@@ -17,7 +17,12 @@ EventForm.propTypes = {
   packlists: PropTypes.array.isRequired,
 }
 
-export default function EventForm({ onEventSave, packlists }) {
+export default function EventForm({
+  onEventSave,
+  onEventSaveEdit,
+  packlists,
+  eventToEdit,
+}) {
   const {
     register,
     handleSubmit,
@@ -28,19 +33,25 @@ export default function EventForm({ onEventSave, packlists }) {
   } = useForm()
   const onSubmit = (eventEntry, event) => {
     if (event && event.target && typeof event.target.reset === 'function')
-      // for testing
-
-      event.target.reset()
-    onEventSave(eventEntry)
+      eventToEdit
+        ? onEventSaveEdit({ ...eventEntry, id: eventToEdit.id })
+        : onEventSave(eventEntry)
+    event.target.reset()
   }
+
   const allPacklists = packlists.map((packlist) => packlist.name)
   return (
     <>
-      <Form data-testid="eventform" onSubmit={handleSubmit(onSubmit)}>
+      <Form
+        data-testid="eventform"
+        onSubmit={handleSubmit(onSubmit)}
+        eventToEdit={eventToEdit ? eventToEdit : false}
+      >
         <CategoryInputLabel htmlFor="category">Category:</CategoryInputLabel>
         <CategoryInput
           name="category"
           id="category"
+          defaultValue={eventToEdit?.category}
           register={register({ required: true })}
           options={['metal', 'medieval', 'holiday', 'other']}
         />
@@ -56,6 +67,7 @@ export default function EventForm({ onEventSave, packlists }) {
         <InputColumn2
           row={3}
           placeholder="event name"
+          defaultValue={eventToEdit?.name}
           id="name"
           name="name"
           ref={register({
@@ -89,6 +101,7 @@ export default function EventForm({ onEventSave, packlists }) {
         <InputColumn2
           row={6}
           placeholder="location of the event"
+          defaultValue={eventToEdit?.location}
           id="location"
           name="location"
           ref={register({
@@ -126,7 +139,9 @@ export default function EventForm({ onEventSave, packlists }) {
           <EventStartDateController
             id="EventStartDate"
             name="eventStartDate"
-            defaultValue=""
+            defaultValue={
+              eventToEdit ? new Date(eventToEdit?.eventStartDate) : ''
+            }
             control={control}
             rules={{
               required: true,
@@ -164,7 +179,9 @@ export default function EventForm({ onEventSave, packlists }) {
           <EventEndDateController
             id="EventEndDate"
             name="eventEndDate"
-            defaultValue=""
+            defaultValue={
+              eventToEdit ? new Date(eventToEdit?.eventEndDate) : ''
+            }
             control={control}
             rules={{
               required: true,
@@ -197,6 +214,7 @@ export default function EventForm({ onEventSave, packlists }) {
         <InputColumn2
           row={11}
           placeholder="street + number"
+          defaultValue={eventToEdit?.street}
           id="street"
           name="street"
           ref={register({
@@ -221,6 +239,7 @@ export default function EventForm({ onEventSave, packlists }) {
         <InputColumn2
           row={13}
           placeholder="zip"
+          defaultValue={eventToEdit?.zip}
           id="zip"
           name="zip"
           ref={register({
@@ -246,6 +265,7 @@ export default function EventForm({ onEventSave, packlists }) {
         <InputColumn2
           row={15}
           placeholder="http://www.website.de"
+          defaultValue={eventToEdit?.website}
           id="website"
           name="website"
           ref={register({
@@ -279,6 +299,7 @@ export default function EventForm({ onEventSave, packlists }) {
         <InputColumn2
           row={17}
           placeholder="ticket price or range"
+          defaultValue={eventToEdit?.price}
           id="price"
           name="price"
           ref={register({ required: false })}
@@ -289,6 +310,7 @@ export default function EventForm({ onEventSave, packlists }) {
         <InputColumn2
           row={18}
           placeholder="http://website.de/banner.jpg"
+          defaultValue={eventToEdit?.poster}
           id="poster"
           name="poster"
           ref={register({
@@ -300,6 +322,7 @@ export default function EventForm({ onEventSave, packlists }) {
           Add PackList:
         </InputLabelColumn1>
         <PacklistInput
+          defaultValue={eventToEdit?.packlistCategory}
           name="packlistCategory"
           id="packlist"
           register={register({ required: true })}

@@ -15,6 +15,7 @@ export default function EventDetails({
   event,
   style,
   bind,
+  onEditButtonClick,
   onDeleteButtonClick,
   onTicketCheckboxClick,
 }) {
@@ -87,7 +88,7 @@ export default function EventDetails({
   )
 
   function handleEditButtonClick() {
-    //onEditButtonClick(event.id)
+    onEditButtonClick(event.id)
   }
 
   function handleDeleteButtonClick() {
