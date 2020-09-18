@@ -17,11 +17,14 @@ export default function PackListPage() {
   function goBackButton() {
     history.goBack()
   }
+  function handleEditPacklist(editPacklistID) {
+    history.push('/editpacklist/' + editPacklistID)
+  }
   return (
     <>
       <header>
         {packlistName ? <h1>PackList</h1> : <h1>No PackList</h1>}
-        <EditButton>
+        <EditButton onClick={handleEditButtonClick}>
           <EditImg src={editIcon} alt="edit" />
         </EditButton>
       </header>
@@ -57,6 +60,10 @@ export default function PackListPage() {
       </>
     </>
   )
+  function handleEditButtonClick() {
+    const editPacklistID = chosenPacklist.id
+    handleEditPacklist(editPacklistID)
+  }
 
   function handleCheckboxClick(checkedItem) {
     const id = checkedItem.itemID

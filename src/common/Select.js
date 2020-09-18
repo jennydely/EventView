@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components/macro'
 
 export function Input({ register, name, ...rest }) {
   return <input name={name} ref={register} {...rest} />

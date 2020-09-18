@@ -10,6 +10,10 @@ export default function usePacklistForm(addPacklist) {
     setPacklistFormIsVisible(false)
   }
 
+  const onPacklistSaveEdit = (packlist) => {
+    addPacklist(packlist)
+    setPacklistFormIsVisible(false)
+  }
   const goPacklistBack = () =>
     window.location.reload() && setPacklistFormIsVisible(false)
 
@@ -18,5 +22,6 @@ export default function usePacklistForm(addPacklist) {
     showPacklistForm,
     onPacklistSave,
     goPacklistBack,
+    onPacklistSaveEdit,
   }
 }

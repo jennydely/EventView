@@ -42,7 +42,6 @@ export default function EventPage() {
     (event) =>
       event.eventStartDate.slice(0, 4) < getYearsOfEvents(eventArray)[0]
   )
-
   return (
     <>
       {eventFormIsVisible ? (

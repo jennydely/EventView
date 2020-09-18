@@ -13,24 +13,31 @@ import usePacklists from './usePacklists'
 import reloadIcon from '../img/reloadIcon.svg'
 import saveIcon from '../img/saveIcon.svg'
 import addIcon from '../img/addIcon.svg'
+import { useParams } from 'react-router-dom'
+import usePacklistForm from './usePacklistForm'
 
 PacklistForm.propTypes = {
-  onPacklistSave: PropTypes.func.isRequired,
+  onPacklistSaveEdit: PropTypes.func,
 }
 
 export default function PacklistForm({ onPacklistSave }) {
   const { register, handleSubmit, reset, errors } = useForm()
   const [items, setItems] = useState([])
   const { packlists } = usePacklists()
+  const { editPacklistID } = useParams()
   const [itemError, setItemError] = useState(false)
   const itemRef = useRef(null)
+  const { onPacklistSaveEdit } = usePacklistForm()
+
   const onSubmit = (packlist, event) => {
     event.preventDefault()
     // for testing...
     if (event?.target && typeof event?.target.reset === 'function')
       //
       event.target.reset()
-    onPacklistSave({ name: packlist.name, packlist: items, id: uuid })
+    editPacklistID
+      ? onPacklistSaveEdit({ name: packlist.name, packlist: items, id: uuid })
+      : onPacklistSave({ name: packlist.name, packlist: items, id: uuid })
   }
   const handlePacklistKeyDown = (event) => {
     if (event.key === 'Enter') {
@@ -38,6 +45,8 @@ export default function PacklistForm({ onPacklistSave }) {
       addItem({ text: event.target.value, id: uuid() })
     }
   }
+
+  const packlistToEdit = editPacklist()
 
   return (
     <>
@@ -50,6 +59,7 @@ export default function PacklistForm({ onPacklistSave }) {
             placeholder="PackList name"
             id="name"
             name="name"
+            defaultValue={packlistToEdit?.name}
             ref={register({
               required: true,
               minLength: 3,
@@ -152,6 +162,14 @@ export default function PacklistForm({ onPacklistSave }) {
 
   function deleteItem(index) {
     setItems([...items.slice(0, index), ...items.slice(index + 1)])
+  }
+
+  function editPacklist() {
+    const index = packlists.findIndex(
+      (packlist) => '' + packlist.id === editPacklistID
+    )
+    const editPacklist = packlists[index]
+    return editPacklist
   }
 }
 
