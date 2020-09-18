@@ -398,7 +398,7 @@ const ErrorMessageCategoryReq = styled(ErrorMessage)`
 const EventInfosText = styled.h2`
   grid-column: 1 / span 2;
   grid-row: 8;
-  margin-top: 20px;
+  margin-top: 4px;
 `
 const EventStartDateContainer = styled.div`
   grid-column: 2/3;
@@ -465,7 +465,7 @@ const ButtonGroup = styled.div`
   grid-row: 20;
   display: flex;
   justify-content: center;
-  margin: 14px 7px;
+  margin: 4px 7px;
 `
 const SubmitButton = styled.button`
   grid-column: 1 / span 3;
