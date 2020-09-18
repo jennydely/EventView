@@ -131,7 +131,7 @@ Object {
 .c9 {
   grid-column: 1 / span 2;
   grid-row: 8;
-  margin-top: 20px;
+  margin-top: 4px;
 }
 
 .c11 {
@@ -173,7 +173,7 @@ Object {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin: 14px 7px;
+  margin: 4px 7px;
 }
 
 .c25 {
@@ -461,7 +461,7 @@ Object {
         value=""
       />
       <h2
-        class="EventForm__EventInfosText-sc-1hr7ssh-8 jaKOTo"
+        class="EventForm__EventInfosText-sc-1hr7ssh-8 dskcXW"
       >
         EventInfos
       </h2>
@@ -588,7 +588,7 @@ Object {
         </option>
       </select>
       <div
-        class="EventForm__ButtonGroup-sc-1hr7ssh-17 fXIaKW"
+        class="EventForm__ButtonGroup-sc-1hr7ssh-17 dXRXXT"
       >
         <button
           type="reset"

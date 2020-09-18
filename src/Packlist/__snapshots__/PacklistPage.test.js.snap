@@ -4,18 +4,35 @@ exports[`PackList renders correctly 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .c0 {
+  width: 40px;
+  height: auto;
+  margin: 7px 4px;
+}
+
+.c1 {
   text-align: center;
 }
 
 <body>
     <div>
-      <main>
+      <header>
         <h1>
           No PackList
         </h1>
+        <button
+          class="PacklistPage__EditButton-t2ih9w-1"
+        >
+          <img
+            alt="edit"
+            class="c0"
+            src="editIcon.svg"
+          />
+        </button>
+      </header>
+      <main>
         
         <p
-          class="c0"
+          class="c1"
         >
           There is no packlist added to this event
         </p>
@@ -24,19 +41,33 @@ Object {
         <button
           type="button"
         >
-          Back
+          <img
+            alt="back"
+            src="backIcon.svg"
+          />
         </button>
       </footer>
     </div>
   </body>,
   "container": <div>
-    <main>
+    <header>
       <h1>
         No PackList
       </h1>
+      <button
+        class="PacklistPage__EditButton-t2ih9w-1"
+      >
+        <img
+          alt="edit"
+          class="PacklistPage__EditImg-t2ih9w-0 fORUOQ"
+          src="editIcon.svg"
+        />
+      </button>
+    </header>
+    <main>
       
       <p
-        class="PacklistPage__NoPacklistText-t2ih9w-0 ckFMDF"
+        class="PacklistPage__NoPacklistText-t2ih9w-2 bFfQZL"
       >
         There is no packlist added to this event
       </p>
@@ -45,7 +76,10 @@ Object {
       <button
         type="button"
       >
-        Back
+        <img
+          alt="back"
+          src="backIcon.svg"
+        />
       </button>
     </footer>
   </div>,

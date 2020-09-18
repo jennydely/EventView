@@ -1,5 +1,6 @@
 import React from 'react'
 import { render, fireEvent, waitFor } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import PacklistForm from './PacklistForm'
 import 'jest-styled-components'
 
@@ -7,9 +8,11 @@ window.MutationObserver = require('mutation-observer')
 
 describe('PacklistForm', () => {
   it('creates a new packlist with item', async () => {
-    const onPacklistSave = jest.fn()
     const { getByText, getByAltText, getByPlaceholderText } = render(
-      <PacklistForm onPacklistSave={onPacklistSave} />
+      <MemoryRouter>
+        {' '}
+        <PacklistForm />
+      </MemoryRouter>
     )
 
     fireEvent.input(getByPlaceholderText('PackList name'), {
@@ -23,15 +26,13 @@ describe('PacklistForm', () => {
     )
     fireEvent.click(getByAltText('add'))
     expect(getByText('needed item')).toBeInTheDocument()
-
-    fireEvent.submit(getByAltText('save'))
-    await waitFor(() => expect(onPacklistSave).toHaveBeenCalled())
   })
 
   it('displays a form to create packlist', async () => {
-    const onPacklistSave = jest.fn()
     const { getByAltText, getByPlaceholderText } = render(
-      <PacklistForm onPacklistSave={onPacklistSave} />
+      <MemoryRouter>
+        <PacklistForm />
+      </MemoryRouter>
     )
 
     const nameInput = getByPlaceholderText('PackList name')
@@ -44,8 +45,11 @@ describe('PacklistForm', () => {
   })
 
   it('renders correctly', () => {
-    const onPacklistSave = jest.fn()
-    const tree = render(<PacklistForm onPacklistSave={onPacklistSave} />)
+    const tree = render(
+      <MemoryRouter>
+        <PacklistForm />
+      </MemoryRouter>
+    )
     expect(tree).toMatchSnapshot()
   })
 })

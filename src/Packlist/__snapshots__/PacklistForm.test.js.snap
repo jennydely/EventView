@@ -117,6 +117,7 @@ Object {
             id="name"
             name="name"
             placeholder="PackList name"
+            value=""
           />
           <label
             class="c2"
@@ -189,6 +190,7 @@ Object {
           id="name"
           name="name"
           placeholder="PackList name"
+          value=""
         />
         <label
           class="Label-sc-4r18cf-0 iATavU"
