@@ -17,6 +17,21 @@ export default function usePacklists() {
       .catch(setError)
   }
 
+  const updatePacklist = (packlist) => {
+    putPacklist(packlist)
+      .then((packlistUpdate) => {
+        const index = packlists.findIndex(
+          (packlist) => packlist.id === packlistUpdate.id
+        )
+        return setPacklists([
+          ...packlists.slice(0, index),
+          { ...packlistUpdate },
+          ...packlists.slice(index + 1),
+        ])
+      })
+      .catch(setError)
+  }
+
   const updatePacklistCheckbox = (chosenPacklist) => {
     putPacklist(chosenPacklist)
       .then((packlistUpdate) => {
@@ -32,5 +47,11 @@ export default function usePacklists() {
       .catch(setError)
   }
 
-  return { packlists, addPacklist, updatePacklistCheckbox, error }
+  return {
+    packlists,
+    addPacklist,
+    updatePacklist,
+    updatePacklistCheckbox,
+    error,
+  }
 }

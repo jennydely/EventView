@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import usePacklists from './usePacklists'
 
-export default function usePacklistForm(addPacklist) {
+export default function usePacklistForm() {
   const [packlistFormIsVisible, setPacklistFormIsVisible] = useState(false)
+  const { updatePacklist, addPacklist } = usePacklists()
 
   const showPacklistForm = () => setPacklistFormIsVisible(true)
 
@@ -9,10 +11,9 @@ export default function usePacklistForm(addPacklist) {
     addPacklist(packlist)
     setPacklistFormIsVisible(false)
   }
-
   const onPacklistSaveEdit = (packlist) => {
-    addPacklist(packlist)
-    setPacklistFormIsVisible(false)
+    updatePacklist(packlist)
+    return true
   }
   const goPacklistBack = () =>
     window.location.reload() && setPacklistFormIsVisible(false)
