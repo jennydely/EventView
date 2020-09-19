@@ -43,8 +43,14 @@ export default createGlobalStyle`
     grid-row: 2;
     margin:3px;
     overflow-y:scroll;
+    scrollbar-width: none;
     width: 365px;    
    }
+
+   &&
+   ::-webkit-scrollbar {
+  display: none;
+}
 
   footer {
     grid-row: 3;
