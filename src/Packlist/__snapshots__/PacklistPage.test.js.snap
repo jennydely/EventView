@@ -19,9 +19,7 @@ Object {
         <h1>
           No PackList
         </h1>
-        <button
-          class="PacklistPage__EditButton-t2ih9w-1"
-        >
+        <button>
           <img
             alt="edit"
             class="c0"
@@ -54,9 +52,7 @@ Object {
       <h1>
         No PackList
       </h1>
-      <button
-        class="PacklistPage__EditButton-t2ih9w-1"
-      >
+      <button>
         <img
           alt="edit"
           class="PacklistPage__EditImg-t2ih9w-0 fORUOQ"
@@ -67,7 +63,7 @@ Object {
     <main>
       
       <p
-        class="PacklistPage__NoPacklistText-t2ih9w-2 bFfQZL"
+        class="PacklistPage__NoPacklistText-t2ih9w-1 ixZpQk"
       >
         There is no packlist added to this event
       </p>

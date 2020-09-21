@@ -16,6 +16,7 @@ import addIcon from '../img/addIcon.svg'
 import { useParams, useHistory } from 'react-router-dom'
 import usePacklistForm from './usePacklistForm'
 import { getUniquePacklists } from '../services/getUniquePacklists'
+import { getUniqueItems } from '../services/getUniqueItems'
 
 export default function PacklistForm() {
   const { register, handleSubmit, reset, errors } = useForm()
@@ -28,7 +29,7 @@ export default function PacklistForm() {
   const { onPacklistSaveEdit, onPacklistSave } = usePacklistForm()
   const history = useHistory()
   const uniquePacklists = getUniquePacklists(packlists)
-
+  const uniqueItems = getUniqueItems(items)
   const onSubmit = (packlist, event) => {
     event.preventDefault()
     const isExistingPacklist = packlists.some(
@@ -136,8 +137,8 @@ export default function PacklistForm() {
             <img src={addIcon} alt="add" />
           </AddButton>
           <ItemContainer>
-            {items.map(({ item, completed, itemID }, index) => (
-              <ListItem key={item} id={item.ID} text={item}>
+            {uniqueItems?.map(({ item, completed, itemID }, index) => (
+              <ListItem key={item} id={itemID} text={item}>
                 <Checkbox type="checkbox" checked={completed} />
                 <TextSpan>{item}</TextSpan>
                 <DeleteButton onClick={() => deleteItem(index)} type="button">

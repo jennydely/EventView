@@ -23,6 +23,11 @@ Object {
   text-align: right;
 }
 
+.c9 {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
 .c7 {
   display: block;
   width: 95%;
@@ -81,9 +86,14 @@ Object {
   display: none;
 }
 
-.c9 {
+.c10 {
   grid-column: 1;
   grid-row: 8;
+}
+
+.c11 {
+  grid-column: 1;
+  grid-row: 9;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -147,9 +157,14 @@ Object {
           <ul
             class="c7 c8"
           />
+          <select
+            class="c9 c10"
+            id="packlistTemplate"
+            name="packlistName"
+          />
         </div>
         <div
-          class="c9"
+          class="c11"
         >
           <button
             type="reset"
@@ -220,9 +235,14 @@ Object {
         <ul
           class="ListContainer-sc-106yz72-0 PacklistForm__ItemContainer-sc-1jem4nf-4 jFPvJE dUWpou"
         />
+        <select
+          class="SelectTemplate__StyledSelect-sc-1k8kju6-0 fSRXVw PacklistForm__TemplateDropDown-sc-1jem4nf-8 crnhMZ"
+          id="packlistTemplate"
+          name="packlistName"
+        />
       </div>
       <div
-        class="PacklistForm__ButtonGroup-sc-1jem4nf-8 hqTPqe"
+        class="PacklistForm__ButtonGroup-sc-1jem4nf-9 eWdFVy"
       >
         <button
           type="reset"
