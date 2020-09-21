@@ -6,6 +6,7 @@ import Input from '../common/Input'
 import Label from '../common/Label'
 import Checkbox from '../common/Checkbox'
 import ErrorMessage from '../common/ErrorMessage'
+import SelectTemplate from '../common/SelectTemplate'
 import ListContainer from '../common/ListContainer'
 import ListItem from '../common/ListItem'
 import usePacklists from './usePacklists'
@@ -14,6 +15,8 @@ import saveIcon from '../img/saveIcon.svg'
 import addIcon from '../img/addIcon.svg'
 import { useParams, useHistory } from 'react-router-dom'
 import usePacklistForm from './usePacklistForm'
+import { getUniquePacklists } from '../services/getUniquePacklists'
+import { getUniqueItems } from '../services/getUniqueItems'
 
 export default function PacklistForm() {
   const { register, handleSubmit, reset, errors } = useForm()
@@ -25,7 +28,8 @@ export default function PacklistForm() {
   const itemRef = useRef(null)
   const { onPacklistSaveEdit, onPacklistSave } = usePacklistForm()
   const history = useHistory()
-
+  const uniquePacklists = getUniquePacklists(packlists)
+  const uniqueItems = getUniqueItems(items)
   const onSubmit = (packlist, event) => {
     event.preventDefault()
     const isExistingPacklist = packlists.some(
@@ -133,8 +137,8 @@ export default function PacklistForm() {
             <img src={addIcon} alt="add" />
           </AddButton>
           <ItemContainer>
-            {items.map(({ item, completed, itemID }, index) => (
-              <ListItem key={itemID} text={item}>
+            {uniqueItems?.map(({ item, completed, itemID }, index) => (
+              <ListItem key={item} id={itemID} text={item}>
                 <Checkbox type="checkbox" checked={completed} />
                 <TextSpan>{item}</TextSpan>
                 <DeleteButton onClick={() => deleteItem(index)} type="button">
@@ -143,7 +147,15 @@ export default function PacklistForm() {
               </ListItem>
             ))}
           </ItemContainer>
+          <TemplateDropDown
+            id="packlistTemplate"
+            defaultValue=" "
+            name="packlistName"
+            options={uniquePacklists}
+            addMultiplyItems={addMultiplyItems}
+          />
         </FormInputContainer>
+
         <ButtonGroup>
           <button type="reset" onClick={() => reset()}>
             <img src={reloadIcon} alt="reload" />
@@ -162,6 +174,13 @@ export default function PacklistForm() {
       itemRef.current.value = ''
       setItemError(false)
     } else setItemError(true)
+  }
+
+  function addMultiplyItems(templateName) {
+    const templatePacklist = packlists.find(
+      (packlist) => templateName.name === packlist.name
+    )
+    setItems([...templatePacklist.packlist, ...items])
   }
 
   function deleteItem(index) {
@@ -218,9 +237,14 @@ const DeleteButton = styled.button`
   background: none;
   padding: 0;
 `
-const ButtonGroup = styled.div`
+const TemplateDropDown = styled(SelectTemplate)`
   grid-column: 1;
   grid-row: 8;
+`
+
+const ButtonGroup = styled.div`
+  grid-column: 1;
+  grid-row: 9;
   display: flex;
   justify-content: center;
   width: 100%;

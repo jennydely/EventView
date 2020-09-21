@@ -78,6 +78,7 @@ Object {
             class="c4"
             id="category"
             name="all,metal,medieval,holiday,other"
+            placeholder="all"
           >
             <option
               class="c5"
@@ -152,6 +153,7 @@ Object {
           class="SelectCategory__StyledSelect-sc-1n16935-0 iCxlMT"
           id="category"
           name="all,metal,medieval,holiday,other"
+          placeholder="all"
         >
           <option
             class="SelectCategory__OptionStyled-sc-1n16935-1 kGYOSt"

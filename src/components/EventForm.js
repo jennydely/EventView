@@ -11,6 +11,7 @@ import ReactDatePicker from '../lib/ReactDatePicker'
 import '../lib/ReactDatePicker.css'
 import reloadIcon from '../img/reloadIcon.svg'
 import saveIcon from '../img/saveIcon.svg'
+import { getUniquePacklists } from '../services/getUniquePacklists'
 
 EventForm.propTypes = {
   onEventSave: PropTypes.func.isRequired,
@@ -42,8 +43,8 @@ export default function EventForm({
     if (event && event.target && typeof event.target.reset === 'function')
       event.target.reset()
   }
+  const uniquePacklists = getUniquePacklists(packlists)
 
-  const allPacklists = packlists.map((packlist) => packlist.name)
   return (
     <>
       <Form
@@ -330,7 +331,7 @@ export default function EventForm({
           name="packlistCategory"
           id="packlist"
           register={register({ required: true })}
-          options={allPacklists}
+          options={uniquePacklists}
         />
         <ButtonGroup>
           <button type="reset" onClick={() => reset()}>
