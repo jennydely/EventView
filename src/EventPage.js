@@ -7,7 +7,6 @@ import useEvents from './components/useEvents'
 import PacklistForm from './Packlist/PacklistForm'
 import usePacklistForm from './Packlist/usePacklistForm'
 import usePacklists from './Packlist/usePacklists'
-import { getYearsOfEvents } from './services/getYearsOfEvents'
 import addEvent1Icon from './img/addEvent1Icon.svg'
 import addPacklistIcon from './img/addPacklistIcon.svg'
 import backIcon from './img/backIcon.svg'
@@ -39,8 +38,7 @@ export default function EventPage() {
   } = usePacklistForm(addPacklist)
   const hasHiddenEvent = eventArray.some((event) => event.isHidden === true)
   const hasOldEvent = eventArray.some(
-    (event) =>
-      event.eventStartDate.slice(0, 4) < getYearsOfEvents(eventArray)[0]
+    (event) => event.eventEndDate < new Date().toJSON().slice(0, 10)
   )
   return (
     <>
