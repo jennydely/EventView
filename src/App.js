@@ -11,7 +11,7 @@ export default function App() {
         <Route path="/packlist/:packlistName?">
           <PacklistPage />
         </Route>
-        <Route path="/editpacklist/:editPacklistID?">
+        <Route path="/editpacklist/:packlistId?">
           <EditPacklistForm />
         </Route>
         <Route path="/">

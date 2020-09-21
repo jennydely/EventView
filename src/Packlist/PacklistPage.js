@@ -17,16 +17,16 @@ export default function PackListPage() {
   function goBackButton() {
     history.goBack()
   }
-  function handleEditPacklist(editPacklistID) {
-    history.push('/editpacklist/' + editPacklistID)
+  function handleEditPacklist(packlistId) {
+    history.push('/editpacklist/' + packlistId)
   }
   return (
     <>
       <header>
         {packlistName ? <h1>PackList</h1> : <h1>No PackList</h1>}
-        <EditButton onClick={handleEditButtonClick}>
+        <button onClick={handleEditButtonClick}>
           <EditImg src={editIcon} alt="edit" />
-        </EditButton>
+        </button>
       </header>
       <main>
         {packlistName ? <PacklistButton>{packlistName}</PacklistButton> : ''}
@@ -61,8 +61,8 @@ export default function PackListPage() {
     </>
   )
   function handleEditButtonClick() {
-    const editPacklistID = chosenPacklist.id
-    handleEditPacklist(editPacklistID)
+    const packlistId = chosenPacklist.id
+    handleEditPacklist(packlistId)
   }
 
   function handleCheckboxClick(checkedItem) {
@@ -81,7 +81,6 @@ const EditImg = styled.img`
   height: auto;
   margin: 7px 4px;
 `
-const EditButton = styled.button``
 const NoPacklistText = styled.p`
   text-align: center;
 `

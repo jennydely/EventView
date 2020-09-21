@@ -17,7 +17,7 @@ import usePacklistForm from './usePacklistForm'
 
 export default function PacklistForm() {
   const { register, handleSubmit, reset, errors } = useForm()
-  const { editPacklistID } = useParams()
+  const { packlistId } = useParams()
   const { packlists } = usePacklists()
   const packlistToEdit = editPacklist()
   const [items, setItems] = useState([])
@@ -71,7 +71,7 @@ export default function PacklistForm() {
                 length: (value) =>
                   value?.trim().length >= 3 && value?.trim().length <= 25,
                 nameTaken: (value) =>
-                  !!editPacklistID ||
+                  !!packlistId ||
                   !packlists.some((packlist) => packlist.name === value),
               },
             })}
@@ -170,7 +170,7 @@ export default function PacklistForm() {
 
   function editPacklist() {
     const index = packlists.findIndex(
-      (packlist) => '' + packlist.id === editPacklistID
+      (packlist) => '' + packlist.id === packlistId
     )
     const editPacklist = packlists[index]
     return editPacklist
