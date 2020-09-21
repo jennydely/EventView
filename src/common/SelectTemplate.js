@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import { v4 as uuid } from 'uuid'
 
 export default function SelectEvents({
   register,
@@ -13,7 +14,9 @@ export default function SelectEvents({
       name={name}
       ref={register}
       {...rest}
-      onChange={(event) => addMultiplyItems(event.target.value)}
+      onChange={(event) =>
+        addMultiplyItems({ name: event.target.value, itemID: uuid() })
+      }
     >
       {options.map((optionsName) => (
         <OptionStyled key={optionsName} value={optionsName}>

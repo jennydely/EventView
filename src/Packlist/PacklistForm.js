@@ -137,7 +137,7 @@ export default function PacklistForm() {
           </AddButton>
           <ItemContainer>
             {items.map(({ item, completed, itemID }, index) => (
-              <ListItem key={itemID} text={item}>
+              <ListItem key={item} id={item.ID} text={item}>
                 <Checkbox type="checkbox" checked={completed} />
                 <TextSpan>{item}</TextSpan>
                 <DeleteButton onClick={() => deleteItem(index)} type="button">
@@ -146,7 +146,15 @@ export default function PacklistForm() {
               </ListItem>
             ))}
           </ItemContainer>
+          <TemplateDropDown
+            id="packlistTemplate"
+            defaultValue=" "
+            name="packlistName"
+            options={uniquePacklists}
+            addMultiplyItems={addMultiplyItems}
+          />
         </FormInputContainer>
+
         <ButtonGroup>
           <button type="reset" onClick={() => reset()}>
             <img src={reloadIcon} alt="reload" />
@@ -156,13 +164,6 @@ export default function PacklistForm() {
           </button>
         </ButtonGroup>
       </Form>
-      <TemplateDropDown
-        id="packlistTemplate"
-        defaultValue=" "
-        name="packlistName"
-        options={uniquePacklists}
-        addMultiplyItems={addMultiplyItems}
-      />
     </>
   )
 
@@ -176,7 +177,7 @@ export default function PacklistForm() {
 
   function addMultiplyItems(templateName) {
     const templatePacklist = packlists.find(
-      (packlist) => templateName === packlist.name
+      (packlist) => templateName.name === packlist.name
     )
     setItems([...templatePacklist.packlist, ...items])
   }
