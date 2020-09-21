@@ -23,7 +23,7 @@ export default function EventList({
     categoryfilteredEvents
   )
   const availableYears = getAvailableYears(eventFilter, filteredEvents)
-
+  console.log(filteredEvents)
   return (
     <>
       {availableYears.map((year) => (
