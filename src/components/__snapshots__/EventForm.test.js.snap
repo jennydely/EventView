@@ -6,10 +6,10 @@ Object {
   "baseElement": .c5 {
   display: block;
   width: 100%;
-  padding: 20px;
   border-radius: 4px;
   border: var(--border-darkgrey);
   margin-top: 0;
+  margin-right: 7px;
   padding: 4px;
   font-size: 112.5%;
   color: black;
@@ -19,17 +19,20 @@ Object {
   font-weight: 400;
   size: 112.5%;
   margin: 4px;
+  margin-right: 7px;
   text-align: right;
 }
 
 .c0 {
   display: grid;
-  grid-template-columns: auto repeat(2,120px);
+  grid-template-columns: repeat(3,118px);
   grid-template-rows: repeat(20,auto);
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  min-width: 300px;
+  -webkit-align-content: left;
+  -ms-flex-line-pack: left;
+  align-content: left;
+  overflow: hidden;
+  max-width: 365px;
+  padding: 2px;
   gap: 4px;
 }
 
@@ -115,7 +118,6 @@ Object {
   grid-column: 1;
   grid-row: 3;
   display: block;
-  width: 100%;
   padding: 20px;
   border: var(--border-darkgrey);
   border-radius: 4px;
@@ -129,7 +131,7 @@ Object {
 .c9 {
   grid-column: 1 / span 2;
   grid-row: 8;
-  margin-top: 20px;
+  margin-top: 4px;
 }
 
 .c11 {
@@ -151,7 +153,6 @@ Object {
   grid-column: 2 / span 2;
   grid-row: 19;
   display: block;
-  width: 100%;
   border-radius: 4px;
   border: var(--border-darkgrey);
   margin-top: 0;
@@ -172,14 +173,12 @@ Object {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  width: 100%;
-  margin: 20px 7px;
+  margin: 4px 7px;
 }
 
 .c25 {
   grid-column: 1 / span 3;
   grid-row: 20;
-  background-color: var(--darkred-75);
 }
 
 <body>
@@ -231,6 +230,7 @@ Object {
           id="name"
           name="name"
           placeholder="event name"
+          value=""
         />
         <label
           class="c1 c7"
@@ -243,6 +243,7 @@ Object {
           id="location"
           name="location"
           placeholder="location of the event"
+          value=""
         />
         <h2
           class="c9"
@@ -300,12 +301,14 @@ Object {
           id="street"
           name="street"
           placeholder="street + number"
+          value=""
         />
         <input
           class="c5 c15"
           id="zip"
           name="zip"
           placeholder="zip"
+          value=""
         />
         <label
           class="c1 c16"
@@ -318,6 +321,7 @@ Object {
           id="website"
           name="website"
           placeholder="http://www.website.de"
+          value=""
         />
         <label
           class="c1 c18"
@@ -330,6 +334,7 @@ Object {
           id="price"
           name="price"
           placeholder="ticket price or range"
+          value=""
         />
         <label
           class="c1 c20"
@@ -342,7 +347,8 @@ Object {
           class="c5 c21"
           id="poster"
           name="poster"
-          placeholder="http://www.website.de/banner.jpg"
+          placeholder="http://website.de/banner.jpg"
+          value=""
         />
         <label
           class="c1 c22"
@@ -372,13 +378,20 @@ Object {
           <button
             type="reset"
           >
-            Reset
+            <img
+              alt="reload"
+              src="reloadIcon.svg"
+            />
           </button>
           <button
             class="c25"
             type="submit"
           >
-            Save
+             
+            <img
+              alt="save"
+              src="saveIcon.svg"
+            />
           </button>
         </div>
       </form>
@@ -386,17 +399,17 @@ Object {
   </body>,
   "container": <div>
     <form
-      class="EventForm__Form-sc-1hr7ssh-0 druZya"
+      class="EventForm__Form-sc-1hr7ssh-0 jsSlAT"
       data-testid="eventform"
     >
       <label
-        class="Label-sc-4r18cf-0 EventForm__CategoryInputLabel-sc-1hr7ssh-5 kTDDAh kKWTAK"
+        class="Label-sc-4r18cf-0 EventForm__CategoryInputLabel-sc-1hr7ssh-5 iATavU kKWTAK"
         for="category"
       >
         Category:
       </label>
       <select
-        class="EventForm__CategoryInput-sc-1hr7ssh-6 cezilq"
+        class="EventForm__CategoryInput-sc-1hr7ssh-6 eTFxGV"
         id="category"
         name="category"
       >
@@ -422,42 +435,44 @@ Object {
         </option>
       </select>
       <label
-        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn2-sc-1hr7ssh-2 kTDDAh bMMjQM"
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn2-sc-1hr7ssh-2 iATavU bMMjQM"
         for="name"
       >
         EventName:
       </label>
       <input
-        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 hKSNO ekNFAh"
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 gSnath ekNFAh"
         id="name"
         name="name"
         placeholder="event name"
+        value=""
       />
       <label
-        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn2-sc-1hr7ssh-2 kTDDAh eCVOzL"
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn2-sc-1hr7ssh-2 iATavU eCVOzL"
         for="location"
       >
         EventLocation:
       </label>
       <input
-        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 hKSNO ekNFdU"
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 gSnath ekNFdU"
         id="location"
         name="location"
         placeholder="location of the event"
+        value=""
       />
       <h2
-        class="EventForm__EventInfosText-sc-1hr7ssh-8 jaKOTo"
+        class="EventForm__EventInfosText-sc-1hr7ssh-8 dskcXW"
       >
         EventInfos
       </h2>
       <label
-        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 kTDDAh ckpfaq"
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 iATavU ckpfaq"
         for="EventStartDate"
       >
         Duration:
       </label>
       <div
-        class="EventForm__EventStartDateDiv-sc-1hr7ssh-9 gZQGfC"
+        class="EventForm__EventStartDateContainer-sc-1hr7ssh-9 fYhSpW"
       >
         <div
           class="react-datepicker-wrapper"
@@ -466,7 +481,7 @@ Object {
             class="react-datepicker__input-container"
           >
             <input
-              class="Input-sc-1qrq46f-0 hKSNO"
+              class="Input-sc-1qrq46f-0 gSnath"
               placeholder="start date"
               value=""
             />
@@ -474,7 +489,7 @@ Object {
         </div>
       </div>
       <div
-        class="EventForm__EventEndDateDiv-sc-1hr7ssh-12 fPEBNm"
+        class="EventForm__EventEndDateContainer-sc-1hr7ssh-12 fHXFmu"
       >
         <div
           class="react-datepicker-wrapper"
@@ -483,7 +498,7 @@ Object {
             class="react-datepicker__input-container"
           >
             <input
-              class="Input-sc-1qrq46f-0 hKSNO"
+              class="Input-sc-1qrq46f-0 gSnath"
               placeholder="end date"
               value=""
             />
@@ -491,68 +506,73 @@ Object {
         </div>
       </div>
       <label
-        class="Label-sc-4r18cf-0 EventForm__AddressInputLabel-sc-1hr7ssh-15 kTDDAh jwRQhJ"
+        class="Label-sc-4r18cf-0 EventForm__AddressInputLabel-sc-1hr7ssh-15 iATavU jwRQhJ"
         for="Street"
       >
         Address:
       </label>
       <input
-        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 hKSNO dogpCS"
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 gSnath dogpCS"
         id="street"
         name="street"
         placeholder="street + number"
+        value=""
       />
       <input
-        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 hKSNO dogQeE"
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 gSnath dogQeE"
         id="zip"
         name="zip"
         placeholder="zip"
+        value=""
       />
       <label
-        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 kTDDAh eNdbsf"
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 iATavU eNdbsf"
         for="website"
       >
         Website:
       </label>
       <input
-        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 hKSNO dofouy"
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 gSnath dofouy"
         id="website"
         name="website"
         placeholder="http://www.website.de"
+        value=""
       />
       <label
-        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 kTDDAh eNdBTR"
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 iATavU eNdBTR"
         for="price"
       >
         TicketPrice:
       </label>
       <input
-        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 hKSNO dofOWk"
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 gSnath dofOWk"
         id="price"
         name="price"
         placeholder="ticket price or range"
+        value=""
       />
       <label
-        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 kTDDAh eNdqlu"
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 iATavU eNdqlu"
         for="poster"
       >
         Picture:
          
       </label>
       <input
-        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 hKSNO dojeif"
+        class="Input-sc-1qrq46f-0 EventForm__InputColumn2-sc-1hr7ssh-3 gSnath dojeif"
         id="poster"
         name="poster"
-        placeholder="http://www.website.de/banner.jpg"
+        placeholder="http://website.de/banner.jpg"
+        value=""
       />
       <label
-        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 kTDDAh eNecAj"
+        class="Label-sc-4r18cf-0 EventForm__InputLabelColumn1-sc-1hr7ssh-1 iATavU eNecAj"
         for="packlist"
       >
         Add PackList:
       </label>
       <select
-        class="EventForm__PacklistInput-sc-1hr7ssh-16 bzsaqM"
+        class="EventForm__PacklistInput-sc-1hr7ssh-16 dhOIpj"
         id="packlist"
         name="packlistCategory"
       >
@@ -568,18 +588,25 @@ Object {
         </option>
       </select>
       <div
-        class="EventForm__ButtonGroup-sc-1hr7ssh-17 oIMra"
+        class="EventForm__ButtonGroup-sc-1hr7ssh-17 dXRXXT"
       >
         <button
           type="reset"
         >
-          Reset
+          <img
+            alt="reload"
+            src="reloadIcon.svg"
+          />
         </button>
         <button
-          class="EventForm__SubmitButton-sc-1hr7ssh-18 jeIQTA"
+          class="EventForm__SubmitButton-sc-1hr7ssh-18 cLovkn"
           type="submit"
         >
-          Save
+           
+          <img
+            alt="save"
+            src="saveIcon.svg"
+          />
         </button>
       </div>
     </form>

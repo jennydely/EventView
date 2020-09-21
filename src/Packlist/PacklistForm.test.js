@@ -1,5 +1,6 @@
 import React from 'react'
 import { render, fireEvent, waitFor } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import PacklistForm from './PacklistForm'
 import 'jest-styled-components'
 
@@ -7,9 +8,11 @@ window.MutationObserver = require('mutation-observer')
 
 describe('PacklistForm', () => {
   it('creates a new packlist with item', async () => {
-    const onPacklistSave = jest.fn()
-    const { getByText, getByPlaceholderText } = render(
-      <PacklistForm onPacklistSave={onPacklistSave} />
+    const { getByText, getByAltText, getByPlaceholderText } = render(
+      <MemoryRouter>
+        {' '}
+        <PacklistForm />
+      </MemoryRouter>
     )
 
     fireEvent.input(getByPlaceholderText('PackList name'), {
@@ -21,17 +24,15 @@ describe('PacklistForm', () => {
         target: { value: 'needed item' },
       }
     )
-    fireEvent.click(getByText('Add'))
+    fireEvent.click(getByAltText('add'))
     expect(getByText('needed item')).toBeInTheDocument()
-
-    fireEvent.submit(getByText('Save'))
-    await waitFor(() => expect(onPacklistSave).toHaveBeenCalled())
   })
 
   it('displays a form to create packlist', async () => {
-    const onPacklistSave = jest.fn()
-    const { getByText, getByPlaceholderText } = render(
-      <PacklistForm onPacklistSave={onPacklistSave} />
+    const { getByAltText, getByPlaceholderText } = render(
+      <MemoryRouter>
+        <PacklistForm />
+      </MemoryRouter>
     )
 
     const nameInput = getByPlaceholderText('PackList name')
@@ -39,13 +40,16 @@ describe('PacklistForm', () => {
     fireEvent.input(nameInput, { target: { value: 'My PacklistName' } })
     expect(nameInput.value).toBe('My PacklistName')
 
-    fireEvent.click(getByText('Reset'))
+    fireEvent.click(getByAltText('reload'))
     await waitFor(() => expect(nameInput.value).toBe(''))
   })
 
   it('renders correctly', () => {
-    const onPacklistSave = jest.fn()
-    const tree = render(<PacklistForm onPacklistSave={onPacklistSave} />)
+    const tree = render(
+      <MemoryRouter>
+        <PacklistForm />
+      </MemoryRouter>
+    )
     expect(tree).toMatchSnapshot()
   })
 })

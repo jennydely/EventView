@@ -30,7 +30,7 @@ describe('EventForm', () => {
         ],
       },
     ]
-    const { getByText, getByLabelText, getByPlaceholderText } = render(
+    const { getByAltText, getByLabelText, getByPlaceholderText } = render(
       <EventForm packlists={packlists} onEventSave={onEventSave} />
     )
 
@@ -59,7 +59,7 @@ describe('EventForm', () => {
     fireEvent.mouseDown(endDate)
     fireEvent.change(endDate, { target: { value: '2020-05-25' } })
 
-    fireEvent.submit(getByText('Save'))
+    fireEvent.submit(getByAltText('save'))
     await waitFor(() => expect(onEventSave).toHaveBeenCalled())
   })
 
@@ -87,7 +87,7 @@ describe('EventForm', () => {
         ],
       },
     ]
-    const { getByText, getByLabelText, getByPlaceholderText } = render(
+    const { getByLabelText, getByAltText, getByPlaceholderText } = render(
       <EventForm packlists={packlists} onEventSave={onEventSave} />
     )
 
@@ -96,7 +96,7 @@ describe('EventForm', () => {
     fireEvent.input(nameInput, { target: { value: 'My EventName' } })
     expect(nameInput.value).toBe('My EventName')
 
-    fireEvent.click(getByText('Reset'))
+    fireEvent.click(getByAltText('reload'))
     await waitFor(() => expect(nameInput.value).toBe(''))
     expect(nameInput.value).toBe('')
     await waitFor(() => expect(getByLabelText('Category:').value).toBe('metal'))

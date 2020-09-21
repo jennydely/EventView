@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { v4 as uuid } from 'uuid'
 import styled from 'styled-components/macro'
@@ -6,38 +6,50 @@ import Input from '../common/Input'
 import Label from '../common/Label'
 import Checkbox from '../common/Checkbox'
 import ErrorMessage from '../common/ErrorMessage'
-import PropTypes from 'prop-types'
 import ListContainer from '../common/ListContainer'
 import ListItem from '../common/ListItem'
 import usePacklists from './usePacklists'
 import reloadIcon from '../img/reloadIcon.svg'
 import saveIcon from '../img/saveIcon.svg'
 import addIcon from '../img/addIcon.svg'
+import { useParams, useHistory } from 'react-router-dom'
+import usePacklistForm from './usePacklistForm'
 
-PacklistForm.propTypes = {
-  onPacklistSave: PropTypes.func.isRequired,
-}
-
-export default function PacklistForm({ onPacklistSave }) {
+export default function PacklistForm() {
   const { register, handleSubmit, reset, errors } = useForm()
-  const [items, setItems] = useState([])
+  const { packlistId } = useParams()
   const { packlists } = usePacklists()
+  const packlistToEdit = editPacklist()
+  const [items, setItems] = useState([])
   const [itemError, setItemError] = useState(false)
   const itemRef = useRef(null)
+  const { onPacklistSaveEdit, onPacklistSave } = usePacklistForm()
+  const history = useHistory()
+
   const onSubmit = (packlist, event) => {
     event.preventDefault()
-    // for testing...
-    if (event?.target && typeof event?.target.reset === 'function')
-      //
-      event.target.reset()
-    onPacklistSave({ name: packlist.name, packlist: items, id: uuid })
+    const isExistingPacklist = packlists.some(
+      (existingPacklist) => packlist.name === existingPacklist.name
+    )
+    if (isExistingPacklist) {
+      onPacklistSaveEdit({
+        ...packlist,
+        packlist: items,
+      })
+    } else {
+      onPacklistSave({ name: packlist.name, packlist: items, id: uuid() })
+    }
+    history.push('/packlist/' + packlist.name)
   }
   const handlePacklistKeyDown = (event) => {
     if (event.key === 'Enter') {
       event.preventDefault()
-      addItem({ text: event.target.value, id: uuid() })
+      addItem({ item: event.target.value, itemID: uuid() })
     }
   }
+  useEffect(() => {
+    if (packlistToEdit?.packlist) setItems(packlistToEdit?.packlist)
+  }, [packlistToEdit])
 
   return (
     <>
@@ -50,6 +62,7 @@ export default function PacklistForm({ onPacklistSave }) {
             placeholder="PackList name"
             id="name"
             name="name"
+            defaultValue={packlistToEdit?.name}
             ref={register({
               required: true,
               minLength: 3,
@@ -58,7 +71,8 @@ export default function PacklistForm({ onPacklistSave }) {
                 length: (value) =>
                   value?.trim().length >= 3 && value?.trim().length <= 25,
                 nameTaken: (value) =>
-                  !packlists.find((packlist) => packlist.name === value),
+                  !!packlistId ||
+                  !packlists.some((packlist) => packlist.name === value),
               },
             })}
           />
@@ -113,16 +127,16 @@ export default function PacklistForm({ onPacklistSave }) {
           <AddButton
             type="button"
             onClick={() => {
-              addItem({ text: itemRef.current.value, id: uuid() })
+              addItem({ item: itemRef.current.value, itemID: uuid() })
             }}
           >
             <img src={addIcon} alt="add" />
           </AddButton>
           <ItemContainer>
-            {items.map(({ text, completed, id }, index) => (
-              <ListItem key={id} text={text}>
+            {items.map(({ item, completed, itemID }, index) => (
+              <ListItem key={itemID} text={item}>
                 <Checkbox type="checkbox" checked={completed} />
-                <TextSpan>{text}</TextSpan>
+                <TextSpan>{item}</TextSpan>
                 <DeleteButton onClick={() => deleteItem(index)} type="button">
                   X
                 </DeleteButton>
@@ -143,7 +157,7 @@ export default function PacklistForm({ onPacklistSave }) {
   )
 
   function addItem(item) {
-    if (item.text?.trim().length >= 3 && item.text?.trim().length <= 20) {
+    if (item.item?.trim().length >= 3 && item.item?.trim().length <= 20) {
       setItems([item, ...items])
       itemRef.current.value = ''
       setItemError(false)
@@ -153,11 +167,20 @@ export default function PacklistForm({ onPacklistSave }) {
   function deleteItem(index) {
     setItems([...items.slice(0, index), ...items.slice(index + 1)])
   }
+
+  function editPacklist() {
+    const index = packlists.findIndex(
+      (packlist) => '' + packlist.id === packlistId
+    )
+    const editPacklist = packlists[index]
+    return editPacklist
+  }
 }
 
 const Form = styled.form`
   align-content: center;
-  min-width: 300px;
+  overflow: hidden;
+  min-width: 365px;
 `
 const FormInputContainer = styled.div`
   display: flex;
@@ -169,7 +192,6 @@ const FormInputContainer = styled.div`
   margin: 7px;
   margin-top: 0;
   padding: 7px 4px;
-  padding-bottom: 20px;
 `
 const PacklistNameInputLabel = styled(Label)`
   text-align: left;

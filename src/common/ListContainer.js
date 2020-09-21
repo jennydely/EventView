@@ -7,5 +7,6 @@ export default styled.ul`
   border: var(--border-darkgrey);
   margin: 7px;
   margin-top: 0;
+  margin-right: 7px;
   padding: 7px 4px;
 `

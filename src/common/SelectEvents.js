@@ -9,7 +9,7 @@ export default function SelectEvents({
   ...rest
 }) {
   return (
-    <SelectStyled
+    <StyledSelect
       name={name}
       ref={register}
       {...rest}
@@ -20,17 +20,13 @@ export default function SelectEvents({
           {optionsName}
         </OptionStyled>
       ))}
-    </SelectStyled>
+    </StyledSelect>
   )
 }
 
-const SelectStyled = styled.select`
-  display: block;
-  border-radius: 4px;
-  border: var(--border-darkgrey);
-  color: var(--lightyellow-90);
-  background: var(--lightgrey-main);
-  min-height: 45px;
+const StyledSelect = styled.select`
+  -moz-appearance: none;
+  -webkit-appearance: none;
 `
 const OptionStyled = styled.option`
   display: block;

@@ -6,9 +6,10 @@ export default function CategoryFilter({ onSelectFilter }) {
   const categories = ['all', 'metal', 'medieval', 'holiday', 'other']
 
   return (
-    <FilterContainer>
+    <FilterContainer data-testid="my-select-component">
       <SelectCategory
         id="category"
+        playceholder="all"
         name={categories}
         options={categories}
         onSelectFilter={onSelectFilter}

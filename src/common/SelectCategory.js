@@ -10,7 +10,7 @@ export default function SelectCategory({
   ...rest
 }) {
   return (
-    <SelectStyled
+    <StyledSelect
       name={name}
       ref={register}
       {...rest}
@@ -21,17 +21,13 @@ export default function SelectCategory({
           {optionsValue}
         </OptionStyled>
       ))}
-    </SelectStyled>
+    </StyledSelect>
   )
 }
 
-const SelectStyled = styled.select`
-  display: block;
-  border-radius: 4px;
-  border: var(--border-darkgrey);
-  color: var(--lightyellow-90);
-  background: ${(opt) => getColorByName(opt.value)};
-  min-height: 45px;
+const StyledSelect = styled.select`
+  -moz-appearance: none;
+  -webkit-appearance: none;
 `
 const OptionStyled = styled.option`
   display: block;

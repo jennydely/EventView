@@ -22,7 +22,7 @@ ShownItem.args = {
     eventStartDate: '06/25/2020',
     eventEndDate: '06/28/2020',
     category: 'medieval',
-    isHide: false,
+    isHidden: false,
   },
 }
 
@@ -35,7 +35,7 @@ HiddenItem.args = {
     eventStartDate: '06/25/2020',
     eventEndDate: '06/28/2020',
     category: 'medieval',
-    isHide: true,
+    isHidden: true,
   },
 }
 

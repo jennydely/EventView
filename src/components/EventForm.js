@@ -17,7 +17,12 @@ EventForm.propTypes = {
   packlists: PropTypes.array.isRequired,
 }
 
-export default function EventForm({ onEventSave, packlists }) {
+export default function EventForm({
+  onEventSave,
+  onEventSaveEdit,
+  packlists,
+  eventToEdit,
+}) {
   const {
     register,
     handleSubmit,
@@ -27,20 +32,30 @@ export default function EventForm({ onEventSave, packlists }) {
     control,
   } = useForm()
   const onSubmit = (eventEntry, event) => {
+    eventToEdit
+      ? onEventSaveEdit({
+          ...eventEntry,
+          id: eventToEdit.id,
+          isBought: eventToEdit.isBought,
+        })
+      : onEventSave(eventEntry)
     if (event && event.target && typeof event.target.reset === 'function')
-      // for testing
-
       event.target.reset()
-    onEventSave(eventEntry)
   }
+
   const allPacklists = packlists.map((packlist) => packlist.name)
   return (
     <>
-      <Form data-testid="eventform" onSubmit={handleSubmit(onSubmit)}>
+      <Form
+        data-testid="eventform"
+        onSubmit={handleSubmit(onSubmit)}
+        eventToEdit={eventToEdit ? eventToEdit : false}
+      >
         <CategoryInputLabel htmlFor="category">Category:</CategoryInputLabel>
         <CategoryInput
           name="category"
           id="category"
+          defaultValue={eventToEdit?.category}
           register={register({ required: true })}
           options={['metal', 'medieval', 'holiday', 'other']}
         />
@@ -56,6 +71,7 @@ export default function EventForm({ onEventSave, packlists }) {
         <InputColumn2
           row={3}
           placeholder="event name"
+          defaultValue={eventToEdit?.name}
           id="name"
           name="name"
           ref={register({
@@ -89,6 +105,7 @@ export default function EventForm({ onEventSave, packlists }) {
         <InputColumn2
           row={6}
           placeholder="location of the event"
+          defaultValue={eventToEdit?.location}
           id="location"
           name="location"
           ref={register({
@@ -126,7 +143,9 @@ export default function EventForm({ onEventSave, packlists }) {
           <EventStartDateController
             id="EventStartDate"
             name="eventStartDate"
-            defaultValue=""
+            defaultValue={
+              eventToEdit ? new Date(eventToEdit?.eventStartDate) : ''
+            }
             control={control}
             rules={{
               required: true,
@@ -164,7 +183,9 @@ export default function EventForm({ onEventSave, packlists }) {
           <EventEndDateController
             id="EventEndDate"
             name="eventEndDate"
-            defaultValue=""
+            defaultValue={
+              eventToEdit ? new Date(eventToEdit?.eventEndDate) : ''
+            }
             control={control}
             rules={{
               required: true,
@@ -197,6 +218,7 @@ export default function EventForm({ onEventSave, packlists }) {
         <InputColumn2
           row={11}
           placeholder="street + number"
+          defaultValue={eventToEdit?.street}
           id="street"
           name="street"
           ref={register({
@@ -221,6 +243,7 @@ export default function EventForm({ onEventSave, packlists }) {
         <InputColumn2
           row={13}
           placeholder="zip"
+          defaultValue={eventToEdit?.zip}
           id="zip"
           name="zip"
           ref={register({
@@ -246,6 +269,7 @@ export default function EventForm({ onEventSave, packlists }) {
         <InputColumn2
           row={15}
           placeholder="http://www.website.de"
+          defaultValue={eventToEdit?.website}
           id="website"
           name="website"
           ref={register({
@@ -279,6 +303,7 @@ export default function EventForm({ onEventSave, packlists }) {
         <InputColumn2
           row={17}
           placeholder="ticket price or range"
+          defaultValue={eventToEdit?.price}
           id="price"
           name="price"
           ref={register({ required: false })}
@@ -289,6 +314,7 @@ export default function EventForm({ onEventSave, packlists }) {
         <InputColumn2
           row={18}
           placeholder="http://website.de/banner.jpg"
+          defaultValue={eventToEdit?.poster}
           id="poster"
           name="poster"
           ref={register({
@@ -300,6 +326,7 @@ export default function EventForm({ onEventSave, packlists }) {
           Add PackList:
         </InputLabelColumn1>
         <PacklistInput
+          defaultValue={eventToEdit?.packlistCategory}
           name="packlistCategory"
           id="packlist"
           register={register({ required: true })}
@@ -321,10 +348,12 @@ export default function EventForm({ onEventSave, packlists }) {
 
 const Form = styled.form`
   display: grid;
-  grid-template-columns: auto repeat(2, 120px);
+  grid-template-columns: repeat(3, 118px);
   grid-template-rows: repeat(20, auto);
-  align-content: center;
-  min-width: 300px;
+  align-content: left;
+  overflow: hidden;
+  max-width: 365px;
+  padding: 2px;
   gap: 4px;
 `
 const InputLabelColumn1 = styled(Label)`
@@ -353,7 +382,6 @@ const CategoryInput = styled(Select)`
   grid-column: 1;
   grid-row: 3;
   display: block;
-  width: 100%;
   padding: 20px;
   border: var(--border-darkgrey);
   border-radius: 4px;
@@ -370,7 +398,7 @@ const ErrorMessageCategoryReq = styled(ErrorMessage)`
 const EventInfosText = styled.h2`
   grid-column: 1 / span 2;
   grid-row: 8;
-  margin-top: 20px;
+  margin-top: 4px;
 `
 const EventStartDateContainer = styled.div`
   grid-column: 2/3;
@@ -401,11 +429,13 @@ const EventEndDateController = styled(Controller)`
   grid-column: 3;
   grid-row: 9;
   display: block;
-  width: 100%;
+  display: block;
+  width: 120px;
   padding: 20px;
   border-radius: 4px;
   border: var(--border-darkgrey);
   margin-top: 0;
+  margin-right: 7px;
   padding: 4px;
   font-size: 112.5%;
   color: black;
@@ -422,7 +452,6 @@ const PacklistInput = styled(Select)`
   grid-column: 2 / span 2;
   grid-row: 19;
   display: block;
-  width: 100%;
   border-radius: 4px;
   border: var(--border-darkgrey);
   margin-top: 0;
@@ -436,8 +465,7 @@ const ButtonGroup = styled.div`
   grid-row: 20;
   display: flex;
   justify-content: center;
-  width: 100%;
-  margin: 20px 7px;
+  margin: 4px 7px;
 `
 const SubmitButton = styled.button`
   grid-column: 1 / span 3;

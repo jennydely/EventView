@@ -6,6 +6,8 @@ import ListItem from '../common/ListItem'
 import ListContainer from '../common/ListContainer'
 import Checkbox from '../common/Checkbox'
 import { comparePacklists } from '../services/comparePacklists'
+import editIcon from '../img/editIcon.svg'
+import backIcon from '../img/backIcon.svg'
 
 export default function PackListPage() {
   const { packlistName } = useParams()
@@ -15,10 +17,18 @@ export default function PackListPage() {
   function goBackButton() {
     history.goBack()
   }
+  function handleEditPacklist(packlistId) {
+    history.push('/editpacklist/' + packlistId)
+  }
   return (
     <>
-      <main>
+      <header>
         {packlistName ? <h1>PackList</h1> : <h1>No PackList</h1>}
+        <button onClick={handleEditButtonClick}>
+          <EditImg src={editIcon} alt="edit" />
+        </button>
+      </header>
+      <main>
         {packlistName ? <PacklistButton>{packlistName}</PacklistButton> : ''}
 
         {chosenPacklist ? (
@@ -44,12 +54,16 @@ export default function PackListPage() {
       <>
         <footer>
           <button type="button" onClick={goBackButton}>
-            Back
+            <img src={backIcon} alt="back" />
           </button>
         </footer>
       </>
     </>
   )
+  function handleEditButtonClick() {
+    const packlistId = chosenPacklist.id
+    handleEditPacklist(packlistId)
+  }
 
   function handleCheckboxClick(checkedItem) {
     const id = checkedItem.itemID
@@ -62,6 +76,11 @@ export default function PackListPage() {
   }
 }
 
+const EditImg = styled.img`
+  width: 40px;
+  height: auto;
+  margin: 7px 4px;
+`
 const NoPacklistText = styled.p`
   text-align: center;
 `

@@ -5,18 +5,22 @@ exports[`EventItem renders correctly 1`] = `
   min-width: 35px;
   min-height: 35px;
   text-align: right;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
   margin: 2px;
 }
 
 .c5 {
   text-align: right;
   margin: 2px;
+  margin-right: 7px;
   font-size: 112.5%;
 }
 
 .c2 {
   display: grid;
-  grid-template-columns: 20% repeat(4,auto);
+  grid-template-columns: 20% repeat(4,auto) 20%;
   grid-template-rows: repeat(8,auto);
   margin: 0;
   margin-top: -2px;
@@ -44,19 +48,19 @@ exports[`EventItem renders correctly 1`] = `
 }
 
 .c9 {
-  grid-column: 3/6;
+  grid-column: 3/7;
   grid-row: 2;
   text-align: left;
 }
 
 .c10 {
-  grid-column: 3/6;
+  grid-column: 3/7;
   grid-row: 3;
   text-align: left;
 }
 
 .c11 {
-  grid-column: 3/6;
+  grid-column: 3/7;
   grid-row: 5;
   text-align: left;
 }
@@ -79,6 +83,7 @@ exports[`EventItem renders correctly 1`] = `
   grid-column: 2;
   grid-row: 1 / span 4;
   margin-top: 7px;
+  margin-left: 4px;
   font-weight: 400;
   font-size: 112.5%;
 }
@@ -104,7 +109,7 @@ exports[`EventItem renders correctly 1`] = `
 }
 
 .c8 {
-  grid-column: 3/6;
+  grid-column: 3/7;
   grid-row: 1;
   text-align: left;
   margin-top: 7px;
@@ -117,7 +122,7 @@ exports[`EventItem renders correctly 1`] = `
 }
 
 .c15 {
-  grid-column: 1/6;
+  grid-column: 1/7;
   grid-row: 7;
   display: -webkit-box;
   display: -webkit-flex;
@@ -126,44 +131,46 @@ exports[`EventItem renders correctly 1`] = `
   width: 100%;
   margin: 1px;
   padding: 0;
+  padding-top: 7px;
   -webkit-box-pack: space-around;
   -webkit-justify-content: space-around;
   -ms-flex-pack: space-around;
   justify-content: space-around;
 }
 
-.c16 {
-  display: inline-block;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-  min-height: -webkit-fit-content;
-  min-height: -moz-fit-content;
-  min-height: fit-content;
-  margin: 2px;
-  padding: 4px 6px;
-  border: none;
-  border-radius: 6px;
-  background-color: var(--darkgrey-75);
-  font-size: 130%;
-  text-align: center;
-  color: var(--sandyellow-main);
+.c17 {
+  grid-column: 1/7;
+  grid-row: 8;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin: 1px;
+  padding: 0;
+  padding-top: 7px;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
 }
 
-.c17 {
-  grid-column: 5;
-  grid-row: 8;
-  color: var(--red-main);
-  font-size: 130%;
-  float: right;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  border-radius: 20px;
-  background: none;
-  margin: 4px;
-  margin-top: 7px;
-  min-width: 40px;
-  min-height: 40px;
+.c16 {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.c18 {
+  grid-column: 1 / span 2;
+  grid-row: 9;
+  margin: 7px;
+}
+
+.c19 {
+  grid-column: 3 / span 2;
+  grid-row: 9;
+  margin: 7px;
 }
 
 .c0 {
@@ -182,7 +189,7 @@ exports[`EventItem renders correctly 1`] = `
   border-left: solid 10px var(--lightgrey-main);
 }
 
-.c18 {
+.c20 {
   grid-column: 2;
   -webkit-align-self: start;
   -ms-flex-item-align: start;
@@ -272,41 +279,62 @@ exports[`EventItem renders correctly 1`] = `
       <div
         class="c15"
       >
-        <button>
-          PackList
+        <button
+          class="c16"
+        >
+          <img
+            alt="packlist"
+            src="packlistIcon.svg"
+          />
         </button>
         <a
-          class="c16"
           target="blank"
           title="link"
         >
-          Website
+          <img
+            alt="website"
+            src="websiteIcon.svg"
+          />
         </a>
         <a
-          class="c16"
           href="https://www.google.de/maps"
           target="blank"
           title="link"
         >
-          Route
+          <img
+            alt="route"
+            src="routeIcon.svg"
+          />
         </a>
       </div>
-      <button
+      <div
         class="c17"
       >
-        <img
-          alt="delete"
-          src="trash.svg"
-        />
-      </button>
+        <button
+          class="c18"
+        >
+          <img
+            alt="edit"
+            src="editIcon.svg"
+          />
+        </button>
+        <button
+          class="c19"
+        >
+          <img
+            alt="delete"
+            src="trashIcon.svg"
+          />
+        </button>
+      </div>
     </section>
   </li>
   <button
-    class="c18"
+    class="c20"
   >
     <img
       alt="hide"
-      src="IconHideEye.svg"
+      src="hideEyeIcon.svg"
     />
   </button>
 </div>
