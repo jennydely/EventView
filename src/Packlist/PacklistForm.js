@@ -6,6 +6,7 @@ import Input from '../common/Input'
 import Label from '../common/Label'
 import Checkbox from '../common/Checkbox'
 import ErrorMessage from '../common/ErrorMessage'
+import SelectTemplate from '../common/SelectTemplate'
 import ListContainer from '../common/ListContainer'
 import ListItem from '../common/ListItem'
 import usePacklists from './usePacklists'
@@ -14,6 +15,7 @@ import saveIcon from '../img/saveIcon.svg'
 import addIcon from '../img/addIcon.svg'
 import { useParams, useHistory } from 'react-router-dom'
 import usePacklistForm from './usePacklistForm'
+import { getUniquePacklists } from '../services/getUniquePacklists'
 
 export default function PacklistForm() {
   const { register, handleSubmit, reset, errors } = useForm()
@@ -25,6 +27,7 @@ export default function PacklistForm() {
   const itemRef = useRef(null)
   const { onPacklistSaveEdit, onPacklistSave } = usePacklistForm()
   const history = useHistory()
+  const uniquePacklists = getUniquePacklists(packlists)
 
   const onSubmit = (packlist, event) => {
     event.preventDefault()
@@ -153,6 +156,13 @@ export default function PacklistForm() {
           </button>
         </ButtonGroup>
       </Form>
+      <TemplateDropDown
+        id="packlistTemplate"
+        defaultValue=" "
+        name="packlistName"
+        options={uniquePacklists}
+        addMultiplyItems={addMultiplyItems}
+      />
     </>
   )
 
@@ -162,6 +172,13 @@ export default function PacklistForm() {
       itemRef.current.value = ''
       setItemError(false)
     } else setItemError(true)
+  }
+
+  function addMultiplyItems(templateName) {
+    const templatePacklist = packlists.find(
+      (packlist) => templateName === packlist.name
+    )
+    setItems([...templatePacklist.packlist, ...items])
   }
 
   function deleteItem(index) {
@@ -218,9 +235,14 @@ const DeleteButton = styled.button`
   background: none;
   padding: 0;
 `
-const ButtonGroup = styled.div`
+const TemplateDropDown = styled(SelectTemplate)`
   grid-column: 1;
   grid-row: 8;
+`
+
+const ButtonGroup = styled.div`
+  grid-column: 1;
+  grid-row: 9;
   display: flex;
   justify-content: center;
   width: 100%;

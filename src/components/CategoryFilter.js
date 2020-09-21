@@ -9,7 +9,7 @@ export default function CategoryFilter({ onSelectFilter }) {
     <FilterContainer data-testid="my-select-component">
       <SelectCategory
         id="category"
-        playceholder="all"
+        placeholder="all"
         name={categories}
         options={categories}
         onSelectFilter={onSelectFilter}
