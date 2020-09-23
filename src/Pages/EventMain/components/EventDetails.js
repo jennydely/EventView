@@ -72,7 +72,11 @@ export default function EventDetails({
         <a href={website} target="blank" title="link">
           <img src={websiteIcon} alt="website" />
         </a>
-        <a href="https://www.google.de/maps" target="blank" title="link">
+        <a
+          href={`https://www.google.de/maps/dir//+${street},+${zip},${location}`}
+          target="blank"
+          title="link"
+        >
           <img src={routeIcon} alt="route" />
         </a>
       </ButtonContainer>
