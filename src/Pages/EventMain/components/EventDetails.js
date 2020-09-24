@@ -73,7 +73,9 @@ export default function EventDetails({
           <img src={websiteIcon} alt="website" />
         </a>
         <a
-          href={`https://www.google.de/maps/dir//+${street},+${zip},${location}`}
+          href={`https://www.google.de/maps/dir//+${encodeURIComponent(
+            street
+          )},+${encodeURIComponent(zip)},${encodeURIComponent(location)}`}
           target="blank"
           title="link"
         >
