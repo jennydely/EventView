@@ -1,6 +1,6 @@
 import React from 'react'
 import DatePicker from 'react-datepicker'
-import Input from '../common/Input'
+import Input from '../Pages/components/common/Input'
 import 'react-datepicker/dist/react-datepicker.css'
 //import './ReactDatePicker.css'
 
