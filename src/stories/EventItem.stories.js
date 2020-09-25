@@ -3,7 +3,7 @@ import EventItem from '../components/EventItem'
 import styled from 'styled-components/macro'
 
 export default {
-  title: 'EventPlanner/EventItem',
+  title: 'EventView/EventItem',
   component: EventItem,
 }
 

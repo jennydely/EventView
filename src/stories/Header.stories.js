@@ -2,7 +2,7 @@ import React from 'react'
 import Header from '../components/Header'
 
 export default {
-  title: 'EventPlanner/Header',
+  title: 'EventView/Header',
   component: Header,
 }
 

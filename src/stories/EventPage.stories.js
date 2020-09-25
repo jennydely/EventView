@@ -1,14 +1,12 @@
-import React from 'react';
-import EventPage from '../EventPage';
+import React from 'react'
+import EventPage from '../EventPage'
 
 export default {
-  title: 'EventPlanner/EventPage',
+  title: 'EventView/EventPage',
   component: EventPage,
-};
+}
 
-const Template = (args) => <EventPage {...args} />;
+const Template = (args) => <EventPage {...args} />
 
-export const MainPage = Template.bind({});
-MainPage.args = {
-
-};
+export const MainPage = Template.bind({})
+MainPage.args = {}

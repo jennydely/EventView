@@ -4,7 +4,7 @@ import Checkbox from '../common/Checkbox'
 import ListItem from '../common/ListItem'
 
 export default {
-  title: 'EventPlanner/Checkbox',
+  title: 'EventView/Checkbox',
   component: Checkbox,
 }
 

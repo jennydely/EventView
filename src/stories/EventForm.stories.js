@@ -2,7 +2,7 @@ import React from 'react'
 import EventForm from '../components/EventForm'
 
 export default {
-  title: 'EventPlanner/EventForm',
+  title: 'EventView/EventForm',
   component: EventForm,
 }
 
