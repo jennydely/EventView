@@ -7,6 +7,7 @@ export default function Header({
   onSelectFilter,
   onSelectEventFilter,
   eventArray,
+  handleEventSuggestion,
 }) {
   const hasHiddenEvent = eventArray.some((event) => event.isHidden === true)
   const hasOldEvent = eventArray.some(
@@ -24,7 +25,7 @@ export default function Header({
         options={sortOptions}
         onSelectEventFilter={onSelectEventFilter}
       />
-      <Searchbar />
+      <Searchbar handleEventSuggestion={handleEventSuggestion} />
       <CategoryFilter onSelectFilter={onSelectFilter} />
     </header>
   )

@@ -9,6 +9,7 @@ import { useHistory } from 'react-router-dom'
 export default function EventPage() {
   const [categoryFilter, setCategoryFilter] = useState('all')
   const [eventFilter, setEventFilter] = useState('date')
+  const [eventSearch, setEventSearch] = useState('')
   const {
     eventArray,
     updateEvent,
@@ -28,15 +29,17 @@ export default function EventPage() {
   return (
     <>
       <Header
-        onSelectFilter={setCategoryFilter}
+        onSelectFilter={handleCategoryFilter}
         onSelectEventFilter={setEventFilter}
         eventArray={eventArray}
+        handleEventSuggestion={handleEventSearch}
       />
       <main>
         <EventList
           eventArray={eventArray}
           eventFilter={eventFilter}
           categoryFilter={categoryFilter}
+          eventSearch={eventSearch}
           onHideButtonClick={toggleHide}
           onDeleteButtonClick={delEvent}
           onTicketCheckboxClick={handleTicketCheckbox}
@@ -54,6 +57,16 @@ export default function EventPage() {
       </footer>
     </>
   )
+
+  function handleCategoryFilter(categoryFilter) {
+    setEventSearch('')
+    setCategoryFilter(categoryFilter)
+  }
+
+  function handleEventSearch(searchedEvent) {
+    setCategoryFilter('category')
+    setEventSearch(searchedEvent)
+  }
 
   function toggleHide(id) {
     const index = eventArray.findIndex((event) => event.id === id)

@@ -1,8 +1,12 @@
 export function getFilteredEvents(
   eventArray,
   eventFilter,
+  eventSearch,
   categoryfilteredEvents
 ) {
+  if (eventSearch && eventSearch.length > 0)
+    return [eventArray.find((event) => event.name === eventSearch)]
+
   const today = new Date().toJSON().slice(0, 10)
 
   const oldEvents = eventArray.filter((event) => event.eventEndDate < today)
