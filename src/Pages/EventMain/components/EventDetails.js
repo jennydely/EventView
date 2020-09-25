@@ -8,12 +8,14 @@ import trashIcon from '../../../img/trashIcon.svg'
 import packlistIcon from '../../../img/packlistIcon.svg'
 import routeIcon from '../../../img/routeIcon.svg'
 import websiteIcon from '../../../img/websiteIcon.svg'
+import editIcon from '../../../img/editIcon.svg'
 import getColorOfEventCategory from '../../../services/getColorOfEventCategory'
 
 export default function EventDetails({
   event,
   style,
   bind,
+  onEditButtonClick,
   onDeleteButtonClick,
   onTicketCheckboxClick,
 }) {
@@ -30,7 +32,7 @@ export default function EventDetails({
   const defaultImg =
     'https://delyed.de/wp-content/uploads/2018/01/5d737e918441914a9d2743268ef65439.jpg'
   const history = useHistory()
-  function showPacklist() {
+  function handleBackButtonClick() {
     history.push('/packlist/' + packlistCategory)
   }
 
@@ -64,27 +66,34 @@ export default function EventDetails({
         price={price}
       />
       <ButtonContainer row={7} space={'space-around'}>
-        <PacklistButton onClick={showPacklist}>
+        <PacklistButton onClick={handleBackButtonClick}>
           <img src={packlistIcon} alt="packlist" />
         </PacklistButton>
         <a href={website} target="blank" title="link">
           <img src={websiteIcon} alt="website" />
         </a>
         <a
-          href={`https://www.google.de/maps/dir//+${encodeURIComponent(
-            street
-          )},+${encodeURIComponent(zip)},${encodeURIComponent(location)}`}
+          href={`https://www.google.de/maps/dir//+${street},+${zip},${location}`}
           target="blank"
           title="link"
         >
           <img src={routeIcon} alt="route" />
         </a>
+      </ButtonContainer>
+      <ButtonContainer row={8} space={'space-evenly'}>
+        <EditButton onClick={handleEditButtonClick}>
+          <img src={editIcon} alt="edit" />
+        </EditButton>
         <DeleteButton onClick={handleDeleteButtonClick}>
           <img src={trashIcon} alt="delete" />
         </DeleteButton>
       </ButtonContainer>
     </Details>
   )
+
+  function handleEditButtonClick() {
+    onEditButtonClick(event.id)
+  }
 
   function handleDeleteButtonClick() {
     if (window.confirm('Are you sure you wish to delete this item?'))
@@ -189,8 +198,15 @@ const ButtonContainer = styled.div`
 const PacklistButton = styled.button`
   display: inline-block;
   margin: 0;
+  padding: 0;
+`
+const EditButton = styled.button`
+  grid-column: 1 / span 2;
+  grid-row: 9;
+  margin: 7px;
 `
 const DeleteButton = styled.button`
-  display: inline-block;
-  margin: 0;
+  grid-column: 3 / span 2;
+  grid-row: 9;
+  margin: 7px;
 `

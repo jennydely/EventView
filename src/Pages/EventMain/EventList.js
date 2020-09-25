@@ -50,6 +50,8 @@ export default function EventList({
 }
 
 const EventContainer = styled.ul`
+  display: grid;
+  grid-template-columns: 316px 45px;
   margin: 0;
   padding: 0;
 `

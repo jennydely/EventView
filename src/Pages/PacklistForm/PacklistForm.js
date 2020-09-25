@@ -10,8 +10,8 @@ import ErrorMessage from '../components/common/ErrorMessage'
 import SelectTemplate from '../components/common/SelectTemplate'
 import ListContainer from '../components/common/ListContainer'
 import ListItem from '../components/common/ListItem'
-import FormHeader from '../components/FormHeader'
-import Footer from '../components/FormFooter'
+import reloadIcon from '../../img/reloadIcon.svg'
+import saveIcon from '../../img/saveIcon.svg'
 import addIcon from '../../img/addIcon.svg'
 import usePacklists from '../Packlist/usePacklists'
 import { getUniquePacklists } from './services/getUniquePacklists'
@@ -19,7 +19,7 @@ import { getUniqueItems } from './services/getUniqueItems'
 import usePacklistForm from './usePacklistForm'
 
 export default function PacklistForm() {
-  const { register, handleSubmit, errors } = useForm()
+  const { register, handleSubmit, reset, errors } = useForm()
   const { packlistId } = useParams()
   const { packlists } = usePacklists()
   const packlistToEdit = editPacklist()
@@ -35,11 +35,9 @@ export default function PacklistForm() {
     const isExistingPacklist = packlists.some(
       (existingPacklist) => packlist.name === existingPacklist.name
     )
-
     if (isExistingPacklist) {
       onPacklistSaveEdit({
         ...packlist,
-        id: packlistToEdit.id,
         packlist: items,
       })
     } else {
@@ -59,119 +57,120 @@ export default function PacklistForm() {
 
   return (
     <>
-      <FormHeader
-        headerText={packlistToEdit ? 'Edit PackList' : 'Create PackList'}
-      />
-      <main>
-        <Form data-testid="packlistform" onSubmit={handleSubmit(onSubmit)}>
-          <FormInputContainer>
-            <PacklistNameInputLabel htmlFor="name">
-              Name of the new PackList:
-            </PacklistNameInputLabel>
-            <Input
-              placeholder="PackList name"
-              id="name"
-              name="name"
-              defaultValue={packlistToEdit?.name}
-              ref={register({
-                required: true,
-                minLength: 3,
-                maxLength: 20,
-                validate: {
-                  length: (value) =>
-                    value?.trim().length >= 3 && value?.trim().length <= 20,
-                  nameTaken: (value) =>
-                    !!packlistId ||
-                    !packlists.some((packlist) => packlist.name === value),
-                },
-              })}
-            />
-            {errors.name?.type === 'required' && (
-              <ErrorMessage>Name is required!</ErrorMessage>
-            )}
-            {errors.name?.type === 'nameTaken' && (
-              <ErrorMessage>Name is taken!</ErrorMessage>
-            )}
-            {(errors.name?.type === 'validate' ||
-              errors.name?.type === 'minLength') && (
-              <ErrorMessage>
-                This field requires at least 3 characters!
-              </ErrorMessage>
-            )}
-            {(errors.name?.type === 'validate' ||
-              errors.name?.type === 'maxLength') && (
-              <ErrorMessage>
-                The name can reach a maximum of 20 characters!
-              </ErrorMessage>
-            )}
-            <Label htmlFor="itemInput">Create new item or task:</Label>
-            <Input
-              placeholder="Item you need or task you have to do"
-              id="itemInput"
-              name="item"
-              onKeyDown={handlePacklistKeyDown}
-              ref={(el) => {
-                itemRef.current = el
-              }}
-            />
-            <HiddenInput
-              name="shouldHaveOneItem"
-              ref={register({
-                validate: () => {
-                  return items.length > 0
-                },
-              })}
-            />
+      <Form data-testid="packlistform" onSubmit={handleSubmit(onSubmit)}>
+        <FormInputContainer>
+          <PacklistNameInputLabel htmlFor="name">
+            Name of the new PackList:
+          </PacklistNameInputLabel>
+          <Input
+            placeholder="PackList name"
+            id="name"
+            name="name"
+            defaultValue={packlistToEdit?.name}
+            ref={register({
+              required: true,
+              minLength: 3,
+              maxLength: 25,
+              validate: {
+                length: (value) =>
+                  value?.trim().length >= 3 && value?.trim().length <= 25,
+                nameTaken: (value) =>
+                  !!packlistId ||
+                  !packlists.some((packlist) => packlist.name === value),
+              },
+            })}
+          />
+          {errors.name?.type === 'required' && (
+            <ErrorMessage>Name is required!</ErrorMessage>
+          )}
+          {errors.name?.type === 'nameTaken' && (
+            <ErrorMessage>Name is taken!</ErrorMessage>
+          )}
+          {(errors.name?.type === 'validate' ||
+            errors.name?.type === 'minLength') && (
+            <ErrorMessage>
+              This field requires at least 3 characters!
+            </ErrorMessage>
+          )}
+          {(errors.name?.type === 'validate' ||
+            errors.name?.type === 'maxLength') && (
+            <ErrorMessage>
+              The name can reach a maximum of 25 characters!
+            </ErrorMessage>
+          )}
+          <Label htmlFor="itemInput">Create new item or task:</Label>
+          <Input
+            placeholder="Item you need or task you have to do"
+            id="itemInput"
+            name="item"
+            onKeyDown={handlePacklistKeyDown}
+            ref={(el) => {
+              itemRef.current = el
+            }}
+          />
+          <HiddenInput
+            name="shouldHaveOneItem"
+            ref={register({
+              validate: () => {
+                return items.length > 0
+              },
+            })}
+          />
 
-            {errors.shouldHaveOneItem?.type === 'validate' && (
-              <ErrorMessage>You need to add one item/task!</ErrorMessage>
-            )}
+          {errors.shouldHaveOneItem?.type === 'validate' && (
+            <ErrorMessage>You need to add one item/task!</ErrorMessage>
+          )}
 
-            {itemError && (
-              <ErrorMessage>
-                'This item field requires at least 3 characters and can reach a
-                maximum of 33 characters!'
-              </ErrorMessage>
-            )}
+          {itemError && (
+            <ErrorMessage>
+              'This item field requires at least 3 characters and can reach a
+              maximum of 20 characters!'
+            </ErrorMessage>
+          )}
 
-            <AddButton
-              type="button"
-              onClick={() => {
-                addItem({ item: itemRef.current.value, itemID: uuid() })
-              }}
-            >
-              <img src={addIcon} alt="add" />
-            </AddButton>
-            <StyledListContainer>
-              {uniqueItems?.map(({ item, completed, itemID }, index) => (
-                <ListItem key={item} id={itemID} text={item}>
-                  <ItemContainer>
-                    <Checkbox type="checkbox" checked={completed} />
-                    <TextSpan>{item}</TextSpan>
-                  </ItemContainer>
-                  <DeleteButton onClick={() => deleteItem(index)} type="button">
-                    X
-                  </DeleteButton>
-                </ListItem>
-              ))}
-            </StyledListContainer>
-            <Label htmlFor="packlistTemplate">Use packlist as template:</Label>
-            <TemplateDropDown
-              id="packlistTemplate"
-              defaultValue=" "
-              name="packlistName"
-              options={uniquePacklists}
-              addMultiplyItems={addMultiplyItems}
-            />
-          </FormInputContainer>
-        </Form>
-      </main>
-      <Footer handleSubmit={handleSubmit(onSubmit)} />
+          <AddButton
+            type="button"
+            onClick={() => {
+              addItem({ item: itemRef.current.value, itemID: uuid() })
+            }}
+          >
+            <img src={addIcon} alt="add" />
+          </AddButton>
+          <ItemContainer>
+            {uniqueItems?.map(({ item, completed, itemID }, index) => (
+              <ListItem key={item} id={itemID} text={item}>
+                <Checkbox type="checkbox" checked={completed} />
+                <TextSpan>{item}</TextSpan>
+                <DeleteButton onClick={() => deleteItem(index)} type="button">
+                  X
+                </DeleteButton>
+              </ListItem>
+            ))}
+          </ItemContainer>
+          <Label htmlFor="packlistTemplate">Use packlist as template:</Label>
+          <TemplateDropDown
+            id="packlistTemplate"
+            defaultValue=" "
+            name="packlistName"
+            options={uniquePacklists}
+            addMultiplyItems={addMultiplyItems}
+          />
+        </FormInputContainer>
+
+        <ButtonGroup>
+          <button type="reset" onClick={() => reset()}>
+            <img src={reloadIcon} alt="reload" />
+          </button>
+          <button type="submit">
+            <img src={saveIcon} alt="save" />
+          </button>
+        </ButtonGroup>
+      </Form>
     </>
   )
 
   function addItem(item) {
-    if (item.item?.trim().length >= 3 && item.item?.trim().length <= 25) {
+    if (item.item?.trim().length >= 3 && item.item?.trim().length <= 20) {
       setItems([item, ...items])
       itemRef.current.value = ''
       setItemError(false)
@@ -221,7 +220,7 @@ const AddButton = styled.button`
   align-self: center;
   margin: 14px;
 `
-const StyledListContainer = styled(ListContainer)`
+const ItemContainer = styled(ListContainer)`
   border: none;
 `
 const TextSpan = styled.span`
@@ -230,10 +229,6 @@ const TextSpan = styled.span`
 `
 const HiddenInput = styled.input`
   display: none;
-`
-const ItemContainer = styled.label`
-  display: flex;
-  align-items: center;
 `
 const DeleteButton = styled.button`
   color: var(--red-main);
@@ -246,4 +241,14 @@ const DeleteButton = styled.button`
 const TemplateDropDown = styled(SelectTemplate)`
   grid-column: 1;
   grid-row: 8;
+`
+
+const ButtonGroup = styled.div`
+  grid-column: 1;
+  grid-row: 9;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 7px;
+  margin-top: 30px;
 `
