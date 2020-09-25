@@ -243,19 +243,19 @@ export default function EventForm({
 
         <InputColumn2
           row={13}
-          placeholder="zip"
+          placeholder="zip code // address field 2"
           defaultValue={eventToEdit?.zip}
           id="zip"
           name="zip"
           ref={register({
-            required: true,
+            required: false,
             minLength: 2,
             validate: (value) => value && value.trim().length >= 2,
           })}
         />
 
         {errors.zip?.type === 'required' && (
-          <ErrorMessageColumn2 row={14}>Zip is required!</ErrorMessageColumn2>
+          <ErrorMessageColumn2 row={14}>Insert zip code!</ErrorMessageColumn2>
         )}
         {(errors.zip?.type === 'validate' ||
           errors.zip?.type === 'minLength') && (

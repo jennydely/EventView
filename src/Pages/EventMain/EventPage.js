@@ -113,12 +113,11 @@ export default function EventPage() {
   function toggleHide(id) {
     const index = eventArray.findIndex((event) => event.id === id)
     const eventUpdate = eventArray[index]
-    if (
+    if (!eventUpdate.isHidden)
       window.confirm(
         'Are you sure you want hide this event? You can find hidden events at the left dropdown in the hidden list.'
       )
-    )
-      eventUpdate.isHidden = !eventUpdate.isHidden
+    eventUpdate.isHidden = !eventUpdate.isHidden
     updateEvent(eventUpdate)
   }
 
