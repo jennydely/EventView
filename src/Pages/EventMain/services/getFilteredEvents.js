@@ -13,7 +13,7 @@ export function getFilteredEvents(
     (event) => event.isHidden === true
   )
   const filteredEvents =
-    eventFilter === 'Hidden'
+    eventFilter === 'Hidden' && filteredHiddenEvents.length > 0
       ? filteredHiddenEvents
       : eventFilter === 'Old'
       ? oldEvents
