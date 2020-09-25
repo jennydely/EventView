@@ -6,9 +6,8 @@ export default createGlobalStyle`
   }
 
   body {
-    
     margin: 0;
-    background: var(--darkgrey-75);
+    background: var(--grey-main);
     font-family: sans-serif;
     line-height: 1.4;
     height: 100vh;
@@ -40,6 +39,7 @@ export default createGlobalStyle`
     flex-direction: row;
     max-width:365px;
     align-items:flex-end;
+    justify-content:space-between;
     }
 
   main {
@@ -51,37 +51,39 @@ export default createGlobalStyle`
    }
 
    &&
-   ::-webkit-scrollbar {
-  display: none;
-}
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
   footer {
     grid-row: 3;
     position:sticky;
     display:flex;
-    justify-content:center;
+    justify-content:space-evenly;
   }
 
   button{
-  display: inline-block; 
-  min-width:fit-content;
-  min-height:fit-content;
+    display: inline-block; 
+    min-width:fit-content;
+    min-height:fit-content;
+    margin: 3px 4px;
+    padding: 11px;
+    border: none;
+    background:none;
+    color: var(--lightyellow-90);
+    font-size: 130%; 
+    text-align: center; 
+ }
+ a {
   margin: 3px 4px;
-  padding: 0 9px;
-  border: none;
-  background:none;
-  color: var(--lightyellow-90);
-  font-size: 130%; 
-  text-align: center; 
-}
+    padding: 11px;
+ }
 
-select {
+  select {
   min-width:fit-content;
-  min-height:fit-content;
   font-size: 140%;  
-  padding-top: 4px;
+  padding: 4px 25px 0px 4px;
   margin-top:3px;
-  padding-right:14px;
   display: block;
   border-radius: 4px;
   border: var(--border-darkgrey);
@@ -99,9 +101,9 @@ select {
   background-position: right 4px top 50%, 0 0;
   /* icon size, then gradient */
   background-size: 0.65em auto, 50%;
-}
+  }
 
-:root {
+  :root {
   /* font-colors */
    --lightyellow-main:rgb(253, 230, 167);
    --lightyellow-90:rgba(253, 230, 167,0.9);
@@ -131,8 +133,15 @@ select {
     --lightgrey-40: rgba(96,99,104,0.40);
 
     --darkgrey-main: rgb(49,42,42);
+    --darkgrey-80: rgba(49,42,42,0.9);
     --darkgrey-75: rgba(49,42,42,0.75);
     --darkgrey-45: rgba(49,42,42,0.45);
+
+    --grey-main:rgb(68,69,72);
+  
+    --black-main: rgb(0,0,0);
+    --black-80: rgb(0,0,0,0.8);
+    --black-75: rgb(0,0,0,0.75);
 
     --red-main: rgba(246, 71, 71);
 
@@ -140,5 +149,5 @@ select {
     --darkred-75:rgba(111, 29, 27, 0.75);
 
     --border-darkgrey: 1px solid var(--darkgrey-75);
-}
+  }
 `

@@ -2,8 +2,8 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import PacklistPage from './Pages/Packlist/PacklistPage'
 import EventPage from './Pages/EventMain/EventPage'
-import EditPacklistForm from './Pages/PacklistForm/EditPacklistForm'
 import EventForm from './Pages/EventForm/EventForm'
+import PacklistForm from './Pages/PacklistForm/PacklistForm'
 
 export default function App() {
   return (
@@ -12,10 +12,10 @@ export default function App() {
         <Route path="/packlist/:packlistName?">
           <PacklistPage />
         </Route>
-        <Route path="/editpacklist/:packlistId?">
-          <EditPacklistForm />
+        <Route path="/packlistform/:packlistId?">
+          <PacklistForm />
         </Route>
-        <Route path="/createevent">
+        <Route path="/eventform/:eventId?">
           <EventForm />
         </Route>
         <Route path="/">

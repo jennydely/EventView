@@ -5,9 +5,9 @@ import editIcon from '../../img/editIcon.svg'
 import ListItem from '../components/common/ListItem'
 import ListContainer from '../components/common/ListContainer'
 import Checkbox from '../components/common/Checkbox'
-import Footer from '../components/Footer'
 import { comparePacklists } from './services/comparePacklists'
 import usePacklists from './usePacklists'
+import FormHeader from '../components/FormHeader'
 
 export default function PackListPage() {
   const { packlistName } = useParams()
@@ -15,36 +15,37 @@ export default function PackListPage() {
   const chosenPacklist = comparePacklists(packlists, packlistName)
   const history = useHistory()
   function handleEditPacklist(packlistId) {
-    history.push('/editpacklist/' + packlistId)
+    history.push('/packlistform/' + packlistId)
   }
   return (
     <>
-      <header>
-        {packlistName ? (
-          <>
-            <h1>PackList</h1>{' '}
-            <button onClick={handleEditButtonClick}>
-              <EditImg src={editIcon} alt="edit" />
-            </button>
-          </>
-        ) : (
-          <h1>No PackList</h1>
-        )}
-      </header>
+      <FormHeader
+        headerText={packlistName ? 'Packlist' : 'No PackList'}
+        headerButton={
+          packlistName ? (
+            <EditButton onClick={handleEditButtonClick}>
+              <img src={editIcon} alt="edit" />
+            </EditButton>
+          ) : (
+            ''
+          )
+        }
+      />
       <main>
-        {packlistName ? <PacklistButton>{packlistName}</PacklistButton> : ''}
+        {packlistName ? <PacklistName>{packlistName}</PacklistName> : ''}
 
         {chosenPacklist ? (
           <ListContainer>
             {chosenPacklist.packlist.sort().map((item) => (
               <ListItemStyled key={item.itemID} id={item.itemID}>
-                <Checkbox
-                  type="checkbox"
-                  checked={item.checked}
-                  onChange={() => handleCheckboxClick(item)}
-                />
-                <span>{item.item}</span>
-                <div></div>
+                <ItemContainer>
+                  <Checkbox
+                    type="checkbox"
+                    checked={item.checked}
+                    onChange={() => handleCheckboxClick(item)}
+                  />
+                  {item.item}
+                </ItemContainer>
               </ListItemStyled>
             ))}
           </ListContainer>
@@ -54,9 +55,6 @@ export default function PackListPage() {
           </NoPacklistText>
         )}
       </main>
-      <>
-        <Footer />
-      </>
     </>
   )
   function handleEditButtonClick() {
@@ -75,19 +73,26 @@ export default function PackListPage() {
   }
 }
 
-const EditImg = styled.img`
-  width: 40px;
-  height: auto;
-  margin: 7px 4px;
-`
 const NoPacklistText = styled.p`
   text-align: center;
 `
 const ListItemStyled = styled(ListItem)`
   justify-content: flex-start;
 `
-const PacklistButton = styled.button`
+const PacklistName = styled.h2`
+  text-align: left;
+  width: fit-content;
   border: var(--border-darkgrey);
-  margin: 4px 0 0 7px;
-  padding-bottom: 0;
+  border-radius: 7px;
+  margin: 4px 0 0.13px 7px;
+  padding: 0 4px;
+`
+const ItemContainer = styled.label`
+  display: flex;
+  align-items: center;
+`
+
+const EditButton = styled.button`
+  padding: 22px 0 0 0;
+  margin: 0 7px;
 `

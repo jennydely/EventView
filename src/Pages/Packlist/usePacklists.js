@@ -21,8 +21,9 @@ export default function usePacklists() {
     putPacklist(packlist)
       .then((packlistUpdate) => {
         const index = packlists.findIndex(
-          (packlist) => packlist.id === packlistUpdate.id
+          (packlist) => '' + packlist.id === '' + packlistUpdate.id
         )
+        console.log('haha', index, packlistUpdate, packlists)
         return setPacklists([
           ...packlists.slice(0, index),
           { ...packlistUpdate },
