@@ -1,7 +1,6 @@
 import React from 'react'
 import SelectEvents from './common/SelectEvents'
 import CategoryFilter from './CategoryFilter'
-import Searchbar from './Searchbar'
 
 export default function Header({
   onSelectFilter,
@@ -24,7 +23,6 @@ export default function Header({
         options={sortOptions}
         onSelectEventFilter={onSelectEventFilter}
       />
-      <Searchbar />
       <CategoryFilter onSelectFilter={onSelectFilter} />
     </header>
   )
