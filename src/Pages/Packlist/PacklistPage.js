@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { useParams, useHistory } from 'react-router-dom'
+import editIcon from '../../img/editIcon.svg'
 import ListItem from '../components/common/ListItem'
 import ListContainer from '../components/common/ListContainer'
 import Checkbox from '../components/common/Checkbox'
-import editIcon from '../../img/editIcon.svg'
-import backIcon from '../../img/backIcon.svg'
+import Footer from '../components/Footer'
 import { comparePacklists } from './services/comparePacklists'
 import usePacklists from './usePacklists'
 
@@ -14,9 +14,6 @@ export default function PackListPage() {
   const { packlists, updatePacklistCheckbox } = usePacklists()
   const chosenPacklist = comparePacklists(packlists, packlistName)
   const history = useHistory()
-  function goBackButton() {
-    history.goBack()
-  }
   function handleEditPacklist(packlistId) {
     history.push('/editpacklist/' + packlistId)
   }
@@ -58,11 +55,7 @@ export default function PackListPage() {
         )}
       </main>
       <>
-        <footer>
-          <button type="button" onClick={goBackButton}>
-            <img src={backIcon} alt="back" />
-          </button>
-        </footer>
+        <Footer />
       </>
     </>
   )

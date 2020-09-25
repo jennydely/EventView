@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import addPacklistIcon from '../../img/addPacklistIcon.svg'
-import backIcon from '../../img/backIcon.svg'
 import addEvent1Icon from '../../img/addEvent1Icon.svg'
 import Header from '../components/Header'
 import EventForm from '../EventForm/EventForm'
@@ -8,8 +7,10 @@ import useEventForm from '../EventForm/useEventForm'
 import usePacklists from '../Packlist/usePacklists'
 import PacklistForm from '../PacklistForm/PacklistForm'
 import usePacklistForm from '../PacklistForm/usePacklistForm'
+import Footer from '../components/Footer'
 import EventList from './EventList'
 import useEvents from './useEvents'
+import { useHistory } from 'react-router-dom'
 
 export default function EventPage() {
   const [categoryFilter, setCategoryFilter] = useState('all')
@@ -27,19 +28,22 @@ export default function EventPage() {
     showEventForm,
     onEventSave,
     onEventSaveEdit,
-    goEventBack,
   } = useEventForm(addEvent, updateEvent)
   const { packlists, addPacklist } = usePacklists()
   const {
     packlistFormIsVisible,
     showPacklistForm,
     onPacklistSave,
-    goPacklistBack,
   } = usePacklistForm(addPacklist)
   const hasHiddenEvent = eventArray.some((event) => event.isHidden === true)
   const hasOldEvent = eventArray.some(
     (event) => event.eventEndDate < new Date().toJSON().slice(0, 10)
   )
+
+  const history = useHistory()
+  function handleCreateEventClick() {
+    history.push('/createevent/')
+  }
   return (
     <>
       {eventFormIsVisible ? (
@@ -55,11 +59,7 @@ export default function EventPage() {
               onEventSaveEdit={onEventSaveEdit}
             />
           </main>
-          <footer>
-            <button type="button" onClick={goEventBack}>
-              <img src={backIcon} alt="back" />
-            </button>
-          </footer>
+          <Footer />
         </>
       ) : packlistFormIsVisible ? (
         <>
@@ -69,11 +69,7 @@ export default function EventPage() {
           <main>
             <PacklistForm onPacklistSave={onPacklistSave} />
           </main>
-          <footer>
-            <button type="button" onClick={goPacklistBack}>
-              <img src={backIcon} alt="back" />
-            </button>
-          </footer>
+          <Footer />
         </>
       ) : (
         <>
@@ -96,7 +92,7 @@ export default function EventPage() {
             />
           </main>
           <footer>
-            <button onClick={showEventForm}>
+            <button onClick={handleCreateEventClick}>
               {' '}
               <img src={addEvent1Icon} alt="create event" />
             </button>
