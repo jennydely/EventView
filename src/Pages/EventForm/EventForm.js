@@ -235,21 +235,14 @@ export default function EventForm() {
             id="street"
             name="street"
             ref={register({
-              required: true,
-              minLength: 5,
-              validate: (value) => value && value.trim().length >= 5,
+              required: false,
+              validate: (value) => value || value.trim().length <= 20,
             })}
           />
 
-          {errors.street?.type === 'required' && (
+          {errors.street?.type === 'validate' && (
             <ErrorMessageColumn2 row={12}>
-              Street is required!
-            </ErrorMessageColumn2>
-          )}
-          {(errors.street?.type === 'validate' ||
-            errors.street?.type === 'minLength') && (
-            <ErrorMessageColumn2 row={12}>
-              This field requires at least 5 characters!
+              This field can reache a maximum of 20 characters!
             </ErrorMessageColumn2>
           )}
 
@@ -261,18 +254,13 @@ export default function EventForm() {
             name="zip"
             ref={register({
               required: false,
-              minLength: 2,
-              validate: (value) => value && value.trim().length >= 2,
+              validate: (value) => !value || value.trim().length <= 10,
             })}
           />
 
-          {errors.zip?.type === 'required' && (
-            <ErrorMessageColumn2 row={14}>Insert zip code!</ErrorMessageColumn2>
-          )}
-          {(errors.zip?.type === 'validate' ||
-            errors.zip?.type === 'minLength') && (
+          {errors.zip?.type === 'validate' && (
             <ErrorMessageColumn2 row={14}>
-              This field requires at least 2 characters!
+              This field can reache a maximum of 10 characters!
             </ErrorMessageColumn2>
           )}
 
@@ -342,7 +330,7 @@ export default function EventForm() {
             value={eventToEdit?.packlistCategory}
             name="packlistCategory"
             id="packlist"
-            register={register({ required: true })}
+            register={register()}
             options={uniquePacklists}
           />
         </Form>
