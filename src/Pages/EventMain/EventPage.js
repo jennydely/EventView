@@ -9,7 +9,8 @@ import { useHistory } from 'react-router-dom'
 export default function EventPage() {
   const [categoryFilter, setCategoryFilter] = useState('all')
   const [eventFilter, setEventFilter] = useState('date')
-  const [eventSearch, setEventSearch] = useState('')
+  const [searchedEvent, setSearchedEvent] = useState('')
+  const [searchedEvents, setSearchedEvents] = useState('')
   const {
     eventArray,
     updateEvent,
@@ -32,14 +33,16 @@ export default function EventPage() {
         onSelectFilter={handleCategoryFilter}
         onSelectEventFilter={setEventFilter}
         eventArray={eventArray}
-        handleEventSuggestion={handleEventSearch}
+        handleEventSuggestion={setEventSuggestion}
+        handleEventSearch={setEventSearch}
       />
       <main>
         <EventList
           eventArray={eventArray}
           eventFilter={eventFilter}
           categoryFilter={categoryFilter}
-          eventSearch={eventSearch}
+          eventSearch={searchedEvent}
+          multipleEventSearch={searchedEvents}
           onHideButtonClick={toggleHide}
           onDeleteButtonClick={delEvent}
           onTicketCheckboxClick={handleTicketCheckbox}
@@ -59,13 +62,18 @@ export default function EventPage() {
   )
 
   function handleCategoryFilter(categoryFilter) {
-    setEventSearch('')
+    setSearchedEvent('')
     setCategoryFilter(categoryFilter)
   }
 
-  function handleEventSearch(searchedEvent) {
+  function setEventSuggestion(searchedEvent) {
     setCategoryFilter('category')
-    setEventSearch(searchedEvent)
+    setSearchedEvent(searchedEvent)
+  }
+
+  function setEventSearch(searchedName) {
+    setCategoryFilter('category')
+    setSearchedEvents(searchedName)
   }
 
   function toggleHide(id) {

@@ -11,6 +11,7 @@ export default function EventList({
   categoryFilter,
   eventFilter,
   eventSearch,
+  multipleEventSearch,
   onHideButtonClick,
   onEditButtonClick,
   onDeleteButtonClick,
@@ -22,6 +23,7 @@ export default function EventList({
     eventArray,
     eventFilter,
     eventSearch,
+    multipleEventSearch,
     categoryfilteredEvents
   )
   const availableYears = getAvailableYears(eventFilter, filteredEvents)

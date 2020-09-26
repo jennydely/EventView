@@ -2,10 +2,15 @@ export function getFilteredEvents(
   eventArray,
   eventFilter,
   eventSearch,
+  multipleEventSearch,
   categoryfilteredEvents
 ) {
   if (eventSearch && eventSearch.length > 0)
     return [eventArray.find((event) => event.name === eventSearch)]
+  else if (multipleEventSearch && multipleEventSearch.length > 0)
+    return eventArray.filter((event) =>
+      event.name.toLowerCase().includes(multipleEventSearch.toLowerCase())
+    )
 
   const today = new Date().toJSON().slice(0, 10)
 
