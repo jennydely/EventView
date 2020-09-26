@@ -17,19 +17,19 @@ export default createGlobalStyle`
       }
  
   h1 {
-    font-size: 140%;
+    font-size: 145%;
     margin:0;
     margin-left: 7px;
     align-self:center;
   }
 
   h2 {
-    font-size: 130%;
+    font-size: 138%;
     margin:0;
   }
 
   h3 {
-    font-size: 112,5%;
+    font-size: 120%;
     margin:0;
   }
   header {
@@ -73,6 +73,7 @@ export default createGlobalStyle`
     color: var(--lightyellow-90);
     font-size: 130%; 
     text-align: center; 
+    cursor:pointer;
  }
  a {
   margin: 3px 4px;

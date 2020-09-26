@@ -1,9 +1,9 @@
 import React from 'react'
-import EventItem from '../components/EventItem'
+import EventItem from '../Pages/EventMain/components/EventItem'
 import styled from 'styled-components/macro'
 
 export default {
-  title: 'EventPlanner/EventItem',
+  title: 'EventView/EventItem',
   component: EventItem,
 }
 

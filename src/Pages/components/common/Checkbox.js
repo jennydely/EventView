@@ -7,4 +7,5 @@ export default styled.input`
   align-self: center;
   padding: 7px;
   margin: 2px;
+  cursor: pointer;
 `

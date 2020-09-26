@@ -1,11 +1,14 @@
 import React from 'react'
 import SelectEvents from './common/SelectEvents'
 import CategoryFilter from './CategoryFilter'
+import Searchbar from './Searchbar'
 
 export default function Header({
   onSelectFilter,
   onSelectEventFilter,
   eventArray,
+  handleEventSuggestion,
+  handleEventSearch,
 }) {
   const hasHiddenEvent = eventArray.some((event) => event.isHidden === true)
   const hasOldEvent = eventArray.some(
@@ -22,6 +25,10 @@ export default function Header({
         name={sortOptions}
         options={sortOptions}
         onSelectEventFilter={onSelectEventFilter}
+      />
+      <Searchbar
+        handleEventSuggestion={handleEventSuggestion}
+        handleEventSearch={handleEventSearch}
       />
       <CategoryFilter onSelectFilter={onSelectFilter} />
     </header>

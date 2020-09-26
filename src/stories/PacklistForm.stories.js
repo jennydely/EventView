@@ -1,15 +1,12 @@
-
-import React from 'react';
-import PacklistForm from '../Packlist/PacklistForm';
+import React from 'react'
+import PacklistForm from '../Pages/PacklistForm/PacklistForm'
 
 export default {
-  title: 'EventPlanner/PacklistForm',
+  title: 'EventView/PacklistForm',
   component: PacklistForm,
-};
+}
 
-const Template = (args) => <PacklistForm {...args} />;
+const Template = (args) => <PacklistForm {...args} />
 
-export const Formular = Template.bind({});
-Formular.args = {
-
-};
+export const Formular = Template.bind({})
+Formular.args = {}

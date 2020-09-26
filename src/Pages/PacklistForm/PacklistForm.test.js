@@ -29,7 +29,7 @@ describe('PacklistForm', () => {
   })
 
   it('displays a form to create packlist', async () => {
-    const { getByAltText, getByPlaceholderText } = render(
+    const { getByPlaceholderText } = render(
       <MemoryRouter>
         <PacklistForm />
       </MemoryRouter>
@@ -39,9 +39,6 @@ describe('PacklistForm', () => {
     expect(nameInput.value).toBe('')
     fireEvent.input(nameInput, { target: { value: 'My PacklistName' } })
     expect(nameInput.value).toBe('My PacklistName')
-
-    fireEvent.click(getByAltText('reload'))
-    await waitFor(() => expect(nameInput.value).toBe(''))
   })
 
   it('renders correctly', () => {

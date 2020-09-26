@@ -6,7 +6,7 @@ context('Eventpage', () => {
   })
 
   it('has the right App title', () => {
-    cy.title().should('contain', 'Eventplanner')
+    cy.title().should('contain', 'EventView')
   })
 
   it('can be sorted', () => {

@@ -7,6 +7,7 @@ afterEach(cleanup)
 window.MutationObserver = require('mutation-observer')
 describe('Test category filter', () => {
   const mockedOptions = [
+    { value: 'category' },
     { value: 'all' },
     { value: 'metal' },
     { value: 'medieval' },
@@ -20,7 +21,7 @@ describe('Test category filter', () => {
       <CategoryFilter options={mockedOptions} onSelectFilter={mockedOnChange} />
     )
 
-    const placeholder = getByText('all')
+    const placeholder = getByText('category')
 
     expect(placeholder).toBeTruthy()
   })
@@ -37,10 +38,10 @@ describe('Test category filter', () => {
     expect(mySelectComponent).not.toBeNull()
     expect(mockedOnChange).toHaveBeenCalledTimes(0)
 
-    fireEvent.keyDown(mySelectComponent.firstChild, { key: 'ArrowDown' })
+    fireEvent.keyDown(mySelectComponent, { key: 'ArrowDown' })
     await waitFor(() => expect(getByText('metal')).toBeVisible())
     //fireEvent.click(getByText('metal'))
-    fireEvent.change(mySelectComponent.firstChild, {
+    fireEvent.change(mySelectComponent, {
       target: { value: 'metal' },
     })
 
@@ -60,21 +61,21 @@ describe('Test category filter', () => {
     expect(mySelectComponent).not.toBeNull()
     expect(mockedOnChange).toHaveBeenCalledTimes(0)
 
-    fireEvent.keyDown(mySelectComponent.firstChild, { key: 'ArrowDown' })
+    fireEvent.keyDown(mySelectComponent, { key: 'ArrowDown' })
     await waitFor(() => getByText('all'))
-    fireEvent.change(mySelectComponent.firstChild, {
+    fireEvent.change(mySelectComponent, {
       target: { value: 'all' },
     })
 
-    fireEvent.keyDown(mySelectComponent.firstChild, { key: 'ArrowDown' })
+    fireEvent.keyDown(mySelectComponent, { key: 'ArrowDown' })
     await waitFor(() => getByText('metal'))
-    fireEvent.change(mySelectComponent.firstChild, {
+    fireEvent.change(mySelectComponent, {
       target: { value: 'metal' },
     })
 
-    fireEvent.keyDown(mySelectComponent.firstChild, { key: 'ArrowDown' })
+    fireEvent.keyDown(mySelectComponent, { key: 'ArrowDown' })
     await waitFor(() => getByText('holiday'))
-    fireEvent.change(mySelectComponent.firstChild, {
+    fireEvent.change(mySelectComponent, {
       target: { value: 'holiday' },
     })
 
@@ -93,14 +94,10 @@ describe('Test category filter', () => {
     fireEvent.change(container.querySelector('select'), {
       target: { value: 'all' },
     })
-
-    // select Mocked option 1
-    fireEvent.keyDown(mySelectComponent.firstChild, { key: 'ArrowDown' })
-    // select Mocked option 4
-    fireEvent.keyDown(mySelectComponent.firstChild, { key: 'ArrowDown' })
+    await waitFor(() => expect(mockedOnChange).toHaveBeenCalledTimes(1))
 
     await waitFor(() => getByText('other'))
-    fireEvent.change(mySelectComponent.firstChild, {
+    fireEvent.change(mySelectComponent, {
       target: { value: 'other' },
     })
 

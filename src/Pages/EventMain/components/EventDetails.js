@@ -98,7 +98,7 @@ export default function EventDetails({
 
 const Details = styled(animated.section)`
   display: grid;
-  grid-template-columns: 20% repeat(4, auto) 20%;
+  grid-template-columns: 30% repeat(2, auto) 30%;
   grid-template-rows: repeat(8, auto);
   margin: 0;
   margin-top: -2px;
@@ -125,18 +125,21 @@ const Details = styled(animated.section)`
   }
 `
 const ParagraphColumn3 = styled(Paragraph)`
-  grid-column: 3/7;
+  grid-column: 3/5;
   grid-row: ${(props) => props.row};
   text-align: left;
 `
 const LinkPoster = styled.a`
   grid-column: 1;
   grid-row: 1 / span 5;
+  padding: 0;
+  margin: 11px 4px 0 4px;
 `
 const EventPoster = styled.img`
   grid-column: 1 / span 1;
   grid-row: 1 / span 5;
-  margin: 7px;
+  margin: 0;
+  padding: 0;
   object-fit: cover;
   width: 90%;
   max-height: 90%;
@@ -166,7 +169,7 @@ const TicketLabel = styled.label`
   display: ${({ price }) => (price ? '' : 'none')};
 `
 const Name = styled(Paragraph)`
-  grid-column: 3/7;
+  grid-column: 3/5;
   grid-row: 1;
   text-align: left;
   margin-top: 7px;
@@ -177,7 +180,7 @@ const Ticket = styled(Checkbox)`
   display: ${({ price }) => (price ? '' : 'none')};
 `
 const ButtonContainer = styled.div`
-  grid-column: 1/7;
+  grid-column: 1/5;
   grid-row: ${(props) => props.row};
   display: flex;
   width: 100%;
