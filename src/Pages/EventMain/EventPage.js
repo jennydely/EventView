@@ -63,16 +63,19 @@ export default function EventPage() {
 
   function handleCategoryFilter(categoryFilter) {
     setSearchedEvent('')
+    setSearchedEvents('')
     setCategoryFilter(categoryFilter)
   }
 
   function setEventSuggestion(searchedEvent) {
     setCategoryFilter('category')
+    setSearchedEvents('')
     setSearchedEvent(searchedEvent)
   }
 
   function setEventSearch(searchedName) {
     setCategoryFilter('category')
+    setSearchedEvent('')
     setSearchedEvents(searchedName)
   }
 
