@@ -83,7 +83,7 @@ export default createGlobalStyle`
   select {
   min-width:fit-content;
   font-size: 140%;  
-  padding: 4px 25px 0px 4px;
+  padding: 4px 25px 0 4px;
   margin-top:3px;
   display: block;
   border-radius: 4px;

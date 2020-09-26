@@ -1,7 +1,6 @@
 import React from 'react'
 import SelectEvents from './common/SelectEvents'
 import CategoryFilter from './CategoryFilter'
-import Searchbar from './Searchbar'
 
 export default function Header({
   onSelectFilter,
