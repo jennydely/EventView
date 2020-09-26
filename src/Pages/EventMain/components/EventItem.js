@@ -94,14 +94,16 @@ const EventHeader = styled.div`
 `
 const TextContainer = styled.div`
   align-self: center;
-  flex-basis: 98%;
+  flex-basis: 90%;
+  max-width: 365px;
 `
 const ButtonContainer = styled.div`
   align-items: flex-end;
+  flex-basis: 10%;
 `
 const HideButton = styled.button`
-  padding: 22px 0 2px 11px;
+  padding: 22px 11px 2px 0;
 `
 const EditButton = styled.button`
-  padding: 2px 0 22px 11px;
+  padding: 2px 11px 22px 0;
 `
