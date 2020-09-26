@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { v4 as uuid } from 'uuid'
 import { useParams, useHistory } from 'react-router-dom'
 import { useForm, Controller } from 'react-hook-form'
@@ -19,7 +19,14 @@ import useEventForm from './useEventForm'
 
 export default function EventForm() {
   const { eventId } = useParams()
-  const { register, handleSubmit, getValues, errors, control } = useForm()
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    errors,
+    control,
+    reset,
+  } = useForm()
   const { eventArray, addEvent, updateEvent } = useEvents()
   const { onEventSave, onEventSaveEdit } = useEventForm(addEvent, updateEvent)
   const eventToEdit = editEvent()
@@ -43,6 +50,11 @@ export default function EventForm() {
   }
   const { packlists } = usePacklists()
   const uniquePacklists = getUniquePacklists(packlists)
+
+  useEffect(() => {
+    reset()
+  }, [eventToEdit, reset])
+
   return (
     <>
       <FormHeader headerText={eventToEdit ? 'Edit Event' : 'Create Event'} />
