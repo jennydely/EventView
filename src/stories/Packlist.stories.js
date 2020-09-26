@@ -1,5 +1,5 @@
 import React from 'react'
-import PackListPage from '../Packlist/PacklistPage'
+import PackListPage from '../Pages/Packlist/PacklistPage'
 
 export default {
   title: 'EventView/Packlist',

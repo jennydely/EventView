@@ -1,5 +1,6 @@
 import React from 'react'
-import EventForm from '../components/EventForm'
+import EventForm from '../Pages/EventForm/EventForm'
+import './storybookStyles.css'
 
 export default {
   title: 'EventView/EventForm',
@@ -7,7 +8,7 @@ export default {
 }
 
 const Template = (args) => (
-  <main>
+  <main className="storybook_main">
     <EventForm {...args} />
   </main>
 )

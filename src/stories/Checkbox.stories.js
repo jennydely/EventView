@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import Checkbox from '../common/Checkbox'
-import ListItem from '../common/ListItem'
+import Checkbox from '../Pages/components/common/Checkbox'
+import ListItem from '../Pages/components/common/ListItem'
 
 export default {
   title: 'EventView/Checkbox',

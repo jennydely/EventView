@@ -34,7 +34,7 @@
   {
     "id": "3",
     "poster": "",
-    "name": "WikingerEvent",
+    "name": "Wikinger Event",
     "street": "Seeuferweg 10",
     "zip": "24351",
     "location": "Damp",
@@ -82,7 +82,7 @@
   {
     "id": "7",
     "poster": "https://www.wacken-winter-nights.com/fileadmin/_processed_/csm_wwn_20_191024-web_6495c0af7f.jpg",
-    "name": "WackenWinterNights",
+    "name": "Wacken Winter Nights",
     "street": "Reselithweg 17",
     "zip": "25596",
     "location": "Wacken",
@@ -98,7 +98,7 @@
   {
     "id": "8",
     "poster": "https://www.wacken-winter-nights.com/fileadmin/_processed_/csm_wwn_20_191024-web_6495c0af7f.jpg",
-    "name": "WackenWinterNights",
+    "name": "Wacken Winter Nights",
     "street": "Reselithweg 17",
     "zip": "25596",
     "location": "Wacken",
@@ -114,7 +114,7 @@
   {
     "id": "6",
     "poster": "",
-    "name": "MengederGaudium",
+    "name": "Mengeder Gaudium",
     "street": "Eckei 96",
     "zip": "44359",
     "location": "Dortmund",

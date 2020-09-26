@@ -1,5 +1,5 @@
 import React from 'react'
-import PacklistForm from '../Packlist/PacklistForm'
+import PacklistForm from '../Pages/PacklistForm/PacklistForm'
 
 export default {
   title: 'EventView/PacklistForm',

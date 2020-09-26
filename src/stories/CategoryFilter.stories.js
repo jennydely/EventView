@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CategoryFilter from '../components/CategoryFilter'
+import CategoryFilter from '../Pages/components/CategoryFilter'
 
 export default {
   title: 'EventView/CategoryFilter',
