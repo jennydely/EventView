@@ -19,7 +19,7 @@ export default function Searchbar({
         placeholder="search..."
         value={eventNameInput}
         onKeyUp={handleInputKeyUp}
-        onChange={(e) => setEventNameInput(e.target.value)}
+        onChange={(event) => setEventNameInput(event.target.value)}
       />
       <SuggestionContainer>
         <SuggestionList>
@@ -68,12 +68,12 @@ export default function Searchbar({
       .toLowerCase()
       .indexOf(eventNameInput.toLowerCase())
 
-    let firstPart = suggestion.slice(0, searchIndex)
-    let markedPart = suggestion.slice(
+    const firstPart = suggestion.slice(0, searchIndex)
+    const markedPart = suggestion.slice(
       searchIndex,
       searchIndex + eventNameInput.length
     )
-    let lastPart = suggestion.slice(searchIndex + eventNameInput.length)
+    const lastPart = suggestion.slice(searchIndex + eventNameInput.length)
     return (
       <>
         {firstPart}
@@ -100,18 +100,16 @@ const SuggestionList = styled.ul`
   list-style-position: inside;
   margin: 4px;
   padding: 0;
-  box-shadow: 0.05em 0.01em 0.5em rgba(0, 0, 0, 0.2);
   width: auto;
 `
 const SuggestionItems = styled.li`
   list-style-type: none;
-  color: #193251;
-  border-bottom: 1px solid #ddd;
+  border-bottom: var(--border-darkgrey);
   font-size: 140%;
   border-radius: 4px;
   border: var(--border-darkgrey);
   color: var(--lightyellow-90);
-  background: rgb(96, 99, 104);
+  background: var(--lightgrey-main);
   padding: 7px;
   margin: 0;
 
