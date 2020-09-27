@@ -6,7 +6,7 @@ export function getUniquePacklists(packlists) {
 
       return names
     },
-    ['']
+    ['Add packlist']
   )
   return uniquePacklists
 }

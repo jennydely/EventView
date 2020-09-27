@@ -7,8 +7,8 @@ import useEvents from './useEvents'
 import { useHistory } from 'react-router-dom'
 
 export default function EventPage() {
-  const [categoryFilter, setCategoryFilter] = useState('all')
-  const [eventFilter, setEventFilter] = useState('date')
+  const [categoryFilter, setCategoryFilter] = useState('All')
+  const [eventFilter, setEventFilter] = useState('Date')
   const [searchedEvent, setSearchedEvent] = useState('')
   const [searchedEvents, setSearchedEvents] = useState('')
   const {
