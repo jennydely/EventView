@@ -12,9 +12,14 @@ EventView is still in progress and will be including some more options soon, lik
 
 # Screenshots
 
-![picture](ReadMe_img/EventView_1.png) ![picture](ReadMe_img/EventView_2.png)
-![picture](ReadMe_img/EventView_3.png) ![picture](ReadMe_img/EventView_4.png)
-![picture](ReadMe_img/EventView_5.png) ![picture](ReadMe_img/EventView_6.png)
+<img src="./ReadMe_img/EventView_1.png" width="300px" />                                    <img src="./ReadMe_img/EventView_2.png" width="300px" /> 
+
+
+<img src="./ReadMe_img/EventView_3.png" width="300px" />                                    <img src="./ReadMe_img/EventView_4.png" width="300px" /> 
+
+
+<img src="./ReadMe_img/EventView_5.png" width="300px" />                                    <img src="./ReadMe_img/EventView_6.png" width="300px" />
+
 
 # Tech stack
 
