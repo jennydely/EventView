@@ -13,6 +13,8 @@ EventView is still in progress and will be including some more options soon, lik
 # Screenshots
 
 ![picture](ReadMe_img/EventView_1.png) ![picture](ReadMe_img/EventView_2.png)
+![picture](ReadMe_img/EventView_3.png) ![picture](ReadMe_img/EventView_4.png)
+![picture](ReadMe_img/EventView_5.png) ![picture](ReadMe_img/EventView_6.png)
 
 # Tech stack
 
