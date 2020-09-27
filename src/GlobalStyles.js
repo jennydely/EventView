@@ -149,6 +149,8 @@ export default createGlobalStyle`
     --darkred-main:rgb(111, 29, 27);
     --darkred-75:rgba(111, 29, 27, 0.75);
 
+    --white-main:rgb(255,255,255)
+
     --border-darkgrey: 1px solid var(--darkgrey-75);
   }
 `

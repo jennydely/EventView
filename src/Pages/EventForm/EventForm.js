@@ -52,7 +52,10 @@ export default function EventForm() {
   const uniquePacklists = getUniquePacklists(packlists)
 
   useEffect(() => {
-    reset()
+    reset({
+      eventStartDate: eventToEdit ? new Date(eventToEdit.eventStartDate) : '',
+      eventEndDate: eventToEdit ? new Date(eventToEdit.eventEndDate) : '',
+    })
   }, [eventToEdit, reset])
 
   return (
@@ -236,7 +239,7 @@ export default function EventForm() {
             name="street"
             ref={register({
               required: false,
-              validate: (value) => value || value.trim().length <= 20,
+              validate: (value) => !value || value.trim().length <= 20,
             })}
           />
 
