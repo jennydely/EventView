@@ -7,7 +7,7 @@ export default createGlobalStyle`
 
   body {
     margin: 0;
-    background: var(--grey-main);
+    background: var(--lightgrey-80);
     font-family: sans-serif;
     line-height: 1.4;
     height: 100vh;
@@ -33,13 +33,14 @@ export default createGlobalStyle`
     margin:0;
   }
   header {
-    margin:5px;
+    padding:5px;
     grid-row: 1;
     display: flex;
     flex-direction: row;
     max-width:365px;
     align-items:flex-end;
     justify-content:space-between;
+
     }
 
   main {
@@ -94,8 +95,9 @@ export default createGlobalStyle`
   background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FDE6A7%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
     linear-gradient(
       to bottom,
-      rgb(96, 99, 104) 20%,
-      rgba(96, 99, 104) 100%
+      rgb(68,69,72) 20%,
+      rgba(68,69,72) 80%
+
     );
   background-repeat: no-repeat, repeat;
   /* arrow icon position (1em from the right, 50% vertical) , then gradient position*/
@@ -139,6 +141,8 @@ export default createGlobalStyle`
     --darkgrey-45: rgba(49,42,42,0.45);
 
     --grey-main:rgb(68,69,72);
+    --grey-95:rgb(68,69,72,0.95);
+    --grey-75:rgb(68,69,72,0.75);
   
     --black-main: rgb(0,0,0);
     --black-80: rgb(0,0,0,0.8);
@@ -152,5 +156,6 @@ export default createGlobalStyle`
     --white-main:rgb(255,255,255)
 
     --border-darkgrey: 1px solid var(--darkgrey-75);
+    --border-lightgrey: 1px solid var(--lightgrey-70);
   }
 `

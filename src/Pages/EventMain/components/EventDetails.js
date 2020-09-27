@@ -1,11 +1,12 @@
 import React from 'react'
 import { animated } from 'react-spring'
 import styled from 'styled-components/macro'
-import { useHistory } from 'react-router-dom'
 import Checkbox from '../../components/common/Checkbox'
 import Paragraph from '../../components/common/Paragraph'
 import trashIcon from '../../../img/trashIcon.svg'
-import packlistIcon from '../../../img/packlistIcon.svg'
+
+import eyeIcon from '../../../img/eyeIcon.svg'
+import hideEyeIcon from '../../../img/hideEyeIcon.svg'
 import routeIcon from '../../../img/routeIcon.svg'
 import websiteIcon from '../../../img/websiteIcon.svg'
 import getColorOfEventCategory from '../../../services/getColorOfEventCategory'
@@ -14,25 +15,14 @@ export default function EventDetails({
   event,
   style,
   bind,
+  id,
+  onHideButtonClick,
   onDeleteButtonClick,
   onTicketCheckboxClick,
 }) {
-  const {
-    poster,
-    name,
-    street,
-    zip,
-    location,
-    price,
-    website,
-    packlistCategory,
-  } = event
+  const { poster, name, street, zip, location, price, website } = event
   const defaultImg =
     'https://delyed.de/wp-content/uploads/2018/01/5d737e918441914a9d2743268ef65439.jpg'
-  const history = useHistory()
-  function showPacklist() {
-    history.push('/packlist/' + packlistCategory)
-  }
 
   return (
     <Details name={event.category} style={style} {...bind}>
@@ -48,7 +38,7 @@ export default function EventDetails({
       <Name>{name}</Name>
       <ParagraphColumn3 row={2}>{street}</ParagraphColumn3>
       <ParagraphColumn3 row={3}>
-        {zip} {location}
+        {zip} {location.length > 15 ? location.slice(0, 15) + '...' : location}
       </ParagraphColumn3>
       <ParagraphColumn3 row={5}>
         {price ? price + ' €' : 'kostenlos'}{' '}
@@ -64,9 +54,6 @@ export default function EventDetails({
         price={price}
       />
       <ButtonContainer row={7} space={'space-around'}>
-        <PacklistButton onClick={showPacklist}>
-          <img src={packlistIcon} alt="packlist" />
-        </PacklistButton>
         <a href={website} target="blank" title="link">
           <img src={websiteIcon} alt="website" />
         </a>
@@ -79,6 +66,13 @@ export default function EventDetails({
         >
           <img src={routeIcon} alt="route" />
         </a>
+        <HideButton onClick={handleHideButtonClick} id={id}>
+          {event.isHidden ? (
+            <img src={eyeIcon} alt="show" />
+          ) : (
+            <img src={hideEyeIcon} alt="hide" />
+          )}
+        </HideButton>
         <DeleteButton onClick={handleDeleteButtonClick}>
           <img src={trashIcon} alt="delete" />
         </DeleteButton>
@@ -94,6 +88,9 @@ export default function EventDetails({
   function handleCheckboxClick() {
     onTicketCheckboxClick(event.id)
   }
+  function handleHideButtonClick() {
+    onHideButtonClick(event.id)
+  }
 }
 
 const Details = styled(animated.section)`
@@ -101,7 +98,10 @@ const Details = styled(animated.section)`
   grid-template-columns: 30% repeat(2, auto) 30%;
   grid-template-rows: repeat(8, auto);
   margin: 0;
+
   margin-top: -2px;
+  border-radius: 7px;
+  background: var(--grey-75);
   border: 2px solid ${(opt) => getColorOfEventCategory(opt.name)};
   border-top: 0;
   overflow: hidden;
@@ -111,6 +111,7 @@ const Details = styled(animated.section)`
     content: '';
     position: absolute;
     left: 0;
+    padding: 2px;
     width: 100%;
     height: 100%;
   }
@@ -189,7 +190,7 @@ const ButtonContainer = styled.div`
   padding-top: 7px;
   justify-content: ${(props) => props.space};
 `
-const PacklistButton = styled.button`
+const HideButton = styled.button`
   display: inline-block;
   margin: 0;
 `

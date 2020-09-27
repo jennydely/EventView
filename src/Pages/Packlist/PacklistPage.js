@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import { useParams, useHistory } from 'react-router-dom'
 import editIcon from '../../img/editIcon.svg'
+import FormHeader from '../components/FormHeader'
 import ListItem from '../components/common/ListItem'
 import ListContainer from '../components/common/ListContainer'
 import Checkbox from '../components/common/Checkbox'
 import { comparePacklists } from './services/comparePacklists'
 import usePacklists from './usePacklists'
-import FormHeader from '../components/FormHeader'
 
 export default function PackListPage() {
   const { packlistName } = useParams()

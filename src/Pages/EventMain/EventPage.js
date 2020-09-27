@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import styled from 'styled-components/macro'
 import addPacklistIcon from '../../img/addPacklistIcon.svg'
 import addEvent1Icon from '../../img/addEvent1Icon.svg'
 import Header from '../components/Header'
@@ -49,14 +50,12 @@ export default function EventPage() {
         />
       </main>
       <footer>
-        <button onClick={handleCreateEventClick}>
-          {' '}
+        <FooterButton onClick={handleCreateEventClick}>
           <img src={addEvent1Icon} alt="create event" />
-        </button>
-        <button onClick={handleCreatePacklistClick}>
-          {' '}
+        </FooterButton>
+        <FooterButton onClick={handleCreatePacklistClick}>
           <img src={addPacklistIcon} alt="create packlist" />
-        </button>
+        </FooterButton>
       </footer>
     </>
   )
@@ -108,3 +107,8 @@ export default function EventPage() {
     updateTicketCheckbox(clickedTicket)
   }
 }
+
+const FooterButton = styled.button`
+  padding: 0px;
+  margin: 4px 0;
+`

@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { useSpring } from 'react-spring'
 import styled from 'styled-components/macro'
-import eyeIcon from '../../../img/eyeIcon.svg'
-import hideEyeIcon from '../../../img/hideEyeIcon.svg'
+import packlistIcon from '../../../img/packlistIcon.svg'
 import editIcon from '../../../img/editIcon.svg'
 import getColorOfEventCategory from '../../../services/getColorOfEventCategory'
 import { formatDate } from '../../../services/date'
@@ -17,7 +16,14 @@ export default function EventItem({
   onDeleteButtonClick,
   onTicketCheckboxClick,
 }) {
-  const { name, location, category, eventStartDate, eventEndDate } = event
+  const {
+    name,
+    location,
+    category,
+    eventStartDate,
+    eventEndDate,
+    packlistCategory,
+  } = event
   const { height, bind } = useHeight([event])
   const [isEventDetailVisible, setIsEventDetailVisible] = useState(false)
   const detailStyle = {
@@ -28,6 +34,9 @@ export default function EventItem({
   const history = useHistory()
   function handleEditEvent(eventId) {
     history.push('/eventform/' + eventId)
+  }
+  function showPacklist() {
+    history.push('/packlist/' + packlistCategory)
   }
 
   return (
@@ -40,13 +49,9 @@ export default function EventItem({
             <h3>{formatDate(eventStartDate, eventEndDate)}</h3>
           </TextContainer>
           <ButtonContainer>
-            <HideButton onClick={handleHideButtonClick} id={id}>
-              {event.isHidden ? (
-                <img src={eyeIcon} alt="show" />
-              ) : (
-                <img src={hideEyeIcon} alt="hide" />
-              )}
-            </HideButton>
+            <PacklistButton onClick={showPacklist}>
+              <img src={packlistIcon} alt="packlist" />
+            </PacklistButton>
             <EditButton onClick={handleEditButtonClick}>
               <img src={editIcon} alt="edit" />
             </EditButton>
@@ -56,6 +61,8 @@ export default function EventItem({
           event={event}
           style={detailStyle}
           bind={bind}
+          id={id}
+          onHideButtonClick={onHideButtonClick}
           onDeleteButtonClick={onDeleteButtonClick}
           onTicketCheckboxClick={onTicketCheckboxClick}
         />
@@ -65,10 +72,6 @@ export default function EventItem({
 
   function toggleEventDetail() {
     setIsEventDetailVisible(!isEventDetailVisible)
-  }
-
-  function handleHideButtonClick() {
-    onHideButtonClick(event.id)
   }
 
   function handleEditButtonClick() {
@@ -88,7 +91,8 @@ const EventHeader = styled.div`
   justify-content: space-between;
   margin: 0;
   padding: 4px 0 4px 4px;
-  border-radius: 6px;
+  border-radius: 7px;
+  background: var(--grey-95);
   border: solid 3px ${(props) => getColorOfEventCategory(props.name)};
   border-left: solid 10px ${(props) => getColorOfEventCategory(props.name)};
 `
@@ -101,7 +105,7 @@ const ButtonContainer = styled.div`
   align-items: flex-end;
   flex-basis: 10%;
 `
-const HideButton = styled.button`
+const PacklistButton = styled.button`
   padding: 22px 11px 2px 0;
 `
 const EditButton = styled.button`
