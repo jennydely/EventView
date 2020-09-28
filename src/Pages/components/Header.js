@@ -14,7 +14,7 @@ export default function Header({
   const hasOldEvent = eventArray.some(
     (event) => event.eventEndDate < new Date().toJSON().slice(0, 10)
   )
-  const sortOptions = ['date', 'a-Z', 'Z-a']
+  const sortOptions = ['Sort by', 'Date', 'A-z', 'Z-a']
   if (hasHiddenEvent) sortOptions.push('Hidden')
   if (hasOldEvent) sortOptions.push('Old')
 

@@ -73,7 +73,7 @@ export default function EventForm() {
             id="category"
             defaultValue={eventToEdit?.category}
             register={register({ required: true })}
-            options={['metal', 'medieval', 'holiday', 'other']}
+            options={['Metal', 'Medieval', 'Holiday', 'Other']}
           />
           {errors.category && errors.category.type === 'required' && (
             <ErrorMessageCategoryReq>
@@ -82,7 +82,7 @@ export default function EventForm() {
           )}
 
           <InputLabelColumn2 row={2} htmlFor="name">
-            EventName:
+            Name:
           </InputLabelColumn2>
           <InputColumn2
             row={3}
@@ -116,7 +116,7 @@ export default function EventForm() {
           )}
 
           <InputLabelColumn2 row={5} htmlFor="location">
-            EventLocation:
+            Eventlocation:
           </InputLabelColumn2>
           <InputColumn2
             row={6}
@@ -151,7 +151,7 @@ export default function EventForm() {
             </ErrorMessageColumn2>
           )}
 
-          <EventInfosText>EventInfos</EventInfosText>
+          <EventInfosText>Event Infos</EventInfosText>
           <InputLabelColumn1 row={9} htmlFor="EventStartDate">
             Duration:
           </InputLabelColumn1>
@@ -302,7 +302,7 @@ export default function EventForm() {
           )}
 
           <InputLabelColumn1 row={17} htmlFor="price">
-            TicketPrice:
+            Price:
           </InputLabelColumn1>
           <InputColumn2
             row={17}
@@ -401,6 +401,7 @@ const EventInfosText = styled.h2`
   grid-column: 1 / span 2;
   grid-row: 8;
   margin-top: 4px;
+  text-align: left;
 `
 const EventStartDateContainer = styled.div`
   grid-column: 2/3;

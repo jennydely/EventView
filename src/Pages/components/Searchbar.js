@@ -21,7 +21,7 @@ export default function Searchbar({
         onKeyUp={handleInputKeyUp}
         onChange={(event) => setEventNameInput(event.target.value)}
       />
-      <SuggestionContainer>
+      <div>
         <SuggestionList>
           {filteredSuggestions.map((sug) => (
             <SuggestionItems
@@ -32,7 +32,7 @@ export default function Searchbar({
             </SuggestionItems>
           ))}
         </SuggestionList>
-      </SuggestionContainer>
+      </div>
     </>
   )
   function handleInputKeyUp(event) {
@@ -85,14 +85,13 @@ export default function Searchbar({
 }
 
 const EventSearchbar = styled(Input)`
-  max-width: 127px;
+  max-width: 100px;
   padding-top: 4px;
   margin: 3px 3px 0 3px;
   font-size: 140%;
   min-height: 44px;
   border-radius: 4px;
 `
-const SuggestionContainer = styled.div``
 const SuggestionList = styled.ul`
   position: absolute;
   left: 93px;
@@ -108,7 +107,7 @@ const SuggestionItems = styled.li`
   font-size: 140%;
   border-radius: 4px;
   border: var(--border-darkgrey);
-  color: var(--lightyellow-90);
+  color: var(--lightyellow-main);
   background: var(--lightgrey-main);
   padding: 7px;
   margin: 0;

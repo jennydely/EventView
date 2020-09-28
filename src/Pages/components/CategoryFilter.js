@@ -3,12 +3,12 @@ import SelectCategory from './common/SelectCategory'
 
 export default function CategoryFilter({ onSelectFilter }) {
   const categories = [
-    'category',
-    'all',
-    'metal',
-    'medieval',
-    'holiday',
-    'other',
+    'Category',
+    'All',
+    'Metal',
+    'Medieval',
+    'Holiday',
+    'Other',
   ]
 
   return (

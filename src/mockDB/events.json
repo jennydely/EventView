@@ -11,8 +11,8 @@
     "website": "https://www.hoernerfest.com/",
     "eventStartDate": "2020-06-25",
     "eventEndDate": "2020-06-28",
-    "category": "medieval",
-    "packlistCategory": "medieval",
+    "category": "Medieval",
+    "packlistCategory": "Medieval",
     "isHidden": false
   },
   {
@@ -27,8 +27,8 @@
     "website": "https://www.rockharz-festival.com/",
     "eventStartDate": "2021-06-30",
     "eventEndDate": "2021-07-04",
-    "category": "metal",
-    "packlistCategory": "festival",
+    "category": "Metal",
+    "packlistCategory": "Festival",
     "isHidden": false
   },
   {
@@ -43,8 +43,8 @@
     "website": "https://mittelalterland.de/produkt/loki-event-damp-04-06-2020-eroeffnung/",
     "eventStartDate": "2020-08-04",
     "eventEndDate": "2020-08-06",
-    "category": "medieval",
-    "packlistCategory": "medieval",
+    "category": "Medieval",
+    "packlistCategory": "Medieval",
     "isHidden": false
   },
   {
@@ -59,8 +59,8 @@
     "website": "https://www.spectaculum.de/termine/luhmuehlen/index.php?ref=",
     "eventStartDate": "2021-08-05",
     "eventEndDate": "2021-08-06",
-    "category": "medieval",
-    "packlistCategory": "medieval",
+    "category": "Medieval",
+    "packlistCategory": "Medieval",
     "isHidden": false
   },
   {
@@ -69,14 +69,14 @@
     "name": "Stove am Strand",
     "street": "Stover Strand 4",
     "zip": "21423",
-    "location": "Drage/Winsen(Luhe)",
+    "location": "Drage/Winsen (Luhe)",
     "price": "8-15",
     "ticketBought": true,
     "website": "http://marktvagabunden.de/index.php/naechstemaerkte/stove-elbmarsch",
     "eventStartDate": "2020-09-25",
     "eventEndDate": "2020-09-27",
-    "category": "medieval",
-    "packlistCategory": "medieval",
+    "category": "Medieval",
+    "packlistCategory": "Medieval",
     "isHidden": false
   },
   {
@@ -91,8 +91,8 @@
     "website": "https://www.wacken-winter-nights.com/",
     "eventStartDate": "2021-02-14",
     "eventEndDate": "2021-02-16",
-    "category": "metal",
-    "packlistCategory": "festival",
+    "category": "Metal",
+    "packlistCategory": "Festival",
     "isHidden": false
   },
   {
@@ -107,8 +107,8 @@
     "website": "https://www.wacken-winter-nights.com/",
     "eventStartDate": "2020-02-14",
     "eventEndDate": "2020-02-16",
-    "category": "metal",
-    "packlistCategory": "festival",
+    "category": "Metal",
+    "packlistCategory": "Festival",
     "isHidden": false
   },
   {
@@ -123,13 +123,13 @@
     "website": "http://www.mengeder-gaudium.de/",
     "eventStartDate": "2020-06-11",
     "eventEndDate": "2020-06-14",
-    "category": "medieval",
-    "packlistCategory": "medieval",
+    "category": "Medieval",
+    "packlistCategory": "Medieval",
     "isHidden": false
   },
   {
     "id": "9",
-    "poster": "https://otterzentrum.de/uploads/tx_nivoslider/ho_4_01.jpg",
+    "poster": "https://otterzentrum.de/fileadmin/user_upload/otterzentrum/desktop/nebennavigation/download/OtterZentrum.Veranst.Kalender.2020.jpg",
     "name": "Otterzentrum",
     "street": "Sudendorfallee 1",
     "zip": "29386",
@@ -139,7 +139,7 @@
     "website": "https://otterzentrum.de/otter-zentrum/",
     "eventStartDate": "2020-11-18",
     "eventEndDate": "2020-11-18",
-    "category": "other",
+    "category": "Other",
     "packlistCategory": "",
     "isHidden": false
   },
@@ -156,7 +156,7 @@
     "website": "https://www.playasenator.com/en/hotels/playacalida-spa-hotel/",
     "eventStartDate": "2020-10-10",
     "eventEndDate": "2020-10-18",
-    "category": "holiday",
+    "category": "Holiday",
     "packlistCategory": "",
     "isHidden": false
   }

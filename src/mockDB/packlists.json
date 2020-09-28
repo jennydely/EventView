@@ -1,7 +1,7 @@
 [
   {
     "id": 500,
-    "name": "festival",
+    "name": "Festival",
     "packlist": [
       { "itemID": "Wasser", "item": "Wasser", "checked": false },
       { "itemID": "Plastikzelt", "item": "Plastikzelt", "checked": false },
@@ -52,7 +52,7 @@
   },
   {
     "id": 501,
-    "name": "medieval",
+    "name": "Medieval",
     "packlist": [
       { "itemID": "Cider", "item": "Wasser", "checked": false },
       { "itemID": "Feuerküche", "item": "Feuerküche", "checked": false },
