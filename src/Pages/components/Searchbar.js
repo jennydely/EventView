@@ -107,7 +107,7 @@ const SuggestionItems = styled.li`
   font-size: 140%;
   border-radius: 4px;
   border: var(--border-darkgrey);
-  color: var(--lightyellow-90);
+  color: var(--lightyellow-main);
   background: var(--lightgrey-main);
   padding: 7px;
   margin: 0;
