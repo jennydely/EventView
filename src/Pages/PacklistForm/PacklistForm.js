@@ -226,7 +226,7 @@ const StyledListContainer = styled(ListContainer)`
 `
 const TextSpan = styled.span`
   width: 100%;
-  color: var(--lightyellow-90);
+  color: var(--lightyellow-main);
 `
 const HiddenInput = styled.input`
   display: none;

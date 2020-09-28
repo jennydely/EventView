@@ -73,7 +73,7 @@ export default function EventForm() {
             id="category"
             defaultValue={eventToEdit?.category}
             register={register({ required: true })}
-            options={['metal', 'medieval', 'holiday', 'other']}
+            options={['Metal', 'Medieval', 'Holiday', 'Other']}
           />
           {errors.category && errors.category.type === 'required' && (
             <ErrorMessageCategoryReq>

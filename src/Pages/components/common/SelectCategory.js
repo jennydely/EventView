@@ -34,6 +34,6 @@ const OptionStyled = styled.option`
   border-radius: 4px;
   border: var(--border-darkgrey);
   font-size: 112.5%;
-  color: var(--lightyellow-90);
+  color: var(--lightyellow-main);
   background: ${(opt) => getColorOfEventCategory(opt.optionsValue)};
 `
