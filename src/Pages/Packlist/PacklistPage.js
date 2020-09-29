@@ -82,7 +82,7 @@ const ListItemStyled = styled(ListItem)`
 const PacklistName = styled.h2`
   text-align: left;
   width: fit-content;
-  border: var(--border-darkgrey);
+  border: var(--border-turquoise);
   border-radius: 7px;
   margin: 4px 0 0.13px 7px;
   padding: 0 4px;

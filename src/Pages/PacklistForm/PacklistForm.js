@@ -209,7 +209,7 @@ const FormInputContainer = styled.div`
   align-items: flex-start;
   min-width: 300px;
   border-radius: 7px;
-  border: var(--border-darkgrey);
+  border: var(--border-turquoise);
   margin: 7px;
   margin-top: 0;
   padding: 7px 4px;

@@ -87,7 +87,7 @@ export default function Searchbar({
 const EventSearchbar = styled(Input)`
   max-width: 100px;
   padding-top: 4px;
-  margin: 3px 3px 0 3px;
+  margin: 0;
   font-size: 140%;
   min-height: 44px;
   border-radius: 4px;
@@ -103,12 +103,12 @@ const SuggestionList = styled.ul`
 `
 const SuggestionItems = styled.li`
   list-style-type: none;
-  border-bottom: var(--border-darkgrey);
+  border-bottom: var(--border-turquoise);
   font-size: 140%;
   border-radius: 4px;
-  border: var(--border-darkgrey);
+  border: var(--border-turquoise);
   color: var(--lightyellow-main);
-  background: var(--lightgrey-main);
+  background: var(--turquoise-main);
   padding: 7px;
   margin: 0;
 

@@ -98,10 +98,9 @@ const Details = styled(animated.section)`
   grid-template-columns: 30% repeat(2, auto) 30%;
   grid-template-rows: repeat(8, auto);
   margin: 0;
-
   margin-top: -2px;
   border-radius: 7px;
-  background: var(--grey-75);
+  background: var(--turquoise-75);
   border: 2px solid ${(opt) => getColorOfEventCategory(opt.name)};
   border-top: 0;
   overflow: hidden;

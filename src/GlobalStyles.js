@@ -7,21 +7,21 @@ export default createGlobalStyle`
 
   body {
     margin: 0;
-    background: var(--lightgrey-80);
+    background: var(--turquoise-70);
     font-family: sans-serif;
     line-height: 1.4;
     height: 100vh;
     max-width: 370px;
     color: var(--lightyellow-main);
     overflow: hidden;
-      }
+  }
  
   h1 {
     font-size: 145%;
     margin:0;
     margin-left: 7px;
     align-self:center;
-  }
+    }
 
   h2 {
     font-size: 138%;
@@ -34,22 +34,24 @@ export default createGlobalStyle`
   }
   
   header {
-    padding:5px;
+    padding:4px;
     grid-row: 1;
     display: flex;
     flex-direction: row;
-    max-width:365px;
+    max-width:375px;
     align-items:flex-end;
-    justify-content:space-between;
+    justify-content:space-around;
+    background: var(--turquoise-95);
 
     }
 
   main {
     grid-row: 2;
-    margin:3px;
+    padding:3px;
     overflow-y:scroll;
     scrollbar-width: none;
-    width: 365px;    
+    width: 375px; 
+    
    }
 
    &&
@@ -62,6 +64,7 @@ export default createGlobalStyle`
     position:sticky;
     display:flex;
     justify-content:space-evenly;
+    background: var(--turquoise-95);
   }
 
   button{
@@ -72,7 +75,6 @@ export default createGlobalStyle`
     padding: 11px;
     border: none;
     background:none;
-    color: var(--lightyellow-main);
     font-size: 130%; 
     text-align: center; 
     cursor:pointer;
@@ -90,15 +92,15 @@ export default createGlobalStyle`
   margin-top:3px;
   display: block;
   border-radius: 4px;
-  border: var(--border-darkgrey);
+  border: var(--border-turquoise);
   color: var(--lightyellow-main);
   min-height: 44px;
   justify-content: center;
   background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FDE6A7%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
     linear-gradient(
       to bottom,
-      rgb(68,69,72) 20%,
-      rgba(68,69,72) 80%
+      var(--turquoise-70),
+      var(--turquoise-80) 
 
     );
   background-repeat: no-repeat, repeat;
@@ -109,42 +111,44 @@ export default createGlobalStyle`
   }
 
   :root {
-  /* font-colors */
+/* font-colors */
   --lightyellow-main:rgb(253, 230, 167);
- 
-  /* background-colors */
+  
+/* background-colors */
     
+  /* Category - Metal */
   --black-main: rgb(0,0,0);
-  --black-80: rgb(0,0,0,0.8);
+  --black-80: rgba(0,0,0,0.8);
 
+  /* Category - Holiday */
   --blue-main: rgb(1,87,155);
   --blue-80: rgba(1,87,155,0.80);
 
+  /* Category - Medieval */
   --darkbrown-main: rgb(67,40,24);
   --darkbrown-80: rgba(67,40,24,0.80);
-
-  --darkgrey-main: rgb(49,42,42);
-  --darkgrey-75: rgba(49,42,42,0.75);
-    
-  --grey-main:rgb(68,69,72);
-  --grey-95:rgb(68,69,72,0.95);
-  --grey-75:rgb(68,69,72,0.75);
-
+   
+  /*Eventitem, Details, Select, Background, Header & Footer*/
+  --turquoise-main:rgb(8,106,88);
+  --turquoise-95:rgba(8,106,88,0.95);
+  --turquoise-80:rgba(8,106,88,0.80);
+  --turquoise-75:rgba(8,106,88,0.70);
+  --turquoise-70:rgba(8,106,88,0.70);
+ 
+ 
+  /* Category - Other */
   --lightbrown-main: rgb(188,84,10);
   --lightbrown-80: rgba(188,84,10,0.80);
-  
-  --lightgrey-main: rgb(96,99,104);
-  --lightgrey-80: rgb(96,99,104,0.80);
     
-  --red-main: rgba(246, 71, 71);
+  /* Delete X */
+  --red-main: rgb(246, 71, 71);
 
-  --white-main:rgb(255,255,255)
-
-  --yellow-main: rgb(248,149,17);
-  --yellow-80: rgba(248,149,17,0.80);
+  /* Error Messages */
+  --black-main: rgb(0,0,0);
   
+  --white-main:rgb(255,255,255);
+
   /* border-colors */
-  --border-darkgrey: 1px solid var(--darkgrey-75);
-  --border-lightgrey: 1px solid var(--lightgrey-80);
-}
+  --border-turquoise: 2px solid var(--turquoise-main);
+  }
 `
