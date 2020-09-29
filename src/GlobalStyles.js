@@ -115,8 +115,8 @@ export default createGlobalStyle`
   --lightyellow-main:rgb(253, 230, 167);
   
 /* background-colors */
-    
-  /* Category - Metal */
+  
+  /* Category - Metal & Error Messages */
   --black-main: rgb(0,0,0);
   --black-80: rgba(0,0,0,0.8);
 
@@ -128,14 +128,6 @@ export default createGlobalStyle`
   --darkbrown-main: rgb(67,40,24);
   --darkbrown-80: rgba(67,40,24,0.80);
    
-  /*Eventitem, Details, Select, Background, Header & Footer*/
-  --turquoise-main:rgb(8,106,88);
-  --turquoise-95:rgba(8,106,88,0.95);
-  --turquoise-80:rgba(8,106,88,0.80);
-  --turquoise-75:rgba(8,106,88,0.70);
-  --turquoise-70:rgba(8,106,88,0.70);
- 
- 
   /* Category - Other */
   --lightbrown-main: rgb(188,84,10);
   --lightbrown-80: rgba(188,84,10,0.80);
@@ -143,12 +135,14 @@ export default createGlobalStyle`
   /* Delete X */
   --red-main: rgb(246, 71, 71);
 
-  /* Error Messages */
-  --black-main: rgb(0,0,0);
-  
-  --white-main:rgb(255,255,255);
-
-  /* border-colors */
+  /*Eventitem, Details, Select, Background, Header & Footer*/
+  --turquoise-main:rgb(8,106,88);
+  --turquoise-95:rgba(8,106,88,0.95);
+  --turquoise-80:rgba(8,106,88,0.80);
+  --turquoise-75:rgba(8,106,88,0.70);
+  --turquoise-70:rgba(8,106,88,0.70);
+ 
+/* border-colors */
   --border-turquoise: 2px solid var(--turquoise-main);
   }
 `
