@@ -103,12 +103,12 @@ const SuggestionList = styled.ul`
 `
 const SuggestionItems = styled.li`
   list-style-type: none;
-  border-bottom: var(--border-turquoise);
+  border-bottom: var(--borderColor);
   font-size: 140%;
   border-radius: 4px;
-  border: var(--border-turquoise);
-  color: var(--lightyellow-main);
-  background: var(--turquoise-main);
+  border: var(--borderColor);
+  color: var(--font-color);
+  background: var(--searchbarBackground);
   padding: 7px;
   margin: 0;
 

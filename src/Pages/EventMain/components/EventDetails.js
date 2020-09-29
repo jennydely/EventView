@@ -100,7 +100,7 @@ const Details = styled(animated.section)`
   margin: 0;
   margin-top: -2px;
   border-radius: 7px;
-  background: var(--turquoise-75);
+  background: var(--eventDetails);
   border: 2px solid ${(opt) => getColorOfEventCategory(opt.name)};
   border-top: 0;
   overflow: hidden;

@@ -19,7 +19,7 @@ export default function SettingsPage() {
   const onSubmit = (settings, event) => {
     event.preventDefault()
     updateSettings(settings)
-    history.push('/')
+    history.go(0)
   }
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function SettingsPage() {
       <FormHeader headerText={'Settings'} />
       <main>
         <Form data-testid="settingsform" onSubmit={handleSubmit(onSubmit)}>
-          <ThemeLabel for="theme">Select your theme color:</ThemeLabel>
+          <ThemeLabel htmlFor="theme">Select your theme color:</ThemeLabel>
           <ThemeSelect
             name="theme"
             id="theme"
@@ -59,8 +59,8 @@ const ThemeLabel = styled(Label)`
 const ThemeSelect = styled(Select)`
   display: block;
   border-radius: 4px;
-  border: var(--border-turquoise);
-  background: var(--turquoise-75);
+  border: var(--borderColor);
+  background: var(--optionsBG);
   margin-top: 0;
   padding: 4px;
   font-size: 112.5%;

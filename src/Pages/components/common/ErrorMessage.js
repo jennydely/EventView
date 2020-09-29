@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 
 export default styled.p`
   display: inline;
-  color: var(--black-main);
+  color: var(--errorMessages);
   font-size: 75%;
   text-align: right;
   margin: 0;

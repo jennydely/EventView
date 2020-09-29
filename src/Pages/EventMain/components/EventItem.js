@@ -92,7 +92,7 @@ const EventHeader = styled.div`
   margin: 0;
   padding: 4px 0 4px 4px;
   border-radius: 7px;
-  background: var(--turquoise-95);
+  background: var(--eventItem);
   border: solid 3px ${(props) => getColorOfEventCategory(props.name)};
   border-left: solid 10px ${(props) => getColorOfEventCategory(props.name)};
 `

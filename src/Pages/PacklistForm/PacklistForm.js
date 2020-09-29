@@ -209,7 +209,7 @@ const FormInputContainer = styled.div`
   align-items: flex-start;
   min-width: 300px;
   border-radius: 7px;
-  border: var(--border-turquoise);
+  border: var(--borderColor);
   margin: 7px;
   margin-top: 0;
   padding: 7px 4px;
@@ -226,7 +226,7 @@ const StyledListContainer = styled(ListContainer)`
 `
 const TextSpan = styled.span`
   width: 100%;
-  color: var(--lightyellow-main);
+  color: var(--font-color);
 `
 const HiddenInput = styled.input`
   display: none;
@@ -236,7 +236,7 @@ const ItemContainer = styled.label`
   align-items: center;
 `
 const DeleteButton = styled.button`
-  color: var(--red-main);
+  color: var(--deleteX);
   float: right;
   text-decoration: none;
   border: none;
