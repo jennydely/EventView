@@ -117,7 +117,5 @@ export default createGlobalStyle`
   {
     ${getThemeColors()}
     
-  
-
   }
 `
