@@ -3,12 +3,16 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import PacklistPage from './Pages/Packlist/PacklistPage'
 import EventPage from './Pages/EventMain/EventPage'
 import EventForm from './Pages/EventForm/EventForm'
+import SettingsPage from './Pages/SettingsPage/SettingsPage.js'
 import PacklistForm from './Pages/PacklistForm/PacklistForm'
 
 export default function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/settings">
+          <SettingsPage />
+        </Route>
         <Route path="/packlist/:packlistName?">
           <PacklistPage />
         </Route>

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import addPacklistIcon from '../../img/addPacklistIcon.svg'
 import addEvent1Icon from '../../img/addEvent1Icon.svg'
+import settingsIcon from '../../img/settingsIcon.svg'
 import Header from '../components/Header'
 import EventList from './EventList'
 import useEvents from './useEvents'
@@ -26,6 +27,10 @@ export default function EventPage() {
 
   function handleCreatePacklistClick() {
     history.push('/packlistform')
+  }
+
+  function handleSettingsClick() {
+    history.push('/settings')
   }
 
   return (
@@ -55,6 +60,9 @@ export default function EventPage() {
         </FooterButton>
         <FooterButton onClick={handleCreatePacklistClick}>
           <img src={addPacklistIcon} alt="create packlist" />
+        </FooterButton>
+        <FooterButton onClick={handleSettingsClick}>
+          <img src={settingsIcon} alt="settings" />
         </FooterButton>
       </footer>
     </>
