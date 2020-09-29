@@ -139,7 +139,7 @@ export default createGlobalStyle`
   --turquoise-main:rgb(8,106,88);
   --turquoise-95:rgba(8,106,88,0.95);
   --turquoise-80:rgba(8,106,88,0.80);
-  --turquoise-75:rgba(8,106,88,0.70);
+  --turquoise-75:rgba(8,106,88,0.75);
   --turquoise-70:rgba(8,106,88,0.70);
  
 /* border-colors */
