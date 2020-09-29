@@ -15,7 +15,9 @@ export function getFilteredEvents(
 
   const today = new Date().toJSON().slice(0, 10)
 
-  const oldEvents = eventArray.filter((event) => event.eventEndDate < today)
+  const filteredOldEvents = categoryfilteredEvents.filter(
+    (event) => event.eventEndDate < today
+  )
   const filteredNotHiddenEvents = categoryfilteredEvents.filter(
     (event) => event.isHidden !== true && event.eventEndDate >= today
   )
@@ -26,7 +28,7 @@ export function getFilteredEvents(
     eventFilter === 'Hidden' && filteredHiddenEvents.length > 0
       ? filteredHiddenEvents
       : eventFilter === 'Old'
-      ? oldEvents
+      ? filteredOldEvents
       : filteredNotHiddenEvents
   return filteredEvents
 }
