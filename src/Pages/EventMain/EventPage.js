@@ -62,7 +62,7 @@ export default function EventPage() {
           <img src={addPacklistIcon} alt="create packlist" />
         </FooterButton>
         <FooterButton onClick={handleSettingsClick}>
-          <img src={settingsIcon} alt="settings" />
+          <SettingsSVG src={settingsIcon} alt="settings" />
         </FooterButton>
       </footer>
     </>
@@ -119,4 +119,7 @@ export default function EventPage() {
 const FooterButton = styled.button`
   padding: 0px;
   margin: 4px 0;
+`
+const SettingsSVG = styled.img`
+  padding-bottom: 8px;
 `
