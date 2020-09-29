@@ -15,7 +15,7 @@ const black = `
  
   --eventDetails: rgba(68,69,72,0.4);
 
-  --eventForm:rgba(8,106,88,0.75);
+  --eventForm:rgb(121,124,128);
 
   --eventItem:rgba(113,12,10,0.50);
 
@@ -25,10 +25,10 @@ const black = `
 
   --optionsBG:rgb(121,124,128);
 
-  --searchbarBackground:rgb(8,106,88);
+  --searchbarBackground:rgb(121,124,128);
 
   --selectBG:rgba(42,43,44,0.8);
-  --selectBG2:rgba(42,43,44,0.8);
+  --selectBG2:rgb(121,124,128);
 
 /* border-colors */
   --borderColor: 2px solid var(--footerHeader);
