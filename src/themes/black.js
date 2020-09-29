@@ -31,6 +31,7 @@ const black = `
   --selectBG2:rgb(121,124,128);
 
 /* border-colors */
-  --borderColor: 2px solid var(--footerHeader);
+  --borderColor: none;
+  --borderUL: 2px solid var(--footerHeader);
 `
 export { black }

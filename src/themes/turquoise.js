@@ -32,5 +32,6 @@ const turquoise = `
 
 /* border-colors */
   --borderColor: 2px solid var(--searchbarBackground);
+  --borderUL: 2px solid var(--searchbarBackground);
 `
 export { turquoise }
