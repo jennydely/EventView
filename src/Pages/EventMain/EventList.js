@@ -30,25 +30,30 @@ export default function EventList({
 
   return (
     <>
-      {availableYears.map((year) => (
-        <EventContainer key={year}>
-          <EventYearHeadline>Events {year}</EventYearHeadline>
-          {filteredEvents.map(
-            (event) =>
-              event.eventStartDate.slice(0, 4) === year && (
-                <EventItem
-                  event={event}
-                  key={event.id}
-                  id={event.id}
-                  onHideButtonClick={onHideButtonClick}
-                  onDeleteButtonClick={onDeleteButtonClick}
-                  onEditButtonClick={onEditButtonClick}
-                  onTicketCheckboxClick={onTicketCheckboxClick}
-                ></EventItem>
-              )
-          )}
-        </EventContainer>
-      ))}
+      {' '}
+      {filteredEvents.length > 0 ? (
+        availableYears.map((year) => (
+          <EventContainer key={year}>
+            <EventYearHeadline>Events {year}</EventYearHeadline>
+            {filteredEvents.map(
+              (event) =>
+                event.eventStartDate.slice(0, 4) === year && (
+                  <EventItem
+                    event={event}
+                    key={event.id}
+                    id={event.id}
+                    onHideButtonClick={onHideButtonClick}
+                    onDeleteButtonClick={onDeleteButtonClick}
+                    onEditButtonClick={onEditButtonClick}
+                    onTicketCheckboxClick={onTicketCheckboxClick}
+                  ></EventItem>
+                )
+            )}
+          </EventContainer>
+        ))
+      ) : (
+        <p>No events</p>
+      )}
     </>
   )
 }

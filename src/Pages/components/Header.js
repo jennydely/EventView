@@ -7,6 +7,8 @@ export default function Header({
   onSelectFilter,
   onSelectEventFilter,
   eventArray,
+  eventFilter,
+  categoryFilter,
   handleEventSuggestion,
   handleEventSearch,
 }) {
@@ -25,12 +27,16 @@ export default function Header({
         name={sortOptions}
         options={sortOptions}
         onSelectEventFilter={onSelectEventFilter}
+        value={eventFilter}
       />
       <Searchbar
         handleEventSuggestion={handleEventSuggestion}
         handleEventSearch={handleEventSearch}
       />
-      <CategoryFilter onSelectFilter={onSelectFilter} />
+      <CategoryFilter
+        onSelectFilter={onSelectFilter}
+        categoryFilter={categoryFilter}
+      />
     </header>
   )
 }

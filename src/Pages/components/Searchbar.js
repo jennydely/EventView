@@ -36,12 +36,16 @@ export default function Searchbar({
     </>
   )
   function handleInputKeyUp(event) {
-    const inputVal = event.target.value
+    const inputValue = event.target.value
     if (event.key === 'Enter') {
       setEventNameInput('')
       setFilteredSuggestions([])
-      handleEventSearch(inputVal)
-    } else if (inputVal.length < 3) {
+      if (inputValue === '') {
+        return
+      } else {
+        handleEventSearch(inputValue)
+      }
+    } else if (inputValue.length < 3) {
       setFilteredSuggestions([])
     } else {
       updateFilteredSuggestions()
@@ -51,6 +55,7 @@ export default function Searchbar({
   function handleEventSuggestionClick(sug) {
     setEventNameInput('')
     setFilteredSuggestions([])
+    console.log('sug', sug)
     handleEventSuggestion(sug)
   }
 

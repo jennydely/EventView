@@ -5,7 +5,8 @@ export function getFilteredEvents(
   multipleEventSearch,
   categoryfilteredEvents
 ) {
-  if (eventSearch && eventSearch.length > 0)
+  if (eventSearch === 'noEvent') return ['']
+  else if (eventSearch && eventSearch.length > 0)
     return [eventArray.find((event) => event.name === eventSearch)]
   else if (multipleEventSearch && multipleEventSearch.length > 0)
     return eventArray.filter((event) =>

@@ -34,6 +34,8 @@ export default function EventPage() {
         onSelectFilter={handleCategoryFilter}
         onSelectEventFilter={setEventFilter}
         eventArray={eventArray}
+        eventFilter={eventFilter}
+        categoryFilter={categoryFilter}
         handleEventSuggestion={setEventSuggestion}
         handleEventSearch={setEventSearch}
       />
@@ -67,13 +69,15 @@ export default function EventPage() {
   }
 
   function setEventSuggestion(searchedEvent) {
-    setCategoryFilter('category')
+    setCategoryFilter('Category')
+    setEventFilter('Sort by')
     setSearchedEvents('')
     setSearchedEvent(searchedEvent)
   }
 
   function setEventSearch(searchedName) {
-    setCategoryFilter('category')
+    setCategoryFilter('Category')
+    setEventFilter('Sort by')
     setSearchedEvent('')
     setSearchedEvents(searchedName)
   }
