@@ -10,10 +10,17 @@ Click [here](https://event-planner.jennydely.vercel.app/) to take a look at the 
 
 EventView is still in progress and will be including some more options soon, like an login function or an "Add to own calender" possibility. If you have some wishes or ideas, feel free to contact me.
 
+# App Videos
+<img src="./ReadMe_img/jennifer_berndt_eventview1.gif" width="300px" />   <img src="./ReadMe_img/jennifer_berndt_eventview3.gif" width="303px" /> 
+
+
 # Screenshots
+There are different designs avaiable:
 
-<img src="./ReadMe_img/EventView_1.png" width="300px" />                                    <img src="./ReadMe_img/EventView_2.png" width="300px" /> 
+<img src="./ReadMe_img/AllDesigns1.png" width="900px" />
+<img src="./ReadMe_img/AllDesigns2.png" width="900px" /> 
 
+Some more examples from the Design 1:
 
 <img src="./ReadMe_img/EventView_3.png" width="300px" />                                    <img src="./ReadMe_img/EventView_4.png" width="300px" /> 
 
