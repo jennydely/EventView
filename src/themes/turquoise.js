@@ -30,5 +30,7 @@ const turquoise = `
   --selectBG:rgba(8,106,88,0.80);
   --selectBG2:rgba(8,106,88,0.70);
 
+/* border-colors */
+  --borderColor: 2px solid var(--searchbarBackground);
 `
 export { turquoise }

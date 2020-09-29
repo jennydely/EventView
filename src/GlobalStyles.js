@@ -118,7 +118,6 @@ export default createGlobalStyle`
     ${getThemeColors()}
     
   
-/* border-colors */
-  --borderColor: 2px solid var(--searchbarBackground);
+
   }
 `

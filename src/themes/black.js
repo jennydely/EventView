@@ -4,7 +4,7 @@ const black = `
   
 /* background-colors */
   
-  --background:rgba(108,106,88,0.70);
+  --background:rgba(0,0,0,0.90);
 
   --categoryHoliday: rgb(1,87,155);
   --categoryMedieval: rgb(67,40,24);
@@ -13,22 +13,24 @@ const black = `
   
   --deleteX: rgb(246, 71, 71);
  
-  --eventDetails:rgba(8,106,88,0.75);
+  --eventDetails: rgba(68,69,72,0.4);
 
   --eventForm:rgba(8,106,88,0.75);
 
-  --eventItem:rgba(8,106,88,0.95);
+  --eventItem:rgba(113,12,10,0.50);
 
-  --errorMessages: rgb(0,0,0);
+  --errorMessages: rgb(255, 255, 255);
 
-  --footerHeader:rgba(8,106,88,0.95);
+  --footerHeader:rgba(113,12,10,0.50);
 
-  --optionsBG:rgba(8,106,88,0.75);
+  --optionsBG:rgb(121,124,128);
 
   --searchbarBackground:rgb(8,106,88);
 
-  --selectBG:rgba(8,106,88,0.80);
-  --selectBG2:rgba(8,106,88,0.70);
+  --selectBG:rgba(42,43,44,0.8);
+  --selectBG2:rgba(42,43,44,0.8);
 
+/* border-colors */
+  --borderColor: 2px solid var(--footerHeader);
 `
 export { black }

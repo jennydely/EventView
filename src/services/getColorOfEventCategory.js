@@ -2,7 +2,7 @@ export default function getColorOfEventCategory(colorName) {
   return (
     {
       Holiday: 'var(--categoryHoliday)',
-      Metal: 'var(--errorMessages)',
+      Metal: 'var(--categoryMetal)',
       Medieval: 'var(--categoryMedieval)',
       Other: 'var(--categoryOther)',
     }[colorName] ?? 'var(--optionsBG)'
