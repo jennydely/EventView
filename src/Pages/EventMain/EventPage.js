@@ -49,6 +49,7 @@ export default function EventPage() {
           onHideButtonClick={toggleHide}
           onDeleteButtonClick={delEvent}
           onTicketCheckboxClick={handleTicketCheckbox}
+          handleReloadButtonClick={handleReloadButtonClick}
         />
       </main>
       <footer>
@@ -66,6 +67,13 @@ export default function EventPage() {
     setSearchedEvent('')
     setSearchedEvents('')
     setCategoryFilter(categoryFilter)
+  }
+
+  function handleReloadButtonClick() {
+    setCategoryFilter('Category')
+    setEventFilter('Sort by')
+    setSearchedEvent('')
+    setSearchedEvents('')
   }
 
   function setEventSuggestion(searchedEvent) {

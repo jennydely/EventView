@@ -4,7 +4,6 @@ import styled from 'styled-components/macro'
 import Checkbox from '../../components/common/Checkbox'
 import Paragraph from '../../components/common/Paragraph'
 import trashIcon from '../../../img/trashIcon.svg'
-
 import eyeIcon from '../../../img/eyeIcon.svg'
 import hideEyeIcon from '../../../img/hideEyeIcon.svg'
 import routeIcon from '../../../img/routeIcon.svg'

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import resetIcon from '../../img/resetIcon.svg'
 import { sortEvents } from './services/sortEvents'
 import { filterEvents } from './services/filterEvents'
 import { getFilteredEvents } from './services/getFilteredEvents'
@@ -16,6 +17,7 @@ export default function EventList({
   onEditButtonClick,
   onDeleteButtonClick,
   onTicketCheckboxClick,
+  handleReloadButtonClick,
 }) {
   const events = sortEvents(eventArray, eventFilter)
   const categoryfilteredEvents = filterEvents(events, categoryFilter)
@@ -52,7 +54,12 @@ export default function EventList({
           </EventContainer>
         ))
       ) : (
-        <p>No events</p>
+        <>
+          <p>No events</p>
+          <ResetButton onClick={handleReloadButtonClick}>
+            <img src={resetIcon} alt="reset" />
+          </ResetButton>
+        </>
       )}
     </>
   )
@@ -66,4 +73,7 @@ const EventYearHeadline = styled.h1`
   margin-bottom: 5px;
   padding: 0;
   text-align: left;
+`
+const ResetButton = styled.button`
+  align-self: center;
 `
