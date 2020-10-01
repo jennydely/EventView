@@ -12,7 +12,7 @@ EventView is still in progress and will be including some more options soon, lik
 
 # App Videos
 
-<video src="./ReadMe_img/Jenny_Design3.gif" width="300px" controls preload ></video> <video src="/ReadMe_img/Eventview_Design3.mp4" width="303px" controls preload> </video>
+<img src="./ReadMe_img/Jenny_Design3.gif" width="300px" /> <video src="/ReadMe_img/Eventview_Design3.mp4" width="303px" controls preload> </video>
 
 # Screenshots
 
