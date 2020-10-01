@@ -11,7 +11,7 @@ Click [here](https://event-planner.jennydely.vercel.app/) to take a look at the 
 EventView is still in progress and will be including some more options soon, like an login function or an "Add to own calender" possibility. If you have some wishes or ideas, feel free to contact me.
 
 # App Videos
-<img src="./ReadMe_img/Eventview_Design1.mp4" width="300px" />   <img src="./ReadMe_img/Eventview_Design3.mp4" width="303px" /> 
+<video src="./ReadMe_img/Eventview_Design1.mp4" width="300px" controls preload ></video>   <video src="/ReadMe_img/Eventview_Design3.mp4" width="303px" controls preload> </video>
 
 
 # Screenshots
