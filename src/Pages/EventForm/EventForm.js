@@ -53,6 +53,7 @@ export default function EventForm() {
 
   useEffect(() => {
     reset({
+      ...eventToEdit,
       eventStartDate: eventToEdit ? new Date(eventToEdit.eventStartDate) : '',
       eventEndDate: eventToEdit ? new Date(eventToEdit.eventEndDate) : '',
     })
@@ -330,7 +331,7 @@ export default function EventForm() {
             Add PackList:
           </InputLabelColumn1>
           <PacklistInput
-            value={eventToEdit?.packlistCategory}
+            defaultValue={eventToEdit?.packlistCategory}
             name="packlistCategory"
             id="packlist"
             register={register()}
