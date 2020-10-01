@@ -11,22 +11,21 @@ Click [here](https://event-planner.jennydely.vercel.app/) to take a look at the 
 EventView is still in progress and will be including some more options soon, like an login function or an "Add to own calender" possibility. If you have some wishes or ideas, feel free to contact me.
 
 # App Videos
-<video src="./ReadMe_img/Eventview_Design1.mp4" width="300px" controls preload ></video>   <video src="/ReadMe_img/Eventview_Design3.mp4" width="303px" controls preload> </video>
 
+<video src="./ReadMe_img/Jenny_Design3.gif" width="300px" controls preload ></video> <video src="/ReadMe_img/Eventview_Design3.mp4" width="303px" controls preload> </video>
 
 # Screenshots
+
 There are different designs avaiable:
 
 <img src="./ReadMe_img/AllDesigns1.png" width="900px" />
-<img src="./ReadMe_img/AllDesigns2.png" width="900px" /> 
+<img src="./ReadMe_img/AllDesigns2.png" width="900px" />
 
 Some more examples from the Design 1:
 
-<img src="./ReadMe_img/EventView_3.png" width="300px" />                                    <img src="./ReadMe_img/EventView_4.png" width="300px" /> 
+<img src="./ReadMe_img/EventView_3.png" width="300px" /> <img src="./ReadMe_img/EventView_4.png" width="300px" />
 
-
-<img src="./ReadMe_img/EventView_5.png" width="300px" />                                    <img src="./ReadMe_img/EventView_6.png" width="300px" />
-
+<img src="./ReadMe_img/EventView_5.png" width="300px" /> <img src="./ReadMe_img/EventView_6.png" width="300px" />
 
 # Tech stack
 
