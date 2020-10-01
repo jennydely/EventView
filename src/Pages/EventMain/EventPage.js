@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import addPacklistIcon from '../../img/addPacklistIcon.svg'
 import addEvent1Icon from '../../img/addEvent1Icon.svg'
+import settingsIcon from '../../img/settingsIcon.svg'
 import Header from '../components/Header'
 import EventList from './EventList'
 import useEvents from './useEvents'
@@ -26,6 +27,10 @@ export default function EventPage() {
 
   function handleCreatePacklistClick() {
     history.push('/packlistform')
+  }
+
+  function handleSettingsClick() {
+    history.push('/settings')
   }
 
   return (
@@ -58,6 +63,9 @@ export default function EventPage() {
         </FooterButton>
         <FooterButton onClick={handleCreatePacklistClick}>
           <img src={addPacklistIcon} alt="create packlist" />
+        </FooterButton>
+        <FooterButton onClick={handleSettingsClick}>
+          <SettingsSVG src={settingsIcon} alt="settings" />
         </FooterButton>
       </footer>
     </>
@@ -123,4 +131,7 @@ export default function EventPage() {
 const FooterButton = styled.button`
   padding: 0px;
   margin: 4px 0;
+`
+const SettingsSVG = styled.img`
+  padding-bottom: 8px;
 `

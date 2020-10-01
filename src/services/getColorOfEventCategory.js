@@ -1,10 +1,10 @@
 export default function getColorOfEventCategory(colorName) {
   return (
     {
-      Holiday: 'var(--blue-80)',
-      Metal: 'var(--black-80)',
-      Medieval: 'var(--darkbrown-80)',
-      Other: 'var(--lightbrown-80)',
-    }[colorName] ?? 'var(--lightgrey-80)'
+      Holiday: 'var(--categoryHoliday)',
+      Metal: 'var(--categoryMetal)',
+      Medieval: 'var(--categoryMedieval)',
+      Other: 'var(--categoryOther)',
+    }[colorName] ?? 'var(--optionsBG)'
   ) // default value with null coalescing operator
 }

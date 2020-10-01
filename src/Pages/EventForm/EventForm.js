@@ -386,7 +386,7 @@ const CategoryInput = styled(Select)`
   grid-row: 3;
   display: block;
   padding: 20px;
-  border: var(--border-darkgrey);
+  border: var(--borderColor);
   border-radius: 4px;
   margin-top: 0;
   padding: 4px;
@@ -415,7 +415,7 @@ const EventStartDateController = styled(Controller)`
   width: 120px;
   padding: 20px;
   border-radius: 4px;
-  border: var(--border-darkgrey);
+  border: var(--borderColor);
   margin-top: 0;
   padding: 4px;
   font-size: 112.5%;
@@ -437,7 +437,7 @@ const EventEndDateController = styled(Controller)`
   width: 120px;
   padding: 20px;
   border-radius: 4px;
-  border: var(--border-darkgrey);
+  border: var(--borderColor);
   margin-top: 0;
   margin-right: 7px;
   padding: 4px;
@@ -457,10 +457,10 @@ const PacklistInput = styled(Select)`
   grid-row: 19;
   display: block;
   border-radius: 4px;
-  border: var(--border-darkgrey);
+  border: var(--borderColor);
+  background: var(--optionsBG);
   margin-top: 0;
   padding: 4px;
   font-size: 112.5%;
   color: black;
-  background: var(--lightgrey-main);
 `

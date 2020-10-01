@@ -32,7 +32,7 @@ const OptionStyled = styled.option`
   display: block;
   border-radius: 4px;
   font-size: 112.5%;
-  border: var(--border-darkgrey);
-  color: var(--lightyellow-main);
-  background: var(--lightgrey-main);
+  border: var(--borderColor);
+  color: var(--font-color);
+  background: var(--optionsBG);
 `

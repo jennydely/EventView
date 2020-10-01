@@ -4,7 +4,7 @@ export default styled.input`
   display: block;
   width: 100%;
   border-radius: 4px;
-  border: var(--border-darkgrey);
+  border: var(--borderColor);
   margin-top: 0;
   margin-right: 7px;
   padding: 4px;
