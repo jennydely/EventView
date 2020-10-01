@@ -55,7 +55,6 @@ export default function Searchbar({
   function handleEventSuggestionClick(sug) {
     setEventNameInput('')
     setFilteredSuggestions([])
-    console.log('sug', sug)
     handleEventSuggestion(sug)
   }
 
