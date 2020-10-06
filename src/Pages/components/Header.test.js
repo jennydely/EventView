@@ -30,7 +30,7 @@ describe('Header', () => {
     const { getByText } = render(
       <Header onSelectFilter={onSelectFilter} eventArray={eventArray} />
     )
-    expect(getByText('date')).toBeInTheDocument()
+    expect(getByText('Sort by')).toBeInTheDocument()
   })
   it('renders correctly', () => {
     const tree = render(
