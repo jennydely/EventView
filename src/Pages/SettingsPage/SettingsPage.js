@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import * as firebase from "firebase/app"
+import "firebase/auth"
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
@@ -30,6 +32,7 @@ export default function SettingsPage() {
     <>
       <FormHeader headerText={'Settings'} />
       <main>
+        <button onClick={logOut}>Log out</button>
         <Form data-testid="settingsform" onSubmit={handleSubmit(onSubmit)}>
           <ThemeLabel htmlFor="theme">Select your theme color:</ThemeLabel>
           <ThemeSelect
@@ -44,6 +47,15 @@ export default function SettingsPage() {
     </>
   )
 }
+
+function logOut  (){
+  firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+  }).catch(function(error) {
+    // An error happened.
+  });
+}
+
 const Form = styled.form`
   align-content: center;
   overflow: hidden;

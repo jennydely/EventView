@@ -32,7 +32,6 @@ export default function EventList({
 
   return (
     <>
-      {' '}
       {filteredEvents.length > 0 ? (
         availableYears.map((year) => (
           <EventContainer key={year}>
