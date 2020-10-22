@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-import addPacklistIcon from '../../img/addPacklistIcon.svg'
-import addEvent1Icon from '../../img/addEvent1Icon.svg'
 import settingsIcon from '../../img/settingsIcon.svg'
+import signInIcon from '../../img/signInIcon.svg'
 import Header from '../components/Header'
 import EventList from './EventList'
 import useEvents from './useEvents'
 import { useHistory } from 'react-router-dom'
 
-export default function EventPage() {
+export default function StartPage() {
   const [categoryFilter, setCategoryFilter] = useState('All')
   const [eventFilter, setEventFilter] = useState('Date')
   const [searchedEvent, setSearchedEvent] = useState('')
@@ -21,12 +20,9 @@ export default function EventPage() {
   } = useEvents()
 
   const history = useHistory()
-  function handleCreateEventClick() {
-    history.push('/eventform')
-  }
-
-  function handleCreatePacklistClick() {
-    history.push('/packlistform')
+ 
+  function handleSignInClick() {
+    history.push('/login')
   }
 
   function handleSettingsClick() {
@@ -51,18 +47,12 @@ export default function EventPage() {
           categoryFilter={categoryFilter}
           eventSearch={searchedEvent}
           multipleEventSearch={searchedEvents}
-          onHideButtonClick={toggleHide}
-          onDeleteButtonClick={delEvent}
-          onTicketCheckboxClick={handleTicketCheckbox}
           handleReloadButtonClick={handleReloadButtonClick}
         />
       </main>
       <footer>
-        <FooterButton onClick={handleCreateEventClick}>
-          <img src={addEvent1Icon} alt="create event" />
-        </FooterButton>
-        <FooterButton onClick={handleCreatePacklistClick}>
-          <img src={addPacklistIcon} alt="create packlist" />
+        <FooterButton onClick={handleSignInClick}>
+          <img src={signInIcon} alt="sign in" />
         </FooterButton>
         <FooterButton onClick={handleSettingsClick}>
           <SettingsSVG src={settingsIcon} alt="settings" />
@@ -98,34 +88,6 @@ export default function EventPage() {
     setSearchedEvents(searchedName)
   }
 
-  function toggleHide(id) {
-    const index = eventArray.findIndex((event) => event.id === id)
-    const eventUpdate = eventArray[index]
-    if (
-      (!eventUpdate.isHidden &&
-        window.confirm(
-          'Are you sure you want hide this event? You can find hidden events at the left dropdown in the hidden list.'
-        )) ||
-      eventUpdate.isHidden
-    ) {
-      eventUpdate.isHidden = !eventUpdate.isHidden
-    }
-
-    updateEvent(eventUpdate)
-  }
-
-  function delEvent(id) {
-    const index = eventArray.findIndex((event) => event.id === id)
-    const deletedEvent = eventArray[index]
-    removeEvent(deletedEvent)
-  }
-
-  function handleTicketCheckbox(id) {
-    const index = eventArray.findIndex((event) => event.id === id)
-    const clickedTicket = eventArray[index]
-    clickedTicket.ticketBought = !clickedTicket.ticketBought
-    updateTicketCheckbox(clickedTicket)
-  }
 }
 
 const FooterButton = styled.button`

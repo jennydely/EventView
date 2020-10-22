@@ -1,15 +1,15 @@
 import React from 'react'
-import EventPage from '../Pages/EventMain/EventPage'
+import UserEventPage from '../Pages/EventMain/UserEventPage'
 import './storybookStyles.css'
 
 export default {
-  title: 'EventView/EventPage',
-  component: EventPage,
+  title: 'EventView/UserEventPage',
+  component: UserEventPage,
 }
 
 const Template = (args) => (
   <main className="storybook_main">
-    <EventPage {...args} />
+    <UserEventPage {...args} />
   </main>
 )
 

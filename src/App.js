@@ -1,8 +1,10 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import * as firebase from "firebase/app"
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import PacklistPage from './Pages/Packlist/PacklistPage'
-import EventPage from './Pages/EventMain/EventPage'
+import StartPage from './Pages/EventMain/StartPage'
+import UserEventPage from './Pages/EventMain/UserEventPage'
 import EventForm from './Pages/EventForm/EventForm'
 import SettingsPage from './Pages/SettingsPage/SettingsPage.js'
 import LoginPage from './Pages/LoginPage/LoginPage.js'
@@ -10,7 +12,7 @@ import PacklistForm from './Pages/PacklistForm/PacklistForm'
 
 
 export default function App() {
-
+  const history = useHistory()
      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCXt-OPqpTDbbo2XPE_59B5hW-8A0_6Ry0",
@@ -33,10 +35,10 @@ const firebaseConfig = {
       const isAnonymous = user.isAnonymous;
       const uid = user.uid;
       const providerData = user.providerData;
-      console.log('NurFabiIsstmawieder')
+      history.push('/loggedin/usereventpage')
     } else {
       // User is signed out.
-      console.log('KeinEssenFürDely')
+      history.push('/')
     }
   });
 
@@ -58,8 +60,11 @@ const firebaseConfig = {
         <Route path="/eventform/:eventId?">
           <EventForm />
         </Route>
+        <Route path="/loggedin/usereventpage">
+          <UserEventPage />
+        </Route>
         <Route path="/">
-          <EventPage />
+          <StartPage />
         </Route>
       </Switch>
     </Router>

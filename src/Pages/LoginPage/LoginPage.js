@@ -59,8 +59,6 @@ function signInWithGoogle () {
 }
 }
 
-
-
 const Form = styled.form`
   align-content: center;
   overflow: hidden;

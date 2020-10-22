@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-context('Eventpage', () => {
+context('UserEventPage', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
   })
