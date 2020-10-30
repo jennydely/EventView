@@ -45,7 +45,7 @@ function signInWithGoogle () {
         const token = result.credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-        history.push('/')
+        history.push('/loggedin/usereventpage')
       }).catch(function(error) {
         // Handle Errors here.
         const errorCode = error.code;
