@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
+import { useSelector, useDispatch } from "react-redux"
 import addPacklistIcon from '../../img/addPacklistIcon.svg'
 import addEvent1Icon from '../../img/addEvent1Icon.svg'
 import settingsIcon from '../../img/settingsIcon.svg'
@@ -14,11 +15,15 @@ export default function UserEventPage() {
   const [searchedEvent, setSearchedEvent] = useState('')
   const [searchedEvents, setSearchedEvents] = useState('')
   const {
-    eventArray,
+    //eventArray,
     updateEvent,
     removeEvent,
     updateTicketCheckbox,
   } = useEvents()
+
+  const eventArray = useSelector(state => state)
+  const dispatch = useDispatch()
+console.log(eventArray);
 
   const history = useHistory()
   function handleCreateEventClick() {

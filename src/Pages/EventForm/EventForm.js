@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { v4 as uuid } from 'uuid'
+import { useDispatch } from "react-redux"
 import { useParams, useHistory } from 'react-router-dom'
 import { useForm, Controller } from 'react-hook-form'
 import styled from 'styled-components/macro'
@@ -27,8 +28,9 @@ export default function EventForm() {
     control,
     reset,
   } = useForm()
+  const dispatch = useDispatch()
   const { eventArray, addEvent, updateEvent } = useEvents()
-  const { onEventSave, onEventSaveEdit } = useEventForm(addEvent, updateEvent)
+  const { onEventSaveEdit } = useEventForm(addEvent, updateEvent)
   const eventToEdit = editEvent()
   const history = useHistory()
   const onSubmit = (eventEntry, event) => {
@@ -41,7 +43,7 @@ export default function EventForm() {
         isBought: eventToEdit.isBought,
       })
     } else {
-      onEventSave({ ...eventEntry, id: uuid() })
+      dispatch({ type: "ADD_EVENT", payload: { ...eventEntry, eventStartDate: eventEntry.eventStartDate.toJSON(), eventEndDate: eventEntry.eventEndDate.toJSON(), id: uuid() } })
     }
     history.push('/')
 
@@ -105,16 +107,16 @@ export default function EventForm() {
           )}
           {(errors.name?.type === 'validate' ||
             errors.name?.type === 'minLength') && (
-            <ErrorMessageColumn2 row={4}>
-              This field requires at least 3 characters!
-            </ErrorMessageColumn2>
-          )}
+              <ErrorMessageColumn2 row={4}>
+                This field requires at least 3 characters!
+              </ErrorMessageColumn2>
+            )}
           {(errors.name?.type === 'validate' ||
             errors.name?.type === 'maxLength') && (
-            <ErrorMessageColumn2 row={4}>
-              The name can reach a maximum of 21 characters!
-            </ErrorMessageColumn2>
-          )}
+              <ErrorMessageColumn2 row={4}>
+                The name can reach a maximum of 21 characters!
+              </ErrorMessageColumn2>
+            )}
 
           <InputLabelColumn2 row={5} htmlFor="location">
             Eventlocation:
@@ -140,17 +142,17 @@ export default function EventForm() {
           )}
           {(errors.location?.type === 'validate' ||
             errors.location?.type === 'minLength') && (
-            <ErrorMessageColumn2 row={7}>
-              {' '}
+              <ErrorMessageColumn2 row={7}>
+                {' '}
               This field requires at least 3 characters!
-            </ErrorMessageColumn2>
-          )}
+              </ErrorMessageColumn2>
+            )}
           {(errors.location?.type === 'validate' ||
             errors.location?.type === 'maxLength') && (
-            <ErrorMessageColumn2 row={7}>
-              The location can reach a maximum of 20 characters!
-            </ErrorMessageColumn2>
-          )}
+              <ErrorMessageColumn2 row={7}>
+                The location can reach a maximum of 20 characters!
+              </ErrorMessageColumn2>
+            )}
 
           <EventInfosText>Event Infos</EventInfosText>
           <InputLabelColumn1 row={9} htmlFor="EventStartDate">
@@ -292,10 +294,10 @@ export default function EventForm() {
           )}
           {(errors.website?.type === 'validate' ||
             errors.website?.type === 'minLength') && (
-            <ErrorMessageColumn2 row={16}>
-              This field requires at least 8 characters!
-            </ErrorMessageColumn2>
-          )}
+              <ErrorMessageColumn2 row={16}>
+                This field requires at least 8 characters!
+              </ErrorMessageColumn2>
+            )}
           {errors.website?.type === 'pattern' && (
             <ErrorMessageColumn2 row={16}>
               Should begin with www or http

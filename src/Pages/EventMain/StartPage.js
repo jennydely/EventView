@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useSelector, useDispatch } from "react-redux"
 import styled from 'styled-components/macro'
 import settingsIcon from '../../img/settingsIcon.svg'
 import signInIcon from '../../img/signInIcon.svg'
@@ -13,12 +14,12 @@ export default function StartPage() {
   const [searchedEvent, setSearchedEvent] = useState('')
   const [searchedEvents, setSearchedEvents] = useState('')
   const {
-    eventArray,
-    updateEvent,
-    removeEvent,
-    updateTicketCheckbox,
-  } = useEvents()
+    //eventArray
+      } = useEvents()
 
+  const eventArray = useSelector(state => state)
+  const dispatch = useDispatch()
+console.log(eventArray);
   const history = useHistory()
  
   function handleSignInClick() {
