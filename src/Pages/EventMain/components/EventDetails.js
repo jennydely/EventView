@@ -3,6 +3,8 @@ import { animated } from 'react-spring'
 import styled from 'styled-components/macro'
 import Checkbox from '../../components/common/Checkbox'
 import Paragraph from '../../components/common/Paragraph'
+import { connect } from 'react-redux'
+import {deleteEvent } from '../../../redux/actions'
 import trashIcon from '../../../img/trashIcon.svg'
 import eyeIcon from '../../../img/eyeIcon.svg'
 import hideEyeIcon from '../../../img/hideEyeIcon.svg'
@@ -10,13 +12,13 @@ import routeIcon from '../../../img/routeIcon.svg'
 import websiteIcon from '../../../img/websiteIcon.svg'
 import getColorOfEventCategory from '../../../services/getColorOfEventCategory'
 
-export default function EventDetails({
+export function EventDetails({
   event,
   style,
   bind,
   id,
   onHideButtonClick,
-  onDeleteButtonClick,
+  deleteEvent,
   onTicketCheckboxClick,
 }) {
   const { poster, name, street, zip, location, price, website } = event
@@ -81,7 +83,7 @@ export default function EventDetails({
 
   function handleDeleteButtonClick() {
     if (window.confirm('Are you sure you wish to delete this item?'))
-      onDeleteButtonClick(event.id)
+     deleteEvent(event.id)
   }
 
   function handleCheckboxClick() {
@@ -91,6 +93,12 @@ export default function EventDetails({
     onHideButtonClick(event.id)
   }
 }
+
+export default connect(
+  null,
+  { deleteEvent }
+)(EventDetails)
+
 
 const Details = styled(animated.section)`
   display: grid;

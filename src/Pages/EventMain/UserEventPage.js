@@ -57,7 +57,6 @@ console.log(eventArray);
           eventSearch={searchedEvent}
           multipleEventSearch={searchedEvents}
           onHideButtonClick={toggleHide}
-          onDeleteButtonClick={delEvent}
           onTicketCheckboxClick={handleTicketCheckbox}
           handleReloadButtonClick={handleReloadButtonClick}
         />

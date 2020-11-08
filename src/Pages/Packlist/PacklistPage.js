@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { useParams, useHistory } from 'react-router-dom'
+
 import editIcon from '../../img/editIcon.svg'
 import FormHeader from '../components/FormHeader'
 import ListItem from '../components/common/ListItem'
@@ -10,7 +11,7 @@ import { comparePacklists } from './services/comparePacklists'
 import usePacklists from './usePacklists'
 
 export default function PackListPage() {
-  const { packlistName } = useParams()
+    const { packlistName } = useParams()
   const { packlists, updatePacklistCheckbox } = usePacklists()
   const chosenPacklist = comparePacklists(packlists, packlistName)
   const history = useHistory()

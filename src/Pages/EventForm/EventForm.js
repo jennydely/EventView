@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux"
 import { useParams, useHistory } from 'react-router-dom'
 import { useForm, Controller } from 'react-hook-form'
 import styled from 'styled-components/macro'
+import { connect } from 'react-redux'
+import { addEvent, editEvent } from '../../../redux/actions'
 import '../../lib/ReactDatePicker.css'
 import Input from '../components/common/Input'
 import Label from '../components/common/Label'
@@ -16,9 +18,9 @@ import usePacklists from '../Packlist/usePacklists'
 import useEvents from '../EventMain/useEvents'
 import Footer from '../components/FormFooter'
 import FormHeader from '../components/FormHeader'
-import useEventForm from './useEventForm'
 
-export default function EventForm() {
+
+export function EventForm({editEvent,addEvent}) {
   const { eventId } = useParams()
   const {
     register,
@@ -28,22 +30,21 @@ export default function EventForm() {
     control,
     reset,
   } = useForm()
-  const dispatch = useDispatch()
-  const { eventArray, addEvent, updateEvent } = useEvents()
-  const { onEventSaveEdit } = useEventForm(addEvent, updateEvent)
-  const eventToEdit = editEvent()
+  const { eventArray } = useEvents()
+  const eventToEdit = searchForEditEvent()
   const history = useHistory()
   const onSubmit = (eventEntry, event) => {
     event.preventDefault()
 
     if (eventToEdit) {
-      onEventSaveEdit({
+      editEvent({
         ...eventEntry,
         id: eventToEdit.id,
         isBought: eventToEdit.isBought,
       })
     } else {
-      dispatch({ type: "ADD_EVENT", payload: { ...eventEntry, eventStartDate: eventEntry.eventStartDate.toJSON(), eventEndDate: eventEntry.eventEndDate.toJSON(), id: uuid() } })
+      addEvent({ ...eventEntry, eventStartDate: eventEntry.eventStartDate.toJSON(), eventEndDate: eventEntry.eventEndDate.toJSON(), id: uuid() })
+     // dispatch({ type: "ADD_EVENT", payload: { ...eventEntry, eventStartDate: eventEntry.eventStartDate.toJSON(), eventEndDate: eventEntry.eventEndDate.toJSON(), id: uuid() } })
     }
     history.push('/')
 
@@ -344,12 +345,20 @@ export default function EventForm() {
       <Footer handleSubmit={handleSubmit(onSubmit)} />
     </>
   )
-  function editEvent() {
+  function searchForEditEvent() {
     const index = eventArray.findIndex((event) => '' + event.id === eventId)
     const editEvent = eventArray[index]
     return editEvent
   }
 }
+
+
+const mapDispatchToProps = { addEvent, editEvent }
+
+export default connect(
+  null, 
+  mapDispatchToProps
+  )  (EventForm)
 
 const Form = styled.form`
   display: grid;

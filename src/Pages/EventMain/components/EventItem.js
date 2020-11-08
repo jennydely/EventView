@@ -13,7 +13,6 @@ export default function EventItem({
   event,
   id,
   onHideButtonClick,
-  onDeleteButtonClick,
   onTicketCheckboxClick,
 }) {
   const {
@@ -63,8 +62,7 @@ export default function EventItem({
           bind={bind}
           id={id}
           onHideButtonClick={onHideButtonClick}
-          onDeleteButtonClick={onDeleteButtonClick}
-          onTicketCheckboxClick={onTicketCheckboxClick}
+            onTicketCheckboxClick={onTicketCheckboxClick}
         />
       </Event>
     </>

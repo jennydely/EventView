@@ -5,6 +5,7 @@ import { sortEvents } from './services/sortEvents'
 import { filterEvents } from './services/filterEvents'
 import { getFilteredEvents } from './services/getFilteredEvents'
 import { getAvailableYears } from './services/getAvailableYears'
+
 import EventItem from './components/EventItem'
 
 export default function EventList({
@@ -14,8 +15,6 @@ export default function EventList({
   eventSearch,
   multipleEventSearch,
   onHideButtonClick,
-  onEditButtonClick,
-  onDeleteButtonClick,
   onTicketCheckboxClick,
   handleReloadButtonClick,
 }) {
@@ -44,8 +43,6 @@ export default function EventList({
                     key={event.id}
                     id={event.id}
                     onHideButtonClick={onHideButtonClick}
-                    onDeleteButtonClick={onDeleteButtonClick}
-                    onEditButtonClick={onEditButtonClick}
                     onTicketCheckboxClick={onTicketCheckboxClick}
                   ></EventItem>
                 )
@@ -53,13 +50,13 @@ export default function EventList({
           </EventContainer>
         ))
       ) : (
-        <>
-          <p>No events</p>
-          <ResetButton onClick={handleReloadButtonClick}>
-            <img src={resetIcon} alt="reset" />
-          </ResetButton>
-        </>
-      )}
+          <>
+            <p>No events</p>
+            <ResetButton onClick={handleReloadButtonClick}>
+              <img src={resetIcon} alt="reset" />
+            </ResetButton>
+          </>
+        )}
     </>
   )
 }

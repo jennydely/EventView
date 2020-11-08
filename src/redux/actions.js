@@ -1,7 +1,5 @@
 import { SET_FILTER, ADD_EVENT, DELETE_EVENT, EDIT_EVENT, ADD_PACKLIST, DELETE_PACKLIST, EDIT_PACKLIST } from "./actionTypes"
 
-let nextEventId =0
-let nextPacklistId =0
 
 export function setFilter(filter) {
     return {
@@ -10,13 +8,11 @@ export function setFilter(filter) {
     }
 }
 
-export function addEvent(content) {
+export function addEvent(eventEntry) {
     return {
         type: ADD_EVENT,
-        payload: {
-            id: ++nextEventId,
-            content
-        }
+        payload: 
+            eventEntry
     }
 }
 
@@ -29,27 +25,25 @@ export function deleteEvent( id) {
     }
 }
 
-export function editEvent({content, id}) {
+export function editEvent(eventUpdate) {
     return {
         type: EDIT_EVENT,
-        payload: {
-            id,
-            content
-        }
+        payload: 
+            eventUpdate
+        
     }
 }
 
-export function addPacklist(content) {
+export function addPacklist(packlist) {
     return {
         type: ADD_PACKLIST,
-        payload: {
-            id: ++nextPacklistId,
-            content
-        }
+        payload: 
+            packlist
+        
     }
 }
 
-export function deletePacklistt( id) {
+export function deletePacklist( id) {
     return {
         type: DELETE_PACKLIST,
         payload: {
@@ -58,7 +52,7 @@ export function deletePacklistt( id) {
     }
 }
 
-export function editPacklistt({content, id}) {
+export function editPacklist({content, id}) {
     return {
         type: EDIT_PACKLIST,
         payload: {

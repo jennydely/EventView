@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form'
 import { v4 as uuid } from 'uuid'
 import { useParams, useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import { connect } from 'react-redux'
+import { editPacklist, addPacklist } from '../../redux/actions'
 import Input from '../components/common/Input'
 import Label from '../components/common/Label'
 import Checkbox from '../components/common/Checkbox'
@@ -16,17 +18,16 @@ import addIcon from '../../img/addIcon.svg'
 import usePacklists from '../Packlist/usePacklists'
 import { getUniquePacklists } from './services/getUniquePacklists'
 import { getUniqueItems } from './services/getUniqueItems'
-import usePacklistForm from './usePacklistForm'
 
-export default function PacklistForm() {
+export function PacklistForm({ editPacklist, addPacklist }) {
   const { register, handleSubmit, errors } = useForm()
   const { packlistId } = useParams()
   const { packlists } = usePacklists()
-  const packlistToEdit = editPacklist()
+  const packlistToEdit = searchForEditPacklist()
   const [items, setItems] = useState([])
   const [itemError, setItemError] = useState(false)
   const itemRef = useRef(null)
-  const { onPacklistSaveEdit, onPacklistSave } = usePacklistForm()
+
   const history = useHistory()
   const uniquePacklists = getUniquePacklists(packlists)
   const uniqueItems = getUniqueItems(items)
@@ -37,13 +38,13 @@ export default function PacklistForm() {
     )
 
     if (isExistingPacklist) {
-      onPacklistSaveEdit({
+      editPacklist({
         ...packlist,
         id: packlistToEdit.id,
         packlist: items,
       })
     } else {
-      onPacklistSave({ name: packlist.name, packlist: items, id: uuid() })
+      addPacklist({ name: packlist.name, packlist: items, id: uuid() })
     }
     history.push('/packlist/' + packlist.name)
   }
@@ -94,16 +95,16 @@ export default function PacklistForm() {
             )}
             {(errors.name?.type === 'validate' ||
               errors.name?.type === 'minLength') && (
-              <ErrorMessage>
-                This field requires at least 3 characters!
-              </ErrorMessage>
-            )}
+                <ErrorMessage>
+                  This field requires at least 3 characters!
+                </ErrorMessage>
+              )}
             {(errors.name?.type === 'validate' ||
               errors.name?.type === 'maxLength') && (
-              <ErrorMessage>
-                The name can reach a maximum of 20 characters!
-              </ErrorMessage>
-            )}
+                <ErrorMessage>
+                  The name can reach a maximum of 20 characters!
+                </ErrorMessage>
+              )}
             <Label htmlFor="itemInput">Create new item or task:</Label>
             <Input
               placeholder="Item you need or task you have to do"
@@ -189,7 +190,7 @@ export default function PacklistForm() {
     setItems([...items.slice(0, index), ...items.slice(index + 1)])
   }
 
-  function editPacklist() {
+  function searchForEditPacklist() {
     const index = packlists.findIndex(
       (packlist) => '' + packlist.id === packlistId
     )
@@ -197,6 +198,13 @@ export default function PacklistForm() {
     return editPacklist
   }
 }
+
+const mapDispatchToProps = { addPacklist, editPacklist }
+
+export default connect(
+  null, 
+  mapDispatchToProps
+  )  (PacklistForm)
 
 const Form = styled.form`
   align-content: center;
