@@ -1,5 +1,5 @@
 import React from 'react'
-import EventList from '../Pages/EventMain/EventList'
+import EventList from '../Pages/EventList/EventList'
 import './storybookStyles.css'
 
 export default {

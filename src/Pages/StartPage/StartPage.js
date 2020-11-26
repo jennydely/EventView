@@ -9,7 +9,7 @@ import  { Input } from '../components/common/Select'
 import loginIcon from '../../img/loginIcon.svg'
 import FormHeader from '../components/FormHeader'
 
-export default function LoginPage() {
+export default function StartPage() {
   const history = useHistory()
   const {handleSubmit } = useForm({
   })
@@ -45,7 +45,7 @@ function signInWithGoogle () {
         const token = result.credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-        history.push('/loggedin/usereventpage')
+        history.push('/usereventpage')
       }).catch(function(error) {
         // Handle Errors here.
         const errorCode = error.code;

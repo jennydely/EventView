@@ -1,5 +1,5 @@
 import React from 'react'
-import EventDetails from '../Pages/EventMain/components/EventDetails'
+import EventDetails from '../Pages/EventList/components/EventDetails'
 
 export default {
   title: 'EventView/EventDetails',

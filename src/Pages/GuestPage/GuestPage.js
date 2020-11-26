@@ -1,24 +1,24 @@
 import React, { useState } from 'react'
+import { useSelector, useDispatch } from "react-redux"
 import styled from 'styled-components/macro'
 import settingsIcon from '../../img/settingsIcon.svg'
 import signInIcon from '../../img/signInIcon.svg'
 import Header from '../components/Header'
-import EventList from './EventList'
-import useEvents from './useEvents'
+import EventList from '../EventList/EventList'
+import useEvents from '../EventList/useEvents'
 import { useHistory } from 'react-router-dom'
 
-export default function StartPage() {
+export default function GuestPage() {
   const [categoryFilter, setCategoryFilter] = useState('All')
   const [eventFilter, setEventFilter] = useState('Date')
   const [searchedEvent, setSearchedEvent] = useState('')
   const [searchedEvents, setSearchedEvents] = useState('')
   const {
-    eventArray,
-    updateEvent,
-    removeEvent,
-    updateTicketCheckbox,
-  } = useEvents()
+    //eventArray
+      } = useEvents()
 
+  const eventArray = useSelector(state => state)
+  const dispatch = useDispatch()
   const history = useHistory()
  
   function handleSignInClick() {

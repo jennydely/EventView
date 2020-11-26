@@ -1,16 +1,15 @@
 import React from 'react'
-import {connect} from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import * as firebase from "firebase/app"
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import PacklistPage from './Pages/Packlist/PacklistPage'
-import StartPage from './Pages/EventMain/StartPage'
-import UserEventPage from './Pages/EventMain/UserEventPage'
+import UserPage from './Pages/UserPage/UserPage'
 import EventForm from './Pages/EventForm/EventForm'
 import SettingsPage from './Pages/SettingsPage/SettingsPage'
-import LoginPage from './Pages/LoginPage/LoginPage'
-import {LoggedinUsername} from './Pages/LoginPage/FirebaseLoggedinUsername'
+import StartPage from './Pages/StartPage/StartPage'
+import GuestPage from './Pages/GuestPage/GuestPage'
+import {LoggedinUsername} from './Pages/StartPage/FirebaseLoggedinUsername'
 import PacklistForm from './Pages/PacklistForm/PacklistForm'
 
 const LoginSection = ({ username }) =>(	
@@ -60,7 +59,7 @@ export default function App() {
           <SettingsPage />
         </Route>
         <Route path="/login">
-          <LoginPage />
+          <StartPage />
         </Route>
         <Route path="/packlist/:packlistName?">
           <PacklistPage />
@@ -71,8 +70,11 @@ export default function App() {
         <Route path="/eventform/:eventId?">
           <EventForm />
         </Route>
-        <Route path="/loggedin/usereventpage">
-          <UserEventPage />
+        <Route path="/usereventpage">
+          <UserPage />
+        </Route>
+        <Route path="/guestpage">
+          <GuestPage />
         </Route>
         <Route path="/">
           <StartPage />

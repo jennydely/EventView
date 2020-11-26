@@ -1,24 +1,29 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
+import { useSelector, useDispatch } from "react-redux"
 import addPacklistIcon from '../../img/addPacklistIcon.svg'
 import addEvent1Icon from '../../img/addEvent1Icon.svg'
 import settingsIcon from '../../img/settingsIcon.svg'
 import Header from '../components/Header'
-import EventList from './EventList'
-import useEvents from './useEvents'
+import EventList from '../EventList/EventList'
+import useEvents from '../EventList/useEvents'
 import { useHistory } from 'react-router-dom'
 
-export default function UserEventPage() {
+export default function UserPage() {
   const [categoryFilter, setCategoryFilter] = useState('All')
   const [eventFilter, setEventFilter] = useState('Date')
   const [searchedEvent, setSearchedEvent] = useState('')
   const [searchedEvents, setSearchedEvents] = useState('')
   const {
-    eventArray,
+    //eventArray,
     updateEvent,
     removeEvent,
     updateTicketCheckbox,
   } = useEvents()
+
+  const eventArray = useSelector(state => state)
+  const dispatch = useDispatch()
+console.log(eventArray);
 
   const history = useHistory()
   function handleCreateEventClick() {
