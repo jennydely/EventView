@@ -22,7 +22,8 @@ export default function EventDetails({
   const { poster, name, street, zip, location, price, website } = event
   const defaultImg =
     'https://delyed.de/wp-content/uploads/2018/01/5d737e918441914a9d2743268ef65439.jpg'
-
+ const isLoggedIn = false;
+ 
   return (
     <Details name={event.category} style={style} {...bind}>
       <LinkPoster href={poster ? poster : website} target="blank">
@@ -65,16 +66,18 @@ export default function EventDetails({
         >
           <img src={routeIcon} alt="route" />
         </a>
-        <HideButton onClick={handleHideButtonClick} id={id}>
+        {isLoggedIn ?
+        (<HideButton onClick={handleHideButtonClick} id={id}>
           {event.isHidden ? (
             <img src={eyeIcon} alt="show" />
           ) : (
             <img src={hideEyeIcon} alt="hide" />
           )}
-        </HideButton>
-        <DeleteButton onClick={handleDeleteButtonClick}>
+        </HideButton>) &&
+        (<DeleteButton onClick={handleDeleteButtonClick}>
           <img src={trashIcon} alt="delete" />
-        </DeleteButton>
+        </DeleteButton>)
+        : ''}
       </ButtonContainer>
     </Details>
   )

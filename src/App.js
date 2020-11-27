@@ -70,7 +70,7 @@ export default function App() {
         <Route path="/eventform/:eventId?">
           <EventForm />
         </Route>
-        <Route path="/usereventpage">
+        <Route path="/userpage">
           <UserPage />
         </Route>
         <Route path="/guestpage">
