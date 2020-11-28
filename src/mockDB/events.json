@@ -13,7 +13,9 @@
     "eventEndDate": "2020-06-28",
     "category": "Medieval",
     "packlistCategory": "Medieval",
-    "isHidden": false
+    "isHidden": false,
+    "visibility": "public",
+    "isStarred": false
   },
   {
     "id": "2",
@@ -29,7 +31,9 @@
     "eventEndDate": "2021-07-04",
     "category": "Metal",
     "packlistCategory": "Festival",
-    "isHidden": false
+    "isHidden": false,
+    "visibility": "public",
+    "isStarred": false
   },
   {
     "id": "3",
@@ -45,7 +49,9 @@
     "eventEndDate": "2020-08-06",
     "category": "Medieval",
     "packlistCategory": "Medieval",
-    "isHidden": false
+    "isHidden": false,
+    "visibility": "public",
+    "isStarred": false
   },
   {
     "id": "4",
@@ -61,7 +67,9 @@
     "eventEndDate": "2021-08-06",
     "category": "Medieval",
     "packlistCategory": "Medieval",
-    "isHidden": false
+    "isHidden": false,
+    "visibility": "public",
+    "isStarred": false
   },
   {
     "id": "5",
@@ -77,7 +85,9 @@
     "eventEndDate": "2020-09-27",
     "category": "Medieval",
     "packlistCategory": "Medieval",
-    "isHidden": false
+    "isHidden": false,
+    "visibility": "public",
+    "isStarred": false
   },
   {
     "id": "7",
@@ -93,7 +103,9 @@
     "eventEndDate": "2021-02-16",
     "category": "Metal",
     "packlistCategory": "Festival",
-    "isHidden": false
+    "isHidden": false,
+    "visibility": "public",
+    "isStarred": false
   },
   {
     "id": "8",
@@ -109,7 +121,9 @@
     "eventEndDate": "2020-02-16",
     "category": "Metal",
     "packlistCategory": "Festival",
-    "isHidden": false
+    "isHidden": false,
+    "visibility": "public",
+    "isStarred": false
   },
   {
     "id": "6",
@@ -125,7 +139,9 @@
     "eventEndDate": "2020-06-14",
     "category": "Medieval",
     "packlistCategory": "Medieval",
-    "isHidden": false
+    "isHidden": false,
+    "visibility": "public",
+    "isStarred": false
   },
   {
     "id": "9",
@@ -141,9 +157,10 @@
     "eventEndDate": "2020-11-18",
     "category": "Other",
     "packlistCategory": "",
-    "isHidden": false
+    "isHidden": false,
+    "visibility": "public",
+    "isStarred": false
   },
-
   {
     "id": "10",
     "poster": "https://images.mirai.com/INFOROOMS/39500447/4mZLaxXvsl9is7eJGSgG/4mZLaxXvsl9is7eJGSgG_large.jpg",
@@ -158,6 +175,8 @@
     "eventEndDate": "2020-10-18",
     "category": "Holiday",
     "packlistCategory": "",
-    "isHidden": false
+    "isHidden": false,
+    "visibility": "public",
+    "isStarred": false
   }
 ]
