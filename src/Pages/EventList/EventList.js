@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components/macro'
 import resetIcon from '../../img/resetIcon.svg'
 import { sortEvents } from './services/sortEvents'
@@ -6,6 +6,7 @@ import { filterEvents } from './services/filterEvents'
 import { getFilteredEvents } from './services/getFilteredEvents'
 import { getAvailableYears } from './services/getAvailableYears'
 import EventItem from './components/EventItem'
+import { UserContext } from "../../providers/UserProvider";
 
 export default function EventList({
   eventArray,
@@ -29,6 +30,7 @@ export default function EventList({
     categoryfilteredEvents
   )
   const availableYears = getAvailableYears(eventFilter, filteredEvents)
+  const user = useContext(UserContext);
 
   return (
     <>
@@ -39,27 +41,35 @@ export default function EventList({
             {filteredEvents.map(
               (event) =>
                 event.eventStartDate.slice(0, 4) === year && (
-                  <EventItem
-                    event={event}
-                    key={event.id}
-                    id={event.id}
-                    onHideButtonClick={onHideButtonClick}
-                    onDeleteButtonClick={onDeleteButtonClick}
-                    onEditButtonClick={onEditButtonClick}
-                    onTicketCheckboxClick={onTicketCheckboxClick}
-                  ></EventItem>
+                  user ?
+                    <EventItem
+                      event={event}
+                      key={event.id}
+                      id={event.id}
+                      onHideButtonClick={onHideButtonClick}
+                      onDeleteButtonClick={onDeleteButtonClick}
+                      onEditButtonClick={onEditButtonClick}
+                      onTicketCheckboxClick={onTicketCheckboxClick}
+                    ></EventItem>
+                    :
+                    (<EventItem
+                      event={event}
+                      key={event.id}
+                      id={event.id}
+                    ></EventItem>)
+
                 )
             )}
           </EventContainer>
         ))
       ) : (
-        <>
-          <p>No events</p>
-          <ResetButton onClick={handleReloadButtonClick}>
-            <img src={resetIcon} alt="reset" />
-          </ResetButton>
-        </>
-      )}
+          <>
+            <p>No events</p>
+            <ResetButton onClick={handleReloadButtonClick}>
+              <img src={resetIcon} alt="reset" />
+            </ResetButton>
+          </>
+        )}
     </>
   )
 }

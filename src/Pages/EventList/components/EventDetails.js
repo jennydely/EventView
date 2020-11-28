@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { animated } from 'react-spring'
 import styled from 'styled-components/macro'
 import Checkbox from '../../components/common/Checkbox'
@@ -8,7 +8,9 @@ import eyeIcon from '../../../img/eyeIcon.svg'
 import hideEyeIcon from '../../../img/hideEyeIcon.svg'
 import routeIcon from '../../../img/routeIcon.svg'
 import websiteIcon from '../../../img/websiteIcon.svg'
+import gCalendarIcon from '../../../img/gCalendarIcon.svg'
 import getColorOfEventCategory from '../../../services/getColorOfEventCategory'
+import { UserContext } from "../../../providers/UserProvider";
 
 export default function EventDetails({
   event,
@@ -19,11 +21,11 @@ export default function EventDetails({
   onDeleteButtonClick,
   onTicketCheckboxClick,
 }) {
-  const { poster, name, street, zip, location, price, website } = event
+  const { poster, name, street, zip, location, price, website, eventStartDate, eventEndDate } = event
   const defaultImg =
     'https://delyed.de/wp-content/uploads/2018/01/5d737e918441914a9d2743268ef65439.jpg'
- const isLoggedIn = false;
- 
+  const user = useContext(UserContext);
+
   return (
     <Details name={event.category} style={style} {...bind}>
       <LinkPoster href={poster ? poster : website} target="blank">
@@ -43,16 +45,20 @@ export default function EventDetails({
       <ParagraphColumn3 row={5}>
         {price ? price + ' €' : 'kostenlos'}{' '}
       </ParagraphColumn3>
-      <TicketLabel id="Ticket" price={price}>
-        Ticket
+      {user ?
+        <><TicketLabel id="Ticket" price={price}>
+          Ticket
       </TicketLabel>
-      <Ticket
-        type="checkbox"
-        checked={event.ticketBought}
-        onChange={handleCheckboxClick}
-        htmlFor="Ticket"
-        price={price}
-      />
+
+          <Ticket
+            type="checkbox"
+            checked={event.ticketBought}
+            onChange={handleCheckboxClick}
+            htmlFor="Ticket"
+            price={price}
+          />
+        </> : ''}
+
       <ButtonContainer row={7} space={'space-around'}>
         <a href={website} target="blank" title="link">
           <img src={websiteIcon} alt="website" />
@@ -66,18 +72,30 @@ export default function EventDetails({
         >
           <img src={routeIcon} alt="route" />
         </a>
-        {isLoggedIn ?
-        (<HideButton onClick={handleHideButtonClick} id={id}>
-          {event.isHidden ? (
-            <img src={eyeIcon} alt="show" />
-          ) : (
-            <img src={hideEyeIcon} alt="hide" />
-          )}
-        </HideButton>) &&
-        (<DeleteButton onClick={handleDeleteButtonClick}>
-          <img src={trashIcon} alt="delete" />
-        </DeleteButton>)
-        : ''}
+        <a href={`http://www.google.com/calendar/render?
+action=TEMPLATE
+&text=${name}
+&dates=${eventStartDate.split('-').join('')}/${eventEndDate.split('-').join('')}
+&details=${encodeURIComponent(price + ' € ' + website)}
+&location=${encodeURIComponent(street + ',' + zip + ',' + location)}
+&trp=false
+&sprop=
+&sprop=name:`}
+          target="_blank" rel="nofollow">
+          <img src={gCalendarIcon} alt="google calendar" /></a>
+
+        {user ?
+          <><HideButton onClick={handleHideButtonClick} id={id}>
+            {event.isHidden ? (
+              <img src={eyeIcon} alt="show" />
+            ) : (
+                <img src={hideEyeIcon} alt="hide" />
+              )}
+          </HideButton>
+            <DeleteButton onClick={handleDeleteButtonClick}>
+              <img src={trashIcon} alt="delete" />
+            </DeleteButton></>
+          : ''}
       </ButtonContainer>
     </Details>
   )

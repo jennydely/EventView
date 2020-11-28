@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components/macro'
 import { useSelector, useDispatch } from "react-redux"
 import addPacklistIcon from '../../img/addPacklistIcon.svg'
@@ -8,6 +8,7 @@ import Header from '../components/Header'
 import EventList from '../EventList/EventList'
 import useEvents from '../EventList/useEvents'
 import { useHistory } from 'react-router-dom'
+import { UserContext } from "../../providers/UserProvider";
 
 export default function UserPage() {
   const [categoryFilter, setCategoryFilter] = useState('All')
@@ -15,7 +16,6 @@ export default function UserPage() {
   const [searchedEvent, setSearchedEvent] = useState('')
   const [searchedEvents, setSearchedEvents] = useState('')
   const {
-    //eventArray,
     updateEvent,
     removeEvent,
     updateTicketCheckbox,
@@ -23,7 +23,7 @@ export default function UserPage() {
 
   const eventArray = useSelector(state => state)
   const dispatch = useDispatch()
-console.log(eventArray);
+  const user = useContext(UserContext);
 
   const history = useHistory()
   function handleCreateEventClick() {
@@ -49,6 +49,7 @@ console.log(eventArray);
         handleEventSuggestion={setEventSuggestion}
         handleEventSearch={setEventSearch}
       />
+
       <main>
         <EventList
           eventArray={eventArray}
