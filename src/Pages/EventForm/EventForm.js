@@ -118,6 +118,20 @@ export default function EventForm() {
               </ErrorMessageColumn2>
             )}
 
+          <VisibilityInputLabel htmlFor="visibility">Visibility:</VisibilityInputLabel>
+          <VisibilityInput
+            name="visibility"
+            id="visibility"
+            defaultValue={eventToEdit?.visibility}
+            register={register({ required: true })}
+            options={['private', 'public']}
+          />
+          {errors.category && errors.category.type === 'required' && (
+            <ErrorMessageVisibilityReq>
+              Visibility is required!
+            </ErrorMessageVisibilityReq>
+          )}
+
           <InputLabelColumn2 row={5} htmlFor="location">
             Eventlocation:
           </InputLabelColumn2>
@@ -399,6 +413,28 @@ const CategoryInput = styled(Select)`
 const ErrorMessageCategoryReq = styled(ErrorMessage)`
   grid-column: 1;
   grid-row: 4;
+`
+const VisibilityInputLabel = styled(Label)`
+  grid-column: 1;
+  grid-row: 5;
+  text-align: left;
+`
+const VisibilityInput = styled(Select)`
+  grid-column: 1;
+  grid-row: 6;
+  display: block;
+  padding: 20px;
+  border: var(--borderColor);
+  background: var(--optionsBG);
+  border-radius: 4px;
+  margin-top: 0;
+  padding: 4px;
+  font-size: 112.5%;
+  color: black;
+`
+const ErrorMessageVisibilityReq = styled(ErrorMessage)`
+  grid-column: 1;
+  grid-row: 7;
 `
 const EventInfosText = styled.h2`
   grid-column: 1 / span 2;
