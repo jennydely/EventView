@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import backIcon from '../../img/backIcon.svg'
 import homeIcon from '../../img/homeIcon.svg'
-import { UserContext } from "../../../providers/UserProvider";
+import { UserContext } from "../../providers/UserProvider";
 
 export default function FormHeader({ headerText, headerButton }) {
   const history = useHistory()
