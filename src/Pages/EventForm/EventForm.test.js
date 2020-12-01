@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, fireEvent, waitFor } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import 'jest-styled-components'
 import EventForm from './EventForm'
@@ -31,7 +31,7 @@ describe('EventForm', () => {
         ],
       },
     ]
-    const { getByLabelText, getByAltText, getByPlaceholderText } = render(
+    const { getByPlaceholderText } = render(
       <MemoryRouter>
         <EventForm packlists={packlists} onEventSave={onEventSave} />
       </MemoryRouter>

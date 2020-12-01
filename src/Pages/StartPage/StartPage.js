@@ -3,8 +3,8 @@ import * as firebase from "firebase/app"
 import "firebase/auth"
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import Label from '../components/common/Label'
-import { Input } from '../components/common/Select'
+//import Label from '../components/common/Label'
+//import { Input } from '../components/common/Select'
 
 
 export default function StartPage() {
@@ -34,23 +34,22 @@ export default function StartPage() {
     </>
   )
 
-
   function signInWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider()
     firebase.auth().signInWithPopup(provider).then(function (result) {
       // This gives you a Google Access Token. You can use it to access the Google API.
-      const token = result.credential.accessToken;
+     // const token = result.credential.accessToken;
       // The signed-in user info.
-      const user = result.user;
+      //const user = result.user;
       history.push('/userpage')
     }).catch(function (error) {
       // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
+     // const errorCode = error.code;
+      //const errorMessage = error.message;
       // The email of the user's account used.
-      const email = error.email;
+      //const email = error.email;
       // The firebase.auth.AuthCredential type that was used.
-      const credential = error.credential;
+     // const credential = error.credential;
       // ...
     });
   }
@@ -87,7 +86,7 @@ text-align: center;
 margin: 5px 40px;
 `
 
-const UsernameLabel = styled(Label)`
+/*const UsernameLabel = styled(Label)`
   align-self: center;
 `
 const PasswordLabel = styled(Label)`
@@ -100,4 +99,4 @@ const UsernameInput = styled(Input)`
 
 const PasswordInput = styled(Input)`
 align-self: center;
-`
+`*/

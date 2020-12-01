@@ -126,7 +126,7 @@ export default function EventForm() {
             register={register({ required: true })}
             options={['private', 'public']}
           />
-          {errors.category && errors.category.type === 'required' && (
+          {errors.visibility && errors.visibility.type === 'required' && (
             <ErrorMessageVisibilityReq>
               Visibility is required!
             </ErrorMessageVisibilityReq>

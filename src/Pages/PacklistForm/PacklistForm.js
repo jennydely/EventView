@@ -5,9 +5,10 @@ import { useParams, useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Input from '../components/common/Input'
 import Label from '../components/common/Label'
+import Select from '../components/common/Select'
+import SelectTemplate from '../components/common/SelectTemplate'
 import Checkbox from '../components/common/Checkbox'
 import ErrorMessage from '../components/common/ErrorMessage'
-import SelectTemplate from '../components/common/SelectTemplate'
 import ListContainer from '../components/common/ListContainer'
 import ListItem from '../components/common/ListItem'
 import FormHeader from '../components/FormHeader'
@@ -65,45 +66,62 @@ export default function PacklistForm() {
       <main>
         <Form data-testid="packlistform" onSubmit={handleSubmit(onSubmit)}>
           <FormInputContainer>
-            <PacklistNameInputLabel htmlFor="name">
-              Name of the new PackList:
+            <TopDivContainer>
+              <PacklistNameInputLabel htmlFor="name">
+                Name of the new PackList:
             </PacklistNameInputLabel>
-            <Input
-              placeholder="PackList name"
-              id="name"
-              name="name"
-              defaultValue={packlistToEdit?.name}
-              ref={register({
-                required: true,
-                minLength: 3,
-                maxLength: 20,
-                validate: {
-                  length: (value) =>
-                    value?.trim().length >= 3 && value?.trim().length <= 20,
-                  nameTaken: (value) =>
-                    !!packlistId ||
-                    !packlists.some((packlist) => packlist.name === value),
-                },
-              })}
-            />
-            {errors.name?.type === 'required' && (
-              <ErrorMessage>Name is required!</ErrorMessage>
-            )}
-            {errors.name?.type === 'nameTaken' && (
-              <ErrorMessage>Name is taken!</ErrorMessage>
-            )}
-            {(errors.name?.type === 'validate' ||
-              errors.name?.type === 'minLength') && (
-              <ErrorMessage>
-                This field requires at least 3 characters!
-              </ErrorMessage>
-            )}
-            {(errors.name?.type === 'validate' ||
-              errors.name?.type === 'maxLength') && (
-              <ErrorMessage>
-                The name can reach a maximum of 20 characters!
-              </ErrorMessage>
-            )}
+              <PacklistNameInput
+                placeholder="PackList name"
+                id="name"
+                name="name"
+                defaultValue={packlistToEdit?.name}
+                ref={register({
+                  required: true,
+                  minLength: 3,
+                  maxLength: 20,
+                  validate: {
+                    length: (value) =>
+                      value?.trim().length >= 3 && value?.trim().length <= 20,
+                    nameTaken: (value) =>
+                      !!packlistId ||
+                      !packlists.some((packlist) => packlist.name === value),
+                  },
+                })}
+              />
+              {errors.name?.type === 'required' && (
+                <ErrorMessagePacklist>Name is required!</ErrorMessagePacklist>
+              )}
+              {errors.name?.type === 'nameTaken' && (
+                <ErrorMessagePacklist>Name is taken!</ErrorMessagePacklist>
+              )}
+              {(errors.name?.type === 'validate' ||
+                errors.name?.type === 'minLength') && (
+                  <ErrorMessagePacklist>
+                    This field requires at least 3 characters!
+                  </ErrorMessagePacklist>
+                )}
+              {(errors.name?.type === 'validate' ||
+                errors.name?.type === 'maxLength') && (
+                  <ErrorMessagePacklist>
+                    The name can reach a maximum of 20 characters!
+                  </ErrorMessagePacklist>
+                )}
+
+              <VisibilityInputLabel htmlFor="visibility">Visibility:</VisibilityInputLabel>
+              <VisibilityInput
+                name="visibility"
+                id="visibility"
+                defaultValue={packlistToEdit?.visibility}
+                register={register({ required: true })}
+                options={['private', 'public']}
+              />
+              {errors.visibility && errors.visibility.type === 'required' && (
+                <ErrorMessageVisibility>
+                  Visibility is required!
+                </ErrorMessageVisibility>
+              )}
+            </TopDivContainer>
+
             <Label htmlFor="itemInput">Create new item or task:</Label>
             <Input
               placeholder="Item you need or task you have to do"
@@ -203,10 +221,11 @@ const Form = styled.form`
   overflow: hidden;
   min-width: 365px;
 `
+
 const FormInputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
   min-width: 300px;
   border-radius: 7px;
   border: var(--borderUL);
@@ -214,9 +233,52 @@ const FormInputContainer = styled.div`
   margin-top: 0;
   padding: 7px 4px;
 `
+const TopDivContainer = styled.div`
+display: grid;
+grid-template-columns: repeat(3, 111px);
+grid-template-rows: repeat(4, auto);
+align-content: left;
+overflow: hidden;
+max-width: 365px;
+padding: 2px;
+gap: 4px;
+`
 const PacklistNameInputLabel = styled(Label)`
   text-align: left;
+  grid-column: 1/ span 2;
+  grid-row: 1;
 `
+const VisibilityInputLabel = styled(Label)`
+  text-align: left;
+  grid-column: 3;
+  grid-row: 1;
+`
+const PacklistNameInput = styled(Input)`
+grid-column: 1 / 3;
+grid-row: 2;
+`
+const VisibilityInput = styled(Select)`
+grid-column: 3;
+grid-row: 2;
+display: block;
+  padding: 20px;
+  border: var(--borderColor);
+  background: var(--optionsBG);
+  border-radius: 4px;
+  margin-top: 0;
+  padding: 4px;
+  font-size: 112.5%;
+  color: black;
+`
+const ErrorMessagePacklist = styled(ErrorMessage)`
+  grid-column: 1/span2;
+  grid-row: 3;
+`
+const ErrorMessageVisibility = styled(ErrorMessage)`
+  grid-column: 1/span2;
+  grid-row: 4;
+`
+
 const AddButton = styled.button`
   align-self: center;
   margin: 14px;
@@ -244,6 +306,13 @@ const DeleteButton = styled.button`
   padding: 0;
 `
 const TemplateDropDown = styled(SelectTemplate)`
-  grid-column: 1;
-  grid-row: 8;
+  display: block;
+  padding: 20px;
+  border: var(--borderColor);
+  background: var(--optionsBG);
+  border-radius: 4px;
+  margin-top: 0;
+  padding: 4px;
+  font-size: 112.5%;
+  color: black;
 `

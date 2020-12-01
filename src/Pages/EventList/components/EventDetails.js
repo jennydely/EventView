@@ -81,7 +81,7 @@ action=TEMPLATE
 &trp=false
 &sprop=
 &sprop=name:`}
-          target="_blank" rel="nofollow">
+          target="_blank" rel="noreferrer">
           <img src={gCalendarIcon} alt="google calendar" /></a>
 
         {user ?

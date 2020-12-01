@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import { useHistory } from 'react-router-dom'
 
 import UserProvider, { UserContext } from "./providers/UserProvider";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -13,7 +12,6 @@ import GuestPage from './Pages/GuestPage/GuestPage'
 import PacklistForm from './Pages/PacklistForm/PacklistForm'
 
 export default function App() {
-  const history = useHistory()
   const user = useContext(UserContext);
   console.log('app user', user, !!user);
   return (
