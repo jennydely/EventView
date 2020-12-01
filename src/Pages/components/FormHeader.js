@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import backIcon from '../../img/backIcon.svg'
 import homeIcon from '../../img/homeIcon.svg'
+import { UserContext } from "../../../providers/UserProvider";
 
 export default function FormHeader({ headerText, headerButton }) {
   const history = useHistory()
+  const user = useContext(UserContext);
+
   function goBack() {
     history.goBack()
   }
   function goHome() {
-    history.push('/')
+    user ? history.push('/userpage') : history.push('/')
   }
 
   return (
