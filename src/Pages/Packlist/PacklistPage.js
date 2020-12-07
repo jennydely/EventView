@@ -93,6 +93,5 @@ const ItemContainer = styled.label`
 `
 
 const EditButton = styled.button`
-  padding: 22px 0 0 0;
   margin: 0 7px;
 `

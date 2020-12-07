@@ -15,7 +15,7 @@ code {
 #root {
   text-align: center;
   display: grid;
-  grid-template-rows: 55px auto 55px;
+  grid-template-rows: auto auto 55px;
   max-width: 375px;
   position: fixed;
   overflow: hidden;

@@ -15,6 +15,7 @@ export default function UserPage() {
   const [eventFilter, setEventFilter] = useState('Date')
   const [searchedEvent, setSearchedEvent] = useState('')
   const [searchedEvents, setSearchedEvents] = useState('')
+  const [chosenEventList, setChosenEventList] = useState('All')
   const {
     updateEvent,
     removeEvent,
@@ -43,6 +44,7 @@ export default function UserPage() {
       <Header
         onSelectFilter={handleCategoryFilter}
         onSelectEventFilter={setEventFilter}
+        onSelectEventList={setChosenEventList}
         eventArray={eventArray}
         eventFilter={eventFilter}
         categoryFilter={categoryFilter}
@@ -57,6 +59,7 @@ export default function UserPage() {
           categoryFilter={categoryFilter}
           eventSearch={searchedEvent}
           multipleEventSearch={searchedEvents}
+          chosenEventList={chosenEventList}
           onHideButtonClick={toggleHide}
           onDeleteButtonClick={delEvent}
           onTicketCheckboxClick={handleTicketCheckbox}
@@ -82,6 +85,7 @@ export default function UserPage() {
     setSearchedEvents('')
     setCategoryFilter(categoryFilter)
   }
+
 
   function handleReloadButtonClick() {
     setCategoryFilter('Category')

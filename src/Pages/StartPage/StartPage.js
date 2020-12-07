@@ -12,9 +12,9 @@ export default function StartPage() {
 
   return (
     <>
-      <header>
+      <StyledHeader>
         <Headline>{'EventView'}</Headline>
-      </header>
+      </StyledHeader>
       <main>
         <p> Find, add & organize your individual events and packlists!</p>
         {/*  <Form data-testid="login" onSubmit={handleSubmit(onSubmit)}>
@@ -59,8 +59,10 @@ export default function StartPage() {
   }
 }
 
+const StyledHeader =styled.header`
+max-height: 55px;
+`
 const Headline = styled.h1`
-  padding: 20px;
   margin: 7px;
   text-align: center;
 `

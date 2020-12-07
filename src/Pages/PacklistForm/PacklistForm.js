@@ -217,7 +217,6 @@ export default function PacklistForm() {
 }
 
 const Form = styled.form`
-  align-content: center;
   overflow: hidden;
   min-width: 365px;
 `

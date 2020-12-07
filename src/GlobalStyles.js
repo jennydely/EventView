@@ -21,7 +21,7 @@ export default createGlobalStyle`
   h1 {
     font-size: 145%;
     margin:0;
-    margin-left: 7px;
+      margin-left: 7px;
     align-self:center;
     }
 
@@ -38,13 +38,11 @@ export default createGlobalStyle`
   header {
     padding:4px;
     grid-row: 1;
-    display: flex;
-    flex-direction: row;
-    max-width:375px;
-    align-items:flex-end;
-    justify-content:space-around;
+    display:grid;
+    max-width: 375px;
     background: var(--footerHeader);
-
+    justify-content: center;
+    align-items: center;
     }
 
   main {
@@ -73,8 +71,7 @@ export default createGlobalStyle`
     display: inline-block; 
     min-width:fit-content;
     min-height:fit-content;
-    margin: 3px 4px;
-    padding: 11px;
+    margin: 4px 4px;
     border: none;
     background:none;
     font-size: 130%; 
