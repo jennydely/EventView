@@ -13,7 +13,8 @@
     "eventEndDate": "2020-06-28",
     "category": "Medieval",
     "packlistCategory": "Medieval",
-    "isHidden": false
+    "isHidden": false,
+    "visibility": "public"
   },
   {
     "id": "2",
@@ -29,7 +30,8 @@
     "eventEndDate": "2021-07-04",
     "category": "Metal",
     "packlistCategory": "Festival",
-    "isHidden": false
+    "isHidden": false,
+    "visibility": "public"
   },
   {
     "id": "3",
@@ -46,6 +48,8 @@
     "category": "Medieval",
     "packlistCategory": "Medieval",
     "isHidden": false
+    ,
+    "visibility": "public"
   },
   {
     "id": "4",
@@ -61,7 +65,8 @@
     "eventEndDate": "2021-08-06",
     "category": "Medieval",
     "packlistCategory": "Medieval",
-    "isHidden": false
+    "isHidden": false,
+    "visibility": "private"
   },
   {
     "id": "5",
@@ -78,6 +83,8 @@
     "category": "Medieval",
     "packlistCategory": "Medieval",
     "isHidden": false
+    ,
+    "visibility": "public"
   },
   {
     "id": "7",
@@ -94,6 +101,8 @@
     "category": "Metal",
     "packlistCategory": "Festival",
     "isHidden": false
+    ,
+    "visibility": "public"
   },
   {
     "id": "8",
@@ -109,7 +118,8 @@
     "eventEndDate": "2020-02-16",
     "category": "Metal",
     "packlistCategory": "Festival",
-    "isHidden": false
+    "isHidden": false,
+    "visibility": "private"
   },
   {
     "id": "6",
@@ -126,6 +136,8 @@
     "category": "Medieval",
     "packlistCategory": "Medieval",
     "isHidden": false
+    ,
+    "visibility": "public"
   },
   {
     "id": "9",
@@ -141,7 +153,8 @@
     "eventEndDate": "2020-11-18",
     "category": "Other",
     "packlistCategory": "",
-    "isHidden": false
+    "isHidden": false,
+    "visibility": "public"
   },
 
   {
@@ -159,5 +172,7 @@
     "category": "Holiday",
     "packlistCategory": "",
     "isHidden": false
+    ,
+    "visibility": "private"
   }
 ]

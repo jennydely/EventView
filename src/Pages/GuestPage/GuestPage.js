@@ -14,7 +14,6 @@ export default function GuestPage() {
   const [searchedEvents, setSearchedEvents] = useState('')
 
   const eventArray = useSelector(state => state)
-  //const dispatch = useDispatch()
   const history = useHistory()
  
   function handleSignInClick() {

@@ -1,10 +1,21 @@
 import { createGlobalStyle } from 'styled-components/macro'
-
 import { getThemeColors } from './services/getThemeColors'
 
 export default createGlobalStyle`
   * {
     box-sizing: border-box;
+  }
+
+  #root {
+    text-align: center;
+    display: grid;
+    grid-template-rows: ${({ userLoggedIn }) => userLoggedIn ? '110px' : '55px'} auto 55px;
+    max-width: 375px;
+    position: fixed;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    height: 100%;
   }
 
   body {

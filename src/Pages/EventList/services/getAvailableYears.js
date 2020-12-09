@@ -1,11 +1,11 @@
 import { getYearsOfEvents } from './getYearsOfEvents'
 import { getOldYearsOfEvents } from './getOldYearsOfEvents'
 
-export function getAvailableYears(eventFilter, filteredEvents) {
+export function getAvailableYears(eventFilter, filteredEventList) {
   const availableYears =
     eventFilter === 'Old'
-      ? getOldYearsOfEvents(filteredEvents)
-      : getYearsOfEvents(filteredEvents)
+      ? getOldYearsOfEvents(filteredEventList)
+      : getYearsOfEvents(filteredEventList)
 
   return availableYears
 }

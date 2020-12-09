@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export default function SelectEvents({
+export default function EventListFilter({
   register,
   options,
-  onSelectEventList,
+  onSelectEventListFilter,
   name,
   ...rest
 }) {
@@ -13,11 +13,11 @@ export default function SelectEvents({
       name={name}
       ref={register}
       {...rest}
-      onChange={(event) => onSelectEventList(event.target.value)}
+      onChange={(event) => onSelectEventListFilter(event.target.value)}
     >
       {options.map((optionsEventListName) => (
-        <OptionStyled key={optionsEventListName} value={optionsEventListName}>
-          {optionsEventListName}
+        <OptionStyled key={optionsEventListName.value} value={optionsEventListName.value} >
+          {optionsEventListName.name}
         </OptionStyled>
       ))}
     </StyledSelect>
@@ -27,7 +27,6 @@ export default function SelectEvents({
 const StyledSelect = styled.select`
   -moz-appearance: none;
   -webkit-appearance: none;
-  max-height: 55px;
 `
 const OptionStyled = styled.option`
   display: block;

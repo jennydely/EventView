@@ -1,10 +1,12 @@
-export function getFilteredEvents(
-  eventArray,
-  eventFilter,
-  eventSearch,
-  multipleEventSearch,
-  categoryfilteredEvents
+export function getFilteredEventList(
+  { eventArray,
+    eventFilter,
+    eventSearch,
+    chosenEventListFilter,
+    multipleEventSearch,
+    categoryfilteredEvents }
 ) {
+
   if (eventSearch === 'noEvent') return ['']
   else if (eventSearch && eventSearch.length > 0)
     return [eventArray.find((event) => event.name === eventSearch)]
@@ -28,7 +30,16 @@ export function getFilteredEvents(
     eventFilter === 'Hidden' && filteredHiddenEvents.length > 0
       ? filteredHiddenEvents
       : eventFilter === 'Old'
-      ? filteredOldEvents
-      : filteredNotHiddenEvents
-  return filteredEvents
+        ? filteredOldEvents
+        : filteredNotHiddenEvents
+  console.log('chosenEventListFilter', chosenEventListFilter)
+  const filteredEventList =
+    chosenEventListFilter === 'Private' && filteredEvents.length > 0
+      ? filteredEvents.filter((filteredEvent) => filteredEvent.visibility === 'private')
+      : chosenEventListFilter === 'Favorite'
+        ? filteredEvents.filter((filteredEvent) => filteredEvent.favorite === true)
+        : filteredEvents.filter((filteredEvent) => filteredEvent.visibility === 'public')
+
+  console.log('filteredEvents', filteredEvents, 'filteredEventList', filteredEventList)
+  return filteredEventList
 }

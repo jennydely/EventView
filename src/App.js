@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-
+import GlobalStyles from './GlobalStyles'
 import UserProvider, { UserContext } from "./providers/UserProvider";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
@@ -11,11 +11,14 @@ import StartPage from './Pages/StartPage/StartPage'
 import GuestPage from './Pages/GuestPage/GuestPage'
 import PacklistForm from './Pages/PacklistForm/PacklistForm'
 
+
 export default function App() {
+
   const user = useContext(UserContext);
-  console.log('app user', user, !!user);
+  console.log('user', user)
   return (
-    <UserProvider>
+    <>
+      <GlobalStyles userLoggedIn={user ? true : false} />
       <Router>
         <Switch>
           <Route path="/settings">
@@ -44,6 +47,6 @@ export default function App() {
           </Route>
         </Switch>
       </Router>
-    </UserProvider>
+    </>
   )
 }

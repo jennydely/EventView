@@ -9,7 +9,7 @@ import { UserContext } from "../../providers/UserProvider";
 export default function Header({
   onSelectFilter,
   onSelectEventFilter,
-  onSelectEventList,
+  onSelectEventListFilter,
   eventArray,
   eventFilter,
   chosenEventListFilter,
@@ -25,38 +25,41 @@ export default function Header({
   if (hasHiddenEvent) sortOptions.push('Hidden')
   if (hasOldEvent) sortOptions.push('Old')
 
-  const chosenEventList = ['Public events', 'Favourite events', 'Private events']
+  const chosenEventList = [{ name: 'Public events', value: 'Public' }, { name: 'Favorite events', value: 'Favorite' }, { name: 'Private events', value: 'Private' }]
   const user = useContext(UserContext);
-
+  console.log('headerUser', user)
   return (
-    <header>
+    <StyledHeader>
       <FilterContainer>
-      <SelectEvents
-        id="filter"
-        name={sortOptions}
-        options={sortOptions}
-        onSelectEventFilter={onSelectEventFilter}
-        value={eventFilter}
-      />
-      <Searchbar
-        handleEventSuggestion={handleEventSuggestion}
-        handleEventSearch={handleEventSearch}
-      />
-      <CategoryFilter
-        onSelectFilter={onSelectFilter}
-        categoryFilter={categoryFilter}
-      />
-      </FilterContainer> 
-{   user ? <EventListFilter 
-      onSelectEventList={onSelectEventList}
-      id="EventListfilter"
-      name={chosenEventList}
-      options={chosenEventList}
-      value={chosenEventListFilter} /> : ''}
-     
-    </header>
+        <SelectEvents
+          id="filter"
+          name={sortOptions}
+          options={sortOptions}
+          onSelectEventFilter={onSelectEventFilter}
+          value={eventFilter}
+        />
+        <Searchbar
+          handleEventSuggestion={handleEventSuggestion}
+          handleEventSearch={handleEventSearch}
+        />
+        <CategoryFilter
+          onSelectFilter={onSelectFilter}
+          categoryFilter={categoryFilter}
+        />
+      </FilterContainer>
+      {   user ? <EventListFilter
+        onSelectEventListFilter={onSelectEventListFilter}
+        id="EventListfilter"
+        name={chosenEventList}
+        options={chosenEventList}
+        value={chosenEventListFilter} /> : ''}
+
+    </StyledHeader>
   )
 }
+const StyledHeader = styled.header`
+`
+
 
 const FilterContainer = styled.div`
    max-height: 55px;
