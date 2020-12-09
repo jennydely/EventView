@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { v4 as uuid } from 'uuid'
 import styled from 'styled-components/macro'
-import useEvents from '../EventMain/useEvents'
+import useEvents from '../EventList/useEvents'
 import Input from './common/Input'
 
 export default function Searchbar({

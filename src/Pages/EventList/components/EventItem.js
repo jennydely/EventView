@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useSpring } from 'react-spring'
 import styled from 'styled-components/macro'
 import packlistIcon from '../../../img/packlistIcon.svg'
@@ -8,6 +8,7 @@ import { formatDate } from '../../../services/date'
 import EventDetails from './EventDetails'
 import useHeight from './useHeight'
 import { useHistory } from 'react-router-dom'
+import { UserContext } from "../../../providers/UserProvider";
 
 export default function EventItem({
   event,
@@ -32,6 +33,8 @@ export default function EventItem({
     }),
   }
   const history = useHistory()
+  const user = useContext(UserContext);
+
   function handleEditEvent(eventId) {
     history.push('/eventform/' + eventId)
   }
@@ -48,7 +51,7 @@ export default function EventItem({
             <h3>{location}</h3>
             <h3>{formatDate(eventStartDate, eventEndDate)}</h3>
           </TextContainer>
-          <ButtonContainer>
+          {user ? <ButtonContainer>
             <PacklistButton onClick={showPacklist}>
               <img src={packlistIcon} alt="packlist" />
             </PacklistButton>
@@ -56,16 +59,25 @@ export default function EventItem({
               <img src={editIcon} alt="edit" />
             </EditButton>
           </ButtonContainer>
+            : ''}
         </EventHeader>
-        <EventDetails
-          event={event}
-          style={detailStyle}
-          bind={bind}
-          id={id}
-          onHideButtonClick={onHideButtonClick}
-          onDeleteButtonClick={onDeleteButtonClick}
-          onTicketCheckboxClick={onTicketCheckboxClick}
-        />
+        {user ?
+          <EventDetails
+            event={event}
+            style={detailStyle}
+            bind={bind}
+            id={id}
+            onHideButtonClick={onHideButtonClick}
+            onDeleteButtonClick={onDeleteButtonClick}
+            onTicketCheckboxClick={onTicketCheckboxClick}
+          />
+          :
+          <EventDetails
+            event={event}
+            style={detailStyle}
+            bind={bind}
+            id={id}
+          />}
       </Event>
     </>
   )

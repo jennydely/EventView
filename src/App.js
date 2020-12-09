@@ -1,31 +1,51 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { useHistory } from 'react-router-dom'
+
+import UserProvider, { UserContext } from "./providers/UserProvider";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+
 import PacklistPage from './Pages/Packlist/PacklistPage'
-import EventPage from './Pages/EventMain/EventPage'
+import UserPage from './Pages/UserPage/UserPage'
 import EventForm from './Pages/EventForm/EventForm'
-import SettingsPage from './Pages/SettingsPage/SettingsPage.js'
+import SettingsPage from './Pages/SettingsPage/SettingsPage'
+import StartPage from './Pages/StartPage/StartPage'
+import GuestPage from './Pages/GuestPage/GuestPage'
 import PacklistForm from './Pages/PacklistForm/PacklistForm'
 
 export default function App() {
+  const history = useHistory()
+  const user = useContext(UserContext);
+  console.log('app user', user, !!user);
   return (
-    <Router>
-      <Switch>
-        <Route path="/settings">
-          <SettingsPage />
-        </Route>
-        <Route path="/packlist/:packlistName?">
-          <PacklistPage />
-        </Route>
-        <Route path="/packlistform/:packlistId?">
-          <PacklistForm />
-        </Route>
-        <Route path="/eventform/:eventId?">
-          <EventForm />
-        </Route>
-        <Route path="/">
-          <EventPage />
-        </Route>
-      </Switch>
-    </Router>
+    <UserProvider>
+      <Router>
+        <Switch>
+          <Route path="/settings">
+            <SettingsPage />
+          </Route>
+          <Route path="/login">
+            <StartPage />
+          </Route>
+          <Route path="/packlist/:packlistName?">
+            <PacklistPage />
+          </Route>
+          <Route path="/packlistform/:packlistId?">
+            <PacklistForm />
+          </Route>
+          <Route path="/eventform/:eventId?">
+            <EventForm />
+          </Route>
+          <Route path="/userpage" >
+            <UserPage />
+          </Route>
+          <Route path="/guestpage">
+            <GuestPage />
+          </Route>
+          <Route path="/">
+            <StartPage />
+          </Route>
+        </Switch>
+      </Router>
+    </UserProvider>
   )
 }

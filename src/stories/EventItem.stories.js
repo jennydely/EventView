@@ -1,5 +1,5 @@
 import React from 'react'
-import EventItem from '../Pages/EventMain/components/EventItem'
+import EventItem from '../Pages/EventList/components/EventItem'
 import styled from 'styled-components/macro'
 
 export default {

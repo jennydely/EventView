@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
+import { auth } from "../../firebase/firebase";
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
@@ -7,6 +8,7 @@ import Select from '../components/common/Select'
 import Footer from '../components/FormFooter'
 import FormHeader from '../components/FormHeader'
 import useSettings from './useSettings'
+import { UserContext } from "../../providers/UserProvider";
 
 export default function SettingsPage() {
   const themes = ['black', 'turquoise', 'grey']
@@ -15,7 +17,7 @@ export default function SettingsPage() {
   const { register, handleSubmit, reset } = useForm({
     defaultValues: settings,
   })
-
+  const user = useContext(UserContext);
   const onSubmit = (settings, event) => {
     event.preventDefault()
     updateSettings(settings)
@@ -30,6 +32,8 @@ export default function SettingsPage() {
     <>
       <FormHeader headerText={'Settings'} />
       <main>
+        {user ?
+          <button onClick={logOut}>Log out</button> : ''}
         <Form data-testid="settingsform" onSubmit={handleSubmit(onSubmit)}>
           <ThemeLabel htmlFor="theme">Select your theme color:</ThemeLabel>
           <ThemeSelect
@@ -44,6 +48,11 @@ export default function SettingsPage() {
     </>
   )
 }
+
+function logOut() {
+  auth.signOut()
+}
+
 const Form = styled.form`
   align-content: center;
   overflow: hidden;
