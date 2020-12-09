@@ -2,47 +2,128 @@
   {
     "id": 500,
     "name": "Festival",
+    "visibility": "public",
     "packlist": [
-      { "itemID": "Wasser", "item": "Wasser", "checked": false },
-      { "itemID": "Plastikzelt", "item": "Plastikzelt", "checked": false },
-      { "itemID": "Campingkocher", "item": "Campingkocher", "checked": false },
-      { "itemID": "Essen", "item": "Essen", "checked": false },
-      { "itemID": "Pfanne & Öl", "item": "Pfanne & Öl", "checked": false },
-      { "itemID": "Cola", "item": "Cola", "checked": false },
-      { "itemID": "Festivalbox I", "item": "Festivalbox I", "checked": false },
+      {
+        "itemID": "Wasser",
+        "item": "Wasser",
+        "checked": false
+      },
+      {
+        "itemID": "Plastikzelt",
+        "item": "Plastikzelt",
+        "checked": false
+      },
+      {
+        "itemID": "Campingkocher",
+        "item": "Campingkocher",
+        "checked": false
+      },
+      {
+        "itemID": "Essen",
+        "item": "Essen",
+        "checked": false
+      },
+      {
+        "itemID": "Pfanne & Öl",
+        "item": "Pfanne & Öl",
+        "checked": false
+      },
+      {
+        "itemID": "Cola",
+        "item": "Cola",
+        "checked": false
+      },
+      {
+        "itemID": "Festivalbox I",
+        "item": "Festivalbox I",
+        "checked": false
+      },
       {
         "itemID": "Festivalbox II",
         "item": "Festivalbox II",
         "checked": false
       },
-      { "itemID": "Ticket", "item": "Ticket", "checked": false },
-      { "itemID": "Waschschale", "item": "Waschschale", "checked": false },
-      { "itemID": "Teppich", "item": "Teppich", "checked": false },
-      { "itemID": "Isomatte", "item": "Isomatte", "checked": false },
-      { "itemID": "Luftmatratze", "item": "Luftmatratze", "checked": false },
+      {
+        "itemID": "Ticket",
+        "item": "Ticket",
+        "checked": false
+      },
+      {
+        "itemID": "Waschschale",
+        "item": "Waschschale",
+        "checked": false
+      },
+      {
+        "itemID": "Teppich",
+        "item": "Teppich",
+        "checked": false
+      },
+      {
+        "itemID": "Isomatte",
+        "item": "Isomatte",
+        "checked": false
+      },
+      {
+        "itemID": "Luftmatratze",
+        "item": "Luftmatratze",
+        "checked": false
+      },
       {
         "itemID": "Bettdecke & Kissen",
         "item": "Bettdecke & Kissen",
         "checked": false
       },
-      { "itemID": "Knicklichter", "item": "Knicklichter", "checked": false },
-      { "itemID": "Alu-Herringe", "item": "Alu-Herringe", "checked": false },
+      {
+        "itemID": "Knicklichter",
+        "item": "Knicklichter",
+        "checked": false
+      },
+      {
+        "itemID": "Alu-Herringe",
+        "item": "Alu-Herringe",
+        "checked": false
+      },
       {
         "itemID": "Powerbank & Ladekabel",
         "item": "Powerbank & Ladekabel",
         "checked": false
       },
-      { "itemID": "Kopftuch", "item": "Kopftuch", "checked": false },
+      {
+        "itemID": "Kopftuch",
+        "item": "Kopftuch",
+        "checked": false
+      },
       {
         "itemID": "Portmornai mit Bargeld",
         "item": "Portmornai mit Bargeld",
         "checked": false
       },
-      { "itemID": "Kulturtasche", "item": "Kulturtasche", "checked": false },
-      { "itemID": "Handtücher", "item": "Handtücher", "checked": false },
-      { "itemID": "Kleidung", "item": "Kleidung", "checked": false },
-      { "itemID": "Cider", "item": "Cider", "checked": false },
-      { "itemID": "Metalgürtel", "item": "Metalgürtel", "checked": false },
+      {
+        "itemID": "Kulturtasche",
+        "item": "Kulturtasche",
+        "checked": false
+      },
+      {
+        "itemID": "Handtücher",
+        "item": "Handtücher",
+        "checked": false
+      },
+      {
+        "itemID": "Kleidung",
+        "item": "Kleidung",
+        "checked": false
+      },
+      {
+        "itemID": "Cider",
+        "item": "Cider",
+        "checked": false
+      },
+      {
+        "itemID": "Metalgürtel",
+        "item": "Metalgürtel",
+        "checked": false
+      },
       {
         "itemID": "ausgedruckter Timetable",
         "item": "ausgedruckter Timetable",
@@ -53,9 +134,18 @@
   {
     "id": 501,
     "name": "Medieval",
+    "visibility": "privat",
     "packlist": [
-      { "itemID": "Cider", "item": "Wasser", "checked": false },
-      { "itemID": "Feuerküche", "item": "Feuerküche", "checked": false },
+      {
+        "itemID": "Cider",
+        "item": "Wasser",
+        "checked": false
+      },
+      {
+        "itemID": "Feuerküche",
+        "item": "Feuerküche",
+        "checked": false
+      },
       {
         "itemID": "Läufer & Teppiche",
         "item": "Läufer & Teppiche",
@@ -71,8 +161,16 @@
         "item": "Decke & Kissen",
         "checked": false
       },
-      { "itemID": "Felldecke", "item": "Felldecke", "checked": false },
-      { "itemID": "Luftmatratze", "item": "Luftmatratze", "checked": false },
+      {
+        "itemID": "Felldecke",
+        "item": "Felldecke",
+        "checked": false
+      },
+      {
+        "itemID": "Luftmatratze",
+        "item": "Luftmatratze",
+        "checked": false
+      },
       {
         "itemID": "Mittelalterkleidung",
         "item": "Mittelalterkleidung",
@@ -83,22 +181,46 @@
         "item": "Metall-Herringe",
         "checked": false
       },
-      { "itemID": "Topf", "item": "Topf", "checked": false },
+      {
+        "itemID": "Topf",
+        "item": "Topf",
+        "checked": false
+      },
       {
         "itemID": "Hammer & Schraubendreher",
         "item": "Hammer & Schraubendreher",
         "checked": false
       },
-      { "itemID": "Teelichter", "item": "Teelichter", "checked": false },
-      { "itemID": "Leinenzelt", "item": "Leinenzelt", "checked": false },
-      { "itemID": "Isomatte", "item": "Isomatte", "checked": false },
+      {
+        "itemID": "Teelichter",
+        "item": "Teelichter",
+        "checked": false
+      },
+      {
+        "itemID": "Leinenzelt",
+        "item": "Leinenzelt",
+        "checked": false
+      },
+      {
+        "itemID": "Isomatte",
+        "item": "Isomatte",
+        "checked": false
+      },
       {
         "itemID": "Kiste mit Holzgeschirr",
         "item": "Kiste mit Holzgeschirr",
         "checked": false
       },
-      { "itemID": "Holzgestänge", "item": "Holzgestänge", "checked": false },
-      { "itemID": "Bodenplane", "item": "Bodenplane", "checked": false },
+      {
+        "itemID": "Holzgestänge",
+        "item": "Holzgestänge",
+        "checked": false
+      },
+      {
+        "itemID": "Bodenplane",
+        "item": "Bodenplane",
+        "checked": false
+      },
       {
         "itemID": "Schurwollmantel & Umhang",
         "item": "Schurwollmantel & Umhang",
