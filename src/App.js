@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import GlobalStyles from './GlobalStyles'
-import { UserContext } from "./providers/UserProvider";
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+
+import UserProvider, { UserContext } from "./providers/UserProvider";
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 
 import PacklistPage from './Pages/Packlist/PacklistPage'
 import UserPage from './Pages/UserPage/UserPage'
@@ -15,12 +15,13 @@ import PacklistForm from './Pages/PacklistForm/PacklistForm'
 export default function App() {
 
   const user = useContext(UserContext);
-  console.log('user', user)
+  console.log('login status', user, !!user);
   return (
     <>
       <GlobalStyles userLoggedIn={user ? true : false} />
       <Router>
         <Switch>
+
           <Route path="/settings">
             <SettingsPage />
           </Route>
@@ -42,6 +43,7 @@ export default function App() {
           <Route path="/guestpage">
             <GuestPage />
           </Route>
+          <Route path="*"><Redirect to="/" /></Route>
           <Route path="/">
             <StartPage />
           </Route>
