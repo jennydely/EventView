@@ -27,12 +27,12 @@ export default function Header({
 
   const chosenEventList = [{ name: 'Public events', value: 'Public' }, { name: 'Favorite events', value: 'Favorite' }, { name: 'Private events', value: 'Private' }]
   const user = useContext(UserContext);
-  console.log('headerUser', user)
+
   return (
-    <StyledHeader>
+    <header>
       <FilterContainer>
         <SelectEvents
-          id="filter"
+          testing-id="filter"
           name={sortOptions}
           options={sortOptions}
           onSelectEventFilter={onSelectEventFilter}
@@ -47,19 +47,16 @@ export default function Header({
           categoryFilter={categoryFilter}
         />
       </FilterContainer>
-      {   user ? <EventListFilter
+      {   user && <EventListFilter
         onSelectEventListFilter={onSelectEventListFilter}
-        id="EventListfilter"
+        testing-id="EventListfilter"
         name={chosenEventList}
         options={chosenEventList}
-        value={chosenEventListFilter} /> : ''}
+        value={chosenEventListFilter} />}
 
-    </StyledHeader>
+    </header>
   )
 }
-const StyledHeader = styled.header`
-`
-
 
 const FilterContainer = styled.div`
    max-height: 55px;

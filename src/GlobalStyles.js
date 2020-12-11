@@ -32,7 +32,7 @@ export default createGlobalStyle`
   h1 {
     font-size: 145%;
     margin:0;
-      margin-left: 7px;
+    margin-left: 7px;
     align-self:center;
     }
 

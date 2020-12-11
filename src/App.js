@@ -15,10 +15,10 @@ import PacklistForm from './Pages/PacklistForm/PacklistForm'
 export default function App() {
 
   const user = useContext(UserContext);
-  console.log('login status', user, !!user);
+  console.log('login status', user);
   return (
     <>
-      <GlobalStyles userLoggedIn={user ? true : false} />
+      <GlobalStyles userLoggedIn={!!user} />
       <Router>
         <Switch>
 

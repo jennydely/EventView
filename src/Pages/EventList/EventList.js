@@ -33,7 +33,6 @@ export default function EventList({
       categoryfilteredEvents
     }
   )
-  console.log(filteredEventList)
   const availableYears = getAvailableYears(eventFilter, filteredEventList)
 
   const user = useContext(UserContext);
