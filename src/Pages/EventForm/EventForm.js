@@ -45,7 +45,7 @@ export default function EventForm() {
     } else {
       dispatch({ type: "ADD_EVENT", payload: { ...eventEntry, eventStartDate: eventEntry.eventStartDate.toJSON(), eventEndDate: eventEntry.eventEndDate.toJSON(), id: uuid() } })
     }
-    history.push('/')
+    history.push('/userpage')
 
     if (event && event.target && typeof event.target.reset === 'function')
       event.target.reset()
