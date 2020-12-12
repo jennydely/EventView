@@ -7,10 +7,6 @@ import { createStore } from "redux"
 import rootStore from "../../../reducers/rootStore.js"
 
 const store = createStore(rootStore, {})
-store.subscribe(() => {
-  console.log(store.getState());
-  saveState(store.getState());
-});
 
 describe('EventItem', () => {
   const name = 'This is the eventname'

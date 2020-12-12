@@ -7,11 +7,6 @@ import { createStore } from "redux"
 import rootStore from "../../../reducers/rootStore.js"
 
 const store = createStore(rootStore, {})
-store.subscribe(() => {
-  console.log(store.getState());
-  saveState(store.getState());
-});
-
 
 describe('EventDetails', () => {
   const onTicketCheckboxClick = jest.fn()
@@ -34,7 +29,7 @@ describe('EventDetails', () => {
   }
 
   it('displays the eventdetails, like name, location & price', () => {
-    const { getByText, getAllByTitle, getByTestId } = render(
+    const { getByText, getAllByTitle } = render(
       <Provider store={store}> <EventDetails event={event} onTicketCheckboxClick={onTicketCheckboxClick} /> </Provider>
     )
 

@@ -10,11 +10,6 @@ import rootStore from "../../reducers/rootStore.js"
 window.MutationObserver = require('mutation-observer')
 
 const store = createStore(rootStore, {})
-store.subscribe(() => {
-  console.log(store.getState());
-  saveState(store.getState());
-});
-
 
 describe('EventForm', () => {
   it('displays a form to create events', async () => {

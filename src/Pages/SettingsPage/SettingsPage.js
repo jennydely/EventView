@@ -38,6 +38,7 @@ export default function SettingsPage() {
           <ThemeLabel htmlFor="theme">Select your theme color:</ThemeLabel>
           <ThemeSelect
             name="theme"
+            data-testid="theme"
             id="theme"
             register={register()}
             options={themes}
