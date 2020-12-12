@@ -7,7 +7,12 @@ export default function eventviewStore(state = [], action) {
             const index = state.findIndex((event) => event.id === action.payload.id)
             return [...state.slice(0, index), ...state.slice(index + 1)]
         case "UPDATE_EVENT":
-            return [...state, action.payload]
+            const updateIndex = state.findIndex((event) => event.id === action.payload.id)
+            return [
+                ...state.slice(0, updateIndex),
+                { ...action.payload },
+                ...state.slice(updateIndex + 1),
+            ]
         default:
             return state
     }

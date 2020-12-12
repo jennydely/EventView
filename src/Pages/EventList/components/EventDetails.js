@@ -11,20 +11,21 @@ import websiteIcon from '../../../img/websiteIcon.svg'
 import gCalendarIcon from '../../../img/gCalendarIcon.svg'
 import getColorOfEventCategory from '../../../services/getColorOfEventCategory'
 import { UserContext } from "../../../providers/UserProvider";
+import { useDispatch } from 'react-redux'
 
 export default function EventDetails({
   event,
   style,
   bind,
   id,
-  onHideButtonClick,
-  onDeleteButtonClick,
   onTicketCheckboxClick,
 }) {
   const { poster, name, street, zip, location, price, website, eventStartDate, eventEndDate } = event
   const defaultImg =
     'https://delyed.de/wp-content/uploads/2018/01/5d737e918441914a9d2743268ef65439.jpg'
   const user = useContext(UserContext);
+  const dispatch = useDispatch()
+
 
   return (
     <Details name={event.category} style={style} {...bind}>
@@ -102,14 +103,32 @@ action=TEMPLATE
 
   function handleDeleteButtonClick() {
     if (window.confirm('Are you sure you wish to delete this item?'))
-      onDeleteButtonClick(event.id)
+      dispatch({
+        type: "DELETE_EVENT", payload: {
+          ...event
+        }
+      })
+
   }
 
   function handleCheckboxClick() {
     onTicketCheckboxClick(event.id)
   }
   function handleHideButtonClick() {
-    onHideButtonClick(event.id)
+    if (
+      (!event.isHidden &&
+        window.confirm(
+          'Are you sure you want hide this event? You can find hidden events at the left dropdown in the hidden list.'
+        )) ||
+      event.isHidden
+    ) {
+      event.isHidden = !event.isHidden
+      dispatch({
+        type: "UPDATE_EVENT", payload: {
+          ...event
+        }
+      })
+    }
   }
 }
 

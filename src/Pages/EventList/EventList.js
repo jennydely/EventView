@@ -7,6 +7,7 @@ import { getFilteredEventList } from './services/getFilteredEventList'
 import { getAvailableYears } from './services/getAvailableYears'
 import EventItem from './components/EventItem'
 import { UserContext } from "../../providers/UserProvider";
+import useDeepCompareEffect from 'use-deep-compare-effect'
 
 export default function EventList({
   eventArray,
@@ -15,9 +16,6 @@ export default function EventList({
   chosenEventListFilter,
   eventSearch,
   multipleEventSearch,
-  onHideButtonClick,
-  onEditButtonClick,
-  onDeleteButtonClick,
   onTicketCheckboxClick,
   handleReloadButtonClick,
 }) {
@@ -34,8 +32,11 @@ export default function EventList({
     }
   )
   const availableYears = getAvailableYears(eventFilter, filteredEventList)
-
   const user = useContext(UserContext);
+  useDeepCompareEffect(() => {
+    //getFilteredEventList()
+  }, [filteredEventList])
+
 
   return (
     <>
@@ -51,9 +52,7 @@ export default function EventList({
                       event={event}
                       key={event.id}
                       id={event.id}
-                      onHideButtonClick={onHideButtonClick}
-                      onDeleteButtonClick={onDeleteButtonClick}
-                      onEditButtonClick={onEditButtonClick}
+                      filteredEventList={filteredEventList}
                       onTicketCheckboxClick={onTicketCheckboxClick}
                     ></EventItem>
                     :

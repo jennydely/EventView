@@ -34,7 +34,10 @@ export default function App() {
           <Route path="/packlistform/:packlistId?">
             <PacklistForm />
           </Route>
-          <Route path="/eventform/:eventId?">
+          <Route path="/eventform/:eventFormType/:eventId?">
+            <EventForm />
+          </Route>
+          <Route path="/eventform/">
             <EventForm />
           </Route>
           <Route path="/userpage" >

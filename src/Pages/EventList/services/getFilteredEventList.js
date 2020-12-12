@@ -37,7 +37,7 @@ export function getFilteredEventList(
     chosenEventListFilter === 'Private' && filteredEvents.length > 0
       ? filteredEvents.filter((filteredEvent) => filteredEvent.visibility === 'private')
       : chosenEventListFilter === 'Favorite'
-        ? filteredEvents.filter((filteredEvent) => filteredEvent.favorite === true)
+        ? filteredEvents.filter((filteredEvent) => filteredEvent.isStarred === true)
         : filteredEvents.filter((filteredEvent) => filteredEvent.visibility === 'public')
 
 

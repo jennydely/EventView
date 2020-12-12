@@ -19,7 +19,8 @@ import FormHeader from '../components/FormHeader'
 import useEventForm from './useEventForm'
 
 export default function EventForm() {
-  const { eventId } = useParams()
+  const { eventId, eventFormType } = useParams()
+
   const {
     register,
     handleSubmit,
@@ -30,19 +31,32 @@ export default function EventForm() {
   } = useForm()
   const dispatch = useDispatch()
   const { eventArray, addEvent, updateEvent } = useEvents()
-  const { onEventSaveEdit } = useEventForm(addEvent, updateEvent)
+  const { onEventSaveEdit, onEventSave } = useEventForm(addEvent, updateEvent)
   const eventToEdit = editEvent()
   const history = useHistory()
   const onSubmit = (eventEntry, event) => {
     event.preventDefault()
 
-    if (eventToEdit) {
-      onEventSaveEdit({
+    if (eventFormType === 'edit') {
+      /*onEventSaveEdit({
         ...eventEntry,
         id: eventToEdit.id,
         isBought: eventToEdit.isBought,
+      })*/
+      dispatch({
+        type: "UPDATE_EVENT", payload: {
+          ...eventEntry,
+          eventStartDate: eventEntry.eventStartDate.toJSON(),
+          eventEndDate: eventEntry.eventEndDate.toJSON(),
+          id: eventToEdit.id,
+          isBought: eventToEdit.isBought
+        }
       })
-    } else {
+
+    } else if (eventFormType === 'copy') {
+      dispatch({ type: "ADD_EVENT", payload: { ...eventEntry, eventStartDate: eventEntry.eventStartDate.toJSON(), eventEndDate: eventEntry.eventEndDate.toJSON(), id: uuid() } })
+    }
+    else {
       dispatch({ type: "ADD_EVENT", payload: { ...eventEntry, eventStartDate: eventEntry.eventStartDate.toJSON(), eventEndDate: eventEntry.eventEndDate.toJSON(), id: uuid() } })
     }
     history.push('/userpage')
@@ -56,6 +70,7 @@ export default function EventForm() {
   useEffect(() => {
     reset({
       ...eventToEdit,
+      visibility: eventFormType === 'edit' ? eventToEdit?.visibility : 'private',
       eventStartDate: eventToEdit ? new Date(eventToEdit.eventStartDate) : '',
       eventEndDate: eventToEdit ? new Date(eventToEdit.eventEndDate) : '',
     })
@@ -63,7 +78,7 @@ export default function EventForm() {
 
   return (
     <>
-      <FormHeader headerText={eventToEdit ? 'Edit Event' : 'Create Event'} />
+      <FormHeader headerText={eventFormType === 'copy' ? 'Copy Event' : (eventFormType === 'edit' ? 'Edit Event' : 'Create Event')} />
       <main>
         <Form
           data-testid="eventform"
@@ -122,7 +137,7 @@ export default function EventForm() {
           <VisibilityInput
             name="visibility"
             id="visibility"
-            defaultValue={eventToEdit?.visibility}
+            defaultValue={eventFormType === 'edit' ? eventToEdit?.visibility : 'private'}
             register={register({ required: true })}
             options={['private', 'public']}
           />

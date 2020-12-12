@@ -3,17 +3,21 @@ import ReactDOM from 'react-dom'
 import { Provider } from "react-redux"
 import { createStore } from "redux"
 import UserProvider from "./providers/UserProvider";
-import eventviewStore from "./reducers/eventviewStore.js"
+import rootStore from "./reducers/rootStore.js"
 import './index.css'
 import App from './App'
 
 import * as serviceWorker from './serviceWorker'
+import { loadState, saveState } from './lib/reduxLocalStorage';
 
-const mockEvents = require('./mockDB/events.json')
-const events = createStore(eventviewStore, mockEvents)
-
+const persistedState = loadState();
+const store = createStore(rootStore, persistedState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+store.subscribe(() => {
+  console.log(store.getState());
+  saveState(store.getState());
+});
 ReactDOM.render(
-  <Provider store={events}>
+  <Provider store={store}>
     <UserProvider>
       <App />
     </UserProvider>

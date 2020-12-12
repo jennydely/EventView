@@ -17,11 +17,10 @@ export default function UserPage() {
   const [chosenEventListFilter, setChosenEventListFilter] = useState('Public')
   const {
     updateEvent,
-    removeEvent,
     updateTicketCheckbox,
   } = useEvents()
 
-  const eventArray = useSelector(state => state)
+  const eventArray = useSelector(state => state.events)
 
   const history = useHistory()
   function handleCreateEventClick() {
@@ -58,8 +57,6 @@ export default function UserPage() {
           eventSearch={searchedEvent}
           multipleEventSearch={searchedEvents}
           chosenEventListFilter={chosenEventListFilter}
-          onHideButtonClick={toggleHide}
-          onDeleteButtonClick={delEvent}
           onTicketCheckboxClick={handleTicketCheckbox}
           handleReloadButtonClick={handleReloadButtonClick}
         />
@@ -86,7 +83,6 @@ export default function UserPage() {
     setCategoryFilter(categoryFilter)
   }
 
-
   function handleReloadButtonClick() {
     setCategoryFilter('Category')
     setEventFilter('Sort by')
@@ -109,27 +105,6 @@ export default function UserPage() {
     setSearchedEvents(searchedName)
   }
 
-  function toggleHide(id) {
-    const index = eventArray.findIndex((event) => event.id === id)
-    const eventUpdate = eventArray[index]
-    if (
-      (!eventUpdate.isHidden &&
-        window.confirm(
-          'Are you sure you want hide this event? You can find hidden events at the left dropdown in the hidden list.'
-        )) ||
-      eventUpdate.isHidden
-    ) {
-      eventUpdate.isHidden = !eventUpdate.isHidden
-    }
-
-    updateEvent(eventUpdate)
-  }
-
-  function delEvent(id) {
-    const index = eventArray.findIndex((event) => event.id === id)
-    const deletedEvent = eventArray[index]
-    removeEvent(deletedEvent)
-  }
 
   function handleTicketCheckbox(id) {
     const index = eventArray.findIndex((event) => event.id === id)
@@ -137,6 +112,7 @@ export default function UserPage() {
     clickedTicket.ticketBought = !clickedTicket.ticketBought
     updateTicketCheckbox(clickedTicket)
   }
+
 }
 
 const FooterButton = styled.button`
@@ -144,5 +120,4 @@ const FooterButton = styled.button`
   margin: 4px 0;
 `
 const SettingsSVG = styled.img`
-  padding-bottom: 8px;
-`
+  padding-bottom: 8px;`
