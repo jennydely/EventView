@@ -15,10 +15,7 @@ export default function UserPage() {
   const [searchedEvent, setSearchedEvent] = useState('')
   const [searchedEvents, setSearchedEvents] = useState('')
   const [chosenEventListFilter, setChosenEventListFilter] = useState('Public')
-  const {
-    updateEvent,
-    updateTicketCheckbox,
-  } = useEvents()
+  const { updateTicketCheckbox, } = useEvents()
 
   const eventArray = useSelector(state => state.events)
 

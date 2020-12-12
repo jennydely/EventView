@@ -14,6 +14,8 @@ describe('EventList', () => {
       eventEndDate: '06/28/2020',
       category: 'medieval',
       isHide: false,
+      isStarred: true,
+      visibility: 'public'
     },
     {
       id: '321',
@@ -23,16 +25,28 @@ describe('EventList', () => {
       eventEndDate: '06/28/2021',
       category: 'medieval',
       isHide: false,
+      isStarred: false,
+      visibility: 'public'
     },
   ]
   const categoryFilter = 'medieval'
+  const eventFilter = 'Date'
+  const chosenEventListFilter = 'Public'
+  const eventSearch = ''
+  const multipleEventSearch = ''
+  const onTicketCheckboxClick = false
+
 
   it('displays the year and an example event', () => {
     const { getByText, getByAltText } = render(
       <EventList
         eventArray={eventArray}
         categoryFilter={categoryFilter}
-        onHideButtonClick={onHideButtonClick}
+        eventFilter={eventFilter}
+        chosenEventListFilter={chosenEventListFilter}
+        eventSearch={eventSearch}
+        multipleEventSearch={multipleEventSearch}
+        onTicketCheckboxClick={onTicketCheckboxClick}
       />
     )
     setTimeout(() => {
@@ -40,7 +54,6 @@ describe('EventList', () => {
       expect(getByText(eventArray[0].name)).toBeInTheDocument()
       expect(getByText(eventArray[0].location)).toBeInTheDocument()
       fireEvent.click(getByAltText('Hide'))
-      expect(onHideButtonClick).toHaveBeenCalled()
     })
   }, 100)
 
@@ -49,7 +62,11 @@ describe('EventList', () => {
       <EventList
         eventArray={eventArray}
         categoryFilter={categoryFilter}
-        onHideButtonClick={onHideButtonClick}
+        eventFilter={eventFilter}
+        chosenEventListFilter={chosenEventListFilter}
+        eventSearch={eventSearch}
+        multipleEventSearch={multipleEventSearch}
+        onTicketCheckboxClick={onTicketCheckboxClick}
       />
     )
     expect(tree).toMatchSnapshot()

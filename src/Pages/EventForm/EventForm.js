@@ -30,19 +30,13 @@ export default function EventForm() {
     reset,
   } = useForm()
   const dispatch = useDispatch()
-  const { eventArray, addEvent, updateEvent } = useEvents()
-  const { onEventSaveEdit, onEventSave } = useEventForm(addEvent, updateEvent)
+  const { eventArray } = useEvents()
   const eventToEdit = editEvent()
   const history = useHistory()
   const onSubmit = (eventEntry, event) => {
     event.preventDefault()
 
     if (eventFormType === 'edit') {
-      /*onEventSaveEdit({
-        ...eventEntry,
-        id: eventToEdit.id,
-        isBought: eventToEdit.isBought,
-      })*/
       dispatch({
         type: "UPDATE_EVENT", payload: {
           ...eventEntry,
@@ -89,6 +83,7 @@ export default function EventForm() {
           <CategoryInput
             name="category"
             id="category"
+            data-testid="category"
             defaultValue={eventToEdit?.category}
             register={register({ required: true })}
             options={['Metal', 'Medieval', 'Holiday', 'Other']}
@@ -136,6 +131,7 @@ export default function EventForm() {
           <VisibilityInputLabel htmlFor="visibility">Visibility:</VisibilityInputLabel>
           <VisibilityInput
             name="visibility"
+            data-testid="visibility"
             id="visibility"
             defaultValue={eventFormType === 'edit' ? eventToEdit?.visibility : 'private'}
             register={register({ required: true })}
@@ -190,6 +186,7 @@ export default function EventForm() {
           <EventStartDateContainer>
             <EventStartDateController
               id="EventStartDate"
+              data-testid="eventStartDate"
               name="eventStartDate"
               defaultValue={
                 eventToEdit ? new Date(eventToEdit?.eventStartDate) : ''
@@ -205,7 +202,7 @@ export default function EventForm() {
                   onChange={onChange}
                   onBlur={onBlur}
                   placeholderText="start date"
-                  data-testid="start date"
+                  data-testid="eventStartDate"
                 />
               )}
             />
@@ -230,6 +227,7 @@ export default function EventForm() {
           <EventEndDateContainer>
             <EventEndDateController
               id="EventEndDate"
+              data-testid="eventEndDate"
               name="eventEndDate"
               defaultValue={
                 eventToEdit ? new Date(eventToEdit?.eventEndDate) : ''
@@ -245,6 +243,7 @@ export default function EventForm() {
                   onChange={onChange}
                   onBlur={onBlur}
                   placeholderText="end date"
+                  data-testid="eventEndtDate"
                 />
               )}
             />

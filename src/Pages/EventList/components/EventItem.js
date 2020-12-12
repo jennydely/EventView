@@ -12,13 +12,11 @@ import EventDetails from './EventDetails'
 import useHeight from './useHeight'
 import { useHistory } from 'react-router-dom'
 import { UserContext } from "../../../providers/UserProvider";
-import { putEvent } from '../services/putEvent'
 import { useDispatch } from 'react-redux'
 
 export default function EventItem({
   event,
   id,
-  filteredEventList,
   onTicketCheckboxClick,
 }) {
   const {
@@ -28,10 +26,12 @@ export default function EventItem({
     eventStartDate,
     eventEndDate,
     packlistCategory,
+    visibility,
+    isStarred,
   } = event
   const { height, bind } = useHeight([event])
   const [isEventDetailVisible, setIsEventDetailVisible] = useState(false)
-  const [isStarred, setIsStarred] = useState(event.isStarred)
+  const [isBookmarked, setIsBookmarked] = useState(event.isStarred)
   const detailStyle = {
     ...useSpring({
       height: isEventDetailVisible ? height : 0,
@@ -63,7 +63,7 @@ export default function EventItem({
             <h3>{formatDate(eventStartDate, eventEndDate)}</h3>
           </TextContainer>
 
-          {user && filteredEventList.find((filteredEvent) => filteredEvent.visibility === 'private') ?
+          {user && visibility === 'private' ?
             < ButtonContainer >
               <PacklistButton onClick={showPacklist}>
                 <img src={packlistIcon} alt="packlist" />
@@ -73,7 +73,7 @@ export default function EventItem({
               </EditButton>
             </ButtonContainer>
             :
-            user && filteredEventList.find((filteredEvent) => filteredEvent.visibility === 'public') ?
+            user && visibility === 'public' ?
               < ButtonContainer >
                 <PacklistButton onClick={toggleStar}>
                   {event.isStarred ? <img src={starredIcon} alt="starred" /> : <img src={starIcon} alt="star" />}
@@ -83,7 +83,7 @@ export default function EventItem({
                 </EditButton>
               </ButtonContainer>
               :
-              user && filteredEventList.find((filteredEvent) => filteredEvent.isStarred === true) &&
+              user && isStarred === true &&
               < ButtonContainer >
                 <PacklistButton onClick={toggleStar}>
                   {event.isStarred ? <img src={starredIcon} alt="starred" /> : <img src={starIcon} alt="star" />}
@@ -121,7 +121,7 @@ export default function EventItem({
   function toggleStar(ev) {
     ev.preventDefault()
     ev.stopPropagation()
-    setIsStarred(!isStarred)
+    setIsBookmarked(!isBookmarked)
     event.isStarred = !isStarred
     dispatch({
       type: "UPDATE_EVENT", payload: {

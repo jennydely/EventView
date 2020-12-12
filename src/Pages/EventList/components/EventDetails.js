@@ -53,6 +53,7 @@ export default function EventDetails({
 
           <Ticket
             type="checkbox"
+            data-testid="checkbox"
             checked={event.ticketBought}
             onChange={handleCheckboxClick}
             htmlFor="Ticket"
