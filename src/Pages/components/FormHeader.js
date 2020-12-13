@@ -31,15 +31,19 @@ export default function FormHeader({ headerText, headerButton }) {
 }
 
 const StyledHeader = styled.header`
+  display:flex;
+  flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
+  padding: 10px 0 0 0;
+  max-height: 55px;
+  min-width: 365px;
 `
 
 const StyledButtons = styled.button`
-  padding: 22px 0 0 0;
   margin: 0 7px;
 `
 const Headline = styled.h1`
-  padding: 20px 0 0 0;
   margin: 0 7px;
   text-align: center;
 `

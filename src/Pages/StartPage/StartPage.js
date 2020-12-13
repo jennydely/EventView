@@ -12,9 +12,9 @@ export default function StartPage() {
 
   return (
     <>
-      <header>
+      <StyledHeader>
         <Headline>{'EventView'}</Headline>
-      </header>
+      </StyledHeader>
       <main>
         <p> Find, add & organize your individual events and packlists!</p>
         {/*  <Form data-testid="login" onSubmit={handleSubmit(onSubmit)}>
@@ -38,18 +38,18 @@ export default function StartPage() {
     const provider = new firebase.auth.GoogleAuthProvider()
     firebase.auth().signInWithPopup(provider).then(function (result) {
       // This gives you a Google Access Token. You can use it to access the Google API.
-     // const token = result.credential.accessToken;
+      // const token = result.credential.accessToken;
       // The signed-in user info.
       //const user = result.user;
       history.push('/userpage')
     }).catch(function (error) {
       // Handle Errors here.
-     // const errorCode = error.code;
+      // const errorCode = error.code;
       //const errorMessage = error.message;
       // The email of the user's account used.
       //const email = error.email;
       // The firebase.auth.AuthCredential type that was used.
-     // const credential = error.credential;
+      // const credential = error.credential;
       // ...
     });
   }
@@ -59,8 +59,10 @@ export default function StartPage() {
   }
 }
 
+const StyledHeader = styled.header`
+  max-height: 55px;
+`
 const Headline = styled.h1`
-  padding: 20px;
   margin: 7px;
   text-align: center;
 `
