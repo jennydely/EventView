@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 
 import UserProvider, { UserContext } from "./providers/UserProvider";
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
-
+import GlobalStyles from './GlobalStyles'
 import PacklistPage from './Pages/Packlist/PacklistPage'
 import UserPage from './Pages/UserPage/UserPage'
 import EventForm from './Pages/EventForm/EventForm'
@@ -43,8 +43,8 @@ export default function App() {
           <Route path="/guestpage">
             <GuestPage />
           </Route>
-          <Route path="*"><Redirect to="/" /></Route>
           <Route path="/">
+            <Route path="*"><Redirect to="/" /></Route>
             <StartPage />
           </Route>
         </Switch>

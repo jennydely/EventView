@@ -32,7 +32,7 @@ export function getFilteredEventList(
       : eventFilter === 'Old'
         ? filteredOldEvents
         : filteredNotHiddenEvents
-  console.log('chosenEventListFilter', chosenEventListFilter)
+
   const filteredEventList =
     chosenEventListFilter === 'Private' && filteredEvents.length > 0
       ? filteredEvents.filter((filteredEvent) => filteredEvent.visibility === 'private')
@@ -40,6 +40,6 @@ export function getFilteredEventList(
         ? filteredEvents.filter((filteredEvent) => filteredEvent.favorite === true)
         : filteredEvents.filter((filteredEvent) => filteredEvent.visibility === 'public')
 
-  console.log('filteredEvents', filteredEvents, 'filteredEventList', filteredEventList)
+
   return filteredEventList
 }
