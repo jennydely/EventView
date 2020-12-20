@@ -12,13 +12,16 @@ import Select from '../components/common/Select'
 import ReactDatePicker from '../../lib/ReactDatePicker'
 import getColorOfEventCategory from '../../services/getColorOfEventCategory'
 import { getUniquePacklists } from '../PacklistForm/services/getUniquePacklists'
-import usePacklists from '../Packlist/usePacklists'
 import Footer from '../components/FormFooter'
 import FormHeader from '../components/FormHeader'
 import { bindActionCreators } from 'redux'
 import fetchPrivateEvents from '../../redux/fetchPrivateEvents'
+import fetchPrivatePacklists from '../../redux/fetchPrivatePacklists'
+import fetchPublicPacklists from '../../redux/fetchPublicPacklists'
 
-export function EventForm({ events }) {
+
+
+export function EventForm({ events, packlists }) {
   const { eventId, eventFormType } = useParams()
 
   const {
@@ -58,7 +61,6 @@ export function EventForm({ events }) {
     if (event && event.target && typeof event.target.reset === 'function')
       event.target.reset()
   }
-  const { packlists } = usePacklists()
   const uniquePacklists = getUniquePacklists(packlists)
 
   useEffect(() => {
@@ -106,7 +108,7 @@ export function EventForm({ events }) {
             ref={register({
               required: true,
               minLength: 3,
-              maxLength: 21,
+              maxLength: 24,
               validate: (value) =>
                 value && value.trim().length >= 3 && value.trim().length <= 21,
             })}
@@ -124,7 +126,7 @@ export function EventForm({ events }) {
           {(errors.name?.type === 'validate' ||
             errors.name?.type === 'maxLength') && (
               <ErrorMessageColumn2 row={4}>
-                The name can reach a maximum of 21 characters!
+                The name can reach a maximum of 24 characters!
               </ErrorMessageColumn2>
             )}
 
@@ -155,9 +157,9 @@ export function EventForm({ events }) {
             ref={register({
               required: true,
               minLength: 3,
-              maxLength: 20,
+              maxLength: 25,
               validate: (value) =>
-                value && value.trim().length >= 3 && value.trim().length <= 20,
+                value && value.trim().length >= 3 && value.trim().length <= 25,
             })}
           />
           {errors.location?.type === 'required' && (
@@ -175,7 +177,7 @@ export function EventForm({ events }) {
           {(errors.location?.type === 'validate' ||
             errors.location?.type === 'maxLength') && (
               <ErrorMessageColumn2 row={7}>
-                The location can reach a maximum of 20 characters!
+                The location can reach a maximum of 25 characters!
               </ErrorMessageColumn2>
             )}
 
@@ -270,13 +272,13 @@ export function EventForm({ events }) {
             name="street"
             ref={register({
               required: false,
-              validate: (value) => !value || value.trim().length <= 20,
+              validate: (value) => !value || value.trim().length <= 25,
             })}
           />
 
           {errors.street?.type === 'validate' && (
             <ErrorMessageColumn2 row={12}>
-              This field can reache a maximum of 20 characters!
+              This field can reache a maximum of 25 characters!
             </ErrorMessageColumn2>
           )}
 
@@ -380,11 +382,13 @@ export function EventForm({ events }) {
 }
 
 const mapStateToProps = state => {
-  const { privateEvents } = state.events || {};
-  return { events: privateEvents };
+  const { privateEvents, packlists } = state.events || {};
+  return { events: privateEvents, packlists };
 };
 const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchPrivateEvents: fetchPrivateEvents
+  fetchPrivateEvents: fetchPrivateEvents,
+  fetchPrivatePacklists: fetchPrivatePacklists,
+  fetchPublicPacklists: fetchPublicPacklists
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventForm)

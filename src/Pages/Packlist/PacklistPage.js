@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import styled from 'styled-components/macro'
 import { useParams, useHistory } from 'react-router-dom'
 import editIcon from '../../img/editIcon.svg'
@@ -8,15 +8,32 @@ import ListContainer from '../components/common/ListContainer'
 import Checkbox from '../components/common/Checkbox'
 import { comparePacklists } from './services/comparePacklists'
 import usePacklists from './usePacklists'
+import fetchPrivatePacklists from '../../redux/fetchPrivatePacklists'
+import fetchPublicPacklists from '../../redux/fetchPublicPacklists'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { UserContext } from '../../providers/UserProvider'
 
-export default function PackListPage() {
+export function PacklistPage({ packlists, fetchPrivatePacklists, fetchPublicPacklists }) {
+  const user = useContext(UserContext);
   const { packlistName } = useParams()
-  const { packlists, updatePacklistCheckbox } = usePacklists()
+  const { updatePacklistCheckbox } = usePacklists()
   const chosenPacklist = comparePacklists(packlists, packlistName)
   const history = useHistory()
+
   function handleEditPacklist(packlistId) {
     history.push('/packlistform/' + packlistId)
   }
+
+  useEffect(() => {
+    fetchPublicPacklists()
+    if (user) {
+
+      fetchPrivatePacklists({ userToken: user.token })
+    }
+  }, [fetchPublicPacklists, fetchPrivatePacklists, user])
+
+
   return (
     <>
       <FormHeader
@@ -27,8 +44,8 @@ export default function PackListPage() {
               <img src={editIcon} alt="edit" />
             </EditButton>
           ) : (
-            ''
-          )
+              ''
+            )
         }
       />
       <main>
@@ -50,10 +67,10 @@ export default function PackListPage() {
             ))}
           </ListContainer>
         ) : (
-          <NoPacklistText>
-            There is no packlist added to this event
-          </NoPacklistText>
-        )}
+            <NoPacklistText>
+              There is no packlist added to this event
+            </NoPacklistText>
+          )}
       </main>
     </>
   )
@@ -72,6 +89,17 @@ export default function PackListPage() {
     updatePacklistCheckbox(chosenPacklist)
   }
 }
+
+const mapStateToProps = state => {
+  const { publicPacklists } = state.packlists || {};
+  return { packlists: publicPacklists };
+};
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchPrivatePacklists: fetchPrivatePacklists,
+  fetchPublicPacklists: fetchPublicPacklists
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(PacklistPage)
 
 const NoPacklistText = styled.p`
   text-align: center;

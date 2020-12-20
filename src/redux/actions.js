@@ -1,6 +1,4 @@
-import { SET_FILTER, ADD_EVENT, UPDATE_EVENT, DELETE_EVENT, FETCH_EVENTS_PENDING, FETCH_PUBLIC_EVENTS_SUCCESS, FETCH_PRIVATE_EVENTS_SUCCESS, FETCH_EVENTS_ERROR, TOGGLE_PACKLIST, FETCH_PACKLISTS_PENDING, FETCH_PACKLISTS_SUCCESS, FETCH_PACKLISTS_ERROR } from "./actionTypes";
-
-let nextEventId = 0;
+import { SET_FILTER, ADD_EVENT, UPDATE_EVENT, DELETE_EVENT, FETCH_EVENTS_PENDING, FETCH_PUBLIC_EVENTS_SUCCESS, FETCH_PRIVATE_EVENTS_SUCCESS, FETCH_EVENTS_ERROR, ADD_PACKLIST, UPDATE_PACKLIST, DELETE_PACKLIST, FETCH_PRIVATE_PACKLISTS_PENDING, FETCH_PRIVATE_PACKLISTS_SUCCESS, FETCH_PRIVATE_PACKLISTS_ERROR, FETCH_PUBLIC_PACKLISTS_PENDING, FETCH_PUBLIC_PACKLISTS_SUCCESS, FETCH_PUBLIC_PACKLISTS_ERROR } from "./actionTypes";
 
 export const setFilter = filter => ({ type: SET_FILTER, payload: { filter } });
 
@@ -48,27 +46,60 @@ export function fetchEventsError(error) {
     }
 }
 
-export const togglePacklist = id => ({
-    type: TOGGLE_PACKLIST,
-    payload: { id }
+export const addPacklist = content => ({
+    type: ADD_PACKLIST,
+    payload:
+        content
 });
 
-export function fetchPacklistsPending() {
+export const updatePacklist = content => ({
+    type: UPDATE_PACKLIST,
+    payload:
+        content
+});
+
+export const deletePacklist = id => ({
+    type: DELETE_PACKLIST,
+    payload:
+        id
+});
+
+export function fetchPrivatePacklistsPending() {
     return {
-        type: FETCH_PACKLISTS_PENDING
+        type: FETCH_PRIVATE_PACKLISTS_PENDING
     }
 }
 
-export function fetchPacklistsSuccess(packlists) {
+export function fetchPrivatePacklistsSuccess(packlists) {
     return {
-        type: FETCH_PACKLISTS_SUCCESS,
+        type: FETCH_PRIVATE_PACKLISTS_SUCCESS,
         payload: packlists
     }
 }
 
-export function fetchPacklistsError(error) {
+export function fetchPrivatePacklistsError(error) {
     return {
-        type: FETCH_PACKLISTS_ERROR,
+        type: FETCH_PRIVATE_PACKLISTS_ERROR,
+        error: error
+    }
+}
+
+export function fetchPublicPacklistsPending() {
+    return {
+        type: FETCH_PUBLIC_PACKLISTS_PENDING
+    }
+}
+
+export function fetchPublicPacklistsSuccess(packlists) {
+    return {
+        type: FETCH_PUBLIC_PACKLISTS_SUCCESS,
+        payload: packlists
+    }
+}
+
+export function fetchPublicPacklistsError(error) {
+    return {
+        type: FETCH_PUBLIC_PACKLISTS_ERROR,
         error: error
     }
 }

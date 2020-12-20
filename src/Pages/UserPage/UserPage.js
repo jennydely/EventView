@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import styled from 'styled-components/macro'
-import { connect, useSelector } from "react-redux"
+import { connect } from "react-redux"
 import addPacklistIcon from '../../img/addPacklistIcon.svg'
 import addEvent1Icon from '../../img/addEvent1Icon.svg'
 import settingsIcon from '../../img/settingsIcon.svg'
