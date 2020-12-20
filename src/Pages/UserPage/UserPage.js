@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components/macro'
-import { useSelector } from "react-redux"
+import { connect, useSelector } from "react-redux"
 import addPacklistIcon from '../../img/addPacklistIcon.svg'
 import addEvent1Icon from '../../img/addEvent1Icon.svg'
 import settingsIcon from '../../img/settingsIcon.svg'
@@ -8,8 +8,13 @@ import Header from '../components/Header'
 import EventList from '../EventList/EventList'
 import useEvents from '../EventList/useEvents'
 import { useHistory } from 'react-router-dom'
+import fetchPublicEvents from '../../redux/fetchPublicEvents'
+import fetchPrivateEvents from '../../redux/fetchPrivateEvents'
+import { UserContext } from "../../providers/UserProvider";
+import { useEffect } from 'react'
+import { bindActionCreators } from 'redux'
 
-export default function UserPage() {
+function UserPage({ fetchPrivateEvents, fetchPublicEvents, events }) {
   const [categoryFilter, setCategoryFilter] = useState('All')
   const [eventFilter, setEventFilter] = useState('Date')
   const [searchedEvent, setSearchedEvent] = useState('')
@@ -17,9 +22,11 @@ export default function UserPage() {
   const [chosenEventListFilter, setChosenEventListFilter] = useState('Public')
   const { updateTicketCheckbox, } = useEvents()
 
-  const eventArray = useSelector(state => state.events)
-
+  const eventArray = events//useSelector(state => state.events)
+  const user = useContext(UserContext);
   const history = useHistory()
+
+
   function handleCreateEventClick() {
     history.push('/eventform')
   }
@@ -31,6 +38,14 @@ export default function UserPage() {
   function handleSettingsClick() {
     history.push('/settings')
   }
+
+  useEffect(() => {
+    fetchPublicEvents()
+    if (user) {
+
+      fetchPrivateEvents({ userToken: user.token })
+    }
+  }, [fetchPublicEvents, fetchPrivateEvents, user])
 
   return (
     <>
@@ -102,7 +117,6 @@ export default function UserPage() {
     setSearchedEvents(searchedName)
   }
 
-
   function handleTicketCheckbox(id) {
     const index = eventArray.findIndex((event) => event.id === id)
     const clickedTicket = eventArray[index]
@@ -111,6 +125,25 @@ export default function UserPage() {
   }
 
 }
+
+const mapStateToProps = state => {
+  const { error, pending, publicEvents, privateEvents } = state.events || {};
+  // merge public and private events here
+  const mergedEvents = [...publicEvents, ...privateEvents]
+  const events = mergedEvents.reduce((acc, event) => {
+    if (!acc.find(findEvent => findEvent.id === event.id)) {
+      acc.push(event)
+    }
+    return acc
+  }, [])
+  return { error, pending, publicEvents, privateEvents, events };
+};
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchPublicEvents: fetchPublicEvents,
+  fetchPrivateEvents: fetchPrivateEvents
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserPage)
 
 const FooterButton = styled.button`
   padding: 0px;

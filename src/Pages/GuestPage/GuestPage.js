@@ -1,21 +1,24 @@
-import React, { useState } from 'react'
-import { useSelector } from "react-redux"
+import React, { useState, useEffect } from 'react'
+import { connect, useSelector } from "react-redux"
+import { bindActionCreators } from 'redux';
 import styled from 'styled-components/macro'
 import settingsIcon from '../../img/settingsIcon.svg'
 import signInIcon from '../../img/signInIcon.svg'
 import Header from '../components/Header'
 import EventList from '../EventList/EventList'
 import { useHistory } from 'react-router-dom'
+import fetchPublicEvents from '../../redux/fetchPublicEvents'
 
-export default function GuestPage() {
+
+function GuestPage({ publicEvents, fetchPublicEvents }) {
   const [categoryFilter, setCategoryFilter] = useState('All')
   const [eventFilter, setEventFilter] = useState('Date')
   const [searchedEvent, setSearchedEvent] = useState('')
   const [searchedEvents, setSearchedEvents] = useState('')
 
-  const eventArray = useSelector(state => state)
+  const eventArray = publicEvents || []//useSelector(state => state)
   const history = useHistory()
- 
+
   function handleSignInClick() {
     history.push('/login')
   }
@@ -23,6 +26,10 @@ export default function GuestPage() {
   function handleSettingsClick() {
     history.push('/settings')
   }
+
+  useEffect(() => {
+    fetchPublicEvents()
+  }, [fetchPublicEvents])
 
   return (
     <>
@@ -85,6 +92,18 @@ export default function GuestPage() {
 
 }
 
+
+const mapStateToProps = state => {
+  const { error, pending, events } = state.events || {};
+
+  return { error, pending, publicEvents: events };
+};
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchPublicEvents: fetchPublicEvents
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(GuestPage)
+
 const FooterButton = styled.button`
   padding: 0px;
   margin: 4px 0;
@@ -92,3 +111,4 @@ const FooterButton = styled.button`
 const SettingsSVG = styled.img`
   padding-bottom: 8px;
 `
+

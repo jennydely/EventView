@@ -34,7 +34,6 @@ export default function EventList({
   const availableYears = getAvailableYears(eventFilter, filteredEventList)
   const user = useContext(UserContext);
   useDeepCompareEffect(() => {
-    //getFilteredEventList()
   }, [filteredEventList])
 
 

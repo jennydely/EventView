@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
-
-import UserProvider, { UserContext } from "./providers/UserProvider";
+import { UserContext } from "./providers/UserProvider";
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import GlobalStyles from './GlobalStyles'
 import PacklistPage from './Pages/Packlist/PacklistPage'

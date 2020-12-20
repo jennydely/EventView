@@ -31,12 +31,13 @@ export default function PacklistForm() {
   const history = useHistory()
   const uniquePacklists = getUniquePacklists(packlists)
   const uniqueItems = getUniqueItems(items)
+
   const onSubmit = (packlist, event) => {
     event.preventDefault()
+
     const isExistingPacklist = packlists.some(
       (existingPacklist) => packlist.name === existingPacklist.name
     )
-
     if (isExistingPacklist) {
       onPacklistSaveEdit({
         ...packlist,
@@ -46,14 +47,17 @@ export default function PacklistForm() {
     } else {
       onPacklistSave({ name: packlist.name, packlist: items, id: uuid() })
     }
+
     history.push('/packlist/' + packlist.name)
   }
+
   const handlePacklistKeyDown = (event) => {
     if (event.key === 'Enter') {
       event.preventDefault()
       addItem({ item: event.target.value, itemID: uuid() })
     }
   }
+
   useEffect(() => {
     if (packlistToEdit?.packlist) setItems(packlistToEdit?.packlist)
   }, [packlistToEdit])

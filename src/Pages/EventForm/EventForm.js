@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { v4 as uuid } from 'uuid'
-import { useDispatch } from "react-redux"
+import { connect, useDispatch } from "react-redux"
 import { useParams, useHistory } from 'react-router-dom'
 import { useForm, Controller } from 'react-hook-form'
 import styled from 'styled-components/macro'
@@ -13,12 +13,12 @@ import ReactDatePicker from '../../lib/ReactDatePicker'
 import getColorOfEventCategory from '../../services/getColorOfEventCategory'
 import { getUniquePacklists } from '../PacklistForm/services/getUniquePacklists'
 import usePacklists from '../Packlist/usePacklists'
-import useEvents from '../EventList/useEvents'
 import Footer from '../components/FormFooter'
 import FormHeader from '../components/FormHeader'
-import useEventForm from './useEventForm'
+import { bindActionCreators } from 'redux'
+import fetchPrivateEvents from '../../redux/fetchPrivateEvents'
 
-export default function EventForm() {
+export function EventForm({ events }) {
   const { eventId, eventFormType } = useParams()
 
   const {
@@ -30,7 +30,7 @@ export default function EventForm() {
     reset,
   } = useForm()
   const dispatch = useDispatch()
-  const { eventArray } = useEvents()
+  const eventArray = events
   const eventToEdit = editEvent()
   const history = useHistory()
   const onSubmit = (eventEntry, event) => {
@@ -378,6 +378,16 @@ export default function EventForm() {
     return editEvent
   }
 }
+
+const mapStateToProps = state => {
+  const { privateEvents } = state.events || {};
+  return { events: privateEvents };
+};
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchPrivateEvents: fetchPrivateEvents
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(EventForm)
 
 const Form = styled.form`
   display: grid;

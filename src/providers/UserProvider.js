@@ -8,13 +8,19 @@ export default function UserProvider({ children }) {
     useEffect(() => {
         auth.onAuthStateChanged(async userAuth => {
             //const user = await generateUserDocument(userAuth);
-            if (userAuth)
-                setUser({
-                    name: userAuth.displayName,
-                    email: userAuth.email,
-                    photoURL: userAuth.photoURL,
-                    uid: userAuth.uid
-                });
+            if (userAuth) {
+                auth.currentUser.getIdToken(false).then(idToken => {
+
+                    setUser({
+                        name: userAuth.displayName,
+                        email: userAuth.email,
+                        photoURL: userAuth.photoURL,
+                        uid: userAuth.uid,
+                        token: idToken
+                    });
+                })
+            }
+
         });
     }, []);
     return (
